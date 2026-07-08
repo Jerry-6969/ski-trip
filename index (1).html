@@ -1,0 +1,2412 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本滑雪跨年 2025–2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Bebas+Neue&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --snow: #f0f4f8;
+    --ice: #ddeaf5;
+    --frost: #b8d4ea;
+    --deep: #1a2a3a;
+    --navy: #0d1f2d;
+    --accent: #4a9fd4;
+    --gold: #d4a843;
+    --pine: #2d5a3d;
+    --red: #c0392b;
+    --text: #1a2a3a;
+    --muted: #6b8fa8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #0d1f2d 0%, #1a3a52 50%, #0a2820 100%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  /* Snow particles */
+  .snowflake {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-20px) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(100vh) translateX(30px); opacity: 0; }
+  }
+
+  /* Mountain silhouette */
+  .mountain {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 80px 60px;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 6px;
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 0.9;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .hero-title span {
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .meta-value {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  /* ── NAV TABS ── */
+  .nav-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,31,45,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(74,159,212,0.2);
+    display: flex;
+    padding: 0 40px;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .nav-tab {
+    padding: 18px 28px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+  }
+
+  .nav-tab:hover { color: white; }
+  .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  .section {
+    display: none;
+    background: var(--snow);
+    min-height: 100vh;
+  }
+
+  .section.active { display: block; }
+
+  /* ── ITINERARY ── */
+  .itinerary-header {
+    background: linear-gradient(135deg, var(--deep) 0%, #1e3a5f 100%);
+    padding: 60px;
+    color: white;
+  }
+
+  .section-eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 6px;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .days-grid {
+    padding: 40px 60px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .day-card {
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: grid;
+    grid-template-columns: 120px 1fr;
+  }
+
+  .day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  .day-number {
+    background: var(--deep);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    color: white;
+    gap: 4px;
+  }
+
+  .day-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent);
+  }
+
+  .day-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+  }
+
+  .day-weekday {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+
+  .day-body {
+    padding: 24px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .day-theme {
+    grid-column: 1 / -1;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--deep);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--ice);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .theme-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 400;
+  }
+
+  .time-block h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .time-block p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .day-note {
+    grid-column: 1 / -1;
+    background: #fff8e8;
+    border-left: 3px solid var(--gold);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #7a5c00;
+    font-weight: 300;
+  }
+
+  /* Ski day badge */
+  .day-card.ski-day .day-number {
+    background: linear-gradient(160deg, #1a3a52, #2d5a3d);
+  }
+
+  .ski-icon {
+    font-size: 20px;
+    margin-top: 6px;
+  }
+
+  /* ── RESTAURANT ── */
+  .restaurant-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #3a1a0a 100%);
+    padding: 60px;
+    color: white;
+  }
+
+  .restaurant-grid {
+    padding: 40px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .resto-card {
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+  }
+
+  .resto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+  }
+
+  .resto-top {
+    background: var(--deep);
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .resto-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.4;
+  }
+
+  .resto-tag {
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 0;
+    white-space: nowrap;
+    font-weight: 400;
+  }
+
+  .tag-ramen { background: #c0392b; color: white; }
+  .tag-sushi { background: #2980b9; color: white; }
+  .tag-curry { background: #d4a843; color: #1a1a1a; }
+  .tag-bbq { background: #27ae60; color: white; }
+  .tag-izakaya { background: #8e44ad; color: white; }
+  .tag-cafe { background: #7f8c8d; color: white; }
+  .tag-other { background: #34495e; color: white; }
+
+  .resto-body {
+    padding: 16px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .resto-area {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .resto-note {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .resto-reserve {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 500;
+  }
+
+  .resto-reserve::before {
+    content: '⚑';
+    font-size: 12px;
+  }
+
+  .resto-visual {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .resto-visual .rv-emoji { font-size: 52px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
+  .resto-visual .rv-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 6px;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  .resto-visual::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    bottom: -30px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .price-tag { color: #27ae60; font-weight: 600; letter-spacing: 1px; }
+  .price-tag .dim { color: #d5e5d5; }
+  .category-header {
+    grid-column: 1 / -1;
+    padding: 20px 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .category-header h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: var(--deep);
+  }
+  .category-header .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
+  .category-header .cat-count { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+  .resort-card {
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .resort-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.13); }
+  .resort-top {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .resort-name { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 600; color: white; }
+  .resort-name small { display: block; font-size: 11px; color: rgba(255,255,255,0.5); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; margin-top: 3px; }
+  .level-badge { font-size: 10px; padding: 3px 10px; letter-spacing: 1px; white-space: nowrap; font-weight: 500; }
+  .resort-body { padding: 18px 24px 22px; display: flex; flex-direction: column; gap: 10px; }
+  .transport-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+    font-size: 13px;
+    align-items: baseline;
+    line-height: 1.6;
+  }
+  .transport-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+  .resto-card { display: flex; flex-direction: column; }
+  .resto-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .resto-detail-grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
+  .resto-rec { background: #f0f9f0; border-left: 3px solid #27ae60; padding: 8px 12px; margin-top: 6px; font-size: 12px; line-height: 1.6; }
+  .resto-rec strong { color: #27ae60; }
+  .resto-rec-tag { font-size: 10px; background: #27ae60; color: white; padding: 2px 6px; border-radius: 2px; margin-right: 4px; }
+  .resto-source {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddeaf5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .source-pill {
+    font-size: 10px;
+    background: #f0f4f8;
+    color: #4a6a8a;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .resto-meta {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.6;
+    background: #f8fbff;
+    padding: 6px 10px;
+    border-left: 2px solid var(--accent);
+    margin-top: 4px;
+  }
+
+  .dinner-plan-banner {
+    background: linear-gradient(135deg, #2d5a3d, #1a3a52);
+    color: white;
+    padding: 24px 30px;
+    margin: 0 60px 24px;
+    border-radius: 2px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+
+  .dinner-night {
+    background: rgba(255,255,255,0.08);
+    padding: 14px 16px;
+    border-left: 3px solid #d4a843;
+  }
+
+  .dinner-night h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #d4a843;
+    margin-bottom: 6px;
+  }
+
+  .dinner-night p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .dinner-plan-banner {
+      grid-template-columns: 1fr 1fr;
+      margin: 0 20px 20px;
+    }
+  }
+
+  /* ── GEAR ── */
+  .gear-header {
+    background: linear-gradient(135deg, #1a2a1a 0%, #0a1a2a 100%);
+    padding: 60px;
+    color: white;
+  }
+
+  .gear-grid {
+    padding: 40px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .gear-category {
+    background: white;
+    padding: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .gear-category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--deep);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .gear-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .gear-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .gear-check {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--frost);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gear-check.checked {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    font-size: 11px;
+  }
+
+  .gear-item.checked-item .gear-text {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  .alert-card {
+    background: linear-gradient(135deg, #fff3cd, #ffe8a0);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin: 0 60px 24px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .alert-icon { font-size: 22px; flex-shrink: 0; }
+
+  .alert-title {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #7a5c00;
+    margin-bottom: 6px;
+  }
+
+  .alert-text {
+    font-size: 13px;
+    color: #7a5c00;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 30px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-content { padding: 60px 30px; }
+    .days-grid { padding: 20px; }
+    .day-card { grid-template-columns: 80px 1fr; }
+    .day-body { grid-template-columns: 1fr; }
+    .day-num { font-size: 36px; }
+    .restaurant-grid { padding: 20px; }
+    .gear-grid { padding: 20px; }
+    .itinerary-header, .restaurant-header, .gear-header { padding: 40px 30px; }
+    .section-title { font-size: 40px; }
+    .alert-card { margin: 0 20px 20px; }
+    .hero-meta { gap: 20px; }
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .day-card, .resto-card, .gear-category {
+    animation: fadeUp 0.4s ease both;
+  }
+
+  .day-card:nth-child(1) { animation-delay: 0.05s; }
+  .day-card:nth-child(2) { animation-delay: 0.1s; }
+  .day-card:nth-child(3) { animation-delay: 0.15s; }
+  .day-card:nth-child(4) { animation-delay: 0.2s; }
+  .day-card:nth-child(5) { animation-delay: 0.25s; }
+  .day-card:nth-child(6) { animation-delay: 0.3s; }
+  .day-card:nth-child(7) { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+
+  <!-- Mountain SVG -->
+  <svg class="mountain" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="mtGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#2d5a7a" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#0d1f2d" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <polygon points="0,400 200,120 400,220 600,60 800,180 1000,30 1200,150 1440,80 1440,400" fill="url(#mtGrad)"/>
+    <polygon points="0,400 200,120 400,220 600,60 800,180 1000,30 1200,150 1440,80 1440,400" fill="rgba(255,255,255,0.03)"/>
+    <!-- Snow caps -->
+    <polygon points="580,60 600,60 620,80 590,85" fill="rgba(240,244,248,0.5)"/>
+    <polygon points="990,30 1010,30 1030,55 1000,60" fill="rgba(240,244,248,0.6)"/>
+    <polygon points="185,120 205,118 220,140 195,145" fill="rgba(240,244,248,0.4)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">日本跨年滑雪之旅</div>
+    <h1 class="hero-title">
+      JAPAN
+      <span>SKI</span>
+      TRIP
+    </h1>
+    <p class="hero-subtitle">2025 冬 ／ 跨年旅行</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">出發日期</span>
+        <span class="meta-value">2026.12.30</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">目的地</span>
+        <span class="meta-value">越後湯澤 滑雪場</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">成員</span>
+        <span class="meta-value">6 人 ／ 3 組</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">行程天數</span>
+        <span class="meta-value">6–7 天</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV TABS -->
+<nav class="nav-tabs">
+  <div class="nav-tab active" onclick="showSection('itinerary', this)">📅 每日行程</div>
+  <div class="nav-tab" onclick="showSection('restaurant', this)">🍜 餐廳清單</div>
+  <div class="nav-tab" onclick="showSection('resorts', this)">🚡 雪場交通</div>
+  <div class="nav-tab" onclick="showSection('gear', this)">🎿 裝備清單</div>
+  <div class="nav-tab" onclick="showSection('budget', this)">💰 預算＆實用</div>
+  <div class="nav-tab" onclick="showSection('kawagoe', this)">🏯 川越延伸</div>
+</nav>
+
+<!-- ITINERARY SECTION -->
+<section class="section active" id="itinerary">
+  <div class="itinerary-header">
+    <div class="section-eyebrow">ITINERARY</div>
+    <h2 class="section-title">每日行程總覽</h2>
+
+    <!-- Flight + Member Info -->
+    <div style="margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:900px;">
+      <!-- Flights -->
+      <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(74,159,212,0.3); padding:22px 26px; border-radius:2px;">
+        <div style="font-family:'Bebas Neue',sans-serif; letter-spacing:4px; font-size:11px; color:#4a9fd4; margin-bottom:14px;">✈ 機票資訊</div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+
+          <div>
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.4); margin-bottom:6px;">去程 — <span style="background:#4a9fd4; color:white; font-size:10px; padding:2px 8px;">組 A</span>&nbsp; Jerry / Phoebe</div>
+            <div style="font-size:14px; color:white; font-weight:400;">BR192 &nbsp;｜&nbsp; 12/30 &nbsp;07:15 → 11:00</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px;">松山 TSA T1 → 東京羽田 HND T3 &nbsp;（2hr 45min）&nbsp;長榮航空</div>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.4); margin-bottom:6px;">去程 — <span style="background:#d4a843; color:#1a1a1a; font-size:10px; padding:2px 8px;">組 C</span>&nbsp; Sandy / Vivi</div>
+            <div style="font-size:14px; color:white; font-weight:400;">JX800 &nbsp;｜&nbsp; 12/30 &nbsp;08:25 → 12:35</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px;">桃園 TPE T1 → 成田 NRT T2 &nbsp;（3hr 10min）&nbsp;虎航</div>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.4); margin-bottom:6px;">回程 — <span style="background:#4a9fd4; color:white; font-size:10px; padding:2px 8px;">組 A</span>&nbsp; Jerry / Phoebe</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.4); font-weight:400;">待購票 &nbsp;｜&nbsp; 1/5 回程</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:2px;">HND or NRT → TSA or TPE</div>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.4); margin-bottom:6px;">去回程 — <span style="background:#27ae60; color:white; font-size:10px; padding:2px 8px;">組 B</span>&nbsp; Jing / Lisa</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.35); font-weight:400;">機票尚未購買</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.25); margin-top:2px;">去回程皆待確認</div>
+          </div>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:14px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.4); margin-bottom:6px;">回程 — <span style="background:#d4a843; color:#1a1a1a; font-size:10px; padding:2px 8px;">組 C</span>&nbsp; Sandy / Vivi</div>
+            <div style="font-size:14px; color:white; font-weight:400;">JX801 &nbsp;｜&nbsp; 1/4 &nbsp;13:45 → 16:50</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:2px;">成田 NRT T2 → 桃園 TPE T1 &nbsp;（4hr 05min）&nbsp;虎航</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Members -->
+      <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(74,159,212,0.3); padding:22px 26px; border-radius:2px;">
+        <div style="font-family:'Bebas Neue',sans-serif; letter-spacing:4px; font-size:11px; color:#4a9fd4; margin-bottom:14px;">👥 成員分組</div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="background:#4a9fd4; color:white; font-size:10px; letter-spacing:2px; padding:4px 12px; white-space:nowrap;">組 A</div>
+            <div>
+              <div style="color:white; font-size:14px;">Jerry &amp; Phoebe</div>
+              <div style="color:rgba(255,255,255,0.4); font-size:11px; margin-top:2px;">12/30 → 1/5 &nbsp;（7天6夜）｜HATAGO 井仙全程</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="background:#27ae60; color:white; font-size:10px; letter-spacing:2px; padding:4px 12px; white-space:nowrap;">組 B</div>
+            <div>
+              <div style="color:rgba(255,255,255,0.45); font-size:14px;">Jing &amp; Lisa</div>
+              <div style="color:rgba(255,255,255,0.3); font-size:11px; margin-top:2px;">住宿待確認</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="background:#d4a843; color:#1a1a1a; font-size:10px; letter-spacing:2px; padding:4px 12px; white-space:nowrap;">組 C</div>
+            <div>
+              <div style="color:white; font-size:14px;">Sandy &amp; Vivi</div>
+              <div style="color:rgba(255,255,255,0.4); font-size:11px; margin-top:2px;">12/30 → 1/4 &nbsp;（6天5夜）&nbsp; JX801</div>
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; font-size:11px; color:rgba(255,255,255,0.3);">
+            ⚑ 組 C 回程較早，1/4 下午需提前前往機場
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hotel Info -->
+    <div style="margin-top:16px; max-width:900px; background:rgba(255,255,255,0.07); border:1px solid rgba(212,168,67,0.4); padding:22px 26px; border-radius:2px;">
+      <div style="font-family:'Bebas Neue',sans-serif; letter-spacing:4px; font-size:11px; color:#d4a843; margin-bottom:16px;">🏯 住宿資訊</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+        <!-- Left: Hotel name + stay -->
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div>
+            <div style="color:white; font-size:17px; font-family:'Noto Serif TC',serif; font-weight:600; margin-bottom:4px;">越後湯澤 HATAGO 井仙</div>
+            <div style="color:rgba(255,255,255,0.4); font-size:12px;">Echigo Yuzawa Hatago Isen &nbsp;｜&nbsp; ⭐ 4.3（350 則）&nbsp;｜&nbsp; 日式溫泉旅館</div>
+          </div>
+          <div style="display:flex; gap:20px; flex-wrap:wrap;">
+            <div>
+              <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">入住</div>
+              <div style="color:white; font-size:13px;">12/30（三）</div>
+            </div>
+            <div>
+              <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">退房</div>
+              <div style="color:white; font-size:13px;">組 C：1/3（日）<br>組 A：1/5（二）</div>
+            </div>
+            <div>
+              <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">天數</div>
+              <div style="color:white; font-size:13px;">組 C：4 晚<br>組 A：6 晚</div>
+            </div>
+          </div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.5); line-height:1.8;">
+            <span style="background:#4a9fd4; color:white; font-size:10px; padding:2px 8px; margin-right:6px;">組 A</span>Jerry / Phoebe — <strong style="color:white;">全程 6 晚（12/30–1/5）</strong><br>
+            <span style="background:#d4a843; color:#1a1a1a; font-size:10px; padding:2px 8px; margin-right:6px;">組 C</span>Sandy / Vivi — 前 4 晚（12/30–1/3）
+          </div>
+        </div>
+
+        <!-- Right: Address + Access -->
+        <div style="display:flex; flex-direction:column; gap:10px; border-left:1px solid rgba(255,255,255,0.1); padding-left:24px;">
+          <div>
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">地址</div>
+            <div style="color:white; font-size:13px; line-height:1.6;">〒949-6101<br>新潟縣南魚沼郡湯澤町湯澤 2455</div>
+          </div>
+          <div>
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">電話</div>
+            <div style="color:white; font-size:13px;">025-784-3361</div>
+          </div>
+          <div>
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">交通</div>
+            <div style="color:rgba(255,255,255,0.7); font-size:12px; line-height:1.7;">
+              🚄 上越新幹線 東京駅 → 越後湯沢駅 約 <strong style="color:white;">70 分鐘</strong><br>
+              🚶 越後湯沢駅 西口正面步行 <strong style="color:white;">1 分鐘（50m）</strong>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:3px;">溫泉</div>
+            <div style="color:rgba(255,255,255,0.7); font-size:12px; line-height:1.6;">硫黃泉・源泉掛流し／pH 9.6 美肌の湯<br>大浴場 14:00 ～ 翌 10:00</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="days-grid">
+
+    <!-- Day 1 -->
+    <div class="day-card">
+      <div class="day-number">
+        <span class="day-label">12/30</span>
+        <span class="day-num">01</span>
+        <span class="day-weekday">三</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          出發日 — 飛往東京（分兩路）
+          <span class="theme-badge">飛行日</span>
+        </div>
+        <div class="time-block">
+          <h4>組 A 出發</h4>
+          <p>松山機場 T1 集合<br>BR192 07:15 起飛<br>11:00 抵達羽田 T3</p>
+        </div>
+        <div class="time-block">
+          <h4>組 B／C 出發</h4>
+          <p>桃園機場 T1 集合<br>JX800 08:25 起飛<br>12:35 抵達成田 T2</p>
+        </div>
+        <div class="time-block">
+          <h4>晚上（全員）</h4>
+          <p>越後湯澤集合會合<br>HATAGO 井仙 Check in<br>溫泉泡湯放鬆✨</p>
+        </div>
+        <div class="day-note">⚠ 兩組不同機場出發、不同機場抵達，各自前往越後湯澤車站集合！<br>🚄 羽田→越後湯澤：約 2hr &nbsp;／&nbsp; 成田→越後湯澤：約 2.5–3hr（上越新幹線）</div>
+        <div class="day-note">⚠ 兩組不同機場出發、不同機場抵達，各自搭新幹線前往越後湯澤集合！<br>🚄 羽田 → 越後湯澤：約 2hr &nbsp;／&nbsp; 成田 → 越後湯澤：約 2.5–3hr<br>🏯 全員 HATAGO 井仙 Check in</div>
+      </div>
+    </div>
+
+    <!-- Day 2: 12/31 Ski + NYE -->
+    <div class="day-card ski-day">
+      <div class="day-number" style="background: linear-gradient(160deg, #1a3a52, #7a1a2a);">
+        <span class="day-label">12/31</span>
+        <span class="day-num">02</span>
+        <span class="day-weekday">四</span>
+        <span class="ski-icon">⛷🎆</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          滑雪 Day 1 ＋ 跨年夜
+          <span class="theme-badge">滑雪日</span>
+          <span class="theme-badge" style="background:#c0392b;">跨年</span>
+        </div>
+        <div class="time-block">
+          <h4>早上</h4>
+          <p>HATAGO 井仙早餐<br>步行至越後湯澤雪場<br>租借裝備（如需）</p>
+        </div>
+        <div class="time-block">
+          <h4>下午</h4>
+          <p>自由滑雪<br>雪場午餐<br>傍晚回飯店梳洗</p>
+        </div>
+        <div class="time-block">
+          <h4>晚上</h4>
+          <p>跨年特別晚宴🥂<br>倒數活動 + 神社初詣<br>溫泉泡湯迎新年♨️</p>
+        </div>
+        <div class="day-note">🕛 跨年夜 → 餐廳需提早訂位！日本元旦許多店家公休，建議當日活動先查好</div>
+      </div>
+    </div>
+
+    <!-- Day 3: 1/1 New Year Ski -->
+    <div class="day-card ski-day">
+      <div class="day-number">
+        <span class="day-label">1/1</span>
+        <span class="day-num">03</span>
+        <span class="day-weekday">五</span>
+        <span class="ski-icon">🎍</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          滑雪 Day 2 — 元旦 🎍
+          <span class="theme-badge">滑雪日</span>
+          <span class="theme-badge" style="background:#27ae60;">元旦</span>
+        </div>
+        <div class="time-block">
+          <h4>早上</h4>
+          <p>飯店早餐<br>雪場開放即上場</p>
+        </div>
+        <div class="time-block">
+          <h4>下午</h4>
+          <p>自由滑雪<br>挑戰進階雪道</p>
+        </div>
+        <div class="time-block">
+          <h4>晚上</h4>
+          <p>溫泉泡湯恢復♨️<br>元旦慶祝晚餐🥳</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 4: 1/2 Ski Day 3 -->
+    <div class="day-card ski-day">
+      <div class="day-number">
+        <span class="day-label">1/2</span>
+        <span class="day-num">04</span>
+        <span class="day-weekday">六</span>
+        <span class="ski-icon">⛷</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          滑雪 Day 3 — 最後滑雪日（HATAGO）
+          <span class="theme-badge">滑雪日</span>
+        </div>
+        <div class="time-block">
+          <h4>早上</h4>
+          <p>飯店早餐<br>全天雪場暢滑</p>
+        </div>
+        <div class="time-block">
+          <h4>下午</h4>
+          <p>裝備整理 / 歸還<br>越後湯澤市區逛逛</p>
+        </div>
+        <div class="time-block">
+          <h4>晚上</h4>
+          <p>飯店最後一晚<br>溫泉好好享受♨️</p>
+        </div>
+        <div class="day-note">📦 明天退房 HATAGO 井仙，今晚把行李整理好</div>
+      </div>
+    </div>
+
+    <!-- Day 5: 1/3 Day Trip + Split -->
+    <div class="day-card">
+      <div class="day-number" style="background: linear-gradient(160deg, #4a6a8a, #2d4a3a);">
+        <span class="day-label">1/3</span>
+        <span class="day-num">05</span>
+        <span class="day-weekday">日</span>
+        <span class="ski-icon">🚆</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          一日遊 + 分頭住宿
+          <span class="theme-badge" style="background:#7a5c8a;">分組日</span>
+        </div>
+        <div class="time-block">
+          <h4>早上</h4>
+          <p>組 C 退房寄放行李<br>組 A 續住免整理<br>一起出發一日遊</p>
+        </div>
+        <div class="time-block">
+          <h4>下午</h4>
+          <p>一日遊行程 TBC<br>（景點待規劃）</p>
+        </div>
+        <div class="time-block">
+          <h4>晚上 — 分頭住宿</h4>
+          <p><span style="color:#d4a843;">組 C</span> Sandy/Vivi → 退房，前往東京住宿<br><span style="color:#4a9fd4;">組 A</span> Jerry/Phoebe → 續住 HATAGO 井仙 ✓</p>
+        </div>
+        <div class="day-note">✓ 組 A 續住 HATAGO 井仙不用換飯店 ／ ⚠ 待定：① 一日遊景點 ② Sandy/Vivi 東京住宿</div>
+      </div>
+    </div>
+
+    <!-- Day 6: 1/4 Sandy Vivi return + 4 ppl TBC -->
+    <div class="day-card">
+      <div class="day-number" style="background: linear-gradient(160deg, #c47a1a, #3a2a0a);">
+        <span class="day-label">1/4</span>
+        <span class="day-num">06</span>
+        <span class="day-weekday">一</span>
+        <span class="ski-icon">✈⛷</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          Sandy &amp; Vivi 回台 ／ 其他 4 人續玩
+          <span class="theme-badge" style="background:#d4a843; color:#1a1a1a;">組 C 回程</span>
+        </div>
+        <div class="time-block">
+          <h4>組 C — Sandy/Vivi</h4>
+          <p>東京飯店退房<br>前往成田機場<br>JX801 13:45 → 16:50<br>抵達桃園 T1 ✈</p>
+        </div>
+        <div class="time-block">
+          <h4>組 A — Jerry/Phoebe</h4>
+          <p>再滑一天<br>or 出去玩 TBC<br>晚上回 HATAGO 井仙</p>
+        </div>
+        <div class="time-block">
+          <h4>備註</h4>
+          <p>組 A 行程待定<br>滑雪需另尋雪場<br>or 安排東京近郊</p>
+        </div>
+        <div class="day-note">✈ Sandy &amp; Vivi 1/4 回台 ／ 🟡 組 A 行程 TBC（滑雪 or 觀光）</div>
+      </div>
+    </div>
+
+    <!-- Day 7: 1/5 Group A return -->
+    <div class="day-card">
+      <div class="day-number" style="background: #2d4a3a;">
+        <span class="day-label">1/5</span>
+        <span class="day-num">07</span>
+        <span class="day-weekday">二</span>
+        <span class="ski-icon">✈</span>
+      </div>
+      <div class="day-body">
+        <div class="day-theme">
+          組 A／B 回家日
+          <span class="theme-badge" style="background:#2d5a3d;">回程</span>
+        </div>
+        <div class="time-block">
+          <h4>早上</h4>
+          <p>HATAGO 井仙退房<br>整理行李</p>
+        </div>
+        <div class="time-block">
+          <h4>下午</h4>
+          <p>直接前往機場<br>免稅店採購</p>
+        </div>
+        <div class="time-block">
+          <h4>航班</h4>
+          <p>組 A：班機待購<br>組 B：班機待確認<br>回家ㄌ 🏠</p>
+        </div>
+        <div class="day-note">✈ 組 A Jerry/Phoebe + 組 B Jing/Lisa 回程班機都待補齊</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESTAURANT SECTION -->
+<section class="section" id="restaurant">
+  <div class="restaurant-header">
+    <div class="section-eyebrow">FOOD & DINING — 越後湯澤</div>
+    <h2 class="section-title" style="color:white;">晚餐推薦清單</h2>
+    <p style="color:rgba(255,255,255,0.5); margin-top:14px; font-size:13px; max-width:700px; line-height:1.7;">
+      整理自部落客、Tabelog、Wanderlog 等權威來源 ／ 12/30 – 1/2 共 <strong style="color:#d4a843;">4 個晚餐</strong> 待安排
+    </p>
+  </div>
+
+  <!-- Dinner Plan Banner -->
+  <div class="dinner-plan-banner">
+    <div class="dinner-night">
+      <h4>12/30 三</h4>
+      <p>抵達日 ／ 飯店附近輕鬆吃</p>
+    </div>
+    <div class="dinner-night" style="border-left-color:#c0392b;">
+      <h4>12/31 四 跨年</h4>
+      <p>特別餐廳 ／ 需提早訂位！</p>
+    </div>
+    <div class="dinner-night" style="border-left-color:#27ae60;">
+      <h4>1/1 五 元旦</h4>
+      <p>注意：日本元旦多店家公休</p>
+    </div>
+    <div class="dinner-night">
+      <h4>1/2 六</h4>
+      <p>HATAGO 井仙最後一晚</p>
+    </div>
+  </div>
+
+  <div class="restaurant-grid">
+
+        <div class="category-header">
+      <h3>🍱 餐廳 RESTAURANTS</h3>
+      <div class="line"></div>
+      <span class="cat-count">10 家｜$ = ~¥1,000｜$$ = ¥1,000–3,000｜$$$ = ¥3,000+</span>
+    </div>
+
+    <!-- 1. 保よし -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #8e44ad, #6a3486);"><span class="rv-emoji">🍲</span><span class="rv-label">鍋・定食</span></div>
+      <div class="resto-top">
+        <span class="resto-name">保よし（Yasuyoshi）</span>
+        <span class="resto-tag tag-izakaya">居酒屋</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.1（434 則）｜站西口步行 3 分｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">創業多年的和食定食居酒屋，座位多適合團體，<strong>有中文菜單</strong>，是越後湯澤最多台灣人推薦的餐廳。食尚玩家曾介紹，台灣歌手郭靜也曾到訪。</p>
+        <div class="resto-meta">營業：11:00–13:30 / 17:00–20:00（週一公休、週二僅晚餐）<br>TEL：025-784-2244</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>麻糬豬涮涮鍋</strong> — 娜塔蝦推薦「2–3人份，一個女生也是全部吃完」，backpackers 部落客評為必吃首選<br>
+          <strong>村上牛石燒</strong> — 娜塔蝦推薦「油脂肥嫩的牛排放上石板燒烤，超級誘人」<br>
+          <strong>薑汁燒肉定食</strong> — 娜塔蝦評為「份量飽足又美味，午餐 ¥1,210」<br>
+          <strong>炸舞茸</strong> — 娜塔蝦特別標記「舞茸是當地名產，酥炸之後香酥可口」
+        </div>
+        <span class="resto-reserve">建議網路預約（尤其跨年期間）</span>
+        <div class="resto-source">
+          <span class="source-pill">娜塔蝦部落格</span>
+          <span class="source-pill">backpackers</span>
+          <span class="source-pill">AndrewPlus</span>
+          <span class="source-pill">食尚玩家</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 人参亭 -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #c0392b, #922b21);"><span class="rv-emoji">🥩</span><span class="rv-label">炸豬排</span></div>
+      <div class="resto-top">
+        <span class="resto-name">越後とんかつ 人参亭</span>
+        <span class="resto-tag tag-bbq">豬排</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.2（1121 則）｜站步行 5 分｜65 席｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">越後湯澤最有名的豬排店，選用在地越後豬，厚切外酥內嫩。配餐使用南魚沼塩沢產越光米和高麗菜絲，Google 評論超過千則，滑雪客必訪。</p>
+        <div class="resto-meta">有英文菜單 ｜ 湯澤高原滑雪場正對面<br>TEL：ninjintei.net</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>里肌厚切豬排定食</strong> — 雪魚部落格推薦「選用在地越後豬，一口咬下立刻療癒滑雪後凍僵的身體」<br>
+          <strong>加大白飯</strong> — Dcard 網友警告「加大白飯特別大碗，4個男的只有1個吃完」<br>
+          HeyHeySnow 評價：「高峰常要等位，但出餐穩定，想補體力的首選」
+        </div>
+        <span class="resto-reserve">用餐時段常等位，建議提早到</span>
+        <div class="resto-source">
+          <span class="source-pill">Dcard（A 級）</span>
+          <span class="source-pill">HeyHeySnow</span>
+          <span class="source-pill">Klook</span>
+          <span class="source-pill">雪魚 Vic</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 食家 あさくさ -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #b8860b, #8e6c3a);"><span class="rv-emoji">🍚</span><span class="rv-label">釜飯</span></div>
+      <div class="resto-top">
+        <span class="resto-name">食家 あさくさ（Asakusa）</span>
+        <span class="resto-tag tag-other" style="background:#8e6c3a;">釜飯</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.3（300 則）｜站步行 3 分｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">當地人帶路的釜飯名店，點餐後現煮，新潟魚沼產越光米晶瑩飽滿。也提供生魚片、天婦羅等料理。Google 評論形容「best katsu type food I've ever had」。</p>
+        <div class="resto-meta">營業：11:30–14:00 / 17:30–23:30（週四公休）<br>TEL：025-784-3749</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>冬季限定 牡蠣釜飯</strong> — 雪魚評為「季節限定的隱藏版美味，滑雪旅人千萬別錯過！」<br>
+          <strong>舞茸釜飯 / 蟹肉釜飯</strong> — 娜塔蝦推薦「掀開鍋蓋，芳香無比，米飯晶瑩飽滿」<br>
+          <strong>牡蠣可樂餅</strong> — Google 評論大推「oyster croquettes were great」<br>
+          雪魚 Vic：「每年除夕的定番晚餐首選」
+        </div>
+        <span class="resto-reserve">跨年夜除夕必訂位！</span>
+        <div class="resto-source">
+          <span class="source-pill">娜塔蝦部落格</span>
+          <span class="source-pill">雪魚 SnowFish-Vic</span>
+          <span class="source-pill">食べログ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. むらんごっつぉ -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #5a3a8a, #3a2a5a);"><span class="rv-emoji">🍽️</span><span class="rv-label">會席料理</span></div>
+      <div class="resto-top">
+        <span class="resto-name">むらんごっつぉ（Muran Gozzo）</span>
+        <span class="resto-tag tag-other" style="background:#7a5c8a;">魚沼 Course</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.3（350 則）｜HATAGO 井仙 2F｜免外出！｜<span class="price-tag">$$$</span></span>
+        <p class="resto-note">飯店自家餐廳，以「雪國的日常生活智慧」為主題的魚沼 Cuisine Course 料理。Google 評價形容為「a wonderful dinner experience with gorgeous fusion of Japanese mixed Western with fresh and in-season ingredients」。非住客也可訂位。</p>
+        <div class="resto-meta">就在飯店 2 樓！最方便的晚餐選項<br>1F 還有「溫泉珈琲 水屋」和伴手禮店「んまや」</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>魚沼 Cuisine Course</strong> — HATAGO 官網「使用雪國山海食材的 Course 料理」<br>
+          <strong>溫泉珈琲 / 溫泉布丁</strong> — 1F 水屋名物，用飲用溫泉水製作<br>
+          Google 評論：「Food was delicious. The hot spring water quality is excellent」<br>
+          推薦用在：<strong>12/30 抵達日</strong>（累了不想出門）或 <strong>1/1 元旦</strong>（外面多店公休）
+        </div>
+        <span class="resto-reserve">建議提早預約 Course 晚餐</span>
+        <div class="resto-source">
+          <span class="source-pill">HATAGO 井仙官網</span>
+          <span class="source-pill">Evendo</span>
+          <span class="source-pill">Google 4.3★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. そば処 中野屋 -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #2d5a3d, #1e3d29);"><span class="rv-emoji">🍜</span><span class="rv-label">蕎麥麵</span></div>
+      <div class="resto-top">
+        <span class="resto-name">そば処 中野屋 湯沢本店</span>
+        <span class="resto-tag tag-ramen">蕎麥麵</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.3（2118 則）｜站步行 2 分｜80 席｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">越後湯澤最有名的蕎麥麵店，Google 超過 2000 則評論！新潟名物「へぎそば」冷蕎麥麵，用布海苔做黏結劑，放在「へぎ」木盤上，口感彈韌滑順。份量超大。</p>
+        <div class="resto-meta">營業：11:00–19:00（週四公休）<br>TEL：025-784-3720</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>へぎそば（冷蕎麥麵）</strong> — HeyHeySnow 評「冷麵表現優於熱湯麵，配天婦羅更完整」<br>
+          <strong>天婦羅蕎麥套餐</strong> — backpackers 部落客「手打麵條口感吃起來差很多，天婦羅現點現炸」<br>
+          <strong>舞茸天婦羅</strong> — 多位部落客特別推薦的當地特產配菜<br>
+          ⚠ Google 評論提醒：「portion is super huge，不要點太多」
+        </div>
+        <span class="resto-reserve">假日用餐需排隊 40–60 分鐘</span>
+        <div class="resto-source">
+          <span class="source-pill">HeyHeySnow</span>
+          <span class="source-pill">Wanderlog</span>
+          <span class="source-pill">backpackers</span>
+          <span class="source-pill">Google 2118 則</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 湯沢かまくら -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #d35400, #a04000);"><span class="rv-emoji">🏮</span><span class="rv-label">居酒屋</span></div>
+      <div class="resto-top">
+        <span class="resto-name">湯沢かまくら（Yuzawa Kamakura）</span>
+        <span class="resto-tag tag-izakaya">居酒屋</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.0（484 則）｜站步行 2 分｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">Wanderlog 評為「exceptional izakaya」，使用新潟縣季節食材，1 月雪季氣氛迷人。有吧台和包廂座位。Google 評論評為「best izakaya near yuzawa echigo station」。</p>
+        <div class="resto-meta">營業：17:00–21:30（六日含午餐 11:30–13:30）<br>TEL：025-788-1077</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>和牛壽喜燒</strong> — Google 評論「wagyu sukiyaki very delicious and tasty」<br>
+          <strong>豚排牛排</strong> — Google 評論「pork steak so tender it almost melts in the mouth」<br>
+          <strong>玉子燒</strong> — Google 評論「soft texture, balanced and satisfying」<br>
+          Wanderlog：「showcasing unique local flavors that can only be savored in this region」
+        </div>
+        <span class="resto-reserve">常客滿，建議訂位</span>
+        <div class="resto-source">
+          <span class="source-pill">Wanderlog</span>
+          <span class="source-pill">Google Reviews</span>
+          <span class="source-pill">TripAdvisor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. 炭火燒鳥 池屋 -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #7a4a1a, #5a3510);"><span class="rv-emoji">🍢</span><span class="rv-label">炭火燒鳥</span></div>
+      <div class="resto-top">
+        <span class="resto-name">炭火燒鳥 池屋（Ikeya）</span>
+        <span class="resto-tag tag-izakaya">燒鳥</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 3.9（88 則）｜站步行 3 分｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">道地的炭火燒鳥居酒屋，Evendo 評為「authentic Japanese izakaya where every skewer tells a story」。老闆 Katsumi 親自烤製，在地人也常光顧。酒單豐富。</p>
+        <div class="resto-meta">營業：18:00–23:00（週一、四公休）<br>TEL：025-784-1660</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>各式燒鳥串</strong> — Google 評論「every yakitori is done beautifully, taste superb, great with beer」<br>
+          <strong>搭配日本酒、燒酎</strong> — Google 評論「good range of nihon shu and shouchu」<br>
+          適合：<strong>滑雪後輕鬆喝酒配串燒</strong>的夜晚
+        </div>
+        <span class="resto-reserve">注意週一、四公休！</span>
+        <div class="resto-source">
+          <span class="source-pill">Evendo</span>
+          <span class="source-pill">Tabelog</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Vitraux -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #c47a1a, #96590e);"><span class="rv-emoji">🍕</span><span class="rv-label">西式・牛排</span></div>
+      <div class="resto-top">
+        <span class="resto-name">Vitraux</span>
+        <span class="resto-tag tag-other" style="background:#c47a1a;">和洋融合</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.0（279 則）｜站東口步行 3 分｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">站前歐風餐廳，提供義大利麵、Pizza、牛排等西式料理。木柴壁爐氣氛溫暖浪漫，80 年代音樂播放，Google 評論形容為「great apres atmosphere after skiing」。</p>
+        <div class="resto-meta">營業：11:30–21:00（全年無休）<br>TEL：025-785-7338</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>牛排蓋飯（大份）</strong> — 雪魚 Vic 推薦「一吃就欲罷不能，後來都直接升級雙倍」<br>
+          <strong>和牛牛排</strong> — Google 評論「Possibly the best steak I've ever had!」<br>
+          <strong>手工 Pizza</strong> — TripAdvisor 評為「excellent pizza」<br>
+          適合：<strong>跨年夜浪漫西式晚餐</strong>
+        </div>
+        <span class="resto-reserve">僅日文菜單，建議帶翻譯 App</span>
+        <div class="resto-source">
+          <span class="source-pill">雪魚 SnowFish-Vic</span>
+          <span class="source-pill">Wanderlog</span>
+          <span class="source-pill">Tabelog</span>
+          <span class="source-pill">TripAdvisor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. 維新沾麵 -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #b03a2e, #7b241c);"><span class="rv-emoji">🍜</span><span class="rv-label">沾麵</span></div>
+      <div class="resto-top">
+        <span class="resto-name">越後維新 沾麵（Echigo Ishin）</span>
+        <span class="resto-tag tag-ramen">沾麵</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.1（2155 則）｜站步行 10 分（本店）｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">越後湯澤超人氣沾麵，Google 超過 2000 評論！麵條混合米粉口感滑順，大份與普通份同價。Google 形容為「popular ramen spot for skiers returning from the slopes」。站內也有分店。</p>
+        <div class="resto-meta">營業：11:00–21:00（全年無休）<br>⚠ 售票機點餐，常排隊 30–45 分</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>辛旨沾麵（大份）</strong> — Google 評論「大份跟普通份同價，店員會問確定只要普通嗎？」<br>
+          <strong>煎餃</strong> — Google 評論「gyoza was amazing」<br>
+          Dcard 評為 B+：「不錯吃但不會特別驚豔，有路過可以吃看看」
+        </div>
+        <span class="resto-reserve">12/30 通勤日方便選擇</span>
+        <div class="resto-source">
+          <span class="source-pill">Dcard（B+）</span>
+          <span class="source-pill">Google 2155 則</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. 娘娘拉麵 -->
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #cb4335, #943126);"><span class="rv-emoji">🌶️</span><span class="rv-label">辣味拉麵</span></div>
+      <div class="resto-top">
+        <span class="resto-name">娘娘拉麵（Nyan Nyan）</span>
+        <span class="resto-tag tag-ramen">拉麵</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 3.5（88 則）｜站步行 8 分｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">埼玉縣連鎖的「靈魂食物」，湯澤分店。招牌 Stamina 拉麵，肉末醬汁滿滿，味道類似麻婆豆腐，辣味暖胃。重口味推薦。出餐快。</p>
+        <div class="resto-meta">⚠ 距車站較遠（步行 8 分鐘）</div>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>Stamina 拉麵</strong>（¥950）— Google 評論「piping hot soup with plenty of minced meat and chives」<br>
+          <strong>餃子</strong>（¥500）— 可加點<br>
+          Dcard 評為 B：「適合重口味，個人感想是有點鹹」
+        </div>
+        <div class="resto-source">
+          <span class="source-pill">Dcard（B）</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CAFES -->
+    <div class="category-header">
+      <h3>☕ 咖啡廳 CAFÉS</h3>
+      <div class="line"></div>
+      <span class="cat-count">4 家｜滑雪後下午茶好去處</span>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #6f4e37, #4a3423);"><span class="rv-emoji">☕</span><span class="rv-label">CAFÉ</span></div>
+      <div class="resto-top">
+        <span class="resto-name">Chalo Coffee</span>
+        <span class="resto-tag tag-cafe">咖啡</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.8（145 則）｜湯澤高原雪場正對面｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">越後湯澤評分最高的咖啡廳！夫妻經營的溫馨小店，會說英文，就在雪場對面，滑完雪直接進來取暖。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>起司蜂蜜肉桂吐司</strong> — Google 評論「like nothing you've ever experienced, 不吃會後悔一輩子」<br>
+          <strong>焦香抹茶巴斯克乳酪蛋糕</strong> — 「to die for，輕盈不厚重」<br>
+          <strong>手沖咖啡</strong> — 「Best coffee we've had in Japan」＋咖哩也好吃
+        </div>
+        <span class="resto-reserve">營業日不固定，出發前查 IG</span>
+        <div class="resto-source"><span class="source-pill">Google 4.8★</span></div>
+      </div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #d4a843, #a67c2e);"><span class="rv-emoji">🍦</span><span class="rv-label">麴 LATTE</span></div>
+      <div class="resto-top">
+        <span class="resto-name">Koji Latte（麹ラテ）</span>
+        <span class="resto-tag tag-cafe">咖啡</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.4（177 則）｜CoCoLo 車站商場內｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">車站內特色小店，主打「麹（米麴）」飲品，甜味天然，香氣獨特。有沙發座位，等新幹線的好地方。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>麹拿鐵（豆乳）</strong> — Google 評論「slightly sweet from koji, unique aroma」<br>
+          <strong>酒粕霜淇淋 / 麹霜淇淋</strong> — 「10/10 must try」
+        </div>
+        <div class="resto-source"><span class="source-pill">Google 4.4★</span></div>
+      </div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #b8681a, #8a4d12);"><span class="rv-emoji">🍺</span><span class="rv-label">CAFÉ × BEER</span></div>
+      <div class="resto-top">
+        <span class="resto-name">And tap cafe</span>
+        <span class="resto-tag tag-cafe">咖啡+啤酒</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.1（61 則）｜車站觀光中心內｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">咖啡廳 × Craft Beer Tap 複合店，白天喝咖啡配可頌，下午來杯在地精釀啤酒。也有限量拉麵。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>可頌 + 咖啡</strong> — Google 評論「2 週日本行最好喝的咖啡之一」<br>
+          <strong>胡麻味噌拉麵</strong> — 「crazy good, one of a kind」（常售完）
+        </div>
+        <div class="resto-source"><span class="source-pill">Google 4.1★</span></div>
+      </div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #4a7a8a, #2d5a6a);"><span class="rv-emoji">♨️</span><span class="rv-label">溫泉珈琲</span></div>
+      <div class="resto-top">
+        <span class="resto-name">溫泉珈琲 水屋（HATAGO 1F）</span>
+        <span class="resto-tag tag-cafe">咖啡</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">就在你們飯店 1 樓！｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">HATAGO 井仙 1 樓自家咖啡廳，用飲用溫泉水沖煮咖啡、做甜點，別的地方喝不到。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦餐點</span><br>
+          <strong>溫泉珈琲</strong> — 溫泉水沖煮，口感圓潤<br>
+          <strong>溫泉布丁</strong> — 名物甜點，退房前必吃一次
+        </div>
+        <div class="resto-source"><span class="source-pill">HATAGO 官網</span></div>
+      </div>
+    </div>
+
+    <!-- BARS -->
+    <div class="category-header">
+      <h3>🍸 酒吧 BARS & 清酒</h3>
+      <div class="line"></div>
+      <span class="cat-count">4 家｜跨年夜續攤好去處</span>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #1a3a52, #0d2438);"><span class="rv-emoji">🍶</span><span class="rv-label">清酒試飲</span></div>
+      <div class="resto-top">
+        <span class="resto-name">唎酒番所（Ponshu 館）</span>
+        <span class="resto-tag tag-izakaya" style="background:#8e44ad;">清酒體驗</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.4（2548 則）｜CoCoLo 車站商場內｜<span class="price-tag">$<span class="dim">$$</span></span></span>
+        <p class="resto-note">越後湯澤必去！¥500 換 5 枚代幣 + 小酒杯，<strong>110+ 支新潟在地清酒</strong>自助試飲。AndrewPlus 部落客大推「嚐遍各種滋味再決定入手」。旁邊還有「酒風呂」溫泉。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">玩法</span><br>
+          <strong>¥500 / 5 代幣</strong> — 多數酒 1 枚，Premium 2 枚<br>
+          <strong>梅酒口味</strong> — Google 評論「不喝清酒的人也愛」<br>
+          喜歡的直接在旁邊商店買，價格划算 — 完美伴手禮
+        </div>
+        <span class="resto-reserve">營業到 19:00，白天去！</span>
+        <div class="resto-source"><span class="source-pill">AndrewPlus</span><span class="source-pill">Google 2548 則</span><span class="source-pill">Wanderlog</span></div>
+      </div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #2c3e50, #1a252f);"><span class="rv-emoji">🍸</span><span class="rv-label">BAR</span></div>
+      <div class="resto-top">
+        <span class="resto-name">BAR 天国 〜1059〜</span>
+        <span class="resto-tag tag-izakaya" style="background:#2c3e50;">酒吧</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 5.0（9 則）｜站步行 3 分（B1）｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">新開的隱藏酒吧，牆上投影滑雪影片，氣氛超好。老闆本身是厲害的單板玩家，酒款豐富，還有桌遊。7 人團體也裝得下，行李有地方放。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">推薦</span><br>
+          <strong>調酒 + 日本酒</strong> — Google 評論「loved the drinks and ambience, owner very friendly」<br>
+          適合：<strong>跨年夜續攤第二站</strong>，找路邊投影招牌
+        </div>
+        <div class="resto-source"><span class="source-pill">Google 5.0★</span></div>
+      </div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #4a1a52, #2d0f33);"><span class="rv-emoji">🎧</span><span class="rv-label">DJ BAR</span></div>
+      <div class="resto-top">
+        <span class="resto-name">MUSIC BAR 湯沢FLAT</span>
+        <span class="resto-tag tag-izakaya" style="background:#2c3e50;">DJ Bar</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.3（12 則）｜站步行 1 分（2F）｜<span class="price-tag">$$<span class="dim">$</span></span></span>
+        <p class="resto-note">時尚 DJ Bar，滑雪客聚集地，曾辦 Jenga 大賽等活動。Google 評論「The DJs are killer」。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">適合</span><br>
+          想跳舞聽音樂的跨年夜！營業到午夜 12 點
+        </div>
+        <div class="resto-source"><span class="source-pill">Google 4.3★</span></div>
+      </div>
+    </div>
+
+    <div class="resto-card">
+      <div class="resto-visual" style="background:linear-gradient(135deg, #1a1a2e, #0f0f1a);"><span class="rv-emoji">🎱</span><span class="rv-label">BAR</span></div>
+      <div class="resto-top">
+        <span class="resto-name">SWING BAR</span>
+        <span class="resto-tag tag-izakaya" style="background:#2c3e50;">酒吧</span>
+      </div>
+      <div class="resto-body">
+        <span class="resto-area">⭐ 4.4（55 則）｜站步行 3 分（B1）｜<span class="price-tag">$$$</span></span>
+        <p class="resto-note">地下室老牌酒吧，有撞球桌、飛鏢、電視轉播，酒款選擇多，營業到凌晨 2 點。</p>
+        <div class="resto-rec">
+          <span class="resto-rec-tag">注意</span><br>
+          ⚠ 有 <strong>¥1,000 入場費（cover charge）</strong>，撞球每人 ¥1,000，酒價偏高 — Google 評論多人反應，去之前先有心理準備
+        </div>
+        <div class="resto-source"><span class="source-pill">Wanderlog</span><span class="source-pill">Google 4.4★</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Strategy + Sources -->
+  <div style="margin: 0 60px 40px; padding: 28px 30px; background: white; border-left: 4px solid var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:14px;">📅 四晚晚餐建議搭配</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:13px; line-height:1.7; color:var(--text);">
+      <div>
+        <strong style="color:var(--deep);">12/30 三 — 抵達日</strong><br>
+        通勤累，飯店附近輕鬆吃<br>
+        ▸ <strong>維新沾麵</strong>（站內）<br>
+        ▸ <strong>むらんごっつぉ</strong>（飯店 2F）
+      </div>
+      <div>
+        <strong style="color:#c0392b;">12/31 四 — 跨年夜 🎆</strong><br>
+        特別餐廳，需提早訂位<br>
+        ▸ <strong>むらんごっつぉ</strong>（Course 料理）<br>
+        ▸ <strong>Yuzawa Kamakura</strong>（熱鬧氛圍）<br>
+        ▸ <strong>Vitraux</strong>（浪漫西式）
+      </div>
+      <div>
+        <strong style="color:#27ae60;">1/1 五 — 元旦 🎍</strong><br>
+        ⚠ 多店家公休，建議飯店內<br>
+        ▸ <strong>むらんごっつぉ</strong>（飯店）<br>
+        ▸ <strong>食家 あさくさ</strong>（先確認營業）
+      </div>
+      <div>
+        <strong style="color:var(--deep);">1/2 六 — 最後一晚</strong><br>
+        盡情享受名店<br>
+        ▸ <strong>保よし</strong>（必訪）<br>
+        ▸ <strong>人参亭</strong> or <strong>政茶</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Sources -->
+  <div style="margin: 0 60px 40px; padding: 24px 30px; background: #f8fbff; border: 1px solid var(--ice); font-size:12px; line-height:1.9; color: var(--muted);">
+    <strong style="color:var(--deep); font-size:13px; letter-spacing:2px;">📚 資料來源</strong><br>
+    • <strong>娜塔蝦的滑雪食旅手記</strong>（資深滑雪教練、暢銷書作家）— natasha-traveler.tw<br>
+    • <strong>維克養雪魚 SnowFish-Vic</strong>（滑雪美食部落客）— snowfish-vic.com<br>
+    • <strong>HeyHeySnow</strong>（滑雪攻略網）— heyheysnow.com<br>
+    • <strong>AndrewPlus 部落格</strong>— blog.andrewplus.com<br>
+    • <strong>Klook 旅遊網誌</strong>— klook.com<br>
+    • <strong>Dcard 日本旅遊版</strong>— dcard.tw<br>
+    • <strong>backpackers.com.tw</strong>（背包客棧）<br>
+    • <strong>Wanderlog</strong>、<strong>Tabelog</strong>（食べログ）、<strong>TripAdvisor</strong>、<strong>Evendo</strong>（國際權威美食評論）<br>
+    • <strong>WAmazing Snow</strong>（日本官方雪場資訊）— tw.wamazing.com<br>
+    • <strong>HATAGO 井仙官網</strong>— hatago-isen.jp
+  </div>
+
+</section>
+
+<!-- SKI RESORTS SECTION -->
+<section class="section" id="resorts">
+  <div class="gear-header" style="background: linear-gradient(135deg, #0d2d42 0%, #1a4a2d 100%);">
+    <div class="section-eyebrow">SKI RESORTS & TRANSPORT</div>
+    <h2 class="section-title" style="color:white;">雪場 ／ 接駁交通</h2>
+    <p style="color:rgba(255,255,255,0.5); margin-top:14px; font-size:13px; max-width:720px; line-height:1.7;">
+      以 HATAGO 井仙（越後湯澤站西口對面）為中心 ／ 幾乎所有雪場接駁車都從<strong style="color:#d4a843;">越後湯澤車站</strong>出發，出飯店過馬路就是車站！
+    </p>
+  </div>
+
+  <div class="alert-card" style="margin-top:24px;">
+    <span class="alert-icon">🎫</span>
+    <div>
+      <p class="alert-title">推薦：YUZAWA SNOW LINK 三山通用券</p>
+      <p class="alert-text">一張券自由往返 <strong>湯澤高原＋GALA湯澤＋石打丸山</strong> 三個雪場（山頂纜車互通）。2025/12/20 開賣，可線上購買（Webket）或現場買，單日券也能 +¥3,000 升級。三山之間還有<strong>免費接駁巴士</strong>（早晚每 15 分鐘一班）。三天滑雪剛好一天一個雪場！</p>
+    </div>
+  </div>
+
+  <div class="gear-grid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));">
+
+    <!-- 湯澤高原 -->
+    <div class="resort-card">
+      <div class="resort-top" style="background: linear-gradient(135deg, #1a3a52, #2d5a7a);">
+        <div class="resort-name">湯澤高原滑雪場<small>Yuzawa Kogen</small></div>
+        <span class="level-badge" style="background:#27ae60; color:white;">新手友善</span>
+      </div>
+      <div class="resort-body">
+        <div class="transport-row"><span class="transport-label">距離</span><span><strong>走路 8 分鐘 or 免費接駁 1 分</strong>（最近的雪場！）</span></div>
+        <div class="transport-row"><span class="transport-label">交通</span><span>東口/西口免費接駁車，或直接步行到山麓纜車站</span></div>
+        <div class="transport-row"><span class="transport-label">特色</span><span>166 人大纜車上山，山頂景色極美，雪場適中不擠，可透過山頂連接 GALA（三山券）</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span>🌟 第一天滑雪首選 — 離飯店最近、新手佛系</span></div>
+      </div>
+    </div>
+
+    <!-- GALA湯澤 -->
+    <div class="resort-card">
+      <div class="resort-top" style="background: linear-gradient(135deg, #7a3a1a, #a85a2a);">
+        <div class="resort-name">GALA 湯澤<small>GALA Yuzawa</small></div>
+        <span class="level-badge" style="background:#27ae60; color:white;">新手最愛</span>
+      </div>
+      <div class="resort-body">
+        <div class="transport-row"><span class="transport-label">距離</span><span><strong>免費接駁車約 5 分鐘</strong>（東/西口皆有）</span></div>
+        <div class="transport-row"><span class="transport-label">交通</span><span>免費 Shuttle Bus，或新幹線一站直達（3 分鐘）— 雪場就在車站裡</span></div>
+        <div class="transport-row"><span class="transport-label">特色</span><span>娜塔蝦評「滑雪新手最愛」。中央區適合初學，北區人少適合練紅線，南區非壓雪進階。日本最大雪具租借中心，設備最新</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span>🌟 裝備租借最方便，中英文服務充足，跨雪場玩就買三山券</span></div>
+      </div>
+    </div>
+
+    <!-- 石打丸山 -->
+    <div class="resort-card">
+      <div class="resort-top" style="background: linear-gradient(135deg, #2d1a52, #5a3a8a);">
+        <div class="resort-name">石打丸山滑雪場<small>Ishiuchi Maruyama</small></div>
+        <span class="level-badge" style="background:#4a9fd4; color:white;">全級適合</span>
+      </div>
+      <div class="resort-body">
+        <div class="transport-row"><span class="transport-label">距離</span><span><strong>免費接駁車約 15–20 分鐘</strong>（東口）</span></div>
+        <div class="transport-row"><span class="transport-label">交通</span><span>東口免費接駁車，或三山券纜車從 GALA 北區滑過去</span></div>
+        <div class="transport-row"><span class="transport-label">特色</span><span>南魚沼最老牌雪場，24 間雪場餐廳「美食雪場」之稱，新型複合式纜車，夜滑區大。熱門打卡點玻璃屋</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span>🌟 想吃好吃的雪場午餐選這裡</span></div>
+      </div>
+    </div>
+
+    <!-- 神立高原 -->
+    <div class="resort-card">
+      <div class="resort-top" style="background: linear-gradient(135deg, #1a4a2d, #2d7a4a);">
+        <div class="resort-name">神立高原 Snow Resort<small>Kandatsu</small></div>
+        <span class="level-badge" style="background:#c0392b; color:white;">中級以上</span>
+      </div>
+      <div class="resort-body">
+        <div class="transport-row"><span class="transport-label">距離</span><span><strong>免費接駁車約 10–12 分鐘</strong></span></div>
+        <div class="transport-row"><span class="transport-label">交通</span><span>車站免費巴士，週末尖峰 1 小時 4 班</span></div>
+        <div class="transport-row"><span class="transport-label">特色</span><span>娜塔蝦評「高手練功好地方」，有跳台，<strong>夜滑到凌晨 2 點</strong>（週五六＆假日前）！滑雪中心 4F 有大浴場「神之湯」</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span>⚠ 需搭纜車上山、滑雪下山，不適合完全新手。女生平日票有大優惠（一日券約省 ¥2,600）</span></div>
+      </div>
+    </div>
+
+    <!-- 岩原 -->
+    <div class="resort-card">
+      <div class="resort-top" style="background: linear-gradient(135deg, #4a5a1a, #7a8a2a);">
+        <div class="resort-name">岩原滑雪場<small>Iwappara</small></div>
+        <span class="level-badge" style="background:#27ae60; color:white;">新手練功</span>
+      </div>
+      <div class="resort-body">
+        <div class="transport-row"><span class="transport-label">距離</span><span><strong>免費接駁車約 12–15 分鐘</strong>（東口）</span></div>
+        <div class="transport-row"><span class="transport-label">交通</span><span>東口免費巴士，建議搭到終點「山腹站」</span></div>
+        <div class="transport-row"><span class="transport-label">特色</span><span>娜塔蝦評「最適合新手練功」，雪道超寬視野極好，站在任何地方都能看到同伴位置，湯澤區風景最美雪場</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span>🌟 團體滑雪不怕走散，適合新手多的隊伍</span></div>
+      </div>
+    </div>
+
+    <!-- NASPA -->
+    <div class="resort-card">
+      <div class="resort-top" style="background: linear-gradient(135deg, #3a3a52, #5a5a7a);">
+        <div class="resort-name">NASPA Ski Garden<small>NASPA</small></div>
+        <span class="level-badge" style="background:#d4a843; color:#1a1a1a;">Ski 專用</span>
+      </div>
+      <div class="resort-body">
+        <div class="transport-row"><span class="transport-label">距離</span><span><strong>免費接駁車約 2–5 分鐘</strong>（西口）</span></div>
+        <div class="transport-row"><span class="transport-label">交通</span><span>西口免費接駁車，超近</span></div>
+        <div class="transport-row"><span class="transport-label">特色</span><span>⚠ <strong>Snowboard 禁止</strong>！日本少數雙板 Ski 專用雪場，人少雪道平緩，親子友善</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span>只有全員都滑雙板才考慮</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SVG Overview Map -->
+  <div style="margin: 10px 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:6px;">🗺 全區相對位置總覽圖</h3>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">示意圖（非精確比例）— 方向與遠近關係供快速判斷</p>
+
+    <svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; background:linear-gradient(180deg,#eaf2f8 0%,#f4f8fb 100%); border-radius:4px;">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#888"/></marker>
+      </defs>
+
+      <!-- Mountains deco -->
+      <polygon points="0,120 120,30 240,110 360,40 480,120" fill="#d5e3ee" opacity="0.6"/>
+      <polygon points="520,110 660,20 800,100 920,35 1000,110" fill="#d5e3ee" opacity="0.6"/>
+
+      <!-- ==== TRANSPORT LINES from station (500,340) ==== -->
+      <!-- Walk: 湯澤高原 (SW) -->
+      <line x1="470" y1="360" x2="255" y2="470" stroke="#27ae60" stroke-width="6" stroke-dasharray="2,7" stroke-linecap="round"/>
+      <text x="340" y="405" font-size="15" fill="#1e8449" font-weight="bold" transform="rotate(26 340 405)">🚶 走路 8 分</text>
+
+      <!-- Free shuttle: NASPA (W) -->
+      <line x1="455" y1="345" x2="200" y2="330" stroke="#4a9fd4" stroke-width="4"/>
+      <text x="285" y="322" font-size="13" fill="#2874a6" font-weight="bold">免費 2–5 分</text>
+
+      <!-- Free shuttle: GALA (S) -->
+      <line x1="500" y1="380" x2="500" y2="520" stroke="#4a9fd4" stroke-width="4"/>
+      <text x="510" y="460" font-size="13" fill="#2874a6" font-weight="bold">免費 5 分</text>
+
+      <!-- Free shuttle: 神立 (E) -->
+      <line x1="545" y1="345" x2="780" y2="300" stroke="#4a9fd4" stroke-width="4"/>
+      <text x="640" y="308" font-size="13" fill="#2874a6" font-weight="bold">免費 10 分</text>
+
+      <!-- Free shuttle: 岩原 (NE near) -->
+      <line x1="535" y1="315" x2="700" y2="170" stroke="#4a9fd4" stroke-width="4"/>
+      <text x="590" y="230" font-size="13" fill="#2874a6" font-weight="bold" transform="rotate(-38 590 230)">免費 12–15 分</text>
+
+      <!-- Free shuttle: 石打丸山 (NE far) -->
+      <line x1="555" y1="330" x2="880" y2="130" stroke="#4a9fd4" stroke-width="4"/>
+      <text x="740" y="212" font-size="13" fill="#2874a6" font-weight="bold" transform="rotate(-30 740 212)">免費 15–20 分</text>
+
+      <!-- Paid: 苗場 (SW far) -->
+      <line x1="460" y1="375" x2="140" y2="560" stroke="#c0392b" stroke-width="4" stroke-dasharray="10,6"/>
+      <text x="245" y="480" font-size="13" fill="#922b21" font-weight="bold" transform="rotate(30 245 480)">付費 ¥700・45 分</text>
+
+      <!-- 三山 loop: 湯澤高原-GALA-石打 -->
+      <path d="M 255 490 Q 420 610 510 535 Q 760 420 875 150" stroke="#d4a843" stroke-width="3" fill="none" stroke-dasharray="4,5" opacity="0.85"/>
+      <text x="565" y="562" font-size="12.5" fill="#9c7a1e" font-weight="bold">－－ 三山纜車互通＋循環巴士（每15分）</text>
+
+      <!-- ==== RESORT NODES ==== -->
+      <!-- 湯澤高原 -->
+      <g><circle cx="245" cy="478" r="34" fill="#27ae60"/><text x="245" y="472" text-anchor="middle" font-size="20">⛷</text><text x="245" y="492" text-anchor="middle" font-size="12" fill="white" font-weight="bold">湯澤高原</text></g>
+      <!-- NASPA -->
+      <g><circle cx="175" cy="328" r="30" fill="#7a7a9a"/><text x="175" y="323" text-anchor="middle" font-size="17">🎿</text><text x="175" y="341" text-anchor="middle" font-size="11" fill="white" font-weight="bold">NASPA</text><text x="175" y="375" text-anchor="middle" font-size="10.5" fill="#666">雙板專用</text></g>
+      <!-- GALA -->
+      <g><circle cx="500" cy="550" r="36" fill="#c47a1a"/><text x="500" y="544" text-anchor="middle" font-size="20">⛷</text><text x="500" y="565" text-anchor="middle" font-size="12.5" fill="white" font-weight="bold">GALA</text></g>
+      <!-- 神立 -->
+      <g><circle cx="812" cy="295" r="33" fill="#2d7a4a"/><text x="812" y="289" text-anchor="middle" font-size="19">⛷</text><text x="812" y="309" text-anchor="middle" font-size="11.5" fill="white" font-weight="bold">神立高原</text><text x="812" y="345" text-anchor="middle" font-size="10.5" fill="#666">夜滑到 2AM</text></g>
+      <!-- 岩原 -->
+      <g><circle cx="715" cy="155" r="32" fill="#7a8a2a"/><text x="715" y="149" text-anchor="middle" font-size="19">⛷</text><text x="715" y="169" text-anchor="middle" font-size="11.5" fill="white" font-weight="bold">岩原</text></g>
+      <!-- 石打丸山 -->
+      <g><circle cx="895" cy="115" r="33" fill="#5a3a8a"/><text x="895" y="109" text-anchor="middle" font-size="19">⛷</text><text x="895" y="129" text-anchor="middle" font-size="11" fill="white" font-weight="bold">石打丸山</text></g>
+      <!-- 苗場 -->
+      <g><circle cx="120" cy="572" r="30" fill="#922b21"/><text x="120" y="566" text-anchor="middle" font-size="17">⛷</text><text x="120" y="585" text-anchor="middle" font-size="11" fill="white" font-weight="bold">苗場</text></g>
+
+      <!-- ==== CENTER: Station + Hotel ==== -->
+      <rect x="440" y="310" width="120" height="66" rx="8" fill="#0d1f2d"/>
+      <text x="500" y="336" text-anchor="middle" font-size="14" fill="white" font-weight="bold">🚉 越後湯澤駅</text>
+      <text x="500" y="356" text-anchor="middle" font-size="10.5" fill="#9bc4e0">CoCoLo商場・唎酒番所</text>
+      <text x="500" y="369" text-anchor="middle" font-size="10.5" fill="#9bc4e0">Koji Latte・And tap</text>
+
+      <!-- Hotel next to west exit -->
+      <rect x="330" y="318" width="96" height="50" rx="8" fill="#d4a843"/>
+      <text x="378" y="340" text-anchor="middle" font-size="13" fill="#1a1a1a" font-weight="bold">🏯 HATAGO</text>
+      <text x="378" y="357" text-anchor="middle" font-size="11" fill="#1a1a1a">井仙（住宿）</text>
+      <text x="433" y="308" text-anchor="middle" font-size="10" fill="#888">West 西口 ← 過馬路 50m</text>
+
+      <!-- ==== RESTAURANT DOTS: West Exit temple street (NW of station) ==== -->
+      <text x="255" y="150" font-size="13" fill="#555" font-weight="bold">🍱 西口溫泉街（步行 2–5 分）</text>
+      <g font-size="10.5">
+        <circle cx="270" cy="180" r="7" fill="#8e44ad"/><text x="283" y="184" fill="#333">保よし（鍋）</text>
+        <circle cx="270" cy="205" r="7" fill="#b8860b"/><text x="283" y="209" fill="#333">あさくさ（釜飯）</text>
+        <circle cx="270" cy="230" r="7" fill="#d35400"/><text x="283" y="234" fill="#333">かまくら（居酒屋）</text>
+        <circle cx="270" cy="255" r="7" fill="#2c3e50"/><text x="283" y="259" fill="#333">BAR天国・SWING</text>
+        <circle cx="410" cy="180" r="7" fill="#2d5a3d"/><text x="423" y="184" fill="#333">中野屋（蕎麥）</text>
+        <circle cx="410" cy="205" r="7" fill="#7a4a1a"/><text x="423" y="209" fill="#333">池屋（燒鳥）</text>
+        <circle cx="410" cy="230" r="7" fill="#4a1a52"/><text x="423" y="234" fill="#333">FLAT（DJ Bar）</text>
+      </g>
+      <line x1="360" y1="270" x2="450" y2="315" stroke="#bbb" stroke-width="2" stroke-dasharray="3,4" marker-end="url(#arrow)"/>
+
+      <!-- 湯澤高原雪場前 cluster -->
+      <text x="60" y="425" font-size="12.5" fill="#555" font-weight="bold">雪場正對面</text>
+      <g font-size="10.5">
+        <circle cx="72" cy="450" r="7" fill="#c0392b"/><text x="85" y="454" fill="#333">人参亭（豬排）</text>
+        <circle cx="72" cy="475" r="7" fill="#6f4e37"/><text x="85" y="479" fill="#333">Chalo Coffee</text>
+      </g>
+
+      <!-- East exit -->
+      <text x="640" y="405" font-size="12.5" fill="#555" font-weight="bold">🍕 東口</text>
+      <g font-size="10.5">
+        <circle cx="652" cy="428" r="7" fill="#c47a1a"/><text x="665" y="432" fill="#333">Vitraux（西式）</text>
+        <circle cx="652" cy="453" r="7" fill="#b03a2e"/><text x="665" y="457" fill="#333">維新沾麵 本店（步行10分）</text>
+      </g>
+
+      <!-- Legend -->
+      <g font-size="11.5">
+        <rect x="20" y="20" width="235" height="88" rx="6" fill="white" opacity="0.92" stroke="#dde"/>
+        <line x1="34" y1="40" x2="70" y2="40" stroke="#27ae60" stroke-width="5" stroke-dasharray="2,6"/><text x="78" y="44" fill="#333">走路可到</text>
+        <line x1="34" y1="62" x2="70" y2="62" stroke="#4a9fd4" stroke-width="4"/><text x="78" y="66" fill="#333">免費接駁車</text>
+        <line x1="34" y1="84" x2="70" y2="84" stroke="#c0392b" stroke-width="4" stroke-dasharray="8,5"/><text x="78" y="88" fill="#333">付費巴士（現金）</text>
+        <line x1="150" y1="40" x2="186" y2="40" stroke="#d4a843" stroke-width="3" stroke-dasharray="4,5"/><text x="192" y="44" fill="#333">三山互通</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Shuttle Timetable -->
+  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #4a9fd4;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:6px;">🚌 接駁車班次參考表</h3>
+    <p style="font-size:12px; color:#c0392b; margin-bottom:16px;">⚠ 以下為上季（2025/26）班次頻率參考，2026/27 正式時刻表約 12/20 公布，出發前務必到官網確認最新版！</p>
+
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        <thead>
+          <tr style="background:var(--deep); color:white;">
+            <th style="padding:10px 14px; text-align:left; letter-spacing:1px;">雪場</th>
+            <th style="padding:10px 14px; text-align:left;">上車地點</th>
+            <th style="padding:10px 14px; text-align:left;">車程</th>
+            <th style="padding:10px 14px; text-align:left;">班次頻率（參考）</th>
+            <th style="padding:10px 14px; text-align:left;">費用</th>
+          </tr>
+        </thead>
+        <tbody style="line-height:1.6;">
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>湯澤高原</strong></td><td style="padding:10px 14px;">走路 or 東/西口</td><td style="padding:10px 14px;">🚶 8 分 / 🚌 1 分</td><td style="padding:10px 14px;">早晚每 15 分（與 GALA 循環線共用）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:10px 14px;"><strong>GALA 湯澤</strong></td><td style="padding:10px 14px;">東口 / 西口</td><td style="padding:10px 14px;">🚌 5 分</td><td style="padding:10px 14px;">早晚每 15 分循環（8:00–17:00 前後）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>石打丸山</strong></td><td style="padding:10px 14px;">東口</td><td style="padding:10px 14px;">🚌 15–20 分</td><td style="padding:10px 14px;">早晚每 15 分（三山循環線）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:10px 14px;"><strong>神立高原</strong></td><td style="padding:10px 14px;">車站前</td><td style="padding:10px 14px;">🚌 10 分</td><td style="padding:10px 14px;">週末尖峰每小時 4 班（約 15 分一班）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>岩原</strong></td><td style="padding:10px 14px;">東口</td><td style="padding:10px 14px;">🚌 12–15 分</td><td style="padding:10px 14px;">固定班次（搭到終點「山腹站」）＋可電話預約接送</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:10px 14px;"><strong>NASPA</strong></td><td style="padding:10px 14px;">西口</td><td style="padding:10px 14px;">🚌 2–5 分</td><td style="padding:10px 14px;">固定班次</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>神樂（三俁）</strong></td><td style="padding:10px 14px;">東口（Zone 站牌）</td><td style="padding:10px 14px;">🚌 18 分</td><td style="padding:10px 14px;">路線公車班次，平日假日不同</td><td style="padding:10px 14px; color:#c0392b; font-weight:600;">¥400 現金</td></tr>
+          <tr><td style="padding:10px 14px;"><strong>苗場</strong></td><td style="padding:10px 14px;">東口（Zone 站牌）</td><td style="padding:10px 14px;">🚌 45 分</td><td style="padding:10px 14px;">路線公車，與神樂/田代共用，旺季早點排</td><td style="padding:10px 14px; color:#c0392b; font-weight:600;">¥700 現金</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:14px; font-size:12px; line-height:1.9; color:var(--text); background:#fff8e8; border-left:3px solid var(--gold); padding:10px 14px;">
+      💡 <strong>跨年旺季提醒</strong>：免費接駁先到先得，12/31–1/2 請提早 20–30 分鐘排隊 ／ 付費公車僅收現金（備千元鈔），雪具行李每件 +¥100 ／ 站牌有「Zone + 編號」，出站先確認位置
+    </div>
+
+    <div style="margin-top:12px; font-size:12px; color:var(--muted); line-height:2;">
+      🔗 <strong>官方時刻表連結</strong>：
+      <a href="https://gala.co.jp/winter/access/" style="color:var(--accent);">GALA 交通</a> ・
+      <a href="https://www.yuzawasnowlink.com/winter/zh/" style="color:var(--accent);">三山 SNOW LINK</a> ・
+      <a href="https://kandatsu.com/" style="color:var(--accent);">神立高原</a> ・
+      <a href="https://iwa-ppara.com/" style="color:var(--accent);">岩原</a> ・
+      <a href="https://www.princehotels.co.jp/ski/naeba/" style="color:var(--accent);">苗場</a>
+      <br>📚 資料來源：探雪者滑雪學校、澄野junya、娜塔蝦、SKIDIY、YUZAWA SNOW LINK 官網
+    </div>
+  </div>
+
+  <!-- 3-day suggestion -->
+  <div style="margin: 0 60px 40px; padding: 26px 30px; background: linear-gradient(135deg, #f0f9f0, #e8f4fc); border-left: 4px solid #27ae60; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:16px;">⛷ 三天滑雪建議排法</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:13px; line-height:1.8;">
+      <div>
+        <strong style="color:#c0392b;">12/31 — 湯澤高原</strong><br>
+        離飯店最近（走路可到），第一天熱身不趕時間，下午早點收工回飯店準備跨年
+      </div>
+      <div>
+        <strong style="color:#27ae60;">1/1 — GALA 湯澤</strong><br>
+        元旦全日滑，設施最完善，餐廳選擇多，累了纜車直接下山
+      </div>
+      <div>
+        <strong style="color:#4a9fd4;">1/2 — 石打丸山 or 神立</strong><br>
+        最後一天依程度選：吃貨選石打丸山（24 間餐廳），想練功選神立（記得神之湯泡湯）
+      </div>
+    </div>
+    <p style="margin-top:14px; font-size:12px; color:var(--muted);">💡 若三天都想跨雪場玩，直接買三山通用券 3 日券最划算</p>
+  </div>
+
+</section>
+
+<!-- GEAR SECTION -->
+<section class="section" id="gear">
+  <div class="gear-header">
+    <div class="section-eyebrow">EQUIPMENT & TIPS</div>
+    <h2 class="section-title" style="color:white;">裝備 ／ 注意事項</h2>
+  </div>
+
+  <div class="alert-card">
+    <span class="alert-icon">⚠️</span>
+    <div>
+      <p class="alert-title">滑雪安全提醒</p>
+      <p class="alert-text">頭盔為必備裝備，不建議省略。日本雪場溫度通常比市區低 10°C 以上，請務必做好保暖分層。初學者建議第一天安排教練課程。</p>
+    </div>
+  </div>
+
+  <div class="gear-grid">
+
+    <div class="gear-category">
+      <div class="gear-category-title">⛷ 滑雪裝備</div>
+      <ul class="gear-list" id="ski-gear">
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">滑雪頭盔（強烈建議自帶）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">護目鏡 Goggle</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">滑雪手套（防水型）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">滑雪板 / 雪鞋（現場租借可）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">護腕 / 護膝（初學者建議）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">雪杖（視情況租借）</span></li>
+      </ul>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title">🧥 衣物保暖</div>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">滑雪外套（防水防風）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">滑雪褲（防水）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">排汗發熱內衣（Uniqlo HeatTech）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">羊毛中層衣</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">雪地靴 / 防滑靴（市區用）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">暖暖包（備用）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">脖圍 / 巴拉克拉瓦帽</span></li>
+      </ul>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title">💊 醫藥 / 個人</div>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">旅遊保險（含滑雪活動）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">肌肉痠痛貼布 / 痠痛藥膏</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">護唇膏 / 防曬乳（雪地強烈）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">保濕乳液（雪地乾燥）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">胃藥 / 感冒藥備用</span></li>
+      </ul>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title">📱 3C / 證件</div>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">護照（有效期 6 個月以上）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">日本網卡 / eSIM</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">行動電源（低溫電量消耗快）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">防水相機 / 運動相機</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">萬用轉接插頭（日本 A型）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">國際駕照（若租車）</span></li>
+      </ul>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title">💴 金錢 / 訂位</div>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">換日幣（雪場現金為主）</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">雪場纜車券提前購買</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">跨年餐廳訂位確認</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">飯店確認 Check-in 時間</span></li>
+        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">租車確認（含雪鏈/雪胎）</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- BUDGET SECTION -->
+<section class="section" id="budget">
+  <div class="gear-header" style="background: linear-gradient(135deg, #2d1a3a 0%, #1a3a2d 100%);">
+    <div class="section-eyebrow">BUDGET & PRACTICAL INFO</div>
+    <h2 class="section-title" style="color:white;">預算試算 ／ 實用資訊</h2>
+  </div>
+
+  <!-- Interactive Budget Calculator -->
+  <div style="margin: 30px 60px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #27ae60;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:4px;">💰 每人預算試算機</h3>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:20px;">輸入預估金額，自動計算每人總花費（重新整理頁面會歸零）</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">✈ 機票（來回）TWD</label>
+        <input type="number" id="b-flight" value="17710" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🏯 住宿（每人分攤總額）TWD</label>
+        <input type="number" id="b-hotel" value="12000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🚄 新幹線（來回）JPY</label>
+        <input type="number" id="b-train" value="13600" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🎫 雪票 JPY／天</label>
+        <input type="number" id="b-lift" value="6000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">⛷ 滑雪天數</label>
+        <input type="number" id="b-skidays" value="3" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🏂 裝備租借 JPY／天</label>
+        <input type="number" id="b-rental" value="5000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🍜 餐費 JPY／天</label>
+        <input type="number" id="b-food" value="6000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">📅 旅行天數</label>
+        <input type="number" id="b-days" value="7" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🛍 購物／雜費 JPY</label>
+        <input type="number" id="b-shopping" value="20000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">💱 匯率（1 JPY = ? TWD）</label>
+        <input type="number" id="b-rate" value="0.21" step="0.01" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+      </div>
+    </div>
+
+    <div id="budget-result" style="margin-top:24px; padding:24px 28px; background:linear-gradient(135deg, #0d1f2d, #1a3a2d); border-radius:4px; color:white; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <!-- Shinkansen Guide -->
+  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #4a9fd4;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:16px;">🚄 機場 → 越後湯澤 交通攻略</h3>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;">
+      <div style="background:#f8fbff; padding:20px 24px; border-radius:4px;">
+        <div style="font-family:'Noto Serif TC',serif; font-weight:600; font-size:15px; color:var(--deep); margin-bottom:10px;">
+          <span style="background:#4a9fd4; color:white; font-size:10px; padding:3px 10px; letter-spacing:2px;">組 A</span>&nbsp; 羽田 HND → 越後湯澤
+        </div>
+        <div style="font-size:13px; line-height:2; color:var(--text);">
+          ① 羽田機場 →（東京單軌電車＋JR 山手線，約 30–40 分，¥660）→ <strong>東京駅</strong><br>
+          ② 東京駅 →（上越新幹線とき號，約 70–80 分）→ <strong>越後湯澤駅</strong><br>
+          🎫 新幹線單程：自由席約 <strong>¥6,790</strong> ／ 指定席約 ¥7,320<br>
+          ⏱ 全程約 <strong>2 小時</strong>（11:00 落地 → 約 14:30 前抵達湯澤）
+        </div>
+      </div>
+
+      <div style="background:#f8fbff; padding:20px 24px; border-radius:4px;">
+        <div style="font-family:'Noto Serif TC',serif; font-weight:600; font-size:15px; color:var(--deep); margin-bottom:10px;">
+          <span style="background:#d4a843; color:#1a1a1a; font-size:10px; padding:3px 10px; letter-spacing:2px;">組 C</span>&nbsp; 成田 NRT → 越後湯澤
+        </div>
+        <div style="font-size:13px; line-height:2; color:var(--text);">
+          ① 成田機場 →（N'EX 成田特快，約 60 分，¥3,070）→ <strong>東京駅</strong><br>
+          　（省錢版：京成 Access 特急 → 上野轉車，¥1,310）<br>
+          ② 東京駅 →（上越新幹線，約 70–80 分）→ <strong>越後湯澤駅</strong><br>
+          ⏱ 全程約 <strong>2.5–3 小時</strong>（12:35 落地 → 約 16:30–17:00 抵達湯澤）
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px; background:#f0f9f0; border-left:3px solid #27ae60; padding:14px 18px; font-size:13px; line-height:2;">
+      💡 <strong>省錢神器：JR Tokyo Wide Pass（¥15,000 / 連續 3 天）</strong><br>
+      涵蓋 N'EX 成田特快 ＋ 上越新幹線（含 GALA 湯澤站）不限次數。光是「成田→東京→越後湯澤」單程就值 ¥9,860，如果 3 天內有來回或多搭一趟就回本。⚠ 注意：你們是 7 天行程，Pass 只能 cover 頭 3 天或尾 3 天，建議<strong>回程那段另外買票</strong>，或去程用 Pass＋回程單買。外國護照才能買，可在機場 JR 櫃台或網路預購。
+    </div>
+
+    <div style="margin-top:14px; font-size:13px; line-height:2; color:var(--text);">
+      🎫 <strong>新幹線購票方式</strong>：① JR East 網路訂票系統「Ekinet」（有中文，可提早 1 個月訂）② 機場/車站 JR 售票機或綠色窗口 ③ 跨年期間指定席容易滿，<strong>建議提早線上劃位</strong>！自由席雖不用劃位，但 12/30 屬返鄉高峰，要早點去月台排隊。
+    </div>
+  </div>
+
+  <!-- Practical Links -->
+  <div style="margin: 0 60px 40px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #8e44ad;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:16px;">🔗 實用連結一覽</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:6px 30px; font-size:13px; line-height:2.4;">
+      <div>
+        <strong style="color:var(--deep); letter-spacing:1px;">❄ 雪況 / 天氣</strong><br>
+        <a href="https://snow-forecast.com/resorts/Gala-Yuzawa/6day/mid" style="color:var(--accent);">Snow-Forecast（雪況預報）</a><br>
+        <a href="https://tenki.jp/forecast/4/18/5420/15461/" style="color:var(--accent);">tenki.jp 湯澤町天氣</a><br>
+        <a href="https://www.yukiguni.com/" style="color:var(--accent);">湯澤町觀光協會（即時積雪）</a>
+      </div>
+      <div>
+        <strong style="color:var(--deep); letter-spacing:1px;">🎫 購票</strong><br>
+        <a href="https://www.eki-net.com/" style="color:var(--accent);">JR Ekinet（新幹線訂票）</a><br>
+        <a href="https://www.yuzawasnowlink.com/winter/zh/" style="color:var(--accent);">三山通用券（中文官網）</a><br>
+        <a href="https://gala.co.jp/winter/" style="color:var(--accent);">GALA 官網（含中文）</a>
+      </div>
+      <div>
+        <strong style="color:var(--deep); letter-spacing:1px;">🏯 住宿 / 在地</strong><br>
+        <a href="https://hatago-isen.jp/" style="color:var(--accent);">HATAGO 井仙 官網</a><br>
+        <a href="https://www.snow-country-tourism.jp/" style="color:var(--accent);">雪國觀光圈</a><br>
+        <a href="https://natasha-traveler.tw/yuzawa-ski/" style="color:var(--accent);">娜塔蝦越後湯澤攻略</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- KAWAGOE SECTION -->
+<section class="section" id="kawagoe">
+  <div class="gear-header" style="background: linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 100%);">
+    <div class="section-eyebrow">DAY TRIP EXTENSION — 小江戶川越</div>
+    <h2 class="section-title" style="color:white;">川越一日遊（省腳力版）</h2>
+    <p style="color:rgba(255,255,255,0.5); margin-top:14px; font-size:13px; max-width:720px; line-height:1.7;">
+      東京近郊「小江戶」，池袋/新宿出發約 30–45 分。<strong style="color:#d4a843;">善用巴士接駁、只走短距離</strong>，體力普通也能輕鬆玩。
+    </p>
+  </div>
+
+  <!-- Cartoon Map -->
+  <div style="margin: 30px 60px; background: #F3F7F0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 24px; border-radius:4px;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:4px;">🗺 相對位置地圖</h3>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">紅虛線＝搭巴士｜綠實線＝步行｜由北到南：冰川神社 → 老街 → 喜多院 → 車站</p>
+    <svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" style="max-width:680px; display:block; margin:0 auto;">
+      <defs>
+        <marker id="kwarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+      </defs>
+      <rect x="0" y="0" width="680" height="620" rx="8" fill="#F3F7F0"/>
+      <circle cx="90" cy="70" r="26" fill="#FDE9A8"/>
+      <g stroke="#F5CE5B" stroke-width="3" stroke-linecap="round">
+        <line x1="90" y1="30" x2="90" y2="42"/><line x1="90" y1="98" x2="90" y2="110"/>
+        <line x1="50" y1="70" x2="62" y2="70"/><line x1="118" y1="70" x2="130" y2="70"/>
+        <line x1="62" y1="42" x2="70" y2="50"/><line x1="110" y1="90" x2="118" y2="98"/>
+      </g>
+      <g opacity="0.5">
+        <path d="M540 60 q12 -18 24 0 q12 -16 22 2 q10 -2 4 12 h-56 q-8 -12 6 -14Z" fill="#DCEBF6"/>
+        <path d="M470 90 q10 -14 20 0 q10 -12 18 2 q8 -2 3 10 h-46 q-6 -10 5 -12Z" fill="#DCEBF6"/>
+      </g>
+      <path d="M150 540 Q145 400 175 330 Q205 260 200 190 Q198 140 235 108" fill="none" stroke="#E8734D" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round"/>
+      <path d="M235 108 Q290 92 300 150 Q308 205 300 255 Q292 320 330 360 Q368 398 360 452 Q356 500 250 530 Q195 545 165 548" fill="none" stroke="#5BB673" stroke-width="4" stroke-linecap="round"/>
+      <path d="M360 452 Q420 470 470 458" fill="none" stroke="#5BB673" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/>
+      <path d="M250 530 Q200 552 175 500" fill="none" stroke="#E8734D" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" marker-end="url(#kwarrow)"/>
+      <g transform="translate(235,108)">
+        <rect x="-52" y="-30" width="104" height="60" rx="12" fill="#F7D9E1" stroke="#D4537E" stroke-width="2"/>
+        <path d="M-30 -30 h60 v-10 h-60Z" fill="#D4537E"/>
+        <text x="0" y="-6" text-anchor="middle" font-size="15" font-weight="500" fill="#72243E" font-family="sans-serif">冰川神社</text>
+        <text x="0" y="14" text-anchor="middle" font-size="12" fill="#993556" font-family="sans-serif">釣鯛魚籤・結緣</text>
+        <text x="0" y="-44" text-anchor="middle" font-size="20">⛩️</text>
+      </g>
+      <g transform="translate(300,215)">
+        <rect x="-48" y="-26" width="96" height="52" rx="12" fill="#E7EFDB" stroke="#639922" stroke-width="2"/>
+        <text x="0" y="-3" text-anchor="middle" font-size="14" font-weight="500" fill="#27500A" font-family="sans-serif">本丸御殿</text>
+        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#3B6D11" font-family="sans-serif">江戶武家建築</text>
+      </g>
+      <g transform="translate(300,315)">
+        <rect x="-58" y="-32" width="116" height="64" rx="12" fill="#FBEBD3" stroke="#BA7517" stroke-width="2.5"/>
+        <text x="0" y="-38" text-anchor="middle" font-size="22">🔔</text>
+        <text x="0" y="-6" text-anchor="middle" font-size="15" font-weight="500" fill="#633806" font-family="sans-serif">時之鐘</text>
+        <text x="0" y="14" text-anchor="middle" font-size="12" fill="#854F0B" font-family="sans-serif">地標＋藏造老街</text>
+      </g>
+      <g transform="translate(432,352)">
+        <rect x="-44" y="-24" width="88" height="48" rx="12" fill="#F9E4D8" stroke="#D85A30" stroke-width="2"/>
+        <text x="0" y="-2" text-anchor="middle" font-size="13" font-weight="500" fill="#712B13" font-family="sans-serif">菓子屋橫丁</text>
+        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#993C1D" font-family="sans-serif">地瓜甜點</text>
+      </g>
+      <g transform="translate(360,452)">
+        <rect x="-46" y="-24" width="92" height="48" rx="12" fill="#F7D9E1" stroke="#D4537E" stroke-width="2"/>
+        <text x="0" y="-2" text-anchor="middle" font-size="13" font-weight="500" fill="#72243E" font-family="sans-serif">熊野神社</text>
+        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#993556" font-family="sans-serif">洗錢開運</text>
+      </g>
+      <g transform="translate(500,458)">
+        <rect x="-30" y="-26" width="60" height="52" rx="12" fill="#E7EFDB" stroke="#639922" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="0" y="-4" text-anchor="middle" font-size="13" font-weight="500" fill="#27500A" font-family="sans-serif">喜多院</text>
+        <text x="0" y="14" text-anchor="middle" font-size="11" fill="#3B6D11" font-family="sans-serif">較遠</text>
+      </g>
+      <g transform="translate(165,545)">
+        <rect x="-56" y="-30" width="112" height="60" rx="14" fill="#E6F1FB" stroke="#185FA5" stroke-width="2.5"/>
+        <text x="0" y="-40" text-anchor="middle" font-size="22">🚉</text>
+        <text x="0" y="-5" text-anchor="middle" font-size="15" font-weight="500" fill="#0C447C" font-family="sans-serif">本川越站</text>
+        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#185FA5" font-family="sans-serif">起點＋終點</text>
+      </g>
+      <g transform="translate(300,395)">
+        <rect x="-40" y="-16" width="80" height="32" rx="16" fill="#DDF0E2" stroke="#1D9E75" stroke-width="1.5"/>
+        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#0F6E56" font-family="sans-serif">☕ 星巴克</text>
+      </g>
+      <g transform="translate(500,140)">
+        <rect x="0" y="0" width="150" height="150" rx="12" fill="#FFFFFF" stroke="#D3D1C7" stroke-width="1"/>
+        <text x="14" y="26" font-size="13" font-weight="500" fill="#2C2C2A" font-family="sans-serif">路線說明</text>
+        <line x1="14" y1="46" x2="42" y2="46" stroke="#E8734D" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <text x="50" y="50" font-size="12" fill="#444441" font-family="sans-serif">搭巴士</text>
+        <line x1="14" y1="72" x2="42" y2="72" stroke="#5BB673" stroke-width="4" stroke-linecap="round"/>
+        <text x="50" y="76" font-size="12" fill="#444441" font-family="sans-serif">步行</text>
+        <text x="14" y="104" font-size="11" fill="#5F5E5A" font-family="sans-serif">① 巴士直衝冰川神社</text>
+        <text x="14" y="122" font-size="11" fill="#5F5E5A" font-family="sans-serif">② 一路往南散步逛</text>
+        <text x="14" y="140" font-size="11" fill="#5F5E5A" font-family="sans-serif">③ 尾段搭巴士回站</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Tickets -->
+  <div class="alert-card" style="margin-top:0;">
+    <span class="alert-icon">🎫</span>
+    <div>
+      <p class="alert-title">出發前買對票（省腳力關鍵）</p>
+      <p class="alert-text">
+        <strong>西武川越一日券 ¥1,010</strong>（東京↔本川越來回）＋ <strong>小江戶名勝巡遊巴士一日券 ¥500</strong>（當地無限搭）。⚠ 西武票不含當地巴士，兩張要分開買！<br>
+        若從池袋出發，可用 <strong>東武「川越周遊券升級版」¥1,200</strong>，一張搞定來回＋巴士（電子票免兌換）。舊版川越周遊券已於 2026/4/1 停賣。
+      </p>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #d4a843;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:16px;">⏰ 一日遊時間軸</h3>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        <thead>
+          <tr style="background:var(--deep); color:white;">
+            <th style="padding:9px 12px; text-align:left;">時間</th>
+            <th style="padding:9px 12px; text-align:left;">地點</th>
+            <th style="padding:9px 12px; text-align:left;">交通</th>
+            <th style="padding:9px 12px; text-align:left;">停留</th>
+          </tr>
+        </thead>
+        <tbody style="line-height:1.6;">
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:9px 12px;">09:00</td><td style="padding:9px 12px;">東京出發</td><td style="padding:9px 12px;">🚆 電車</td><td style="padding:9px 12px;">~45 分</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:9px 12px;">09:50</td><td style="padding:9px 12px;">本川越站，買巴士一日券</td><td style="padding:9px 12px;">—</td><td style="padding:9px 12px;">10 分</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:9px 12px;">10:20</td><td style="padding:9px 12px;"><strong>冰川神社</strong>：釣鯛魚籤、繪馬隧道</td><td style="padding:9px 12px; color:#c0392b;">🚌 巴士</td><td style="padding:9px 12px;">60 分</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:9px 12px;">11:20</td><td style="padding:9px 12px;">本丸御殿（順遊 ¥100）</td><td style="padding:9px 12px; color:#27ae60;">🚶 8 分</td><td style="padding:9px 12px;">30 分</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:9px 12px;">12:15</td><td style="padding:9px 12px;">🍱 <strong>午餐：小川菊鰻魚飯</strong>（先抽號碼牌）</td><td style="padding:9px 12px; color:#27ae60;">🚶 14 分</td><td style="padding:9px 12px;">60 分</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:9px 12px;">13:30</td><td style="padding:9px 12px;"><strong>時之鐘＋藏造老街</strong>漫步拍照</td><td style="padding:9px 12px; color:#27ae60;">🚶</td><td style="padding:9px 12px;">60 分</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:9px 12px;">14:30</td><td style="padding:9px 12px;"><strong>菓子屋橫丁</strong>：川越布丁、地瓜甜點</td><td style="padding:9px 12px; color:#27ae60;">🚶 5 分</td><td style="padding:9px 12px;">40 分</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:9px 12px;">15:15</td><td style="padding:9px 12px;">☕ <strong>特色星巴克</strong>下午茶（超好拍）</td><td style="padding:9px 12px; color:#27ae60;">🚶</td><td style="padding:9px 12px;">40 分</td></tr>
+          <tr style="border-bottom:1px solid #eef;"><td style="padding:9px 12px;">16:00</td><td style="padding:9px 12px;"><strong>喜多院</strong>：五百羅漢、江戶城遺構 ¥400</td><td style="padding:9px 12px; color:#c0392b;">🚌 巴士</td><td style="padding:9px 12px;">40 分</td></tr>
+          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:9px 12px;">17:15</td><td style="padding:9px 12px;">🛍 車站 CoCoLo 買伴手禮</td><td style="padding:9px 12px; color:#c0392b;">🚌 回站</td><td style="padding:9px 12px;">40 分</td></tr>
+          <tr><td style="padding:9px 12px;">18:00</td><td style="padding:9px 12px;">搭電車回東京</td><td style="padding:9px 12px;">🚆</td><td style="padding:9px 12px;">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:14px; font-size:12px; background:#fff8e8; border-left:3px solid var(--gold); padding:10px 14px; color:#7a5c00; line-height:1.7;">
+      💡 想更輕鬆：可跳過本丸御殿或喜多院其一，把腳力留給老街慢慢逛 ／ 鰻魚飯名店排隊誇張，進老街先抽號碼牌
+    </div>
+  </div>
+
+  <!-- Activities & Tickets -->
+  <div class="gear-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); padding-top:10px;">
+    <div class="gear-category">
+      <div class="gear-category-title" style="border-bottom-color:#D4537E;">⛩ 冰川神社（必去⭐）</div>
+      <p style="font-size:13px; color:var(--text); line-height:1.7; margin-bottom:10px;">1500 年結緣聖地，日本最大木造鳥居。參拜免費。</p>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-text">🐟 釣鯛魚御神籤 <strong>¥300</strong>（紅=平安、粉=戀愛）</span></li>
+        <li class="gear-item"><span class="gear-text">📜 人形流淨化儀式（付費）</span></li>
+        <li class="gear-item"><span class="gear-text">💎 結緣玉：每日早 8:00 限量 20 顆</span></li>
+        <li class="gear-item"><span class="gear-text">💮 繪馬隧道拍照（繪馬 ¥600）</span></li>
+      </ul>
+      <p style="font-size:11px; color:var(--muted); margin-top:8px;">🔥 Trip.com/Mimi 韓大推「釣籤超有趣」</p>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title" style="border-bottom-color:#BA7517;">🔔 時之鐘＋藏造老街</div>
+      <p style="font-size:13px; color:var(--text); line-height:1.7; margin-bottom:10px;">川越地標與核心老街，免費。和服拍照最佳點。</p>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-text">🕰 時之鐘：400 年地標，日敲鐘 4 次</span></li>
+        <li class="gear-item"><span class="gear-text">🏘 藏造老街：450m 江戶老屋</span></li>
+        <li class="gear-item"><span class="gear-text">👘 和服體驗 ¥3,000 起（建議預約）</span></li>
+      </ul>
+      <p style="font-size:11px; color:var(--muted); margin-top:8px;">⚠ 老街店家約下午 5 點打烊，早點來</p>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title" style="border-bottom-color:#639922;">🏯 喜多院（¥400）</div>
+      <p style="font-size:13px; color:var(--text); line-height:1.7; margin-bottom:10px;">日本現存唯一江戶城遺構，五百羅漢（538 尊）。</p>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-text">共通券 ¥400（客殿・本堂・五百羅漢）</span></li>
+        <li class="gear-item"><span class="gear-text">⏰ 付費區只到 16:30</span></li>
+        <li class="gear-item"><span class="gear-text">🚌 離老街遠，建議搭巴士</span></li>
+      </ul>
+      <p style="font-size:11px; color:var(--muted); margin-top:8px;">🔥 艸頭黃：「傳統江戶氛圍，不來太可惜」</p>
+    </div>
+
+    <div class="gear-category">
+      <div class="gear-category-title" style="border-bottom-color:#D4537E;">⛩ 熊野神社＋本丸御殿</div>
+      <ul class="gear-list">
+        <li class="gear-item"><span class="gear-text">熊野神社：免費，洗錢＋腳底按摩開運</span></li>
+        <li class="gear-item"><span class="gear-text">本丸御殿 ¥100：全日僅存兩座之一</span></li>
+      </ul>
+      <p style="font-size:11px; color:var(--muted); margin-top:8px;">🔥 波比：「熊野神社亮點有夠多，好喜歡」</p>
+    </div>
+  </div>
+
+  <!-- Food -->
+  <div style="margin: 20px 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #c0392b;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:16px;">🍽 沿線美食</h3>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:13px; line-height:1.7;">
+      <div>
+        <strong style="color:#c0392b;">🍱 鰻魚飯</strong><br>
+        <strong>小川菊</strong>（1807 百年老店）外酥內嫩｜<strong>林屋</strong>碳香濃郁<br>
+        <span style="color:var(--muted); font-size:11px;">🔥 Mimi 韓：「天堂級享受」名店排隊誇張</span>
+      </div>
+      <div>
+        <strong style="color:#d4a843;">🍠 甜點</strong><br>
+        <strong>川越布丁</strong>（IG 爆紅時之鐘造型）｜<strong>COEDO HACHI</strong> 蜜烤地瓜<br>
+        <span style="color:var(--muted); font-size:11px;">🔥 最熱銷 No.1 地瓜布丁</span>
+      </div>
+      <div>
+        <strong style="color:#27ae60;">☕ 咖啡</strong><br>
+        <strong>星巴克 鐘つき通り店</strong><br>
+        <span style="color:var(--muted); font-size:11px;">全球最值得造訪 20 店之一</span>
+      </div>
+      <div>
+        <strong style="color:#8e6c3a;">🛍 伴手禮</strong><br>
+        <strong>龜屋</strong> 龜造型和菓子｜十一肉屋 和牛炸肉餅 ¥250<br>
+        <span style="color:var(--muted); font-size:11px;">⚠ おさつ庵地瓜片網紅推爆但踩雷</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 0 60px 40px; font-size:11px; color:var(--muted); line-height:1.8;">
+    📚 資料來源：Mimi 韓の旅遊指南、波比看世界、完美行 WAmazing、樂吃購！日本、Klook、皮皮啾、艸頭黃這一家、Flyday.hk 等部落客實走整理。門票票價班次可能異動，出發前請查官網。
+  </div>
+
+</section>
+
+<footer class="page-footer">
+  Japan Ski Trip 2025–2026 ／ 持續更新中
+</footer>
+
+<script>
+  // Generate snowflakes
+  const heroBg = document.getElementById('heroBg');
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement('div');
+    s.className = 'snowflake';
+    const size = Math.random() * 4 + 2;
+    s.style.cssText = `
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 100}%;
+      width: ${size}px;
+      height: ${size}px;
+      animation-duration: ${Math.random() * 8 + 6}s;
+      animation-delay: ${Math.random() * 8}s;
+      opacity: ${Math.random() * 0.6 + 0.2};
+    `;
+    heroBg.appendChild(s);
+  }
+
+  // Tab switching
+  function showSection(id, tab) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    tab.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.nav-tabs').offsetTop, behavior: 'smooth' });
+  }
+
+  // Budget calculator
+  function calcBudget() {
+    const v = id => parseFloat(document.getElementById(id).value) || 0;
+    const rate = v('b-rate');
+    const jpyTotal = v('b-train') + v('b-lift') * v('b-skidays') + v('b-rental') * v('b-skidays') + v('b-food') * v('b-days') + v('b-shopping');
+    const twdFromJpy = jpyTotal * rate;
+    const twdTotal = v('b-flight') + v('b-hotel') + twdFromJpy;
+    const el = document.getElementById('budget-result');
+    el.innerHTML = `
+      <div>
+        <div style="font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.5); margin-bottom:6px;">台幣支出（機票+住宿）</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#9bc4e0;">NT$ ${(v('b-flight')+v('b-hotel')).toLocaleString()}</div>
+      </div>
+      <div>
+        <div style="font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.5); margin-bottom:6px;">日圓支出（當地花費）</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#d4a843;">¥ ${jpyTotal.toLocaleString()}</div>
+        <div style="font-size:11px; color:rgba(255,255,255,0.4);">≈ NT$ ${Math.round(twdFromJpy).toLocaleString()}</div>
+      </div>
+      <div style="border-left:1px solid rgba(255,255,255,0.15); padding-left:20px;">
+        <div style="font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.5); margin-bottom:6px;">💰 每人預估總額</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:40px; color:#7de3a0;">NT$ ${Math.round(twdTotal).toLocaleString()}</div>
+        <div style="font-size:11px; color:rgba(255,255,255,0.4);">平均每天 NT$ ${Math.round(twdTotal / (v('b-days')||1)).toLocaleString()}</div>
+      </div>`;
+  }
+  document.addEventListener('DOMContentLoaded', calcBudget);
+  calcBudget();
+
+  // Gear checklist
+  function toggleCheck(el) {
+    const item = el.closest('.gear-item');
+    el.classList.toggle('checked');
+    item.classList.toggle('checked-item');
+    el.textContent = el.classList.contains('checked') ? '✓' : '';
+  }
+</script>
+</body>
+</html>
