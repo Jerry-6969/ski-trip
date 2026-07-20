@@ -494,7 +494,46 @@
     line-height: 1.6;
   }
   .transport-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
-  .resto-card { display: flex; flex-direction: column; }
+  .resto-card { display: flex; flex-direction: column; position: relative; }
+  .coach-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 1000px; }
+  .coach-table thead th {
+    background: var(--deep); color: white; padding: 12px 14px; text-align: left;
+    letter-spacing: 1px; font-weight: 500; white-space: nowrap;
+  }
+  .coach-table tbody td { padding: 12px 14px; border-bottom: 1px solid #eef3f8; line-height: 1.8; vertical-align: top; }
+  .coach-table tbody tr:nth-child(even) { background: #f8fbff; }
+  .coach-table tbody tr:hover { background: #f0f7fd; }
+  .coach-table td[contenteditable]:focus { outline: 2px solid var(--accent); outline-offset: -2px; background: #fffbe8 !important; }
+  .coach-table .school-name { font-weight: 700; color: var(--deep); }
+  .coach-table .price-main { font-weight: 700; color: #1a7a3d; font-size: 14px; }
+  .coach-table .price-bird { color: #c0392b; font-weight: 500; font-size: 12px; }
+  .coach-table td a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .coach-table td a:hover { text-decoration: underline; }
+  .cbadge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.5px; font-weight: 500; white-space: nowrap; }
+  .cbadge-ok { background: #d5f5e0; color: #1a7a3d; }
+  .cbadge-warn { background: #fdf0d5; color: #9a6b00; }
+  .cbadge-ask { background: #e8e0f5; color: #5a3a8a; }
+  .friend-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background: linear-gradient(135deg, #ff9500, #ff6200);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 5px 11px 5px 9px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(255,110,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .friend-badge .star { font-size: 12px; }
+  .resto-card.is-friend { box-shadow: 0 0 0 2px #ff9500, 0 2px 12px rgba(0,0,0,0.06); }
+  .resto-card.is-friend:hover { box-shadow: 0 0 0 2px #ff9500, 0 12px 30px rgba(0,0,0,0.14); }
   .resto-img { width: 100%; height: 180px; object-fit: cover; display: block; }
   .resto-detail-grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
   .resto-rec { background: #f0f9f0; border-left: 3px solid #27ae60; padding: 8px 12px; margin-top: 6px; font-size: 12px; line-height: 1.6; }
@@ -771,6 +810,7 @@
   <div class="nav-tab active" onclick="showSection('itinerary', this)">📅 每日行程</div>
   <div class="nav-tab" onclick="showSection('restaurant', this)">🍜 餐廳清單</div>
   <div class="nav-tab" onclick="showSection('resorts', this)">🚡 雪場交通</div>
+  <div class="nav-tab" onclick="showSection('coach', this)">🏂 教練比價</div>
   <div class="nav-tab" onclick="showSection('gear', this)">🎿 裝備清單</div>
   <div class="nav-tab" onclick="showSection('budget', this)">💰 預算＆實用</div>
   <div class="nav-tab" onclick="showSection('kawagoe', this)">🏯 川越延伸</div>
@@ -1188,8 +1228,9 @@
     </div>
 
     <!-- 2. 人参亭 -->
-    <div class="resto-card">
+    <div class="resto-card is-friend">
       <div class="resto-visual" style="background:linear-gradient(135deg, #c0392b, #922b21);"><span class="rv-emoji">🥩</span><span class="rv-label">炸豬排</span></div>
+      <div class="friend-badge"><span class="star">⭐</span>朋友推薦</div>
       <div class="resto-top">
         <span class="resto-name">越後とんかつ 人参亭</span>
         <span class="resto-tag tag-bbq">豬排</span>
@@ -1270,8 +1311,9 @@
     </div>
 
     <!-- 5. そば処 中野屋 -->
-    <div class="resto-card">
+    <div class="resto-card is-friend">
       <div class="resto-visual" style="background:linear-gradient(135deg, #2d5a3d, #1e3d29);"><span class="rv-emoji">🍜</span><span class="rv-label">蕎麥麵</span></div>
+      <div class="friend-badge"><span class="star">⭐</span>朋友推薦</div>
       <div class="resto-top">
         <span class="resto-name">そば処 中野屋 湯沢本店</span>
         <span class="resto-tag tag-ramen">蕎麥麵</span>
@@ -1351,8 +1393,9 @@
     </div>
 
     <!-- 7.5 泰幸宴 燒肉 (朋友推薦) -->
-    <div class="resto-card">
+    <div class="resto-card is-friend">
       <div class="resto-visual" style="background:linear-gradient(135deg, #a83232, #6e1f1f);"><span class="rv-emoji">🥩</span><span class="rv-label">燒肉</span></div>
+      <div class="friend-badge"><span class="star">⭐</span>朋友推薦</div>
       <div class="resto-top">
         <span class="resto-name">泰幸宴（Taikōen）</span>
         <span class="resto-tag tag-bbq">燒肉</span>
@@ -1541,8 +1584,9 @@
       <span class="cat-count">4 家｜跨年夜續攤好去處</span>
     </div>
 
-    <div class="resto-card">
+    <div class="resto-card is-friend">
       <div class="resto-visual" style="background:linear-gradient(135deg, #1a3a52, #0d2438);"><span class="rv-emoji">🍶</span><span class="rv-label">清酒試飲</span></div>
+      <div class="friend-badge"><span class="star">⭐</span>朋友推薦</div>
       <div class="resto-top">
         <span class="resto-name">唎酒番所（Ponshu 館）</span>
         <span class="resto-tag tag-izakaya" style="background:#8e44ad;">清酒體驗</span>
@@ -1946,6 +1990,113 @@
       </div>
     </div>
     <p style="margin-top:14px; font-size:12px; color:var(--muted);">💡 若三天都想跨雪場玩，直接買三山通用券 3 日券最划算</p>
+  </div>
+
+</section>
+
+<!-- COACH SECTION -->
+<section class="section" id="coach">
+  <div class="gear-header" style="background: linear-gradient(135deg, #1a2a4a 0%, #3a2a5a 100%);">
+    <div class="section-eyebrow">SNOWBOARD LESSONS — 中文教練</div>
+    <h2 class="section-title" style="color:white;">滑雪教練比價表</h2>
+    <p style="color:rgba(255,255,255,0.5); margin-top:14px; font-size:13px; max-width:720px; line-height:1.7;">
+      單板 Snowboard｜<strong style="color:#d4a843;">1 對 2 私人課・全天班</strong>｜上課日 12/31–1/1｜匯率 1 JPY ≈ 0.21 TWD｜查核日 2026/7
+    </p>
+  </div>
+
+  <div class="alert-card" style="margin-top:24px;">
+    <span class="alert-icon">⏰</span>
+    <div>
+      <p class="alert-title">早鳥期限倒數中！</p>
+      <p class="alert-text"><strong>雪長姐超早鳥 2026/7/31 截止</strong>（全天省 NT$2,000）／ 瘋雪早鳥至 8/31 ／ 雪遊早鳥至 9/30。跨年檔期教練比機票更早滿，確定要上課建議立刻預約！</p>
+    </div>
+  </div>
+
+  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;">
+    <table class="coach-table">
+      <thead>
+        <tr>
+          <th>滑雪學校</th>
+          <th>1對2 全天總價</th>
+          <th>上課時數（確切）</th>
+          <th>雪季版本</th>
+          <th>FB / IG</th>
+          <th>LINE / 預約</th>
+          <th>取消政策</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="school-name">Snowpink</td>
+          <td><span class="price-main">NT$11,455–17,380</span><br><span class="price-bird">超早鳥旺季優惠（2人價下單頁確認）</span></td>
+          <td>6 小時（含午休 1hr＝教學 5hr）<br>09:30 起（可彈性至 10:30）～最晚 16:30</td>
+          <td><span class="cbadge cbadge-ask">官網未標雪季，需確認</span></td>
+          <td><a href="https://www.instagram.com/snowpink.jp/" target="_blank">IG @snowpink.jp</a></td>
+          <td><a href="https://www.snowpink.com.tw/class" target="_blank">官網預約</a></td>
+          <td>官網 / LINE 詢問</td>
+        </tr>
+        <tr>
+          <td class="school-name">雪國教練<br>Snow Country</td>
+          <td><span class="price-main">¥62,000（NT$13,020）</span><br><span class="price-bird">※此為湯澤區外價，區內待確認</span></td>
+          <td>9:00–16:00 共 7 小時<br>＝教學 6hr＋午休 1hr</td>
+          <td><span class="cbadge cbadge-ok">2026-27 ✓</span></td>
+          <td>官網為主（無明顯 FB/IG）</td>
+          <td><a href="https://www.snowcountry-instructors.com/chn/contactus/" target="_blank">官網聯繫</a></td>
+          <td>官網 / 聯繫詢問</td>
+        </tr>
+        <tr>
+          <td class="school-name">雪遊 SnowGame</td>
+          <td><span class="price-main">¥85,000（NT$17,850）</span><br><span class="price-bird">早鳥＋一般時段雙9折 ¥68,850（NT$14,460），早鳥至 2026/9/30</span></td>
+          <td>官網未明載，預約時確認</td>
+          <td><span class="cbadge cbadge-ok">2026-27 ✓ 官方海報</span></td>
+          <td><a href="https://www.instagram.com/snowgame_school/" target="_blank">IG @snowgame_school</a></td>
+          <td><a href="https://booking.snowgame.school" target="_blank">線上預約</a></td>
+          <td>LINE 詢問</td>
+        </tr>
+        <tr>
+          <td class="school-name">雪長姐 SnowSenpai</td>
+          <td><span class="price-main">NT$17,000</span>（1–3人同價）<br><span class="price-bird">26/27 超早鳥 NT$15,000（2026/7/31 前）</span></td>
+          <td>09:00–16:00 共 7 小時<br>＝教學 6hr＋休息 1hr</td>
+          <td><span class="cbadge cbadge-ok">2026-27 ✓ IG 已開賣</span></td>
+          <td><a href="https://www.instagram.com/snowsenpai.tw/" target="_blank">IG @snowsenpai.tw</a>・<a href="https://www.facebook.com/snowsenpaitw/" target="_blank">FB</a></td>
+          <td><a href="https://linktr.ee/snowsenpai_tw" target="_blank">Linktree 預約</a></td>
+          <td>官網 / LINE 詢問</td>
+        </tr>
+        <tr>
+          <td class="school-name">瘋雪 Crazy Snow</td>
+          <td><span class="price-main">¥77,000（NT$15,000）</span><br><span class="price-bird">早鳥優惠至 2026/8/31，詳官網</span></td>
+          <td>全天 6 小時（含午休 1hr＝教學 5hr）</td>
+          <td><span class="cbadge cbadge-ok">2026-27 ✓</span></td>
+          <td><a href="https://www.facebook.com/crrrrrrrazyforsnow/" target="_blank">FB</a>・<a href="https://www.instagram.com/crrrrrrrazyforsnow/" target="_blank">IG</a></td>
+          <td><a href="https://lin.ee/Y9h4130" target="_blank">官方 LINE</a></td>
+          <td>官網 / LINE 詢問</td>
+        </tr>
+        <tr>
+          <td class="school-name">DTC Snow</td>
+          <td><span class="price-main">NT$16,000</span><br><span class="price-bird">（1對1 $15,000／1對3 $17,000／1對4 $18,000）</span></td>
+          <td>全日教學 <strong>5 小時（不含休息）</strong></td>
+          <td><span class="cbadge cbadge-ask">官方文宣（雪季未標，建議確認）</span></td>
+          <td>官網為主</td>
+          <td><a href="https://dream-traveler.webflow.io/diving-copy" target="_blank">官網預約</a></td>
+          <td>官網詢問｜指定雪場/移地須額外收費</td>
+        </tr>
+        <tr>
+          <td class="school-name">CJ 教練<br>（雪板地圖）</td>
+          <td><span class="price-main">NT$19,700</span><br><span class="price-bird">（1對1 $18,500＋第2人 $1,200）</span></td>
+          <td>09:00–16:00 共 7 小時<br>＝教學 6hr＋午休 1hr</td>
+          <td><span class="cbadge cbadge-warn">25-26 參考價</span></td>
+          <td>雪板地圖平台</td>
+          <td><a href="https://snowboardmap.com/product/snowboard-lesson-6hr-cj-yuzawa/" target="_blank">平台預約</a></td>
+          <td>開課 30 天前可改期；30 天內取消須重新預約；天災雪場關閉可全額退（扣手續費）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin: 0 60px 40px; padding: 20px 26px; background: #fff8e8; border-left: 4px solid var(--gold); font-size: 12px; line-height: 2; color: #7a5c00;">
+    <strong>⚠ 共通事項</strong>：費用不含雪票、雪具、保險｜台幣以 1 JPY ≈ 0.21 估算，依付款日匯率為準<br>
+    <strong>💡 驗證狀態</strong>：雪遊（官方 26-27 海報）、雪國教練（官網 2026/7 更新）、瘋雪（26-27 早鳥至 8/31）、雪長姐（IG 公告 26/27 超早鳥）已確認 26-27；Snowpink、CJ 建議 LINE 確認最新價<br>
+    <strong>📚 資料來源</strong>：各校官網價目頁＋官方 IG/FB 公告＋雪板地圖平台
   </div>
 
 </section>
