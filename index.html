@@ -752,6 +752,60 @@
   .day-card:nth-child(5) { animation-delay: 0.25s; }
   .day-card:nth-child(6) { animation-delay: 0.3s; }
   .day-card:nth-child(7) { animation-delay: 0.35s; }
+
+  /* ── SCHEDULE OVERVIEW TABLE ── */
+  .sched-title {
+    padding: 34px 60px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .sched-title h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: var(--deep);
+    white-space: nowrap;
+  }
+  .sched-title .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
+  .sched-wrap {
+    margin: 16px 60px 10px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+  .sched-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 960px; }
+  .sched-table th, .sched-table td { border: 1px solid #e6eef6; padding: 9px 11px; vertical-align: top; line-height: 1.55; }
+  .sched-table thead th {
+    background: var(--deep); color: #fff; text-align: center; font-weight: 500;
+    letter-spacing: 1px; white-space: nowrap;
+  }
+  .sched-table thead th small { display: block; font-size: 10px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 3px; letter-spacing: 0; }
+  .sched-table thead .corner { background: #0d1b26; font-size: 11px; }
+  .sched-table .time-col {
+    background: #eef5fc; font-weight: 700; color: var(--deep);
+    text-align: center; white-space: nowrap; font-size: 11px; letter-spacing: 0.5px;
+  }
+  .sched-table tbody td { color: #33475b; }
+  .sched-table tbody tr:hover td:not(.time-col) { filter: brightness(0.985); }
+  .sched-table td b { color: var(--deep); font-weight: 700; }
+  .sc-ski   { background: #eaf4ff; }
+  .sc-night { background: #ecebfa; }
+  .sc-fly   { background: #fff4e6; }
+  .sc-hotel { background: #fef7ea; }
+  .sc-tbc   { color: #93a0ad; }
+  .sched-legend {
+    margin: 0 60px 34px; display: flex; flex-wrap: wrap; gap: 16px;
+    font-size: 11px; color: var(--muted); padding-top: 12px;
+  }
+  .sched-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .sched-legend i { width: 13px; height: 13px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,0.05); }
+  @media (max-width: 768px) {
+    .sched-title { padding: 24px 20px 0; }
+    .sched-wrap { margin: 12px 20px 10px; }
+    .sched-legend { margin: 0 20px 24px; }
+  }
 </style>
 </head>
 <body>
@@ -877,6 +931,97 @@
 
       </div>
     </div>
+  </div>
+
+  <!-- Schedule Overview Table -->
+  <div class="sched-title">
+    <h3>🗓 行程總表</h3>
+    <div class="line"></div>
+  </div>
+  <div class="sched-wrap">
+    <table class="sched-table">
+      <thead>
+        <tr>
+          <th class="corner">時間 ＼ 日期</th>
+          <th>12/30<small>三・出發</small></th>
+          <th>12/31<small>四・跨年</small></th>
+          <th>1/1<small>五・元旦</small></th>
+          <th>1/2<small>六</small></th>
+          <th>1/3<small>日・分組</small></th>
+          <th>1/4<small>一・組C回台</small></th>
+          <th>1/5<small>二・組A/B回程</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="time-col">07:00<br>–09:00</td>
+          <td class="sc-fly">✈ 組A BR192 07:15 松山起飛<br>組B·C JX800 08:25 桃園起飛</td>
+          <td class="sc-hotel">🏨 飯店早餐・整裝</td>
+          <td class="sc-hotel">🏨 飯店早餐</td>
+          <td class="sc-hotel">🏨 飯店早餐</td>
+          <td class="sc-hotel">🏨 早餐<br>組C退房寄行李・組A續住</td>
+          <td>組C 東京飯店退房<br>組A 早餐</td>
+          <td class="sc-hotel">🏨 HATAGO 退房・整理行李</td>
+        </tr>
+        <tr>
+          <td class="time-col">09:00<br>–12:00</td>
+          <td class="sc-fly">✈ 飛行中<br>組A 11:00 抵羽田 T3</td>
+          <td class="sc-ski">⛷ 步行至越後湯澤雪場<br>上午滑雪（全員）</td>
+          <td class="sc-ski">⛷ 雪場開放即上場<br>上午滑雪（全員）</td>
+          <td class="sc-ski">⛷ 上午滑雪<br>（最後滑雪日）</td>
+          <td>🚆 一日遊出發<br><span class="sc-tbc">景點待定</span></td>
+          <td>組C 前往成田機場<br>組A 滑雪 or 觀光 <span class="sc-tbc">TBC</span></td>
+          <td>前往機場</td>
+        </tr>
+        <tr>
+          <td class="time-col">12:00<br>–13:00</td>
+          <td class="sc-fly">組C 12:35 抵成田 T2<br>午餐後移動</td>
+          <td class="sc-ski">🍜 雪場午餐</td>
+          <td class="sc-ski">🍜 雪場午餐</td>
+          <td class="sc-ski">🍜 雪場午餐</td>
+          <td>🍜 一日遊午餐</td>
+          <td class="sc-fly">組C 成田機場報到<br>組A 午餐</td>
+          <td>🛍 機場・免稅店採購</td>
+        </tr>
+        <tr>
+          <td class="time-col">13:00<br>–17:00</td>
+          <td>🚄 搭上越新幹線進越後湯澤<br>羽田→約2hr／成田→約2.5–3hr</td>
+          <td class="sc-ski">⛷ 下午滑雪<br><b>雪場 17:00 關閉</b></td>
+          <td class="sc-ski">⛷ 下午滑雪<br><b>雪場 17:00 關閉</b></td>
+          <td class="sc-ski">⛷ 下午滑雪<br>裝備歸還・市區逛逛</td>
+          <td>🚆 一日遊行程<br><span class="sc-tbc">TBC</span></td>
+          <td class="sc-fly">✈ 組C JX801 13:45→16:50 抵桃園<br>組A 續玩 <span class="sc-tbc">TBC</span></td>
+          <td class="sc-fly">✈ 搭機返台<br><span class="sc-tbc">班機待補</span></td>
+        </tr>
+        <tr>
+          <td class="time-col">17:00<br>–19:00</td>
+          <td class="sc-hotel">🏨 越後湯澤會合<br>HATAGO 井仙 Check in・溫泉</td>
+          <td class="sc-night">🌙 <b>夜滑</b>（17:00 後）</td>
+          <td class="sc-night">🌙 <b>夜滑</b>（17:00 後）</td>
+          <td>♨ 回飯店・溫泉</td>
+          <td>分頭住宿：<br>組C→東京／組A→續住 HATAGO</td>
+          <td>組A 傍晚回 HATAGO 井仙</td>
+          <td class="sc-tbc">（返程中）</td>
+        </tr>
+        <tr>
+          <td class="time-col">19:00<br>以後</td>
+          <td>🍽 飯店附近輕鬆吃・溫泉放鬆</td>
+          <td class="sc-night">🎆 跨年晚宴・倒數・神社初詣</td>
+          <td>🍽 元旦晚餐・溫泉恢復</td>
+          <td>🍽 HATAGO 最後一晚・整理行李</td>
+          <td>各自晚餐（組A HATAGO）</td>
+          <td>組A 晚餐（HATAGO）</td>
+          <td>🏠 到家</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sched-legend">
+    <span><i style="background:#eaf4ff;"></i>滑雪</span>
+    <span><i style="background:#ecebfa;"></i>夜滑</span>
+    <span><i style="background:#fff4e6;"></i>飛行／交通</span>
+    <span><i style="background:#fef7ea;"></i>住宿・進出</span>
+    <span><i style="background:#f0f0f2;"></i>灰字＝待定 TBC</span>
   </div>
 
   <div class="days-grid">
