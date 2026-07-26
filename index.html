@@ -806,6 +806,45 @@
     .sched-wrap { margin: 12px 20px 10px; }
     .sched-legend { margin: 0 20px 24px; }
   }
+
+  /* ── RESORT DECISION TABLE ── */
+  .rs-wrap {
+    margin: 0 60px 14px; background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;
+  }
+  .rs-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 1180px; }
+  .rs-table thead th {
+    background: var(--deep); color: #fff; padding: 11px 12px; text-align: left;
+    font-weight: 500; letter-spacing: 1px; white-space: nowrap;
+  }
+  .rs-table tbody td { padding: 11px 12px; border-bottom: 1px solid #eef3f8; line-height: 1.65; vertical-align: top; }
+  .rs-table tbody tr:nth-child(even) { background: #f8fbff; }
+  .rs-table tbody tr:hover { background: #f0f7fd; }
+  .rs-table .rs-name { font-weight: 700; color: var(--deep); white-space: nowrap; }
+  .rs-table .rs-name small {
+    display: block; font-weight: 400; color: var(--muted);
+    font-size: 10.5px; letter-spacing: 0.5px; margin-top: 2px;
+  }
+  .rs-price { font-weight: 700; color: #1a7a3d; font-size: 13.5px; white-space: nowrap; }
+  .rs-sub { color: #c0392b; font-size: 11px; }
+  .rs-yes { color: #1a7a3d; font-weight: 600; }
+  .rs-no { color: #aab4bf; }
+  .rs-warn { color: #9a6b00; font-weight: 600; }
+  .rs-pick { box-shadow: inset 4px 0 0 #27ae60; }
+  .rs-excluded { opacity: 0.5; }
+
+  /* night-ski matrix */
+  .nm-wrap { margin: 0 60px 14px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto; }
+  .nm-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 700px; }
+  .nm-table th, .nm-table td { border: 1px solid #e6eef6; padding: 9px 11px; text-align: center; line-height: 1.5; }
+  .nm-table thead th { background: var(--deep); color: #fff; font-weight: 500; white-space: nowrap; }
+  .nm-table thead th small { display: block; font-size: 10px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 2px; }
+  .nm-table tbody td:first-child {
+    background: #eef5fc; font-weight: 700; color: var(--deep); text-align: left; white-space: nowrap;
+  }
+  @media (max-width: 768px) {
+    .rs-wrap, .nm-wrap { margin: 0 20px 14px; }
+  }
 </style>
 </head>
 <body>
@@ -942,8 +981,8 @@
           <th>1/1<small>五・元旦</small></th>
           <th>1/2<small>六</small></th>
           <th>1/3<small>日・分組</small></th>
-          <th>1/4<small>一・組C回台</small></th>
-          <th>1/5<small>二・組A/B回程</small></th>
+          <th>1/4<small>一・滑雪＋組C回台</small></th>
+          <th>1/5<small>二・東京→回台</small></th>
         </tr>
       </thead>
       <tbody>
@@ -954,7 +993,7 @@
           <td class="sc-hotel">🏨 飯店早餐</td>
           <td class="sc-hotel">🏨 飯店早餐</td>
           <td class="sc-hotel">🏨 早餐<br>組B 天際退房<br>組C HATAGO 退房・撤退<br>組A 續住</td>
-          <td>組A 早餐<br>組C 前往成田機場</td>
+          <td class="sc-hotel">🏨 早餐・整裝<br>組C 前往成田機場</td>
           <td class="sc-hotel">🏨 HATAGO 退房・整理行李</td>
         </tr>
         <tr>
@@ -962,10 +1001,10 @@
           <td class="sc-fly">✈ 飛行中<br>組A 11:00 抵羽田 T3</td>
           <td class="sc-ski">⛷ 上午滑雪<br>組A 雪場待確認<br>Phoebe 教練課 10:00–12:00<br>組B·C 岩原雪場（教練課）</td>
           <td class="sc-ski">⛷ 上午滑雪<br>組A 雪場待確認<br>組B·C 岩原雪場（教練課）</td>
-          <td class="sc-ski">⛷ 上午滑雪<br>（最後滑雪日）</td>
+          <td class="sc-ski">⛷ 上午滑雪<br>（越後湯澤最後一場）</td>
           <td>🚆 一日遊出發<br><span class="sc-tbc">景點待定</span></td>
-          <td>組C → 成田機場（1/4 回台）<br>組A 滑雪 or 觀光 <span class="sc-tbc">TBC</span></td>
-          <td>前往機場</td>
+          <td class="sc-ski">⛷ <b>滑雪 Day 4</b><br>組A ＋ 組B（Jing/Lisa）<br><span class="sc-tbc">雪場待定，建議岩原</span></td>
+          <td>🚄 越後湯澤 → 東京<br>東京逛街購物</td>
         </tr>
         <tr>
           <td class="time-col">12:00<br>–13:00</td>
@@ -974,8 +1013,8 @@
           <td class="sc-ski">🍜 午餐<br>Phoebe 教練課 12:00 開始</td>
           <td class="sc-ski">🍜 雪場午餐</td>
           <td>🍜 一日遊午餐</td>
-          <td class="sc-fly">組C 成田機場報到<br>組A 午餐</td>
-          <td>🛍 機場・免稅店採購</td>
+          <td class="sc-ski">🍜 雪場午餐<br>組C 成田機場報到</td>
+          <td>🛍 東京逛街購物</td>
         </tr>
         <tr>
           <td class="time-col">13:00<br>–17:00</td>
@@ -984,8 +1023,8 @@
           <td class="sc-ski">⛷ 下午滑雪<br>Phoebe 教練課 ～16:00<br><b>雪場 17:00 關閉</b></td>
           <td class="sc-ski">⛷ 下午滑雪<br>裝備歸還・市區逛逛</td>
           <td>🚆 一日遊行程<br><span class="sc-tbc">TBC</span></td>
-          <td class="sc-fly">✈ 組C JX801 13:45→16:50 抵桃園<br>組A 續玩 <span class="sc-tbc">TBC</span></td>
-          <td class="sc-fly">✈ 搭機返台<br><span class="sc-tbc">班機待補</span></td>
+          <td class="sc-ski">⛷ 下午滑雪（組A＋組B）<br><span class="sc-fly-x" style="color:#8a6a2a;">✈ 組C JX801 13:45→16:50 抵桃園</span></td>
+          <td>🛍 東京逛街 → 前往機場<br><span class="sc-tbc">依班機時間調整</span></td>
         </tr>
         <tr>
           <td class="time-col">17:00<br>–19:00</td>
@@ -994,8 +1033,8 @@
           <td class="sc-night">🌙 <b>夜滑</b>（17:00 後）</td>
           <td>♨ 回飯店・溫泉</td>
           <td>組A 續住 HATAGO<br>組C 撤退（1/4 回台）<br>組B 退房後行程待定</td>
-          <td>組A 傍晚回 HATAGO 井仙</td>
-          <td class="sc-tbc">（返程中）</td>
+          <td class="sc-night">🌙 夜滑？<span class="sc-tbc">（週一僅岩原確定有）</span><br>組A 傍晚回 HATAGO</td>
+          <td class="sc-fly">✈ 機場免稅店採購・搭機返台<br><span class="sc-tbc">班機待購票</span></td>
         </tr>
         <tr>
           <td class="time-col">19:00<br>以後</td>
@@ -1004,7 +1043,7 @@
           <td>🍽 元旦晚餐・溫泉恢復</td>
           <td>🍽 HATAGO 最後一晚・整理行李</td>
           <td>晚餐（組A HATAGO）</td>
-          <td>組A 晚餐（HATAGO）</td>
+          <td>🍽 晚餐（組A＋組B）<br>組A 住 HATAGO 最後一晚</td>
           <td>🏠 到家</td>
         </tr>
       </tbody>
@@ -1065,17 +1104,17 @@
         </div>
         <div class="time-block">
           <h4>早上</h4>
-          <p>HATAGO 井仙早餐<br>步行至越後湯澤雪場<br>租借裝備（如需）</p>
+          <p>飯店早餐・租借裝備<br><strong>Phoebe 教練課 10:00–12:00</strong><br>組 B・C 岩原教練課</p>
         </div>
         <div class="time-block">
           <h4>下午</h4>
-          <p>自由滑雪<br>雪場午餐<br>傍晚回飯店梳洗</p>
+          <p>雪場午餐（午休 1hr）<br><strong>Phoebe 教練課 13:00–15:00</strong><br>日間場 17:00 關閉</p>
         </div>
         <div class="time-block">
           <h4>晚上</h4>
-          <p>跨年特別晚宴🥂<br>倒數活動 + 神社初詣<br>溫泉泡湯迎新年♨️</p>
+          <p>🌙 夜滑（17:00 後）<br>跨年特別晚宴🥂<br>倒數 + 神社初詣・溫泉♨️</p>
         </div>
-        <div class="day-note">🕛 跨年夜 → 餐廳需提早訂位！日本元旦許多店家公休，建議當日活動先查好</div>
+        <div class="day-note">🕛 跨年夜 → 餐廳需提早訂位！日本元旦許多店家公休，建議當日活動先查好<br>⛷ Phoebe 上課 10:00–12:00 ／ 13:00–15:00 ／ 組 B・C 於岩原上課 ／ 組 A 雪場待定</div>
       </div>
     </div>
 
@@ -1095,16 +1134,17 @@
         </div>
         <div class="time-block">
           <h4>早上</h4>
-          <p>飯店早餐<br>雪場開放即上場</p>
+          <p>飯店早餐<br>雪場開放即上場<br>組 B・C 岩原教練課</p>
         </div>
         <div class="time-block">
           <h4>下午</h4>
-          <p>自由滑雪<br>挑戰進階雪道</p>
+          <p><strong>Phoebe 教練課 12:00–16:00</strong><br>自由滑雪<br>日間場 17:00 關閉</p>
         </div>
         <div class="time-block">
           <h4>晚上</h4>
-          <p>溫泉泡湯恢復♨️<br>元旦慶祝晚餐🥳</p>
+          <p>🌙 夜滑（17:00 後）<br>溫泉泡湯恢復♨️<br>元旦慶祝晚餐🥳</p>
         </div>
+        <div class="day-note">⛷ 全員滑雪日 ／ Phoebe 上課 12:00–16:00 ／ 組 B・C 於岩原雪場上課 ／ 組 A 雪場待定</div>
       </div>
     </div>
 
@@ -1118,7 +1158,7 @@
       </div>
       <div class="day-body">
         <div class="day-theme">
-          滑雪 Day 3 — 最後滑雪日（HATAGO）
+          滑雪 Day 3 — 越後湯澤最後一場
           <span class="theme-badge">滑雪日</span>
         </div>
         <div class="time-block">
@@ -1127,13 +1167,13 @@
         </div>
         <div class="time-block">
           <h4>下午</h4>
-          <p>裝備整理 / 歸還<br>越後湯澤市區逛逛</p>
+          <p>日間場約 17:00 收<br>越後湯澤市區逛逛</p>
         </div>
         <div class="time-block">
           <h4>晚上</h4>
-          <p>飯店最後一晚<br>溫泉好好享受♨️</p>
+          <p>週六夜滑可選：<br>石打丸山 16:00–20:00<br>or 神立 至翌 2:00<br>溫泉好好享受♨️</p>
         </div>
-        <div class="day-note">📦 明天退房 HATAGO 井仙，今晚把行李整理好</div>
+        <div class="day-note">📦 組 B（Jing/Lisa）明天 1/3 退房 ／ 組 C（Sandy/Vivi）明天撤退，今晚整理行李<br>✓ 組 A 續住 HATAGO 到 1/5，1/4 還有一天滑雪</div>
       </div>
     </div>
 
@@ -1166,32 +1206,33 @@
       </div>
     </div>
 
-    <!-- Day 6: 1/4 Sandy Vivi return + 4 ppl TBC -->
-    <div class="day-card">
+    <!-- Day 6: 1/4 Ski Day 4 (組A+組B) + 組C return -->
+    <div class="day-card ski-day">
       <div class="day-number" style="background: linear-gradient(160deg, #c47a1a, #3a2a0a);">
         <span class="day-label">1/4</span>
         <span class="day-num">06</span>
         <span class="day-weekday">一</span>
-        <span class="ski-icon">✈⛷</span>
+        <span class="ski-icon">⛷✈</span>
       </div>
       <div class="day-body">
         <div class="day-theme">
-          Sandy &amp; Vivi 回台 ／ 其他 4 人續玩
+          滑雪 Day 4（組 A ＋ 組 B）／ Sandy &amp; Vivi 回台
+          <span class="theme-badge">滑雪日</span>
           <span class="theme-badge" style="background:#d4a843; color:#1a1a1a;">組 C 回程</span>
+        </div>
+        <div class="time-block">
+          <h4>組 A ＋ 組 B — 滑雪</h4>
+          <p>Jerry/Phoebe ＋ Jing/Lisa<br>全天滑雪<br><strong>雪場待定</strong>（建議岩原）</p>
         </div>
         <div class="time-block">
           <h4>組 C — Sandy/Vivi</h4>
           <p>前往成田機場<br>JX801 13:45 → 16:50<br>抵達桃園 T1 ✈<br><span style="color:#999;">（1/3 已撤退離開越後湯澤）</span></p>
         </div>
         <div class="time-block">
-          <h4>組 A — Jerry/Phoebe</h4>
-          <p>再滑一天<br>or 出去玩 TBC<br>晚上回 HATAGO 井仙</p>
+          <h4>晚上</h4>
+          <p>夜滑？週一僅岩原確定有<br>組 A 回 HATAGO 最後一晚<br>晚餐（組 A ＋ 組 B）</p>
         </div>
-        <div class="time-block">
-          <h4>備註</h4>
-          <p>組 A 行程待定<br>滑雪需另尋雪場<br>or 安排東京近郊</p>
-        </div>
-        <div class="day-note">✈ Sandy &amp; Vivi 1/4 回台 ／ 🟡 組 A 行程 TBC（滑雪 or 觀光）</div>
+        <div class="day-note">⛷ 週一夜滑：<strong>只有岩原確定有</strong>（至 19:00）／ 神立 1/3 後僅金六假前日需確認 ／ 石打丸山週一無夜滑<br>⚠ 待確認：① 當天雪場 ② <strong>組 B 1/3 退房後住哪</strong>（1/4 仍在越後湯澤滑雪）</div>
       </div>
     </div>
 
@@ -1205,22 +1246,22 @@
       </div>
       <div class="day-body">
         <div class="day-theme">
-          組 A／B 回家日
+          回家日 — 東京逛街 → 機場
           <span class="theme-badge" style="background:#2d5a3d;">回程</span>
         </div>
         <div class="time-block">
           <h4>早上</h4>
-          <p>HATAGO 井仙退房<br>整理行李</p>
+          <p>HATAGO 井仙退房<br>整理行李<br>🚄 搭新幹線往東京</p>
         </div>
         <div class="time-block">
           <h4>下午</h4>
-          <p>直接前往機場<br>免稅店採購</p>
+          <p>東京市區逛街購物🛍<br>（行李可寄站內置物櫃）</p>
         </div>
         <div class="time-block">
-          <h4>航班</h4>
-          <p>組 A：班機待購<br>組 B：班機待確認<br>回家ㄌ 🏠</p>
+          <h4>傍晚～航班</h4>
+          <p>前往機場<br>免稅店採購<br>搭機返台 回家ㄌ 🏠</p>
         </div>
-        <div class="day-note">✈ 組 A Jerry/Phoebe + 組 B Jing/Lisa 回程班機都待補齊</div>
+        <div class="day-note">✈ 組 A Jerry/Phoebe 回程班機<strong>待購票</strong>（HND or NRT → TSA or TPE）／ 組 B Jing/Lisa 班機待確認<br>⏰ 東京逛街時間長短要看班機時間，買票後再回頭壓縮／放寬</div>
       </div>
     </div>
 
@@ -1253,7 +1294,7 @@
     </div>
     <div class="dinner-night">
       <h4>1/2 六</h4>
-      <p>HATAGO 井仙最後一晚</p>
+      <p>組 B/C 在越後湯澤最後一晚</p>
     </div>
   </div>
 
@@ -1781,7 +1822,8 @@
     <div class="section-eyebrow">SKI RESORTS & TRANSPORT</div>
     <h2 class="section-title" style="color:white;">雪場 ／ 接駁交通</h2>
     <p style="color:rgba(255,255,255,0.5); margin-top:14px; font-size:13px; max-width:720px; line-height:1.7;">
-      以 HATAGO 井仙（越後湯澤站西口對面）為中心 ／ 幾乎所有雪場接駁車都從<strong style="color:#d4a843;">越後湯澤車站</strong>出發，出飯店過馬路就是車站！
+      以 HATAGO 井仙（越後湯澤站西口對面）為中心 ／ 幾乎所有雪場接駁車都從<strong style="color:#d4a843;">越後湯澤車站</strong>出發，出飯店過馬路就是車站！<br>
+      全員<strong style="color:#d4a843;">單板 Snowboard</strong>｜滑雪日 <strong style="color:#d4a843;">12/31・1/1・1/2・1/4</strong>（共 4 天）｜票價/時間為 25–26 雪季資料，26–27 待官方公布
     </p>
   </div>
 
@@ -1789,8 +1831,167 @@
     <span class="alert-icon">🎫</span>
     <div>
       <p class="alert-title">推薦：YUZAWA SNOW LINK 三山通用券</p>
-      <p class="alert-text">一張券自由往返 <strong>湯澤高原＋GALA湯澤＋石打丸山</strong> 三個雪場（山頂纜車互通）。2025/12/20 開賣，可線上購買（Webket）或現場買，單日券也能 +¥3,000 升級。三山之間還有<strong>免費接駁巴士</strong>（早晚每 15 分鐘一班）。三天滑雪剛好一天一個雪場！</p>
+      <p class="alert-text">一張券自由往返 <strong>湯澤高原＋GALA湯澤＋石打丸山</strong> 三個雪場（山頂纜車互通）。任一雪場的 1 日券 <strong>+¥3,000 即可升級</strong>三山券（大小同價）。三山之間還有<strong>免費接駁巴士</strong>（早晚每 15 分鐘一班）。</p>
     </div>
+  </div>
+
+  <!-- Resort Decision Table -->
+  <div class="sched-title">
+    <h3>📊 雪場決策總表</h3>
+    <div class="line"></div>
+  </div>
+  <p style="margin: 6px 60px 0; font-size:12px; color:var(--muted); line-height:1.8;">
+    以 <strong style="color:var(--deep);">HATAGO 井仙（越後湯澤站西口對面）</strong> 為中心｜全員<strong style="color:var(--deep);">單板 Snowboard</strong>（NASPA 為雙板專用已排除）<br>
+    ⚠ 以下票價與時間為 <strong style="color:#c0392b;">2025–26 雪季實際資料</strong>，26–27 雪季官方通常 11–12 月才公布（接駁時刻表約 12/20），出發前請再確認
+  </p>
+  <div class="rs-wrap" style="margin-top:14px;">
+    <table class="rs-table">
+      <thead>
+        <tr>
+          <th>雪場</th>
+          <th>距飯店・交通</th>
+          <th>接駁班次</th>
+          <th>營業時間</th>
+          <th>夜滑</th>
+          <th>1 日券（大人）</th>
+          <th>其他票種</th>
+          <th>一句話評</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rs-pick">
+          <td class="rs-name">岩原<small>Iwappara</small></td>
+          <td>🚌 免費接駁 <b>12–15 分</b><br>（東口）</td>
+          <td>固定班次，搭到終點「山腹站」<br>另可電話預約接送</td>
+          <td>平日・週日 8:00–19:00<br>週六・假前日 8:00–20:00<br><span style="font-size:11px;color:#6b8fa8;">（已含夜滑時段）</span></td>
+          <td class="rs-yes">✅ 有<br>至 19:00（平日/日）<br>至 20:00（六/假前日）<br><span style="font-size:11px;">期間 12/20–3/28</span></td>
+          <td><span class="rs-price">¥5,800</span><br><span class="rs-sub">湯澤區最便宜</span></td>
+          <td>夜滑券 <b>¥1,500</b><br>午後＋夜滑 ¥4,500</td>
+          <td>🎿 <b>組 B/C 上課地點</b><br>雪道超寬、新手練功首選<br>夜滑天天有＋票最便宜</td>
+        </tr>
+        <tr>
+          <td class="rs-name">湯澤高原<small>Yuzawa Kogen</small></td>
+          <td>🚶 走路 <b>8 分</b><br>🚌 免費接駁 1 分<br><span style="font-size:11px;color:#1a7a3d;">最近！</span></td>
+          <td>東/西口，早晚每 15 分<br>（與 GALA 循環線共用）</td>
+          <td>纜車 8:40 首班<br>上行末班 16:20<br>下行末班 17:00</td>
+          <td class="rs-no">❌ 無夜滑</td>
+          <td><span class="rs-price">¥6,900</span></td>
+          <td>+¥3,000 升級三山券</td>
+          <td>離飯店最近、走路可到<br>適合熱身日或半天輕鬆滑</td>
+        </tr>
+        <tr>
+          <td class="rs-name">GALA 湯澤<small>GALA Yuzawa</small></td>
+          <td>🚌 免費接駁 <b>5 分</b><br>（東/西口）</td>
+          <td>每 15 分循環<br>（約 8:00–17:00）</td>
+          <td>8:00–16:30</td>
+          <td class="rs-no">❌ 無夜滑</td>
+          <td><span class="rs-price">¥7,300</span><br><span class="rs-sub">電子票 ¥6,800</span></td>
+          <td>+¥3,000 升級三山券</td>
+          <td>日本最大雪具租借中心<br>中英文服務足、新手最友善</td>
+        </tr>
+        <tr>
+          <td class="rs-name">神立<small>Kandatsu Snow Resort</small></td>
+          <td>🚌 免費接駁 <b>10 分</b><br>（車站前）</td>
+          <td>週末尖峰每小時 4 班<br>（約 15 分一班）</td>
+          <td>平日 8:00–16:30<br>土日祝・年末年始 7:00–16:30<br><span style="font-size:11px;color:#6b8fa8;">（年末年始 12/29–1/2）</span></td>
+          <td class="rs-yes">✅ 有 <b>18:00–翌 2:00</b><br><span style="font-size:11px;">全區最晚！</span><br><span style="font-size:11px;">25/26 年末年始 12/26–1/3<br>連續 9 夜開放</span></td>
+          <td><span class="rs-price">¥6,500</span><br><span class="rs-sub">早割 ¥4,500</span></td>
+          <td>夜滑券 ¥4,900<br>25 小時券</td>
+          <td>夜滑到凌晨 2 點＋館內<br>大浴場「神之湯」<br>⚠ 需搭纜車上山，全新手偏硬</td>
+        </tr>
+        <tr>
+          <td class="rs-name">石打丸山<small>Ishiuchi Maruyama</small></td>
+          <td>🚌 免費接駁 <b>15–20 分</b><br>（東口）</td>
+          <td>早晚每 15 分<br>（三山循環線）</td>
+          <td>8:30–17:00<br>夜滑日延長至 20:00</td>
+          <td class="rs-warn">⚠ 有，但<b>限週五・六</b><br>16:00–20:00<br><span style="font-size:11px;">25/26 期間 12/27–2/28</span></td>
+          <td><span class="rs-price">¥7,900</span><br><span class="rs-sub">湯澤區最貴</span></td>
+          <td>夜滑限定券<br>+¥3,000 升級三山券</td>
+          <td>24 間餐廳「美食雪場」<br>想吃好吃的雪場午餐選這</td>
+        </tr>
+        <tr>
+          <td class="rs-name">かぐら（神樂）<small>Kagura</small></td>
+          <td>🚌 <b>付費</b>巴士 18 分<br>東口 Zone 站牌<br><span class="rs-sub">¥400 現金</span></td>
+          <td>路線公車班次<br>平日／假日不同</td>
+          <td>1 日券可用至 17:00<br><span style="font-size:11px;color:#6b8fa8;">雪季最長（11 月–5 月）</span></td>
+          <td class="rs-no">❌ 無夜滑</td>
+          <td><span class="rs-price">¥7,500</span></td>
+          <td>Mt.Naeba 券可通苗場</td>
+          <td>雪質公認最好、雪季最長<br>⚠ 要付費巴士＋距離較遠</td>
+        </tr>
+        <tr class="rs-excluded">
+          <td class="rs-name">NASPA<small>NASPA Ski Garden</small></td>
+          <td>🚌 免費接駁 2–5 分（西口）</td>
+          <td>固定班次</td>
+          <td>—</td>
+          <td class="rs-no">—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b style="color:#c0392b;">❌ 單板禁止 — 已排除</b><br>日本少數雙板專用雪場</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Night-ski matrix for actual ski days -->
+  <div class="sched-title">
+    <h3>🌙 你的滑雪日 × 夜滑對照</h3>
+    <div class="line"></div>
+  </div>
+  <p style="margin: 6px 60px 0; font-size:12px; color:var(--muted); line-height:1.8;">
+    滑雪日 <strong style="color:var(--deep);">12/31（四）・1/1（五）・1/2（六）・1/4（一）</strong>｜依 25/26 雪季規則推算，<strong style="color:#c0392b;">夜滑多限「週五・六」或年末年始特別期間</strong>，星期幾差很多！
+  </p>
+  <div class="nm-wrap" style="margin-top:14px;">
+    <table class="nm-table">
+      <thead>
+        <tr>
+          <th>雪場</th>
+          <th>12/31<small>四・跨年</small></th>
+          <th>1/1<small>五・元旦</small></th>
+          <th>1/2<small>六</small></th>
+          <th>1/4<small>一</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>岩原</td>
+          <td class="rs-yes">✅ 至 19:00<br><span style="font-size:11px;">或 20:00（假前日）</span></td>
+          <td class="rs-yes">✅ 至 19:00</td>
+          <td class="rs-yes">✅ 至 20:00</td>
+          <td class="rs-yes">✅ 至 19:00</td>
+        </tr>
+        <tr>
+          <td>神立</td>
+          <td class="rs-yes">✅ 至翌 2:00<br><span style="font-size:11px;">年末年始連夜</span></td>
+          <td class="rs-yes">✅ 至翌 2:00</td>
+          <td class="rs-yes">✅ 至翌 2:00</td>
+          <td class="rs-warn">⚠ 需確認<br><span style="font-size:11px;">1/3 後僅金六假前日</span></td>
+        </tr>
+        <tr>
+          <td>石打丸山</td>
+          <td class="rs-warn">⚠ 需確認<br><span style="font-size:11px;">週四非夜滑日</span></td>
+          <td class="rs-yes">✅ 16:00–20:00<br><span style="font-size:11px;">週五</span></td>
+          <td class="rs-yes">✅ 16:00–20:00<br><span style="font-size:11px;">週六</span></td>
+          <td class="rs-no">❌ 週一無</td>
+        </tr>
+        <tr>
+          <td>湯澤高原</td>
+          <td class="rs-no">❌</td><td class="rs-no">❌</td><td class="rs-no">❌</td><td class="rs-no">❌</td>
+        </tr>
+        <tr>
+          <td>GALA 湯澤</td>
+          <td class="rs-no">❌</td><td class="rs-no">❌</td><td class="rs-no">❌</td><td class="rs-no">❌</td>
+        </tr>
+        <tr>
+          <td>かぐら（神樂）</td>
+          <td class="rs-no">❌</td><td class="rs-no">❌</td><td class="rs-no">❌</td><td class="rs-no">❌</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin: 0 60px 34px; padding: 16px 22px; background:#fff8e8; border-left:4px solid var(--gold); font-size:12px; line-height:2; color:#7a5c00;">
+    💡 <strong>看表結論</strong>：想<strong>天天夜滑</strong>→ 岩原（且票最便宜、又是組 B/C 上課地點）／想<strong>滑到凌晨＋泡湯</strong>→ 神立（12/31–1/2 年末年始連夜開放）／<strong>1/4（週一）只有岩原確定有夜滑</strong><br>
+    ⚠ <strong>跨年特別營業</strong>：12/31–1/2 各雪場常有加開或縮短，官方 12 月中才公告，務必再查一次
   </div>
 
   <div class="gear-grid" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));">
@@ -1866,16 +2067,16 @@
     </div>
 
     <!-- NASPA -->
-    <div class="resort-card">
+    <div class="resort-card" style="opacity:0.55;">
       <div class="resort-top" style="background: linear-gradient(135deg, #3a3a52, #5a5a7a);">
         <div class="resort-name">NASPA Ski Garden<small>NASPA</small></div>
-        <span class="level-badge" style="background:#d4a843; color:#1a1a1a;">Ski 專用</span>
+        <span class="level-badge" style="background:#c0392b; color:white;">已排除</span>
       </div>
       <div class="resort-body">
         <div class="transport-row"><span class="transport-label">距離</span><span><strong>免費接駁車約 2–5 分鐘</strong>（西口）</span></div>
         <div class="transport-row"><span class="transport-label">交通</span><span>西口免費接駁車，超近</span></div>
         <div class="transport-row"><span class="transport-label">特色</span><span>⚠ <strong>Snowboard 禁止</strong>！日本少數雙板 Ski 專用雪場，人少雪道平緩，親子友善</span></div>
-        <div class="transport-row"><span class="transport-label">建議</span><span>只有全員都滑雙板才考慮</span></div>
+        <div class="transport-row"><span class="transport-label">建議</span><span><strong style="color:#c0392b;">❌ 全員滑單板 → 不可用，已排除</strong></span></div>
       </div>
     </div>
 
@@ -2040,22 +2241,27 @@
 
   <!-- 3-day suggestion -->
   <div style="margin: 0 60px 40px; padding: 26px 30px; background: linear-gradient(135deg, #f0f9f0, #e8f4fc); border-left: 4px solid #27ae60; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:16px;">⛷ 三天滑雪建議排法</h3>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:13px; line-height:1.8;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:6px;">⛷ 四天滑雪建議排法</h3>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">滑雪日：12/31・1/1・1/2・1/4（1/3 為一日遊）— 以下為建議，你尚未決定雪場</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; font-size:13px; line-height:1.8;">
       <div>
-        <strong style="color:#c0392b;">12/31 — 湯澤高原</strong><br>
-        離飯店最近（走路可到），第一天熱身不趕時間，下午早點收工回飯店準備跨年
+        <strong style="color:#c0392b;">12/31 四 — 岩原 or 湯澤高原</strong><br>
+        跨年日。想跟組 B/C 一起上課就去<strong>岩原</strong>；想走路就到、早點收工準備跨年選<strong>湯澤高原</strong>
       </div>
       <div>
-        <strong style="color:#27ae60;">1/1 — GALA 湯澤</strong><br>
-        元旦全日滑，設施最完善，餐廳選擇多，累了纜車直接下山
+        <strong style="color:#27ae60;">1/1 五 — GALA 湯澤</strong><br>
+        元旦全日滑，設施最完善、餐廳選擇多，Phoebe 這天 12:00–16:00 上課
       </div>
       <div>
-        <strong style="color:#4a9fd4;">1/2 — 石打丸山 or 神立</strong><br>
-        最後一天依程度選：吃貨選石打丸山（24 間餐廳），想練功選神立（記得神之湯泡湯）
+        <strong style="color:#4a9fd4;">1/2 六 — 石打丸山 or 神立</strong><br>
+        週六兩邊都有夜滑：吃貨選<strong>石打丸山</strong>（24 間餐廳），想滑到凌晨＋泡湯選<strong>神立</strong>
+      </div>
+      <div>
+        <strong style="color:#7a5c8a;">1/4 一 — 岩原（與 Jing/Lisa）</strong><br>
+        組 B 同行日。週一<strong>只有岩原確定有夜滑</strong>，且票最便宜、雪道寬好帶人
       </div>
     </div>
-    <p style="margin-top:14px; font-size:12px; color:var(--muted);">💡 若三天都想跨雪場玩，直接買三山通用券 3 日券最划算</p>
+    <p style="margin-top:14px; font-size:12px; color:var(--muted);">💡 若同一天想跨雪場玩，任一 1 日券 +¥3,000 升級三山券（湯澤高原＋GALA＋石打丸山）／滑 4 天可比較「單日票 ×4」與各場多日券哪個划算</p>
   </div>
 
 </section>
