@@ -495,7 +495,7 @@
   }
   .transport-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
   .resto-card { display: flex; flex-direction: column; position: relative; }
-  .coach-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 1000px; }
+  .coach-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 1040px; }
   .coach-table thead th {
     background: var(--deep); color: white; padding: 12px 14px; text-align: left;
     letter-spacing: 1px; font-weight: 500; white-space: nowrap;
@@ -505,11 +505,11 @@
   .coach-table tbody tr:hover { background: #f0f7fd; }
   .coach-table td[contenteditable]:focus { outline: 2px solid var(--accent); outline-offset: -2px; background: #fffbe8 !important; }
   .coach-table .school-name { font-weight: 700; color: var(--deep); }
-  .coach-table .price-main { font-weight: 700; color: #1a7a3d; font-size: 14px; }
-  .coach-table .price-bird { color: #c0392b; font-weight: 500; font-size: 12px; }
-  .coach-table td a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .coach-table .price-main { font-weight: 800; color: #157a38; font-size: 15.5px; }
+  .coach-table .price-bird { color: #b5341f; font-weight: 500; font-size: 13px; }
+  .coach-table td a { color: #2e6da4; text-decoration: none; font-weight: 600; }
   .coach-table td a:hover { text-decoration: underline; }
-  .cbadge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.5px; font-weight: 500; white-space: nowrap; }
+  .cbadge { display: inline-block; font-size: 12px; padding: 3px 9px; border-radius: 10px; letter-spacing: 0.5px; font-weight: 600; white-space: nowrap; }
   .cbadge-ok { background: #d5f5e0; color: #1a7a3d; }
   .cbadge-warn { background: #fdf0d5; color: #9a6b00; }
   .cbadge-ask { background: #e8e0f5; color: #5a3a8a; }
@@ -775,29 +775,29 @@
     border-radius: 4px;
     overflow-x: auto;
   }
-  .sched-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 960px; }
-  .sched-table th, .sched-table td { border: 1px solid #e6eef6; padding: 9px 11px; vertical-align: top; line-height: 1.55; }
+  .sched-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 980px; }
+  .sched-table th, .sched-table td { border: 1px solid #e6eef6; padding: 11px 12px; vertical-align: top; line-height: 1.6; }
   .sched-table thead th {
     background: var(--deep); color: #fff; text-align: center; font-weight: 500;
     letter-spacing: 1px; white-space: nowrap;
   }
-  .sched-table thead th small { display: block; font-size: 10px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 3px; letter-spacing: 0; }
-  .sched-table thead .corner { background: #0d1b26; font-size: 11px; }
+  .sched-table thead th small { display: block; font-size: 11.5px; color: rgba(255,255,255,0.7); font-weight: 300; margin-top: 3px; letter-spacing: 0; }
+  .sched-table thead .corner { background: #0d1b26; font-size: 12.5px; }
   .sched-table .time-col {
     background: #eef5fc; font-weight: 700; color: var(--deep);
-    text-align: center; white-space: nowrap; font-size: 11px; letter-spacing: 0.5px;
+    text-align: center; white-space: nowrap; font-size: 13px; letter-spacing: 0.5px;
   }
-  .sched-table tbody td { color: #33475b; }
+  .sched-table tbody td { color: #22303e; }
   .sched-table tbody tr:hover td:not(.time-col) { filter: brightness(0.985); }
   .sched-table td b { color: var(--deep); font-weight: 700; }
   .sc-ski   { background: #eaf4ff; }
   .sc-night { background: #ecebfa; }
   .sc-fly   { background: #fff4e6; }
   .sc-hotel { background: #fef7ea; }
-  .sc-tbc   { color: #93a0ad; }
+  .sc-tbc   { color: #6b7885; }
   .sched-legend {
-    margin: 0 60px 34px; display: flex; flex-wrap: wrap; gap: 16px;
-    font-size: 11px; color: var(--muted); padding-top: 12px;
+    margin: 0 60px 34px; display: flex; flex-wrap: wrap; gap: 18px;
+    font-size: 13px; color: #4e6d84; padding-top: 12px; font-weight: 500;
   }
   .sched-legend span { display: inline-flex; align-items: center; gap: 6px; }
   .sched-legend i { width: 13px; height: 13px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,0.05); }
@@ -812,33 +812,34 @@
     margin: 0 60px 14px; background: #fff;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;
   }
-  .rs-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 1180px; }
+  .rs-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 1240px; }
   .rs-table thead th {
-    background: var(--deep); color: #fff; padding: 11px 12px; text-align: left;
-    font-weight: 500; letter-spacing: 1px; white-space: nowrap;
+    background: var(--deep); color: #fff; padding: 13px 13px; text-align: left;
+    font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; font-size: 14px;
   }
-  .rs-table tbody td { padding: 11px 12px; border-bottom: 1px solid #eef3f8; line-height: 1.65; vertical-align: top; }
-  .rs-table tbody tr:nth-child(even) { background: #f8fbff; }
-  .rs-table tbody tr:hover { background: #f0f7fd; }
-  .rs-table .rs-name { font-weight: 700; color: var(--deep); white-space: nowrap; }
+  .rs-table tbody td { padding: 13px 13px; border-bottom: 1px solid #e2ebf3; line-height: 1.7; vertical-align: top; color: #22303e; }
+  .rs-table tbody tr:nth-child(even) { background: #f6faff; }
+  .rs-table tbody tr:hover { background: #eef6fd; }
+  .rs-table .rs-name { font-weight: 700; color: var(--deep); white-space: nowrap; font-size: 15.5px; }
   .rs-table .rs-name small {
-    display: block; font-weight: 400; color: var(--muted);
-    font-size: 10.5px; letter-spacing: 0.5px; margin-top: 2px;
+    display: block; font-weight: 500; color: #4e6d84;
+    font-size: 12px; letter-spacing: 0.5px; margin-top: 3px;
   }
-  .rs-price { font-weight: 700; color: #1a7a3d; font-size: 13.5px; white-space: nowrap; }
-  .rs-sub { color: #c0392b; font-size: 11px; }
-  .rs-yes { color: #1a7a3d; font-weight: 600; }
-  .rs-no { color: #aab4bf; }
-  .rs-warn { color: #9a6b00; font-weight: 600; }
+  .rs-price { font-weight: 800; color: #157a38; font-size: 16px; white-space: nowrap; }
+  .rs-twd { color: #2e5a8a; font-weight: 700; font-size: 13px; }
+  .rs-sub { color: #b5341f; font-size: 12.5px; font-weight: 500; }
+  .rs-yes { color: #157a38; font-weight: 700; }
+  .rs-no { color: #8795a2; }
+  .rs-warn { color: #8a6000; font-weight: 700; }
   .rs-pick { box-shadow: inset 4px 0 0 #27ae60; }
   .rs-excluded { opacity: 0.5; }
 
   /* night-ski matrix */
   .nm-wrap { margin: 0 60px 14px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto; }
-  .nm-table { width: 100%; border-collapse: collapse; font-size: 12.5px; min-width: 700px; }
-  .nm-table th, .nm-table td { border: 1px solid #e6eef6; padding: 9px 11px; text-align: center; line-height: 1.5; }
-  .nm-table thead th { background: var(--deep); color: #fff; font-weight: 500; white-space: nowrap; }
-  .nm-table thead th small { display: block; font-size: 10px; color: rgba(255,255,255,0.55); font-weight: 300; margin-top: 2px; }
+  .nm-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 720px; }
+  .nm-table th, .nm-table td { border: 1px solid #e6eef6; padding: 11px 12px; text-align: center; line-height: 1.6; color: #22303e; }
+  .nm-table thead th { background: var(--deep); color: #fff; font-weight: 600; white-space: nowrap; font-size: 14.5px; }
+  .nm-table thead th small { display: block; font-size: 11.5px; color: rgba(255,255,255,0.7); font-weight: 300; margin-top: 2px; }
   .nm-table tbody td:first-child {
     background: #eef5fc; font-weight: 700; color: var(--deep); text-align: left; white-space: nowrap;
   }
@@ -905,7 +906,7 @@
   <div class="nav-tab" onclick="showSection('resorts', this)">🚡 雪場交通</div>
   <div class="nav-tab" onclick="showSection('coach', this)">🏂 教練比價</div>
   <div class="nav-tab" onclick="showSection('gear', this)">🎿 裝備清單</div>
-  <div class="nav-tab" onclick="showSection('budget', this)">💰 預算＆實用</div>
+  <div class="nav-tab" onclick="showSection('budget', this)">💰 我的花費＆實用</div>
   <div class="nav-tab" onclick="showSection('kawagoe', this)">🏯 川越延伸</div>
 </nav>
 
@@ -999,11 +1000,11 @@
         <tr>
           <td class="time-col">09:00<br>–12:00</td>
           <td class="sc-fly">✈ 飛行中<br>組A 11:00 抵羽田 T3</td>
-          <td class="sc-ski">⛷ 上午滑雪<br>組A 雪場待確認<br>Phoebe 教練課 10:00–12:00<br>組B·C 岩原雪場（教練課）</td>
-          <td class="sc-ski">⛷ 上午滑雪<br>組A 雪場待確認<br>組B·C 岩原雪場（教練課）</td>
-          <td class="sc-ski">⛷ 上午滑雪<br>（越後湯澤最後一場）</td>
+          <td class="sc-ski">⛷ 上午滑雪<br><b>組A かぐら</b>（教練開車）<br>Phoebe 教練課 10:00–12:00<br>組B·C 岩原（教練課）</td>
+          <td class="sc-ski">⛷ 上午滑雪<br><b>組A 神立</b><br>組B·C 岩原（教練課）</td>
+          <td class="sc-ski">⛷ <b>全員 石打丸山</b><br>陪新手一起玩<br>（組B/C 越後湯澤最後一天）</td>
           <td>🚆 一日遊出發<br><span class="sc-tbc">景點待定</span></td>
-          <td class="sc-ski">⛷ <b>滑雪 Day 4</b><br>組A ＋ 組B（Jing/Lisa）<br><span class="sc-tbc">雪場待定，建議岩原</span></td>
+          <td class="sc-ski">⛷ <b>滑雪 Day 4 — 岩原</b><br>組A ＋ 組B（Jing/Lisa）<br>週一唯一有夜滑</td>
           <td>🚄 越後湯澤 → 東京<br>東京逛街購物</td>
         </tr>
         <tr>
@@ -1021,7 +1022,7 @@
           <td>🚄 搭上越新幹線進越後湯澤<br>羽田→約2hr／成田→約2.5–3hr</td>
           <td class="sc-ski">⛷ 下午滑雪<br>Phoebe 教練課 13:00–15:00<br><b>雪場 17:00 關閉</b></td>
           <td class="sc-ski">⛷ 下午滑雪<br>Phoebe 教練課 ～16:00<br><b>雪場 17:00 關閉</b></td>
-          <td class="sc-ski">⛷ 下午滑雪<br>裝備歸還・市區逛逛</td>
+          <td class="sc-ski">⛷ 下午滑雪（石打丸山）<br>組B/C 傍晚收裝備</td>
           <td>🚆 一日遊行程<br><span class="sc-tbc">TBC</span></td>
           <td class="sc-ski">⛷ 下午滑雪（組A＋組B）<br><span class="sc-fly-x" style="color:#8a6a2a;">✈ 組C JX801 13:45→16:50 抵桃園</span></td>
           <td>🛍 東京逛街 → 前往機場<br><span class="sc-tbc">依班機時間調整</span></td>
@@ -1029,9 +1030,9 @@
         <tr>
           <td class="time-col">17:00<br>–19:00</td>
           <td class="sc-hotel">🏨 越後湯澤會合<br>HATAGO 井仙 Check in・溫泉</td>
-          <td class="sc-night">🌙 <b>夜滑</b>（17:00 後）</td>
-          <td class="sc-night">🌙 <b>夜滑</b>（17:00 後）</td>
-          <td>♨ 回飯店・溫泉</td>
+          <td>🏨 回越後湯澤<br>準備跨年<br><span class="sc-tbc">（かぐら無夜滑）</span></td>
+          <td class="sc-night">🌙 <b>神立夜滑</b>（至深夜）<br>神之湯泡湯♨</td>
+          <td class="sc-night">🌙 石打夜滑 16:00–20:00<br><span class="sc-tbc">（可選）or 回飯店溫泉</span></td>
           <td>組A 續住 HATAGO<br>組C 撤退（1/4 回台）<br>組B 退房後行程待定</td>
           <td class="sc-night">🌙 夜滑？<span class="sc-tbc">（週一僅岩原確定有）</span><br>組A 傍晚回 HATAGO</td>
           <td class="sc-fly">✈ 機場免稅店採購・搭機返台<br><span class="sc-tbc">班機待購票</span></td>
@@ -1114,7 +1115,7 @@
           <h4>晚上</h4>
           <p>🌙 夜滑（17:00 後）<br>跨年特別晚宴🥂<br>倒數 + 神社初詣・溫泉♨️</p>
         </div>
-        <div class="day-note">🕛 跨年夜 → 餐廳需提早訂位！日本元旦許多店家公休，建議當日活動先查好<br>⛷ Phoebe 上課 10:00–12:00 ／ 13:00–15:00 ／ 組 B・C 於岩原上課 ／ 組 A 雪場待定</div>
+        <div class="day-note">🕛 跨年夜 → 餐廳需提早訂位！日本元旦許多店家公休，建議當日活動先查好<br>⛷ 組 A <strong>かぐら</strong>（教練開車，雪質最好人最少）／ Phoebe 上課 10:00–12:00・13:00–15:00 ／ 組 B・C 於岩原上課 ／ かぐら無夜滑，晚上回越後湯澤跨年</div>
       </div>
     </div>
 
@@ -1144,7 +1145,7 @@
           <h4>晚上</h4>
           <p>🌙 夜滑（17:00 後）<br>溫泉泡湯恢復♨️<br>元旦慶祝晚餐🥳</p>
         </div>
-        <div class="day-note">⛷ 全員滑雪日 ／ Phoebe 上課 12:00–16:00 ／ 組 B・C 於岩原雪場上課 ／ 組 A 雪場待定</div>
+        <div class="day-note">⛷ 組 A <strong>神立</strong>（週五夜滑到深夜＋神之湯泡湯）／ Phoebe 上課 12:00–16:00 ／ 組 B・C 於岩原雪場上課</div>
       </div>
     </div>
 
@@ -1158,20 +1159,20 @@
       </div>
       <div class="day-body">
         <div class="day-theme">
-          滑雪 Day 3 — 越後湯澤最後一場
+          滑雪 Day 3 — 石打丸山（全員）
           <span class="theme-badge">滑雪日</span>
         </div>
         <div class="time-block">
           <h4>早上</h4>
-          <p>飯店早餐<br>全天雪場暢滑</p>
+          <p>飯店早餐<br><strong>石打丸山</strong>全天暢滑<br>陪組 B/C 新手一起玩</p>
         </div>
         <div class="time-block">
           <h4>下午</h4>
-          <p>日間場約 17:00 收<br>越後湯澤市區逛逛</p>
+          <p>石打 24 間餐廳吃午餐<br>日間場 8:30–17:00</p>
         </div>
         <div class="time-block">
           <h4>晚上</h4>
-          <p>週六夜滑可選：<br>石打丸山 16:00–20:00<br>or 神立 至翌 2:00<br>溫泉好好享受♨️</p>
+          <p>週六石打夜滑 16:00–20:00<br>（可選）or 溫泉享受♨️</p>
         </div>
         <div class="day-note">📦 組 B（Jing/Lisa）明天 1/3 退房 ／ 組 C（Sandy/Vivi）明天撤退，今晚整理行李<br>✓ 組 A 續住 HATAGO 到 1/5，1/4 還有一天滑雪</div>
       </div>
@@ -1222,7 +1223,7 @@
         </div>
         <div class="time-block">
           <h4>組 A ＋ 組 B — 滑雪</h4>
-          <p>Jerry/Phoebe ＋ Jing/Lisa<br>全天滑雪<br><strong>雪場待定</strong>（建議岩原）</p>
+          <p>Jerry/Phoebe ＋ Jing/Lisa<br>全天滑雪<br><strong>岩原</strong>（週一唯一有夜滑）</p>
         </div>
         <div class="time-block">
           <h4>組 C — Sandy/Vivi</h4>
@@ -1232,7 +1233,7 @@
           <h4>晚上</h4>
           <p>夜滑？週一僅岩原確定有<br>組 A 回 HATAGO 最後一晚<br>晚餐（組 A ＋ 組 B）</p>
         </div>
-        <div class="day-note">⛷ 週一夜滑：<strong>只有岩原確定有</strong>（至 19:00）／ 神立 1/3 後僅金六假前日需確認 ／ 石打丸山週一無夜滑<br>⚠ 待確認：① 當天雪場 ② <strong>組 B 1/3 退房後住哪</strong>（1/4 仍在越後湯澤滑雪）</div>
+        <div class="day-note">⛷ 岩原（已定）：週一<strong>全區唯一有夜滑</strong>（至 19:00）、票最便宜、雪道寬好帶新手<br>⚠ 待確認：<strong>組 B（Jing/Lisa）1/3 退房後住哪</strong>（1/4 仍在越後湯澤一起滑雪）</div>
       </div>
     </div>
 
@@ -1840,9 +1841,10 @@
     <h3>📊 雪場決策總表</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 6px 60px 0; font-size:12px; color:var(--muted); line-height:1.8;">
-    以 <strong style="color:var(--deep);">HATAGO 井仙（越後湯澤站西口對面）</strong> 為中心｜全員<strong style="color:var(--deep);">單板 Snowboard</strong>（NASPA 為雙板專用已排除）<br>
-    ⚠ 以下票價與時間為 <strong style="color:#c0392b;">2025–26 雪季實際資料</strong>，26–27 雪季官方通常 11–12 月才公布（接駁時刻表約 12/20），出發前請再確認
+  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+    以 <strong style="color:var(--deep);">HATAGO 井仙（越後湯澤站西口對面）</strong> 為中心｜全員<strong style="color:var(--deep);">單板 Snowboard</strong>（NASPA 雙板專用已排除）｜匯率 1 JPY ≈ 0.21 TWD<br>
+    <strong style="color:#157a38;">✅ 已鎖定：12/31 かぐら（教練開車）・1/1 神立・1/2 石打丸山・1/4 岩原</strong>（綠色列＝你選的雪場）<br>
+    ⚠ 票價與時間為 <strong style="color:#b5341f;">2025–26 雪季實際資料</strong>，26–27 雪季官方通常 11–12 月才公布（接駁時刻表約 12/20），出發前請再確認
   </p>
   <div class="rs-wrap" style="margin-top:14px;">
     <table class="rs-table">
@@ -1850,84 +1852,84 @@
         <tr>
           <th>雪場</th>
           <th>距飯店・交通</th>
-          <th>接駁班次</th>
-          <th>營業時間</th>
-          <th>夜滑</th>
-          <th>1 日券（大人）</th>
-          <th>其他票種</th>
+          <th>白天營業</th>
+          <th>夜滑時段</th>
+          <th>白天票（大人）</th>
+          <th>夜滑票</th>
+          <th>全天／其他票</th>
           <th>一句話評</th>
         </tr>
       </thead>
       <tbody>
         <tr class="rs-pick">
-          <td class="rs-name">岩原<small>Iwappara</small></td>
-          <td>🚌 免費接駁 <b>12–15 分</b><br>（東口）</td>
-          <td>固定班次，搭到終點「山腹站」<br>另可電話預約接送</td>
-          <td>平日・週日 8:00–19:00<br>週六・假前日 8:00–20:00<br><span style="font-size:11px;color:#6b8fa8;">（已含夜滑時段）</span></td>
-          <td class="rs-yes">✅ 有<br>至 19:00（平日/日）<br>至 20:00（六/假前日）<br><span style="font-size:11px;">期間 12/20–3/28</span></td>
-          <td><span class="rs-price">¥5,800</span><br><span class="rs-sub">湯澤區最便宜</span></td>
-          <td>夜滑券 <b>¥1,500</b><br>午後＋夜滑 ¥4,500</td>
-          <td>🎿 <b>組 B/C 上課地點</b><br>雪道超寬、新手練功首選<br>夜滑天天有＋票最便宜</td>
-        </tr>
-        <tr>
-          <td class="rs-name">湯澤高原<small>Yuzawa Kogen</small></td>
-          <td>🚶 走路 <b>8 分</b><br>🚌 免費接駁 1 分<br><span style="font-size:11px;color:#1a7a3d;">最近！</span></td>
-          <td>東/西口，早晚每 15 分<br>（與 GALA 循環線共用）</td>
-          <td>纜車 8:40 首班<br>上行末班 16:20<br>下行末班 17:00</td>
+          <td class="rs-name">かぐら（神樂）<small>Kagura</small><br><span style="display:inline-block;background:#27ae60;color:#fff;font-size:12px;padding:2px 9px;border-radius:10px;margin-top:5px;font-weight:600;">你的 12/31</span></td>
+          <td>🚌 付費巴士 18 分 <span class="rs-sub">¥400</span><br>（東口 Zone）<br><b>教練開車</b></td>
+          <td>1 日券可用至 <b>17:00</b><br><span class="rs-sub">雪季最長 11–5 月</span></td>
           <td class="rs-no">❌ 無夜滑</td>
-          <td><span class="rs-price">¥6,900</span></td>
-          <td>+¥3,000 升級三山券</td>
-          <td>離飯店最近、走路可到<br>適合熱身日或半天輕鬆滑</td>
+          <td><span class="rs-price">¥7,500</span> <span class="rs-twd">(≈NT$1,575)</span></td>
+          <td class="rs-no">—</td>
+          <td>Mt.Naeba 券可通苗場</td>
+          <td>雪質公認最好、人最少<br>非新手爽滑・教練開車去</td>
+        </tr>
+        <tr class="rs-pick">
+          <td class="rs-name">神立<small>Kandatsu</small><br><span style="display:inline-block;background:#27ae60;color:#fff;font-size:12px;padding:2px 9px;border-radius:10px;margin-top:5px;font-weight:600;">你的 1/1</span></td>
+          <td>🚌 免費接駁 <b>10 分</b><br>（車站前）</td>
+          <td>平日 8:00–16:30<br>土日祝・年末年始<br>7:00–16:30</td>
+          <td class="rs-yes">✅ <b>18:00–翌 2:00</b><br><span class="rs-sub">年末年始 12/26–1/3 連夜</span><br><span style="font-size:12px;">平時限五六/假前日</span></td>
+          <td><span class="rs-price">¥6,500</span> <span class="rs-twd">(≈NT$1,365)</span><br><span class="rs-sub">早割 ¥4,500 (≈NT$945)</span></td>
+          <td><span class="rs-price" style="font-size:14.5px;">¥4,900</span> <span class="rs-twd">(≈NT$1,030)</span></td>
+          <td>25 小時券<br>（跨日彈性）</td>
+          <td>夜滑到凌晨 2 點<br>＋館內大浴場「神之湯」<br>練功地形</td>
+        </tr>
+        <tr class="rs-pick">
+          <td class="rs-name">石打丸山<small>Ishiuchi Maruyama</small><br><span style="display:inline-block;background:#27ae60;color:#fff;font-size:12px;padding:2px 9px;border-radius:10px;margin-top:5px;font-weight:600;">你的 1/2</span></td>
+          <td>🚌 免費接駁 <b>15–20 分</b><br>（東口）</td>
+          <td>8:30–17:00</td>
+          <td class="rs-warn">⚠ 16:00–20:00<br><span class="rs-sub">限五・六・假日</span><br><span style="font-size:12px;">12/27–2/28</span></td>
+          <td>4 時間券 <span class="rs-price" style="font-size:14.5px;">¥6,300</span> <span class="rs-twd">(≈NT$1,325)</span><br>彈性1日(8.5h) ¥7,900 <span class="rs-twd">(≈NT$1,660)</span></td>
+          <td><span class="rs-price" style="font-size:14.5px;">¥3,800</span> <span class="rs-twd">(≈NT$800)</span></td>
+          <td><b>全日券 ¥8,700</b> <span class="rs-twd">(≈NT$1,830)</span><br><span class="rs-sub">含白天＋夜滑</span></td>
+          <td>陪新手日・24 間餐廳<br>「美食雪場」</td>
+        </tr>
+        <tr class="rs-pick">
+          <td class="rs-name">岩原<small>Iwappara</small><br><span style="display:inline-block;background:#27ae60;color:#fff;font-size:12px;padding:2px 9px;border-radius:10px;margin-top:5px;font-weight:600;">你的 1/4</span></td>
+          <td>🚌 免費接駁 <b>12–15 分</b><br>（東口・搭到「山腹站」）</td>
+          <td>8:00–17:00</td>
+          <td class="rs-yes">✅ <b>天天有</b><br>17:00–19:00（平日/日）<br>17:00–20:00（六/假前日）</td>
+          <td><span class="rs-price">¥5,800</span> <span class="rs-twd">(≈NT$1,220)</span><br><span class="rs-sub">湯澤區最便宜</span></td>
+          <td><span class="rs-price" style="font-size:14.5px;">¥1,500</span> <span class="rs-twd">(≈NT$315)</span></td>
+          <td>午後＋夜滑 ¥4,500<br><span class="rs-twd">(≈NT$945)</span></td>
+          <td>🎿 組 B/C 上課地<br>週一唯一有夜滑<br>雪道寬・票最便宜</td>
         </tr>
         <tr>
-          <td class="rs-name">GALA 湯澤<small>GALA Yuzawa</small></td>
-          <td>🚌 免費接駁 <b>5 分</b><br>（東/西口）</td>
-          <td>每 15 分循環<br>（約 8:00–17:00）</td>
+          <td class="rs-name">湯澤高原<small>Yuzawa Kogen</small><br><span class="rs-sub" style="font-size:12px;">備選</span></td>
+          <td>🚶 走路 <b>8 分</b>／🚌 1 分<br><span style="color:#157a38;font-weight:600;">最近！</span></td>
+          <td>纜車 8:40 首班<br>下行末班 17:00</td>
+          <td class="rs-no">❌ 無夜滑</td>
+          <td><span class="rs-price">¥6,900</span> <span class="rs-twd">(≈NT$1,450)</span></td>
+          <td class="rs-no">—</td>
+          <td>+¥3,000 升三山券</td>
+          <td>離飯店最近、走路可到<br>適合熱身或半天輕鬆滑</td>
+        </tr>
+        <tr>
+          <td class="rs-name">GALA 湯澤<small>GALA Yuzawa</small><br><span class="rs-sub" style="font-size:12px;">備選</span></td>
+          <td>🚌 免費接駁 <b>5 分</b><br>（東/西口・新幹線 1 站）</td>
           <td>8:00–16:30</td>
           <td class="rs-no">❌ 無夜滑</td>
-          <td><span class="rs-price">¥7,300</span><br><span class="rs-sub">電子票 ¥6,800</span></td>
-          <td>+¥3,000 升級三山券</td>
-          <td>日本最大雪具租借中心<br>中英文服務足、新手最友善</td>
-        </tr>
-        <tr>
-          <td class="rs-name">神立<small>Kandatsu Snow Resort</small></td>
-          <td>🚌 免費接駁 <b>10 分</b><br>（車站前）</td>
-          <td>週末尖峰每小時 4 班<br>（約 15 分一班）</td>
-          <td>平日 8:00–16:30<br>土日祝・年末年始 7:00–16:30<br><span style="font-size:11px;color:#6b8fa8;">（年末年始 12/29–1/2）</span></td>
-          <td class="rs-yes">✅ 有 <b>18:00–翌 2:00</b><br><span style="font-size:11px;">全區最晚！</span><br><span style="font-size:11px;">25/26 年末年始 12/26–1/3<br>連續 9 夜開放</span></td>
-          <td><span class="rs-price">¥6,500</span><br><span class="rs-sub">早割 ¥4,500</span></td>
-          <td>夜滑券 ¥4,900<br>25 小時券</td>
-          <td>夜滑到凌晨 2 點＋館內<br>大浴場「神之湯」<br>⚠ 需搭纜車上山，全新手偏硬</td>
-        </tr>
-        <tr>
-          <td class="rs-name">石打丸山<small>Ishiuchi Maruyama</small></td>
-          <td>🚌 免費接駁 <b>15–20 分</b><br>（東口）</td>
-          <td>早晚每 15 分<br>（三山循環線）</td>
-          <td>8:30–17:00<br>夜滑日延長至 20:00</td>
-          <td class="rs-warn">⚠ 有，但<b>限週五・六</b><br>16:00–20:00<br><span style="font-size:11px;">25/26 期間 12/27–2/28</span></td>
-          <td><span class="rs-price">¥7,900</span><br><span class="rs-sub">湯澤區最貴</span></td>
-          <td>夜滑限定券<br>+¥3,000 升級三山券</td>
-          <td>24 間餐廳「美食雪場」<br>想吃好吃的雪場午餐選這</td>
-        </tr>
-        <tr>
-          <td class="rs-name">かぐら（神樂）<small>Kagura</small></td>
-          <td>🚌 <b>付費</b>巴士 18 分<br>東口 Zone 站牌<br><span class="rs-sub">¥400 現金</span></td>
-          <td>路線公車班次<br>平日／假日不同</td>
-          <td>1 日券可用至 17:00<br><span style="font-size:11px;color:#6b8fa8;">雪季最長（11 月–5 月）</span></td>
-          <td class="rs-no">❌ 無夜滑</td>
-          <td><span class="rs-price">¥7,500</span></td>
-          <td>Mt.Naeba 券可通苗場</td>
-          <td>雪質公認最好、雪季最長<br>⚠ 要付費巴士＋距離較遠</td>
+          <td><span class="rs-price">¥7,300</span> <span class="rs-twd">(≈NT$1,530)</span><br><span class="rs-sub">電子 ¥6,800 (≈NT$1,430)</span></td>
+          <td class="rs-no">—</td>
+          <td>+¥3,000 升三山券</td>
+          <td>最大雪具租借中心<br>中英文服務足、新手最友善</td>
         </tr>
         <tr class="rs-excluded">
           <td class="rs-name">NASPA<small>NASPA Ski Garden</small></td>
           <td>🚌 免費接駁 2–5 分（西口）</td>
-          <td>固定班次</td>
           <td>—</td>
           <td class="rs-no">—</td>
-          <td>—</td>
-          <td>—</td>
-          <td><b style="color:#c0392b;">❌ 單板禁止 — 已排除</b><br>日本少數雙板專用雪場</td>
+          <td class="rs-no">—</td>
+          <td class="rs-no">—</td>
+          <td class="rs-no">—</td>
+          <td><b style="color:#b5341f;">❌ 單板禁止 — 已排除</b><br>日本少數雙板專用雪場</td>
         </tr>
       </tbody>
     </table>
@@ -1938,8 +1940,8 @@
     <h3>🌙 你的滑雪日 × 夜滑對照</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 6px 60px 0; font-size:12px; color:var(--muted); line-height:1.8;">
-    滑雪日 <strong style="color:var(--deep);">12/31（四）・1/1（五）・1/2（六）・1/4（一）</strong>｜依 25/26 雪季規則推算，<strong style="color:#c0392b;">夜滑多限「週五・六」或年末年始特別期間</strong>，星期幾差很多！
+  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+    滑雪日 <strong style="color:var(--deep);">12/31（四）・1/1（五）・1/2（六）・1/4（一）</strong>｜依 25/26 雪季規則推算，<strong style="color:#b5341f;">夜滑多限「週五・六」或年末年始特別期間</strong>，星期幾差很多！
   </p>
   <div class="nm-wrap" style="margin-top:14px;">
     <table class="nm-table">
@@ -1989,8 +1991,8 @@
       </tbody>
     </table>
   </div>
-  <div style="margin: 0 60px 34px; padding: 16px 22px; background:#fff8e8; border-left:4px solid var(--gold); font-size:12px; line-height:2; color:#7a5c00;">
-    💡 <strong>看表結論</strong>：想<strong>天天夜滑</strong>→ 岩原（且票最便宜、又是組 B/C 上課地點）／想<strong>滑到凌晨＋泡湯</strong>→ 神立（12/31–1/2 年末年始連夜開放）／<strong>1/4（週一）只有岩原確定有夜滑</strong><br>
+  <div style="margin: 0 60px 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
+    💡 <strong>你的安排對照</strong>：12/31 かぐら（無夜滑，晚上跨年）→ 1/1 <strong>神立</strong>（週五夜滑到凌晨＋神之湯）→ 1/2 <strong>石打丸山</strong>（週六夜滑 16:00–20:00）→ 1/4 <strong>岩原</strong>（週一全區唯一有夜滑，至 19:00）<br>
     ⚠ <strong>跨年特別營業</strong>：12/31–1/2 各雪場常有加開或縮短，官方 12 月中才公告，務必再查一次
   </div>
 
@@ -2197,29 +2199,28 @@
 
   <!-- Shuttle Timetable -->
   <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #4a9fd4;">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:6px;">🚌 接駁車班次參考表</h3>
-    <p style="font-size:12px; color:#c0392b; margin-bottom:16px;">⚠ 以下為上季（2025/26）班次頻率參考，2026/27 正式時刻表約 12/20 公布，出發前務必到官網確認最新版！</p>
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:6px;">🚌 接駁車 首班 ／ 末班車</h3>
+    <p style="font-size:13.5px; color:#b5341f; margin-bottom:16px; line-height:1.8; font-weight:500;">⚠ 以下為上季（2025/26）<strong>參考時間（多為約略值）</strong>，2026/27 正式時刻表約 12/20 才公布，出發前務必到官網／車站確認！跨年旺季先到先得，建議提早 20–30 分排隊。</p>
 
     <div style="overflow-x:auto;">
-      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      <table style="width:100%; border-collapse:collapse; font-size:14.5px; color:#22303e;">
         <thead>
           <tr style="background:var(--deep); color:white;">
-            <th style="padding:10px 14px; text-align:left; letter-spacing:1px;">雪場</th>
-            <th style="padding:10px 14px; text-align:left;">上車地點</th>
-            <th style="padding:10px 14px; text-align:left;">車程</th>
-            <th style="padding:10px 14px; text-align:left;">班次頻率（參考）</th>
-            <th style="padding:10px 14px; text-align:left;">費用</th>
+            <th style="padding:12px 14px; text-align:left; letter-spacing:1px;">雪場</th>
+            <th style="padding:12px 14px; text-align:left;">上車口</th>
+            <th style="padding:12px 14px; text-align:left;">車程</th>
+            <th style="padding:12px 14px; text-align:left;">首班（往雪場）</th>
+            <th style="padding:12px 14px; text-align:left;">末班（回車站）</th>
+            <th style="padding:12px 14px; text-align:left;">費用</th>
           </tr>
         </thead>
-        <tbody style="line-height:1.6;">
-          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>湯澤高原</strong></td><td style="padding:10px 14px;">走路 or 東/西口</td><td style="padding:10px 14px;">🚶 8 分 / 🚌 1 分</td><td style="padding:10px 14px;">早晚每 15 分（與 GALA 循環線共用）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:10px 14px;"><strong>GALA 湯澤</strong></td><td style="padding:10px 14px;">東口 / 西口</td><td style="padding:10px 14px;">🚌 5 分</td><td style="padding:10px 14px;">早晚每 15 分循環（8:00–17:00 前後）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>石打丸山</strong></td><td style="padding:10px 14px;">東口</td><td style="padding:10px 14px;">🚌 15–20 分</td><td style="padding:10px 14px;">早晚每 15 分（三山循環線）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:10px 14px;"><strong>神立高原</strong></td><td style="padding:10px 14px;">車站前</td><td style="padding:10px 14px;">🚌 10 分</td><td style="padding:10px 14px;">週末尖峰每小時 4 班（約 15 分一班）</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>岩原</strong></td><td style="padding:10px 14px;">東口</td><td style="padding:10px 14px;">🚌 12–15 分</td><td style="padding:10px 14px;">固定班次（搭到終點「山腹站」）＋可電話預約接送</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td style="padding:10px 14px;"><strong>NASPA</strong></td><td style="padding:10px 14px;">西口</td><td style="padding:10px 14px;">🚌 2–5 分</td><td style="padding:10px 14px;">固定班次</td><td style="padding:10px 14px; color:#27ae60; font-weight:600;">免費</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td style="padding:10px 14px;"><strong>神樂（三俁）</strong></td><td style="padding:10px 14px;">東口（Zone 站牌）</td><td style="padding:10px 14px;">🚌 18 分</td><td style="padding:10px 14px;">路線公車班次，平日假日不同</td><td style="padding:10px 14px; color:#c0392b; font-weight:600;">¥400 現金</td></tr>
-          <tr><td style="padding:10px 14px;"><strong>苗場</strong></td><td style="padding:10px 14px;">東口（Zone 站牌）</td><td style="padding:10px 14px;">🚌 45 分</td><td style="padding:10px 14px;">路線公車，與神樂/田代共用，旺季早點排</td><td style="padding:10px 14px; color:#c0392b; font-weight:600;">¥700 現金</td></tr>
+        <tbody style="line-height:1.7;">
+          <tr style="border-bottom:1px solid #e2ebf3; background:#f0faf0;"><td style="padding:12px 14px;"><strong>かぐら（神樂）</strong><br><span style="font-size:12.5px;color:#157a38;font-weight:600;">你的 12/31</span></td><td style="padding:12px 14px;">東口 Zone 站牌<br><span style="font-size:12.5px;color:#4e6d84;">建議教練開車</span></td><td style="padding:12px 14px;">🚌 18 分</td><td style="padding:12px 14px;">約 7:40 起（路線公車）</td><td style="padding:12px 14px;">約 17:00 前後</td><td style="padding:12px 14px; color:#b5341f; font-weight:700;">¥400 現金</td></tr>
+          <tr style="border-bottom:1px solid #e2ebf3; background:#f0faf0;"><td style="padding:12px 14px;"><strong>神立</strong><br><span style="font-size:12.5px;color:#157a38;font-weight:600;">你的 1/1</span></td><td style="padding:12px 14px;">東口 車站前</td><td style="padding:12px 14px;">🚌 10 分</td><td style="padding:12px 14px;">平日 約 8:00<br>假日/年末年始 約 7:00</td><td style="padding:12px 14px;">日間 約 16:30–17:00<br><span style="font-size:12.5px;color:#4e6d84;">另有夜滑接駁至深夜</span></td><td style="padding:12px 14px; color:#157a38; font-weight:700;">免費</td></tr>
+          <tr style="border-bottom:1px solid #e2ebf3; background:#f0faf0;"><td style="padding:12px 14px;"><strong>石打丸山</strong><br><span style="font-size:12.5px;color:#157a38;font-weight:600;">你的 1/2</span></td><td style="padding:12px 14px;">東口</td><td style="padding:12px 14px;">🚌 15–20 分</td><td style="padding:12px 14px;">約 8:00（三山循環線）</td><td style="padding:12px 14px;">日間 約 17:00<br><span style="font-size:12.5px;color:#4e6d84;">夜滑日延後</span></td><td style="padding:12px 14px; color:#157a38; font-weight:700;">免費</td></tr>
+          <tr style="border-bottom:1px solid #e2ebf3; background:#f0faf0;"><td style="padding:12px 14px;"><strong>岩原</strong><br><span style="font-size:12.5px;color:#157a38;font-weight:600;">你的 1/4</span></td><td style="padding:12px 14px;">東口</td><td style="padding:12px 14px;">🚌 12–15 分</td><td style="padding:12px 14px;">約 8:00（固定班次）<br><span style="font-size:12.5px;color:#4e6d84;">可電話預約接送</span></td><td style="padding:12px 14px;">夜滑結束後<br>（至 19:00／20:00 場）</td><td style="padding:12px 14px; color:#157a38; font-weight:700;">免費</td></tr>
+          <tr style="border-bottom:1px solid #e2ebf3;"><td style="padding:12px 14px;"><strong>湯澤高原</strong><br><span style="font-size:12.5px;color:#4e6d84;">備選</span></td><td style="padding:12px 14px;">走路 or 東/西口</td><td style="padding:12px 14px;">🚶 8 分 / 🚌 1 分</td><td style="padding:12px 14px;">纜車 8:40 首班<br>（走路無限制）</td><td style="padding:12px 14px;">下行末班 17:00</td><td style="padding:12px 14px; color:#157a38; font-weight:700;">免費</td></tr>
+          <tr style="border-bottom:1px solid #e2ebf3;"><td style="padding:12px 14px;"><strong>GALA 湯澤</strong><br><span style="font-size:12.5px;color:#4e6d84;">備選</span></td><td style="padding:12px 14px;">東口 / 西口</td><td style="padding:12px 14px;">🚌 5 分</td><td style="padding:12px 14px;">約 8:00（每 15 分循環）<br><span style="font-size:12.5px;color:#4e6d84;">或新幹線 1 站</span></td><td style="padding:12px 14px;">約 16:30–17:00</td><td style="padding:12px 14px; color:#157a38; font-weight:700;">免費</td></tr>
         </tbody>
       </table>
     </div>
@@ -2241,27 +2242,27 @@
 
   <!-- 3-day suggestion -->
   <div style="margin: 0 60px 40px; padding: 26px 30px; background: linear-gradient(135deg, #f0f9f0, #e8f4fc); border-left: 4px solid #27ae60; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:6px;">⛷ 四天滑雪建議排法</h3>
-    <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">滑雪日：12/31・1/1・1/2・1/4（1/3 為一日遊）— 以下為建議，你尚未決定雪場</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; font-size:13px; line-height:1.8;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:6px;">⛷ 四天滑雪排法（已鎖定）</h3>
+    <p style="font-size:13.5px; color:#33475b; margin-bottom:16px; line-height:1.8;">滑雪日：12/31・1/1・1/2・1/4（1/3 為一日遊）— 組 A（你＋Phoebe）雪場方案已定，等教練確認可駕駛範圍即定案</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:14px; line-height:1.85; color:#22303e;">
       <div>
-        <strong style="color:#c0392b;">12/31 四 — 岩原 or 湯澤高原</strong><br>
-        跨年日。想跟組 B/C 一起上課就去<strong>岩原</strong>；想走路就到、早點收工準備跨年選<strong>湯澤高原</strong>
+        <strong style="color:#c0392b; font-size:15px;">12/31 四 — かぐら</strong>（教練開車）<br>
+        跨年日。用「能跑遠」跑品質雪場，<strong>雪質最好、人最少</strong>；かぐら無夜滑，晚上回越後湯澤<strong>跨年</strong>。組 B/C 於岩原上課
       </div>
       <div>
-        <strong style="color:#27ae60;">1/1 五 — GALA 湯澤</strong><br>
-        元旦全日滑，設施最完善、餐廳選擇多，Phoebe 這天 12:00–16:00 上課
+        <strong style="color:#27ae60; font-size:15px;">1/1 五 — 神立</strong><br>
+        元旦。週五<strong>夜滑到凌晨＋館內神之湯泡湯</strong>，練功地形。Phoebe 12:00–16:00 上課。組 B/C 於岩原上課
       </div>
       <div>
-        <strong style="color:#4a9fd4;">1/2 六 — 石打丸山 or 神立</strong><br>
-        週六兩邊都有夜滑：吃貨選<strong>石打丸山</strong>（24 間餐廳），想滑到凌晨＋泡湯選<strong>神立</strong>
+        <strong style="color:#4a9fd4; font-size:15px;">1/2 六 — 石打丸山</strong>（全員）<br>
+        無課日，<strong>陪組 B/C 新手一起玩</strong>。新手道＋24 間餐廳，週六夜滑 16:00–20:00 可選。組 B/C 越後湯澤最後一天
       </div>
       <div>
-        <strong style="color:#7a5c8a;">1/4 一 — 岩原（與 Jing/Lisa）</strong><br>
-        組 B 同行日。週一<strong>只有岩原確定有夜滑</strong>，且票最便宜、雪道寬好帶人
+        <strong style="color:#7a5c8a; font-size:15px;">1/4 一 — 岩原</strong>（與 Jing/Lisa）<br>
+        組 B 同行日。週一<strong>只有岩原確定有夜滑</strong>（至 19:00），且票最便宜、雪道寬好帶人
       </div>
     </div>
-    <p style="margin-top:14px; font-size:12px; color:var(--muted);">💡 若同一天想跨雪場玩，任一 1 日券 +¥3,000 升級三山券（湯澤高原＋GALA＋石打丸山）／滑 4 天可比較「單日票 ×4」與各場多日券哪個划算</p>
+    <p style="margin-top:14px; font-size:13px; color:#4e6d84; line-height:1.8;">💡 12/31 かぐら、1/4 岩原是不同票券系統，無法用三山券；1/1 神立、1/2 石打也各自買票 → 這 4 天基本上<strong>各買各的單日/夜滑票</strong>最單純（詳見上方決策總表）</p>
   </div>
 
 </section>
@@ -2464,55 +2465,59 @@
 <!-- BUDGET SECTION -->
 <section class="section" id="budget">
   <div class="gear-header" style="background: linear-gradient(135deg, #2d1a3a 0%, #1a3a2d 100%);">
-    <div class="section-eyebrow">BUDGET & PRACTICAL INFO</div>
-    <h2 class="section-title" style="color:white;">預算試算 ／ 實用資訊</h2>
+    <div class="section-eyebrow">MY EXPENSES & PRACTICAL INFO</div>
+    <h2 class="section-title" style="color:white;">我的花費紀錄 ／ 實用資訊</h2>
   </div>
 
   <!-- Interactive Budget Calculator -->
   <div style="margin: 30px 60px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #27ae60;">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:4px;">💰 每人預算試算機</h3>
-    <p style="font-size:12px; color:var(--muted); margin-bottom:20px;">輸入預估金額，自動計算每人總花費（重新整理頁面會歸零）</p>
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:22px; color:var(--deep); margin-bottom:4px;">💰 我的出國花費紀錄（Jerry）</h3>
+    <p style="font-size:13.5px; color:#4e6d84; margin-bottom:20px; line-height:1.7;">記錄我個人的預估／實際花費（不分帳）。隨時修改數字，下方自動加總 ── ⚠ 重新整理頁面會歸零，正式記帳請另存。</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">✈ 機票（來回）TWD</label>
-        <input type="number" id="b-flight" value="17710" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">✈ 機票（來回）TWD</label>
+        <input type="number" id="b-flight" value="17710" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🏯 住宿（每人分攤總額）TWD</label>
-        <input type="number" id="b-hotel" value="12000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🏯 住宿（我的分攤・HATAGO 6 晚）TWD</label>
+        <input type="number" id="b-hotel" value="12000" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🚄 新幹線（來回）JPY</label>
-        <input type="number" id="b-train" value="13600" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🏂 教練課（我的份）TWD</label>
+        <input type="number" id="b-coach" value="0" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🎫 雪票 JPY／天</label>
-        <input type="number" id="b-lift" value="6000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🚄 新幹線（來回）JPY</label>
+        <input type="number" id="b-train" value="13600" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">⛷ 滑雪天數</label>
-        <input type="number" id="b-skidays" value="3" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🎫 雪票 JPY／天（平均）</label>
+        <input type="number" id="b-lift" value="6500" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🏂 裝備租借 JPY／天</label>
-        <input type="number" id="b-rental" value="5000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">⛷ 滑雪天數</label>
+        <input type="number" id="b-skidays" value="4" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🍜 餐費 JPY／天</label>
-        <input type="number" id="b-food" value="6000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🏂 裝備租借 JPY／天</label>
+        <input type="number" id="b-rental" value="5000" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">📅 旅行天數</label>
-        <input type="number" id="b-days" value="7" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🍜 餐費 JPY／天</label>
+        <input type="number" id="b-food" value="6000" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">🛍 購物／雜費 JPY</label>
-        <input type="number" id="b-shopping" value="20000" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">📅 旅行天數</label>
+        <input type="number" id="b-days" value="7" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
       <div>
-        <label style="font-size:11px; letter-spacing:2px; color:var(--muted); display:block; margin-bottom:4px;">💱 匯率（1 JPY = ? TWD）</label>
-        <input type="number" id="b-rate" value="0.21" step="0.01" oninput="calcBudget()" style="width:100%; padding:10px 12px; border:1.5px solid var(--ice); border-radius:2px; font-size:15px; box-sizing:border-box;">
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">🛍 購物／雜費 JPY</label>
+        <input type="number" id="b-shopping" value="20000" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
+      </div>
+      <div>
+        <label style="font-size:13px; letter-spacing:1px; color:#33475b; font-weight:600; display:block; margin-bottom:5px;">💱 匯率（1 JPY = ? TWD）</label>
+        <input type="number" id="b-rate" value="0.21" step="0.01" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--ice); border-radius:2px; font-size:16px; box-sizing:border-box;">
       </div>
     </div>
 
@@ -2840,22 +2845,23 @@
     const rate = v('b-rate');
     const jpyTotal = v('b-train') + v('b-lift') * v('b-skidays') + v('b-rental') * v('b-skidays') + v('b-food') * v('b-days') + v('b-shopping');
     const twdFromJpy = jpyTotal * rate;
-    const twdTotal = v('b-flight') + v('b-hotel') + twdFromJpy;
+    const twdFixed = v('b-flight') + v('b-hotel') + v('b-coach');
+    const twdTotal = twdFixed + twdFromJpy;
     const el = document.getElementById('budget-result');
     el.innerHTML = `
       <div>
-        <div style="font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.5); margin-bottom:6px;">台幣支出（機票+住宿）</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#9bc4e0;">NT$ ${(v('b-flight')+v('b-hotel')).toLocaleString()}</div>
+        <div style="font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.65); margin-bottom:6px;">台幣支出（機票＋住宿＋教練）</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:32px; color:#9bc4e0;">NT$ ${Math.round(twdFixed).toLocaleString()}</div>
       </div>
       <div>
-        <div style="font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.5); margin-bottom:6px;">日圓支出（當地花費）</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:#d4a843;">¥ ${jpyTotal.toLocaleString()}</div>
-        <div style="font-size:11px; color:rgba(255,255,255,0.4);">≈ NT$ ${Math.round(twdFromJpy).toLocaleString()}</div>
+        <div style="font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.65); margin-bottom:6px;">日圓支出（當地花費）</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:32px; color:#d4a843;">¥ ${jpyTotal.toLocaleString()}</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6);">≈ NT$ ${Math.round(twdFromJpy).toLocaleString()}</div>
       </div>
       <div style="border-left:1px solid rgba(255,255,255,0.15); padding-left:20px;">
-        <div style="font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.5); margin-bottom:6px;">💰 每人預估總額</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:40px; color:#7de3a0;">NT$ ${Math.round(twdTotal).toLocaleString()}</div>
-        <div style="font-size:11px; color:rgba(255,255,255,0.4);">平均每天 NT$ ${Math.round(twdTotal / (v('b-days')||1)).toLocaleString()}</div>
+        <div style="font-size:12px; letter-spacing:2px; color:rgba(255,255,255,0.65); margin-bottom:6px;">💰 我的預估總花費</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:42px; color:#7de3a0;">NT$ ${Math.round(twdTotal).toLocaleString()}</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.6);">平均每天 NT$ ${Math.round(twdTotal / (v('b-days')||1)).toLocaleString()}</div>
       </div>`;
   }
   document.addEventListener('DOMContentLoaded', calcBudget);
