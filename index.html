@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Bebas+Neue&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
+    --gx: 60px;
     --snow: #f0f4f8;
     --ice: #ddeaf5;
     --frost: #b8d4ea;
@@ -34,6 +35,7 @@
   .hero {
     position: relative;
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -210,7 +212,7 @@
   }
 
   .days-grid {
-    padding: 40px 60px;
+    padding: 40px var(--gx);
     display: grid;
     gap: 20px;
   }
@@ -335,7 +337,7 @@
   }
 
   .restaurant-grid {
-    padding: 40px 60px;
+    padding: 40px var(--gx);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
@@ -572,7 +574,7 @@
     background: linear-gradient(135deg, #2d5a3d, #1a3a52);
     color: white;
     padding: 24px 30px;
-    margin: 0 60px 24px;
+    margin: 0 var(--gx) 24px;
     border-radius: 2px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -601,8 +603,8 @@
 
   @media (max-width: 768px) {
     .dinner-plan-banner {
-      grid-template-columns: 1fr 1fr;
-      margin: 0 20px 20px;
+      grid-template-columns: 1fr;
+      margin: 0 var(--gx) 20px;
     }
   }
 
@@ -614,7 +616,7 @@
   }
 
   .gear-grid {
-    padding: 40px 60px;
+    padding: 40px var(--gx);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 24px;
@@ -686,7 +688,7 @@
     background: linear-gradient(135deg, #fff3cd, #ffe8a0);
     border-left: 4px solid var(--gold);
     padding: 20px 24px;
-    margin: 0 60px 24px;
+    margin: 0 var(--gx) 24px;
     display: flex;
     gap: 14px;
     align-items: flex-start;
@@ -722,16 +724,16 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .hero-content { padding: 60px 30px; }
-    .days-grid { padding: 20px; }
+    .hero-content { padding: 54px 22px; }
+    .days-grid { padding: 20px var(--gx); }
     .day-card { grid-template-columns: 80px 1fr; }
     .day-body { grid-template-columns: 1fr; }
     .day-num { font-size: 36px; }
-    .restaurant-grid { padding: 20px; }
-    .gear-grid { padding: 20px; }
-    .itinerary-header, .restaurant-header, .gear-header { padding: 40px 30px; }
-    .section-title { font-size: 40px; }
-    .alert-card { margin: 0 20px 20px; }
+    .restaurant-grid { padding: 20px var(--gx); }
+    .gear-grid { padding: 20px var(--gx); }
+    .itinerary-header, .restaurant-header, .gear-header { padding: 34px 20px; }
+    .section-title { font-size: 34px; }
+    .alert-card { margin: 0 var(--gx) 20px; padding: 16px 18px; }
     .hero-meta { gap: 20px; }
   }
 
@@ -755,7 +757,7 @@
 
   /* ── SCHEDULE OVERVIEW TABLE ── */
   .sched-title {
-    padding: 34px 60px 0;
+    padding: 34px var(--gx) 0;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -770,7 +772,7 @@
   .sched-title .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
   /* ── CALENDAR WEEK VIEW ── */
   .cal-wrap {
-    margin: 16px 60px 12px; background: #fff;
+    margin: 16px var(--gx) 12px; background: #fff;
     box-shadow: 0 2px 14px rgba(0,0,0,0.07); border-radius: 6px; overflow-x: auto;
   }
   .cal {
@@ -819,7 +821,7 @@
   .cb-tbd    { background: #f4f7fa; border-left: 5px dashed #a6b8c7; color: #5b6f80; }
 
   .cal-legend {
-    margin: 0 60px 30px; display: flex; flex-wrap: wrap; gap: 10px 20px;
+    margin: 0 var(--gx) 30px; display: flex; flex-wrap: wrap; gap: 10px 20px;
     font-size: 14px; color: #33475b; font-weight: 600; padding-top: 6px;
   }
   .cal-legend span { display: inline-flex; align-items: center; gap: 7px; }
@@ -827,13 +829,68 @@
     width: 26px; height: 16px; border-radius: 4px; display: inline-block; border-left: 4px solid;
   }
   @media (max-width: 768px) {
-    .cal-wrap { margin: 12px 20px 12px; }
-    .cal-legend { margin: 0 20px 22px; }
+    .cal-wrap { margin: 12px var(--gx) 12px; }
+    
+  }
+
+  /* ── MOBILE DAY-LIST CALENDAR ── */
+  .mcal { display: none; margin: 14px var(--gx) 12px; }
+  .mcal-jump {
+    display: flex; gap: 7px; overflow-x: auto; padding: 2px 0 10px;
+    position: sticky; top: 46px; background: var(--snow); z-index: 20;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mcal-jump a {
+    flex: 0 0 auto; text-decoration: none; background: #fff; border: 1.5px solid #cfe0ee;
+    color: #1a3a52; border-radius: 20px; padding: 7px 13px; font-size: 14px; font-weight: 700;
+    display: flex; align-items: baseline; gap: 4px;
+  }
+  .mcal-jump a small { font-size: 11.5px; font-weight: 400; color: #6b8fa8; }
+  .mcal-jump a:active { background: #1a3a52; color: #fff; }
+  .mcal-day { background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    margin-bottom: 16px; overflow: hidden; scroll-margin-top: 104px; }
+  .mcal-dh {
+    background: #16293a; color: #fff; padding: 11px 15px;
+    display: flex; align-items: baseline; gap: 9px;
+  }
+  .mcal-dh b { font-size: 19px; font-weight: 700; letter-spacing: 0.5px; }
+  .mcal-dh span { font-size: 13.5px; color: rgba(255,255,255,0.72); }
+  .mrow { display: flex; gap: 10px; padding: 7px 12px 0; }
+  .mrow:last-child { padding-bottom: 12px; }
+  .mtime {
+    flex: 0 0 54px; text-align: right; font-size: 13.5px; font-weight: 700;
+    color: #52708a; padding-top: 9px; line-height: 1.25;
+  }
+  .mtime i { display: block; font-style: normal; font-size: 12px; font-weight: 500; color: #93a8ba; }
+  .mrow .cal-b { flex: 1; margin: 0; min-height: 46px; }
+
+  /* wide-table scroll hint */
+  .scroll-hint { display: none; }
+
+  @media (max-width: 900px) {
+    :root { --gx: 14px; }
+    .hero { min-height: 78svh; }
+    .cal-wrap { display: none; }          /* hide desktop week grid */
+    .mcal { display: block; }             /* show stacked day list */
+    .cal-legend { margin: 0 var(--gx) 24px; gap: 8px 14px; font-size: 13px; }
+    .scroll-hint {
+      display: block; margin: 0 var(--gx) 6px; font-size: 12.5px;
+      color: #6b8fa8; font-weight: 600;
+    }
+    .nav-tabs { padding: 0 8px; }
+    .nav-tab { padding: 14px 14px; font-size: 12.5px; letter-spacing: 1.5px; }
+    .sched-title { padding: 26px var(--gx) 0; }
+    .sched-title h3 { font-size: 22px; white-space: normal; }
+    .hero-content { padding: 54px 22px; }
+    .itinerary-header, .restaurant-header, .gear-header { padding: 34px 20px; }
+    .section-title { font-size: 34px; }
+    .day-body { grid-template-columns: 1fr; }
+    .rs-table, .nm-table, .coach-table { font-size: 14px; }
   }
 
   /* ── RESORT DECISION TABLE ── */
   .rs-wrap {
-    margin: 0 60px 14px; background: #fff;
+    margin: 0 var(--gx) 14px; background: #fff;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;
   }
   .rs-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 1240px; }
@@ -859,7 +916,7 @@
   .rs-excluded { opacity: 0.5; }
 
   /* night-ski matrix */
-  .nm-wrap { margin: 0 60px 14px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto; }
+  .nm-wrap { margin: 0 var(--gx) 14px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto; }
   .nm-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 720px; }
   .nm-table th, .nm-table td { border: 1px solid #e6eef6; padding: 11px 12px; text-align: center; line-height: 1.6; color: #22303e; }
   .nm-table thead th { background: var(--deep); color: #fff; font-weight: 600; white-space: nowrap; font-size: 14.5px; }
@@ -868,7 +925,7 @@
     background: #eef5fc; font-weight: 700; color: var(--deep); text-align: left; white-space: nowrap;
   }
   @media (max-width: 768px) {
-    .rs-wrap, .nm-wrap { margin: 0 20px 14px; }
+    .rs-wrap, .nm-wrap { margin: 0 var(--gx) 14px; }
   }
 </style>
 </head>
@@ -999,7 +1056,7 @@
     <h3>🗓 行程總表</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+  <p style="margin: 8px var(--gx) 0; font-size:14px; color:#33475b; line-height:1.9;">
     <strong style="color:var(--deep);">以我（Jerry）的行程為主</strong>｜色塊長度＝實際時長｜<strong style="color:#157a38;">實心＝已確定</strong>・<strong style="color:#2a6ca8;">斜線＝雪場暫定</strong>・<strong style="color:#6b7885;">虛線＝待決定</strong>・<strong>空白＝還沒排</strong><br>
     ⚠ 沒確定的一律留白，不先亂填
   </p>
@@ -1183,6 +1240,70 @@
       <div class="cal-b cb-flight" style="grid-column:8;grid-row:15/16;"><b>✈ BR195 20:20 起飛</b><span>23:25 抵桃園</span></div>
     </div>
   </div>
+  <div class="mcal">
+    <div class="mcal-jump">
+      <a href="#md0">12/30<small>三</small></a>
+      <a href="#md1">12/31<small>四</small></a>
+      <a href="#md2">1/1<small>五</small></a>
+      <a href="#md3">1/2<small>六</small></a>
+      <a href="#md4">1/3<small>日</small></a>
+      <a href="#md5">1/4<small>一</small></a>
+      <a href="#md6">1/5<small>二</small></a>
+    </div>
+    <div class="mcal-day" id="md0">
+      <div class="mcal-dh"><b>12/30</b><span>（三）抵達</span></div>
+      <div class="mrow"><div class="mtime">07:00<i>11:00</i></div><div class="cal-b cb-flight"><b>✈ BR192 松山→羽田</b><span>07:15 起飛・11:00 抵達</span></div></div>
+      <div class="mrow"><div class="mtime">11:00<i>15:00</i></div><div class="cal-b cb-move"><b>🚄 前往越後湯澤</b><span>羽田→東京→越後湯澤 約 2–2.5hr</span></div></div>
+      <div class="mrow"><div class="mtime">15:00<i>16:00</i></div><div class="cal-b cb-hotel"><b>🏨 HATAGO Check-in</b></div></div>
+      <div class="mrow"><div class="mtime">18:00<i>20:00</i></div><div class="cal-b cb-meal"><b>🍽 晚餐</b><span>未訂</span></div></div>
+    </div>
+    <div class="mcal-day" id="md1">
+      <div class="mcal-dh"><b>12/31</b><span>（四）跨年</span></div>
+      <div class="mrow"><div class="mtime">09:00<i>10:00</i></div><div class="cal-b cb-move"><b>🚡 上山・裝備</b></div></div>
+      <div class="mrow"><div class="mtime">10:00<i>12:00</i></div><div class="cal-b cb-lesson"><b>🎿 教練課</b><span>10:00–12:00</span></div></div>
+      <div class="mrow"><div class="mtime">12:00<i>13:00</i></div><div class="cal-b cb-meal"><b>🍜 午餐</b></div></div>
+      <div class="mrow"><div class="mtime">13:00<i>15:00</i></div><div class="cal-b cb-lesson"><b>🎿 教練課</b><span>13:00–15:00</span></div></div>
+      <div class="mrow"><div class="mtime">15:00<i>17:00</i></div><div class="cal-b cb-ski"><b>⛷ 自由滑</b><span>雪場暫定・17:00 關門</span></div></div>
+      <div class="mrow"><div class="mtime">18:00<i>20:00</i></div><div class="cal-b cb-meal"><b>🍽 晚餐</b><span>未訂</span></div></div>
+      <div class="mrow"><div class="mtime">20:00<i>23:00</i></div><div class="cal-b cb-play"><b>🎆 酒吧・跨年倒數</b><span>這天不夜滑</span></div></div>
+    </div>
+    <div class="mcal-day" id="md2">
+      <div class="mcal-dh"><b>1/1</b><span>（五）元旦</span></div>
+      <div class="mrow"><div class="mtime">11:00<i>12:00</i></div><div class="cal-b cb-move"><b>🚡 上山（晚起）</b></div></div>
+      <div class="mrow"><div class="mtime">12:00<i>16:00</i></div><div class="cal-b cb-lesson"><b>🎿 教練課</b><span>12:00–16:00</span></div></div>
+      <div class="mrow"><div class="mtime">16:00<i>19:00</i></div><div class="cal-b cb-night"><b>🌙 續滑到晚上</b><span>課後接夜滑</span></div></div>
+      <div class="mrow"><div class="mtime">20:00<i>21:00</i></div><div class="cal-b cb-meal"><b>🍽 晚餐</b><span>未訂・較晚</span></div></div>
+    </div>
+    <div class="mcal-day" id="md3">
+      <div class="mcal-dh"><b>1/2</b><span>（六）滑雪</span></div>
+      <div class="mrow"><div class="mtime">09:00<i>17:00</i></div><div class="cal-b cb-ski"><b>⛷ 滑雪</b><span>雪場暫定・17:00 關門</span></div></div>
+      <div class="mrow"><div class="mtime">17:00<i>20:00</i></div><div class="cal-b cb-tbd"><b>🌙 夜滑？</b><span>待決定</span></div></div>
+      <div class="mrow"><div class="mtime">20:00<i>21:00</i></div><div class="cal-b cb-meal"><b>🍽 晚餐</b><span>未訂</span></div></div>
+    </div>
+    <div class="mcal-day" id="md4">
+      <div class="mcal-dh"><b>1/3</b><span>（日）川越</span></div>
+      <div class="mrow"><div class="mtime">08:00<i>10:00</i></div><div class="cal-b cb-move"><b>🚄 出發往川越</b><span>08:30 發・大宮轉車</span></div></div>
+      <div class="mrow"><div class="mtime">10:00<i>14:00</i></div><div class="cal-b cb-play"><b>🏯 小江戶川越</b><span>冰川神社→老街→午餐→菓子屋橫丁</span></div></div>
+      <div class="mrow"><div class="mtime">14:00<i>15:00</i></div><div class="cal-b cb-move"><b>🚆 川越→池袋</b><span>東武東上線急行 30 分</span></div></div>
+      <div class="mrow"><div class="mtime">15:00<i>18:00</i></div><div class="cal-b cb-play"><b>🛍 池袋購物</b></div></div>
+      <div class="mrow"><div class="mtime">18:00<i>20:00</i></div><div class="cal-b cb-meal"><b>🍽 晚餐</b><span>池袋／新宿・未訂</span></div></div>
+      <div class="mrow"><div class="mtime">20:00<i>21:00</i></div><div class="cal-b cb-move"><b>🚄 回越後湯澤</b><span>~21:00 抵達</span></div></div>
+    </div>
+    <div class="mcal-day" id="md5">
+      <div class="mcal-dh"><b>1/4</b><span>（一）自由</span></div>
+      <div class="mrow"><div class="mtime">09:00<i>17:00</i></div><div class="cal-b cb-tbd"><b>⛷ 自由日</b><span>尚未排・想滑雪也可以</span></div></div>
+      <div class="mrow"><div class="mtime">18:00<i>20:00</i></div><div class="cal-b cb-meal"><b>🍽 晚餐</b><span>未訂</span></div></div>
+    </div>
+    <div class="mcal-day" id="md6">
+      <div class="mcal-dh"><b>1/5</b><span>（二）回程</span></div>
+      <div class="mrow"><div class="mtime">10:00<i>11:00</i></div><div class="cal-b cb-hotel"><b>🏨 HATAGO 退房</b></div></div>
+      <div class="mrow"><div class="mtime">11:00<i>12:00</i></div><div class="cal-b cb-move"><b>🚄 越後湯澤→東京</b><span>約 70–80 分</span></div></div>
+      <div class="mrow"><div class="mtime">12:00<i>16:00</i></div><div class="cal-b cb-play"><b>🛍 東京逛街</b><span>行李寄東京駅</span></div></div>
+      <div class="mrow"><div class="mtime">16:00<i>18:00</i></div><div class="cal-b cb-move"><b>🚆 前往成田</b><span>N'EX 約 60 分・18:20 前抵達</span></div></div>
+      <div class="mrow"><div class="mtime">18:00<i>20:00</i></div><div class="cal-b cb-meal"><b>🍽 成田晚餐・免稅</b></div></div>
+      <div class="mrow"><div class="mtime">20:00<i>21:00</i></div><div class="cal-b cb-flight"><b>✈ BR195 20:20 起飛</b><span>23:25 抵桃園</span></div></div>
+    </div>
+  </div>
   <div class="cal-legend">
     <span><i style="background:#dde9f8;border-left-color:#2563a8;"></i>✈ 班機</span>
     <span><i style="background:#eaf0f6;border-left-color:#7d95ad;"></i>🚄 交通</span>
@@ -1195,7 +1316,7 @@
     <span><i style="background:#f4f7fa;border-left:4px dashed #a6b8c7;"></i>待決定</span>
   </div>
 
-  <div style="margin: 0 60px 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
+  <div style="margin: 0 var(--gx) 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
     ✅ <strong>確定滑雪：12/31・1/1・1/2</strong>（雪場暫定）／ 1/3 川越一日遊 ／ <strong>1/4 自由日，先不排，想滑再滑</strong><br>
     🎯 <strong>還要決定</strong>：① 三天各去哪個雪場 ② <strong>1/2 要不要夜滑</strong> ③ 各晚餐廳<br>
     🔗 <strong>夜滑決定了，晚餐時間就跟著定</strong>：<br>
@@ -1920,7 +2041,7 @@
   </div>
 
   <!-- Strategy + Sources -->
-  <div style="margin: 0 60px 40px; padding: 28px 30px; background: white; border-left: 4px solid var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+  <div style="margin: 0 var(--gx) 40px; padding: 28px 30px; background: white; border-left: 4px solid var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:14px;">📅 四晚晚餐建議搭配</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:13px; line-height:1.7; color:var(--text);">
       <div>
@@ -1952,7 +2073,7 @@
   </div>
 
   <!-- All Sources -->
-  <div style="margin: 0 60px 40px; padding: 24px 30px; background: #f8fbff; border: 1px solid var(--ice); font-size:12px; line-height:1.9; color: var(--muted);">
+  <div style="margin: 0 var(--gx) 40px; padding: 24px 30px; background: #f8fbff; border: 1px solid var(--ice); font-size:12px; line-height:1.9; color: var(--muted);">
     <strong style="color:var(--deep); font-size:13px; letter-spacing:2px;">📚 資料來源</strong><br>
     • <strong>娜塔蝦的滑雪食旅手記</strong>（資深滑雪教練、暢銷書作家）— natasha-traveler.tw<br>
     • <strong>維克養雪魚 SnowFish-Vic</strong>（滑雪美食部落客）— snowfish-vic.com<br>
@@ -1992,11 +2113,12 @@
     <h3>📊 雪場決策總表</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+  <p style="margin: 8px var(--gx) 0; font-size:14px; color:#33475b; line-height:1.9;">
     以 <strong style="color:var(--deep);">HATAGO 井仙（越後湯澤站西口對面）</strong> 為中心｜全員<strong style="color:var(--deep);">單板 Snowboard</strong>（NASPA 雙板專用已排除）｜匯率 1 JPY ≈ 0.21 TWD<br>
     <strong style="color:#157a38;">✅ 已鎖定：12/31 かぐら（教練開車）・1/1 神立・1/2 石打丸山・1/4 岩原</strong>（綠色列＝你選的雪場）<br>
     ⚠ 票價與時間為 <strong style="color:#b5341f;">2025–26 雪季實際資料</strong>，26–27 雪季官方通常 11–12 月才公布（接駁時刻表約 12/20），出發前請再確認
   </p>
+  <div class="scroll-hint">← 表格可左右滑動 →</div>
   <div class="rs-wrap" style="margin-top:14px;">
     <table class="rs-table">
       <thead>
@@ -2091,9 +2213,10 @@
     <h3>🌙 你的滑雪日 × 夜滑對照</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+  <p style="margin: 8px var(--gx) 0; font-size:14px; color:#33475b; line-height:1.9;">
     滑雪日 <strong style="color:var(--deep);">12/31（四）・1/1（五）・1/2（六）・1/4（一）</strong>｜依 25/26 雪季規則推算，<strong style="color:#b5341f;">夜滑多限「週五・六」或年末年始特別期間</strong>，星期幾差很多！
   </p>
+  <div class="scroll-hint">← 表格可左右滑動 →</div>
   <div class="nm-wrap" style="margin-top:14px;">
     <table class="nm-table">
       <thead>
@@ -2142,7 +2265,7 @@
       </tbody>
     </table>
   </div>
-  <div style="margin: 0 60px 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
+  <div style="margin: 0 var(--gx) 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
     💡 <strong>你的安排對照</strong>：12/31 かぐら（無夜滑，晚上跨年）→ 1/1 <strong>神立</strong>（週五夜滑到凌晨＋神之湯）→ 1/2 <strong>石打丸山</strong>（週六夜滑 16:00–20:00）→ 1/4 <strong>岩原</strong>（週一全區唯一有夜滑，至 19:00）<br>
     ⚠ <strong>跨年特別營業</strong>：12/31–1/2 各雪場常有加開或縮短，官方 12 月中才公告，務必再查一次
   </div>
@@ -2236,7 +2359,7 @@
   </div>
 
   <!-- SVG Overview Map -->
-  <div style="margin: 10px 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px;">
+  <div style="margin: 10px var(--gx) 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:6px;">🗺 全區相對位置總覽圖</h3>
     <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">示意圖（非精確比例）— 方向與遠近關係供快速判斷</p>
 
@@ -2349,7 +2472,7 @@
   </div>
 
   <!-- Shuttle Timetable -->
-  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #4a9fd4;">
+  <div style="margin: 0 var(--gx) 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #4a9fd4;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:6px;">🚌 接駁車 首班 ／ 末班車</h3>
     <p style="font-size:13.5px; color:#b5341f; margin-bottom:16px; line-height:1.8; font-weight:500;">⚠ 以下為上季（2025/26）<strong>參考時間（多為約略值）</strong>，2026/27 正式時刻表約 12/20 才公布，出發前務必到官網／車站確認！跨年旺季先到先得，建議提早 20–30 分排隊。</p>
 
@@ -2392,7 +2515,7 @@
   </div>
 
   <!-- 3-day suggestion -->
-  <div style="margin: 0 60px 40px; padding: 26px 30px; background: linear-gradient(135deg, #f0f9f0, #e8f4fc); border-left: 4px solid #27ae60; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+  <div style="margin: 0 var(--gx) 40px; padding: 26px 30px; background: linear-gradient(135deg, #f0f9f0, #e8f4fc); border-left: 4px solid #27ae60; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:6px;">⛷ 四天滑雪排法（已鎖定）</h3>
     <p style="font-size:13.5px; color:#33475b; margin-bottom:16px; line-height:1.8;">滑雪日：12/31・1/1・1/2・1/4（1/3 為一日遊）— 組 A（你＋Phoebe）雪場方案已定，等教練確認可駕駛範圍即定案</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:14px; line-height:1.85; color:#22303e;">
@@ -2437,7 +2560,7 @@
     </div>
   </div>
 
-  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;">
+  <div style="margin: 0 var(--gx) 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;">
     <table class="coach-table">
       <thead>
         <tr>
@@ -2527,7 +2650,7 @@
     </table>
   </div>
 
-  <div style="margin: 0 60px 40px; padding: 20px 26px; background: #fff8e8; border-left: 4px solid var(--gold); font-size: 12px; line-height: 2; color: #7a5c00;">
+  <div style="margin: 0 var(--gx) 40px; padding: 20px 26px; background: #fff8e8; border-left: 4px solid var(--gold); font-size: 12px; line-height: 2; color: #7a5c00;">
     <strong>⚠ 共通事項</strong>：費用不含雪票、雪具、保險｜台幣以 1 JPY ≈ 0.21 估算，依付款日匯率為準<br>
     <strong>💡 驗證狀態</strong>：雪遊（官方 26-27 海報）、雪國教練（官網 2026/7 更新）、瘋雪（26-27 早鳥至 8/31）、雪長姐（IG 公告 26/27 超早鳥）已確認 26-27；Snowpink、CJ 建議 LINE 確認最新價；Zona 建議 IG 私訊確認雪季與檔期<br>
     <strong>📚 資料來源</strong>：各校官網價目頁＋官方 IG/FB 公告＋雪板地圖平台
@@ -2555,12 +2678,13 @@
     <h3>🎿 雪具租借比價</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
-    滑雪日 <strong style="color:var(--deep);">12/31・1/1・1/2・1/4（共 4 天）</strong>，1/3 一日遊不滑雪｜全員<strong style="color:var(--deep);">單板</strong><br>
-    <strong style="color:#157a38;">青達雪具為 2026/27 官方價目，正好是你們這一季</strong>；BOO SPORTS 官網無法連線，價格待補
+  <p style="margin: 8px var(--gx) 0; font-size:14px; color:#33475b; line-height:1.9;">
+    確定滑雪 <strong style="color:var(--deep);">12/31・1/1・1/2</strong>（1/3 川越、<strong>1/4 自由日未定</strong>）｜全員<strong style="color:var(--deep);">單板</strong><br>
+    <strong style="color:#157a38;">三家皆為 2026/27 價目</strong>，青達台幣計價，BOO 與 SnowBuddies 已換算台幣
   </p>
 
   <!-- Shop A/B comparison -->
+  <div class="scroll-hint">← 表格可左右滑動 →</div>
   <div class="rs-wrap" style="margin-top:14px;">
     <table class="rs-table" style="min-width:900px;">
       <thead>
@@ -2603,9 +2727,10 @@
     <h3>💴 三店價目對照（全部換算台幣）</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+  <p style="margin: 8px var(--gx) 0; font-size:14px; color:#33475b; line-height:1.9;">
     成人價｜匯率 1 JPY ≈ 0.21 TWD（BOO、SnowBuddies 原價為日圓，括號內為原始日圓）｜<strong style="color:#157a38;">綠底＝該品項最便宜</strong>
   </p>
+  <div class="scroll-hint">← 表格可左右滑動 →</div>
   <div class="rs-wrap" style="margin-top:14px;">
     <table class="rs-table" style="min-width:1180px;">
       <thead>
@@ -2704,7 +2829,7 @@
       </tbody>
     </table>
   </div>
-  <div style="margin: 10px 60px 0; font-size:13.5px; color:#4e6d84; line-height:1.9;">
+  <div style="margin: 10px var(--gx) 0; font-size:13.5px; color:#4e6d84; line-height:1.9;">
     📌 <strong>其他各家特殊方案</strong>：BOO 有 <b>BURTON 2027</b> 板（套組首日 ¥4,500≈NT$945）與高階板（¥5,000≈NT$1,050）；SnowBuddies 有 <b>Premium 板 ¥5,500≈NT$1,155／Pro 板 ¥6,500≈NT$1,365</b>（需押金 ¥20,000，退還後歸還）、FASE 快穿固定器 +¥2,000/天、XRD 防摔褲護膝 +¥1,000/天；青達防摔褲需到店試穿後加租。
   </div>
 
@@ -2713,9 +2838,10 @@
     <h3>🧮 每人租借方案與費用（三店比較）</h3>
     <div class="line"></div>
   </div>
-  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+  <p style="margin: 8px var(--gx) 0; font-size:14px; color:#33475b; line-height:1.9;">
     採 <strong style="color:#157a38;">分兩段租</strong>（12/31–1/2 一段、1/4 一段），避免 1/3 沒滑雪還付租金
   </p>
+  <div class="scroll-hint">← 表格可左右滑動 →</div>
   <div class="rs-wrap" style="margin-top:14px;">
     <table class="rs-table" style="min-width:1120px;">
       <thead>
@@ -2793,11 +2919,12 @@
     </table>
   </div>
 
-  <div style="margin: 0 60px 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
+  <div style="margin: 0 var(--gx) 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
     🏆 <strong>純比價：BOO SPORTS 最便宜，六人合計省 NT$14,755</strong>（比青達）／ NT$12,327（比 SnowBuddies）。全套板鞋衣一天 ¥6,000≈NT$1,260，青達同組合要 NT$1,900。<br>
     🚐 <strong>但青達有兩個「錢買不到」的優勢，很適合你們這趟</strong>：① <b>免費接送到雪場</b>（租滿 ¥3,500/人/天、需先預約）— 你們 4 天要去 <b>4 個不同雪場</b>（かぐら／神立／石打／岩原），有接送省下大量交通折騰；② <b>07:30–20:30 營業</b>，夜滑回來店還開著。<br>
     ⚠ <strong>BOO 的兩個硬傷</strong>：① <b>歸還時間 17:00</b> — 你們 1/1、1/2、1/4 都要夜滑，時間直接衝突，一定要先問能否延後還；② 在<b>西口步行 7 分</b>，而雪場接駁多在<b>東口</b>發車（青達東口店還是<b>單板專門店</b>，正好全員單板）。<br>
     💰 <strong>價差換算一下</strong>：青達比 BOO 貴 NT$14,755 ÷ 6 人 ÷ 4 天 ≈ 每人每天多 NT$615，換來接送＋晚間營業。若你們本來就要自己搭接駁、且能配合 17:00 還裝備，BOO 省很大；若想省事，青達較穩。<br>
+    📅 <strong>上表以「滑 4 天」計（含 1/4）</strong>。若 <strong>1/4 不滑</strong>，全員只租 12/31–1/2 三天，一段租完不用分段：<b>青達 NT$32,180 ／ BOO NT$19,635 ／ SnowBuddies NT$30,051</b>（每人：Jerry 青達2,050·BOO1,575 ／ Phoebe 3,090·2,100 ／ 整套每人 6,760·3,990）<br>
     💡 <strong>分兩段租省 NT$4,580</strong>（以青達計）：1/3 一日遊不滑雪，租「12/31–1/2」＋「1/4」兩段，比連續租 5 天划算。三家都適用這個邏輯。<br>
     ⚠ <strong>套裝都不含安全帽和雪鏡</strong>：整套那四位要另加（BOO 首日各 NT$210、青達各 NT$330、SnowBuddies 各 NT$357），已算進上表。<br>
     ⚠ <strong>Jerry 只租板</strong>：鞋子、雪衣褲、安全帽、雪鏡要自己帶齊 — 安全帽是上課必備護具。<br>
@@ -2877,7 +3004,7 @@
   </div>
 
   <!-- Interactive Budget Calculator -->
-  <div style="margin: 30px 60px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #27ae60;">
+  <div style="margin: 30px var(--gx); background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #27ae60;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:22px; color:var(--deep); margin-bottom:4px;">💰 我的出國花費紀錄（Jerry）</h3>
     <p style="font-size:13.5px; color:#4e6d84; margin-bottom:20px; line-height:1.7;">記錄我個人的預估／實際花費（不分帳）。隨時修改數字，下方自動加總 ── ⚠ 重新整理頁面會歸零，正式記帳請另存。</p>
 
@@ -2934,7 +3061,7 @@
   </div>
 
   <!-- Shinkansen Guide -->
-  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #4a9fd4;">
+  <div style="margin: 0 var(--gx) 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #4a9fd4;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:16px;">🚄 機場 → 越後湯澤 交通攻略</h3>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;">
@@ -2974,7 +3101,7 @@
   </div>
 
   <!-- Practical Links -->
-  <div style="margin: 0 60px 40px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #8e44ad;">
+  <div style="margin: 0 var(--gx) 40px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #8e44ad;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:16px;">🔗 實用連結一覽</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:6px 30px; font-size:13px; line-height:2.4;">
       <div>
@@ -3026,7 +3153,7 @@
   </div>
 
   <!-- Cartoon Map -->
-  <div style="margin: 30px 60px; background: #F3F7F0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 24px; border-radius:4px;">
+  <div style="margin: 30px var(--gx); background: #F3F7F0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 24px; border-radius:4px;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:4px;">🗺 相對位置地圖</h3>
     <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">紅虛線＝搭巴士｜綠實線＝步行｜由北到南：冰川神社 → 老街 → 喜多院 → 車站</p>
     <svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" style="max-width:680px; display:block; margin:0 auto;">
@@ -3119,7 +3246,7 @@
   </div>
 
   <!-- Timeline -->
-  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #d4a843;">
+  <div style="margin: 0 var(--gx) 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #d4a843;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:16px;">⏰ 一日遊時間軸</h3>
     <div style="overflow-x:auto;">
       <table style="width:100%; border-collapse:collapse; font-size:13px;">
@@ -3200,7 +3327,7 @@
   </div>
 
   <!-- Food -->
-  <div style="margin: 20px 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #c0392b;">
+  <div style="margin: 20px var(--gx) 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #c0392b;">
     <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:18px; color:var(--deep); margin-bottom:16px;">🍽 沿線美食</h3>
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:13px; line-height:1.7;">
       <div>
@@ -3226,7 +3353,7 @@
     </div>
   </div>
 
-  <div style="margin: 0 60px 40px; font-size:11px; color:var(--muted); line-height:1.8;">
+  <div style="margin: 0 var(--gx) 40px; font-size:11px; color:var(--muted); line-height:1.8;">
     📚 資料來源：Mimi 韓の旅遊指南、波比看世界、完美行 WAmazing、樂吃購！日本、Klook、皮皮啾、艸頭黃這一家、Flyday.hk 等部落客實走整理。門票票價班次可能異動，出發前請查官網。
   </div>
 
