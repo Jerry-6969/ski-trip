@@ -768,43 +768,57 @@
     white-space: nowrap;
   }
   .sched-title .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
-  .sched-wrap {
-    margin: 16px 60px 10px;
-    background: #fff;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    border-radius: 4px;
-    overflow-x: auto;
+  /* ── CALENDAR WEEK VIEW ── */
+  .cal-wrap {
+    margin: 16px 60px 12px; background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; overflow-x: auto;
   }
-  .sched-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 980px; }
-  .sched-table th, .sched-table td { border: 1px solid #e6eef6; padding: 11px 12px; vertical-align: top; line-height: 1.6; }
-  .sched-table thead th {
-    background: var(--deep); color: #fff; text-align: center; font-weight: 500;
-    letter-spacing: 1px; white-space: nowrap;
+  .cal {
+    display: grid; grid-template-columns: 72px repeat(7, minmax(140px, 1fr));
+    grid-auto-rows: 46px; min-width: 1120px;
   }
-  .sched-table thead th small { display: block; font-size: 11.5px; color: rgba(255,255,255,0.7); font-weight: 300; margin-top: 3px; letter-spacing: 0; }
-  .sched-table thead .corner { background: #0d1b26; font-size: 12.5px; }
-  .sched-table .time-col {
-    background: #eef5fc; font-weight: 700; color: var(--deep);
-    text-align: center; white-space: nowrap; font-size: 13px; letter-spacing: 0.5px;
+  .cal-corner { grid-column: 1; grid-row: 1; background: #0d1b26; position: sticky; top: 0; z-index: 4; }
+  .cal-h {
+    background: var(--deep); color: #fff; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; font-weight: 600; font-size: 15px;
+    border-left: 1px solid rgba(255,255,255,0.14); position: sticky; top: 0; z-index: 3;
   }
-  .sched-table tbody td { color: #22303e; }
-  .sched-table tbody tr:hover td:not(.time-col) { filter: brightness(0.985); }
-  .sched-table td b { color: var(--deep); font-weight: 700; }
-  .sc-ski   { background: #eaf4ff; }
-  .sc-night { background: #ecebfa; }
-  .sc-fly   { background: #fff4e6; }
-  .sc-hotel { background: #fef7ea; }
-  .sc-tbc   { color: #6b7885; }
-  .sched-legend {
-    margin: 0 60px 34px; display: flex; flex-wrap: wrap; gap: 18px;
-    font-size: 13px; color: #4e6d84; padding-top: 12px; font-weight: 500;
+  .cal-h small { font-weight: 300; font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+  .cal-t {
+    grid-column: 1; display: flex; align-items: flex-start; justify-content: flex-end;
+    padding: 3px 9px 0 0; font-size: 13px; color: #4e6d84; font-weight: 700;
+    border-top: 1px solid #e6eef6; background: #f7fafd;
   }
-  .sched-legend span { display: inline-flex; align-items: center; gap: 6px; }
-  .sched-legend i { width: 13px; height: 13px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,0.05); }
+  .cal-slot { border-top: 1px solid #eef3f8; border-left: 1px solid #eef3f8; }
+  .cal-b {
+    margin: 2px 3px; border-radius: 5px; padding: 5px 8px; font-size: 13px;
+    line-height: 1.4; overflow: hidden; z-index: 2; display: flex;
+    flex-direction: column; justify-content: flex-start;
+  }
+  .cal-b b { font-size: 13.5px; font-weight: 700; }
+  .cal-b span { font-size: 12px; opacity: 0.82; margin-top: 2px; }
+  .cb-fix    { background: #1a3a52; color: #fff; }
+  .cb-lesson { background: #157a38; color: #fff; }
+  .cb-move   { background: #e4ecf3; color: #2a3f52; }
+  .cb-meal   { background: #fdf0d5; color: #7a5c00; border: 1px dashed #d4a843; }
+  .cb-fun    { background: #ece3f7; color: #4a2a6a; }
+  .cb-night  { background: #3a3a6a; color: #fff; }
+  .cb-tent {
+    background: repeating-linear-gradient(45deg,#dbeafe,#dbeafe 7px,#eaf3ff 7px,#eaf3ff 14px);
+    color: #1a3a52; border: 1px solid #a9cdf0;
+  }
+  .cb-tbd {
+    background: #fbfcfd; color: #6b7885; border: 2px dashed #b3c2ce;
+  }
+  .cal-legend {
+    margin: 0 60px 30px; display: flex; flex-wrap: wrap; gap: 18px;
+    font-size: 13px; color: #4e6d84; font-weight: 500; padding-top: 4px;
+  }
+  .cal-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .cal-legend i { width: 15px; height: 15px; border-radius: 3px; display: inline-block; }
   @media (max-width: 768px) {
-    .sched-title { padding: 24px 20px 0; }
-    .sched-wrap { margin: 12px 20px 10px; }
-    .sched-legend { margin: 0 20px 24px; }
+    .cal-wrap { margin: 12px 20px 12px; }
+    .cal-legend { margin: 0 20px 22px; }
   }
 
   /* ── RESORT DECISION TABLE ── */
@@ -970,95 +984,214 @@
     </div>
   </div>
 
-  <!-- Schedule Overview Table -->
+  <!-- Schedule Overview — calendar week view -->
   <div class="sched-title">
     <h3>🗓 行程總表</h3>
     <div class="line"></div>
   </div>
-  <div class="sched-wrap">
-    <table class="sched-table">
-      <thead>
-        <tr>
-          <th class="corner">時間 ＼ 日期</th>
-          <th>12/30<small>三・出發</small></th>
-          <th>12/31<small>四・跨年</small></th>
-          <th>1/1<small>五・元旦</small></th>
-          <th>1/2<small>六</small></th>
-          <th>1/3<small>日・分組</small></th>
-          <th>1/4<small>一・滑雪＋組C回台</small></th>
-          <th>1/5<small>二・東京→回台</small></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="time-col">07:00<br>–09:00</td>
-          <td class="sc-fly">✈ 組A BR192 07:15 松山起飛<br>組B·C JX800 08:25 桃園起飛</td>
-          <td class="sc-hotel">🏨 飯店早餐・整裝</td>
-          <td class="sc-hotel">🏨 飯店早餐</td>
-          <td class="sc-hotel">🏨 飯店早餐</td>
-          <td class="sc-hotel">🏨 早餐<br>組C 退房・行李帶著走<br>組A・組B 續住<br><b>08:30 出發</b></td>
-          <td class="sc-hotel">🏨 早餐・整裝<br>組C 前往成田機場</td>
-          <td class="sc-hotel">🏨 HATAGO 退房・整理行李</td>
-        </tr>
-        <tr>
-          <td class="time-col">09:00<br>–12:00</td>
-          <td class="sc-fly">✈ 飛行中<br>組A 11:00 抵羽田 T3</td>
-          <td class="sc-ski">⛷ 上午滑雪<br><b>組A かぐら</b><br>組A 教練課 10:00–12:00<br>組B·C 同教室 10:00–16:00<br><span class="sc-tbc">（雪場待定）</span></td>
-          <td class="sc-ski">⛷ 上午滑雪<br><b>組A 神立</b><br>組B·C 同教室 10:00–16:00<br><span class="sc-tbc">（雪場待定）</span></td>
-          <td class="sc-ski">⛷ <b>全員 石打丸山</b><br>陪新手一起玩<br>（組B/C 越後湯澤最後一天）</td>
-          <td>🚆 <b>往川越</b>（大宮轉車 1hr15）<br>09:45 抵達・買巴士一日券<br>10:15 冰川神社</td>
-          <td class="sc-ski">⛷ <b>滑雪 Day 4 — 岩原</b><br>組A ＋ 組B（冠景/Lisa）<br>週一唯一有夜滑</td>
-          <td>🚄 越後湯澤 → 東京駅<br>（新幹線約 70–80 分）<br>置物櫃寄行李</td>
-        </tr>
-        <tr>
-          <td class="time-col">12:00<br>–13:00</td>
-          <td class="sc-fly">組C 12:35 抵成田 T2<br>午餐後移動</td>
-          <td class="sc-ski">🍜 雪場午餐<br>（Phoebe 午休 1hr）</td>
-          <td class="sc-ski">🍜 午餐<br>組A 教練課 12:00 開始</td>
-          <td class="sc-ski">🍜 雪場午餐</td>
-          <td>🍜 川越午餐<br>小川菊鰻魚飯<br>（先抽號碼牌）</td>
-          <td class="sc-ski">🍜 雪場午餐<br>組C 成田機場報到</td>
-          <td>🛍 東京逛街購物</td>
-        </tr>
-        <tr>
-          <td class="time-col">13:00<br>–17:00</td>
-          <td>🚄 搭上越新幹線進越後湯澤<br>羽田→約2hr／成田→約2.5–3hr</td>
-          <td class="sc-ski">⛷ 下午滑雪<br>組A 教練課 13:00–15:00<br><b>雪場 17:00 關閉</b></td>
-          <td class="sc-ski">⛷ 下午滑雪<br>組A 教練課 ～16:00<br><b>雪場 17:00 關閉</b></td>
-          <td class="sc-ski">⛷ 下午滑雪（石打丸山）<br>組B/C 傍晚收裝備</td>
-          <td>🏯 老街・菓子屋橫丁・星巴克<br><b>14:05 川越→池袋</b>（東武 30 分）<br>🛍 池袋購物</td>
-          <td class="sc-ski">⛷ 下午滑雪（組A＋組B）<br><span class="sc-fly-x" style="color:#8a6a2a;">✈ 組C JX801 13:45→16:50 抵桃園</span></td>
-          <td>🛍 東京逛街（約 4.5 小時）<br><b>16:30–17:00 出發往成田</b><br>N'EX 約 60 分</td>
-        </tr>
-        <tr>
-          <td class="time-col">17:00<br>–19:00</td>
-          <td class="sc-hotel">🏨 越後湯澤會合<br>HATAGO 井仙 Check in・溫泉</td>
-          <td>🏨 回越後湯澤<br>準備跨年<br><span class="sc-tbc">（かぐら無夜滑）</span></td>
-          <td class="sc-night">🌙 <b>神立夜滑</b>（至深夜）<br>神之湯泡湯♨</td>
-          <td class="sc-night">🌙 石打夜滑 16:00–20:00<br><span class="sc-tbc">（可選）or 回飯店溫泉</span></td>
-          <td>🛍 池袋購物續攤<br><span class="sc-tbc">可延伸新宿（山手線 9 分）</span></td>
-          <td class="sc-night">🌙 夜滑？<span class="sc-tbc">（週一僅岩原確定有）</span><br>組A 傍晚回 HATAGO</td>
-          <td class="sc-fly"><b>18:20 前抵成田 T1</b><br>報到・免稅店採購</td>
-        </tr>
-        <tr>
-          <td class="time-col">19:00<br>以後</td>
-          <td>🍽 飯店附近輕鬆吃・溫泉放鬆</td>
-          <td class="sc-night">🎆 <b>全員一起跨年晚宴</b><br>倒數・神社初詣</td>
-          <td>🍽 <b>全員一起晚餐</b><br>元旦聚餐・溫泉恢復</td>
-          <td>🍽 HATAGO 最後一晚・整理行李</td>
-          <td>🍽 池袋／新宿晚餐<br>組A・組B ~19:30 回湯澤<br>組C 留東京住宿</td>
-          <td>🍽 晚餐（組A＋組B）<br>組A 住 HATAGO 最後一晚</td>
-          <td class="sc-fly">✈ <b>BR195 20:20 起飛</b><br>成田 T1 → 桃園 T2<br>23:25 抵台 🏠</td>
-        </tr>
-      </tbody>
-    </table>
+  <p style="margin: 8px 60px 0; font-size:14px; color:#33475b; line-height:1.9;">
+    <strong style="color:var(--deep);">以我（Jerry）的行程為主</strong>｜色塊長度＝實際時長｜<strong style="color:#157a38;">實心＝已確定</strong>・<strong style="color:#2a6ca8;">斜線＝雪場暫定</strong>・<strong style="color:#6b7885;">虛線＝待決定</strong>・<strong>空白＝還沒排</strong><br>
+    ⚠ 沒確定的一律留白，不先亂填
+  </p>
+  <div class="cal-wrap">
+    <div class="cal">
+      <div class="cal-corner"></div>
+      <div class="cal-h" style="grid-column:2;grid-row:1;">12/30<small>三・抵達</small></div>
+      <div class="cal-h" style="grid-column:3;grid-row:1;">12/31<small>四・跨年</small></div>
+      <div class="cal-h" style="grid-column:4;grid-row:1;">1/1<small>五・元旦</small></div>
+      <div class="cal-h" style="grid-column:5;grid-row:1;">1/2<small>六</small></div>
+      <div class="cal-h" style="grid-column:6;grid-row:1;">1/3<small>日・川越</small></div>
+      <div class="cal-h" style="grid-column:7;grid-row:1;">1/4<small>一</small></div>
+      <div class="cal-h" style="grid-column:8;grid-row:1;">1/5<small>二・回程</small></div>
+      <div class="cal-t" style="grid-row:2;">07:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:2;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:2;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:2;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:2;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:2;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:2;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:2;"></div>
+      <div class="cal-t" style="grid-row:3;">08:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:3;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:3;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:3;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:3;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:3;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:3;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:3;"></div>
+      <div class="cal-t" style="grid-row:4;">09:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:4;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:4;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:4;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:4;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:4;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:4;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:4;"></div>
+      <div class="cal-t" style="grid-row:5;">10:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:5;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:5;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:5;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:5;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:5;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:5;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:5;"></div>
+      <div class="cal-t" style="grid-row:6;">11:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:6;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:6;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:6;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:6;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:6;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:6;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:6;"></div>
+      <div class="cal-t" style="grid-row:7;">12:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:7;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:7;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:7;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:7;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:7;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:7;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:7;"></div>
+      <div class="cal-t" style="grid-row:8;">13:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:8;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:8;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:8;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:8;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:8;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:8;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:8;"></div>
+      <div class="cal-t" style="grid-row:9;">14:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:9;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:9;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:9;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:9;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:9;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:9;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:9;"></div>
+      <div class="cal-t" style="grid-row:10;">15:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:10;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:10;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:10;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:10;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:10;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:10;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:10;"></div>
+      <div class="cal-t" style="grid-row:11;">16:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:11;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:11;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:11;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:11;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:11;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:11;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:11;"></div>
+      <div class="cal-t" style="grid-row:12;">17:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:12;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:12;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:12;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:12;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:12;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:12;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:12;"></div>
+      <div class="cal-t" style="grid-row:13;">18:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:13;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:13;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:13;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:13;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:13;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:13;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:13;"></div>
+      <div class="cal-t" style="grid-row:14;">19:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:14;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:14;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:14;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:14;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:14;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:14;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:14;"></div>
+      <div class="cal-t" style="grid-row:15;">20:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:15;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:15;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:15;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:15;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:15;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:15;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:15;"></div>
+      <div class="cal-t" style="grid-row:16;">21:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:16;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:16;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:16;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:16;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:16;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:16;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:16;"></div>
+      <div class="cal-t" style="grid-row:17;">22:00</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:17;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:17;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:17;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:17;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:17;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:17;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:17;"></div>
+      <div class="cal-t" style="grid-row:18;">23:00+</div>
+      <div class="cal-slot" style="grid-column:2;grid-row:18;"></div>
+      <div class="cal-slot" style="grid-column:3;grid-row:18;"></div>
+      <div class="cal-slot" style="grid-column:4;grid-row:18;"></div>
+      <div class="cal-slot" style="grid-column:5;grid-row:18;"></div>
+      <div class="cal-slot" style="grid-column:6;grid-row:18;"></div>
+      <div class="cal-slot" style="grid-column:7;grid-row:18;"></div>
+      <div class="cal-slot" style="grid-column:8;grid-row:18;"></div>
+      <div class="cal-b cb-fix" style="grid-column:2;grid-row:2/6;"><b>✈ BR192 松山→羽田</b><span>07:15 起飛 / 11:00 抵達</span></div>
+      <div class="cal-b cb-move" style="grid-column:2;grid-row:6/10;"><b>🚄 前往越後湯澤</b><span>羽田→東京→越後湯澤 約 2–2.5hr</span></div>
+      <div class="cal-b cb-fix" style="grid-column:2;grid-row:10/11;"><b>🏨 HATAGO Check-in</b></div>
+      <div class="cal-b cb-meal" style="grid-column:2;grid-row:13/15;"><b>🍽 晚餐</b><span>未訂</span></div>
+      <div class="cal-b cb-move" style="grid-column:3;grid-row:4/5;"><b>🚡 上山・裝備</b></div>
+      <div class="cal-b cb-lesson" style="grid-column:3;grid-row:5/7;"><b>🎿 教練課</b><span>10:00–12:00</span></div>
+      <div class="cal-b cb-meal" style="grid-column:3;grid-row:7/8;"><b>🍜 午餐</b></div>
+      <div class="cal-b cb-lesson" style="grid-column:3;grid-row:8/10;"><b>🎿 教練課</b><span>13:00–15:00</span></div>
+      <div class="cal-b cb-tent" style="grid-column:3;grid-row:10/12;"><b>⛷ 自由滑</b><span>雪場暫定 / 17:00 關門</span></div>
+      <div class="cal-b cb-meal" style="grid-column:3;grid-row:13/15;"><b>🍽 晚餐</b><span>未訂</span></div>
+      <div class="cal-b cb-fun" style="grid-column:3;grid-row:15/18;"><b>🎆 酒吧・跨年倒數</b><span>不夜滑</span></div>
+      <div class="cal-b cb-move" style="grid-column:4;grid-row:6/7;"><b>🚡 上山（晚起）</b></div>
+      <div class="cal-b cb-lesson" style="grid-column:4;grid-row:7/11;"><b>🎿 教練課</b><span>12:00–16:00</span></div>
+      <div class="cal-b cb-night" style="grid-column:4;grid-row:11/14;"><b>🌙 續滑到晚上</b><span>課後接夜滑</span></div>
+      <div class="cal-b cb-meal" style="grid-column:4;grid-row:15/16;"><b>🍽 晚餐</b><span>未訂・較晚</span></div>
+      <div class="cal-b cb-tent" style="grid-column:5;grid-row:4/12;"><b>⛷ 滑雪</b><span>雪場暫定 / 17:00 關門</span></div>
+      <div class="cal-b cb-tbd" style="grid-column:5;grid-row:12/15;"><b>🌙 夜滑？</b><span>待決定</span></div>
+      <div class="cal-b cb-meal" style="grid-column:5;grid-row:15/16;"><b>🍽 晚餐</b><span>未訂</span></div>
+      <div class="cal-b cb-move" style="grid-column:6;grid-row:3/5;"><b>🚄 出發往川越</b><span>08:30 發・大宮轉車</span></div>
+      <div class="cal-b cb-fix" style="grid-column:6;grid-row:5/9;"><b>🏯 小江戶川越</b><span>冰川神社→老街→午餐→菓子屋橫丁</span></div>
+      <div class="cal-b cb-move" style="grid-column:6;grid-row:9/10;"><b>🚆 川越→池袋</b><span>東武東上線急行 30 分</span></div>
+      <div class="cal-b cb-fun" style="grid-column:6;grid-row:10/13;"><b>🛍 池袋購物</b></div>
+      <div class="cal-b cb-meal" style="grid-column:6;grid-row:13/15;"><b>🍽 晚餐</b><span>池袋／新宿・未訂</span></div>
+      <div class="cal-b cb-move" style="grid-column:6;grid-row:15/16;"><b>🚄 回越後湯澤</b><span>~21:00 抵達</span></div>
+      <div class="cal-b cb-tent" style="grid-column:7;grid-row:4/12;"><b>⛷ 滑雪</b><span>雪場暫定 / 17:00 關門</span></div>
+      <div class="cal-b cb-tbd" style="grid-column:7;grid-row:12/15;"><b>🌙 夜滑？</b><span>待決定</span></div>
+      <div class="cal-b cb-meal" style="grid-column:7;grid-row:15/16;"><b>🍽 晚餐</b><span>未訂</span></div>
+      <div class="cal-b cb-fix" style="grid-column:8;grid-row:5/6;"><b>🏨 HATAGO 退房</b></div>
+      <div class="cal-b cb-move" style="grid-column:8;grid-row:6/7;"><b>🚄 越後湯澤→東京</b><span>約 70–80 分</span></div>
+      <div class="cal-b cb-fun" style="grid-column:8;grid-row:7/11;"><b>🛍 東京逛街</b><span>行李寄東京駅</span></div>
+      <div class="cal-b cb-move" style="grid-column:8;grid-row:11/13;"><b>🚆 前往成田</b><span>N'EX 約 60 分 / 18:20 前抵達</span></div>
+      <div class="cal-b cb-meal" style="grid-column:8;grid-row:13/15;"><b>🍽 成田晚餐・免稅</b></div>
+      <div class="cal-b cb-fix" style="grid-column:8;grid-row:15/16;"><b>✈ BR195 20:20 起飛</b><span>23:25 抵桃園</span></div>
+    </div>
   </div>
-  <div class="sched-legend">
-    <span><i style="background:#eaf4ff;"></i>滑雪</span>
-    <span><i style="background:#ecebfa;"></i>夜滑</span>
-    <span><i style="background:#fff4e6;"></i>飛行／交通</span>
-    <span><i style="background:#fef7ea;"></i>住宿・進出</span>
-    <span><i style="background:#f0f0f2;"></i>灰字＝待定 TBC</span>
+  <div class="cal-legend">
+    <span><i style="background:#1a3a52;"></i>已確定（班機・住宿・川越）</span>
+    <span><i style="background:#157a38;"></i>教練課（已預約）</span>
+    <span><i style="background:repeating-linear-gradient(45deg,#dbeafe,#dbeafe 4px,#eaf3ff 4px,#eaf3ff 8px);border:1px solid #a9cdf0;"></i>滑雪（雪場暫定）</span>
+    <span><i style="background:#3a3a6a;"></i>夜滑（已定）</span>
+    <span><i style="background:#fbfcfd;border:2px dashed #b3c2ce;"></i>待決定</span>
+    <span><i style="background:#fdf0d5;border:1px dashed #d4a843;"></i>餐（未訂）</span>
+    <span><i style="background:#e4ecf3;"></i>交通</span>
+    <span><i style="background:#ece3f7;"></i>購物・活動</span>
+  </div>
+
+  <div style="margin: 0 60px 34px; padding: 18px 24px; background:#fff8e8; border-left:4px solid var(--gold); font-size:14px; line-height:2.1; color:#6a5000;">
+    🎯 <strong>還要決定的只剩 3 件事</strong>：① 每天去哪個雪場（12/31・1/1・1/2・1/4）② <strong>1/2 和 1/4 要不要夜滑</strong> ③ 各晚餐廳<br>
+    🔗 <strong>夜滑決定了，晚餐時間就跟著定</strong>：<br>
+    　<b>不夜滑</b> → 雪場 17:00 收 → 回飯店泡湯 → <b>晚餐 18:30–19:00</b><br>
+    　<b>一般夜滑</b>（岩原 17–19／石打 16–20）→ <b>晚餐 20:00–20:30</b><br>
+    　<b>神立深夜場</b>（18:00–翌 2:00）→ <b>先吃 17:30–18:30</b> 再上場<br>
+    ✅ <strong>已定案</strong>：12/31 不夜滑（吃完去酒吧跨年）／ 1/1 課後續滑到晚上
   </div>
 
   <div class="days-grid">
