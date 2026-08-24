@@ -770,6 +770,30 @@
     white-space: nowrap;
   }
   .sched-title .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
+  /* ── RESTAURANT MENU & LINKS ── */
+  .resto-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .resto-links a {
+    flex: 1 1 auto; text-align: center; text-decoration: none;
+    background: #1a3a52; color: #fff; font-size: 13.5px; font-weight: 600;
+    padding: 10px 12px; border-radius: 6px; letter-spacing: 0.5px;
+    min-width: 118px;
+  }
+  .resto-links a.alt { background: #eaf0f6; color: #2a3f52; border: 1px solid #cfdce8; }
+  .resto-links a:active { opacity: 0.75; }
+  .menu-box { margin-top: 10px; border: 1px solid #e2ebf3; border-radius: 6px; overflow: hidden; }
+  .menu-box h5 {
+    background: #f2f7fb; color: var(--deep); font-size: 13.5px; font-weight: 700;
+    padding: 8px 11px; letter-spacing: 0.5px; border-bottom: 1px solid #e2ebf3;
+  }
+  .menu-tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .menu-tbl td { padding: 8px 11px; border-bottom: 1px solid #eef3f8; vertical-align: top; line-height: 1.5; }
+  .menu-tbl tr:last-child td { border-bottom: none; }
+  .menu-tbl .mi { color: #22303e; font-weight: 600; }
+  .menu-tbl .mi i { display: block; font-style: normal; font-size: 12px; color: #6b8fa8; font-weight: 400; margin-top: 2px; }
+  .menu-tbl .mp { text-align: right; white-space: nowrap; color: #157a38; font-weight: 700; }
+  .menu-tbl .mp i { display: block; font-style: normal; font-size: 12px; color: #2e5a8a; font-weight: 600; }
+  .menu-note { font-size: 12.5px; color: #7a5c00; background: #fff8e8; padding: 7px 11px; line-height: 1.6; }
+
   /* ── CALENDAR WEEK VIEW ── */
   .cal-wrap {
     margin: 16px var(--gx) 12px; background: #fff;
@@ -1595,6 +1619,7 @@
           <strong>炸舞茸</strong> — 娜塔蝦特別標記「舞茸是當地名產，酥炸之後香酥可口」
         </div>
         <span class="resto-reserve">建議網路預約（尤其跨年期間）</span>
+        <div class="menu-box"><h5>📋 中文菜單・參考價（1 JPY ≈ 0.21 TWD）</h5><table class="menu-tbl"><tbody><tr><td class="mi">舞茸御膳 <span style="font-size:11.5px;color:#b5341f;">⭐ 四季最人氣</span><i>舞茸御膳</i></td><td class="mp">¥1,980<i>NT$416</i></td></tr><tr><td class="mi">銀鱈西京燒<i>銀だらの西京焼き</i></td><td class="mp">¥1,200<i>NT$252</i></td></tr><tr><td class="mi">舞茸天婦羅＋蕎麥套餐 <span style="font-size:11.5px;color:#b5341f;">午餐</span><i>舞茸天ぷらとそばセット</i></td><td class="mp">¥1,200<i>NT$252</i></td></tr><tr><td class="mi">薑汁燒肉定食 <span style="font-size:11.5px;color:#b5341f;">午餐</span><i>生姜焼き定食</i></td><td class="mp">¥1,210<i>NT$254</i></td></tr><tr><td class="mi">越後麻糬豬鍋 <span style="font-size:11.5px;color:#b5341f;">娜塔蝦推薦・2–3人份</span><i>越後もち豚鍋</i></td><td class="mp">冬季限定</td></tr><tr><td class="mi">涮涮鍋<i>しゃぶしゃぶ</i></td><td class="mp">冬季限定</td></tr></tbody></table><div class="menu-note">營業 11:00–14:00 / 17:00–20:00（L.O. 19:45）・週一公休、週二僅晚餐</div></div><div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E4%BF%9D%E3%82%88%E3%81%97%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E4%BF%9D%E3%82%88%E3%81%97%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">娜塔蝦部落格</span>
           <span class="source-pill">backpackers</span>
@@ -1624,6 +1649,7 @@
           <strong style="color:#e07b39;">👥 朋友心得：傳說中超好吃，但永遠大排隊，實際去了排不到沒吃成…想吃務必早點去！</strong>
         </div>
         <span class="resto-reserve">用餐時段常等位，建議提早到</span>
+        <div class="menu-box"><h5>📋 中文菜單・參考價（1 JPY ≈ 0.21 TWD）</h5><table class="menu-tbl"><tbody><tr><td class="mi">里肌豬排定食 <span style="font-size:11.5px;color:#b5341f;">招牌</span><i>ロースかつ定食</i></td><td class="mp">¥1,400–2,280<i>NT$294–NT$479</i></td></tr><tr><td class="mi">特大里肌豬排定食 <span style="font-size:11.5px;color:#b5341f;">份量極大</span><i>特大ロースかつ定食</i></td><td class="mp">¥1,620–3,058<i>NT$340–NT$642</i></td></tr><tr><td class="mi">白飯加大 <span style="font-size:11.5px;color:#b5341f;">⚠ 網友：4個男生只1人吃完</span><i>ごはん大盛</i></td><td class="mp">另計</td></tr></tbody></table><div class="menu-note">⚠ 各查詢來源價格不一致（可能為不同年度／份量），實際以店家為準</div></div><div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B6%8A%E5%BE%8C%E3%81%A8%E3%82%93%E3%81%8B%E3%81%A4%20%E4%BA%BA%E5%8F%82%E4%BA%AD%20%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E8%B6%8A%E5%BE%8C%E3%81%A8%E3%82%93%E3%81%8B%E3%81%A4%20%E4%BA%BA%E5%8F%82%E4%BA%AD%20%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">Dcard（A 級）</span>
           <span class="source-pill">HeyHeySnow</span>
@@ -1652,6 +1678,7 @@
           雪魚 Vic：「每年除夕的定番晚餐首選」
         </div>
         <span class="resto-reserve">跨年夜除夕必訂位！</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E9%A3%9F%E5%AE%B6%20%E3%81%82%E3%81%95%E3%81%8F%E3%81%95%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E9%A3%9F%E5%AE%B6%20%E3%81%82%E3%81%95%E3%81%8F%E3%81%95%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">娜塔蝦部落格</span>
           <span class="source-pill">雪魚 SnowFish-Vic</span>
@@ -1679,6 +1706,7 @@
           推薦用在：<strong>12/30 抵達日</strong>（累了不想出門）或 <strong>1/1 元旦</strong>（外面多店公休）
         </div>
         <span class="resto-reserve">建議提早預約 Course 晚餐</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%82%80%E3%82%89%E3%82%93%E3%81%94%E3%81%A3%E3%81%A4%E3%81%89%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E3%82%80%E3%82%89%E3%82%93%E3%81%94%E3%81%A3%E3%81%A4%E3%81%89%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">HATAGO 井仙官網</span>
           <span class="source-pill">Evendo</span>
@@ -1708,6 +1736,7 @@
           <strong style="color:#e07b39;">👥 朋友實測：下午 3–4 點人比較少，其他時段都要大排隊，超好吃！</strong>
         </div>
         <span class="resto-reserve">假日用餐需排隊 40–60 分鐘</span>
+        <div class="menu-box"><h5>📋 中文菜單・參考價（1 JPY ≈ 0.21 TWD）</h5><table class="menu-tbl"><tbody><tr><td class="mi">片木盒蕎麥麵 2人份 <span style="font-size:11.5px;color:#b5341f;">⭐ 魚沼名物</span><i>へぎそば 2人前</i></td><td class="mp">¥2,000<i>NT$420</i></td></tr><tr><td class="mi">基本蕎麥麵（冷／熱） <span style="font-size:11.5px;color:#b5341f;">大盛 +¥165</span><i>もり・かけ</i></td><td class="mp">¥770 起<i>NT$162</i></td></tr><tr><td class="mi">舞茸天婦羅蕎麥麵<i>舞茸の天ぷら蕎麦</i></td><td class="mp">¥880<i>NT$185</i></td></tr><tr><td class="mi">舞茸天笊蕎麥麵（大盛）<i>舞茸天ざるそば（大盛）</i></td><td class="mp">¥1,650<i>NT$346</i></td></tr><tr><td class="mi">舞茸天婦羅（單點） <span style="font-size:11.5px;color:#b5341f;">當地名產</span><i>舞茸天ぷら</i></td><td class="mp">¥800<i>NT$168</i></td></tr></tbody></table><div class="menu-note">越後湯澤駅前老舖・布海苔手打蕎麥</div></div><div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%9D%E3%81%B0%E5%87%A6%20%E4%B8%AD%E9%87%8E%E5%B1%8B%20%E6%B9%AF%E6%B2%A2%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E3%81%9D%E3%81%B0%E5%87%A6%20%E4%B8%AD%E9%87%8E%E5%B1%8B%20%E6%B9%AF%E6%B2%A2%E6%9C%AC%E5%BA%97%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">HeyHeySnow</span>
           <span class="source-pill">Wanderlog</span>
@@ -1736,6 +1765,7 @@
           Wanderlog：「showcasing unique local flavors that can only be savored in this region」
         </div>
         <span class="resto-reserve">常客滿，建議訂位</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B9%AF%E6%B2%A2%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E6%B9%AF%E6%B2%A2%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">Wanderlog</span>
           <span class="source-pill">Google Reviews</span>
@@ -1762,6 +1792,7 @@
           適合：<strong>滑雪後輕鬆喝酒配串燒</strong>的夜晚
         </div>
         <span class="resto-reserve">注意週一、四公休！</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E7%82%AD%E7%81%AB%E7%84%BC%E9%B3%A5%20%E6%B1%A0%E5%B1%8B%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E7%82%AD%E7%81%AB%E7%84%BC%E9%B3%A5%20%E6%B1%A0%E5%B1%8B%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">Evendo</span>
           <span class="source-pill">Tabelog</span>
@@ -1789,6 +1820,7 @@
           <strong style="color:#e07b39;">👥 朋友推薦：不貴又超好吃，但位子很少，沒訂位排不到！</strong>
         </div>
         <span class="resto-reserve">滑雪季務必提前訂位！</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E6%B3%B0%E5%B9%B8%E5%AE%B4%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E6%B3%B0%E5%B9%B8%E5%AE%B4%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">朋友實訪推薦</span>
           <span class="source-pill">Google 4.4★</span>
@@ -1815,6 +1847,7 @@
           適合：<strong>跨年夜浪漫西式晚餐</strong>
         </div>
         <span class="resto-reserve">僅日文菜單，建議帶翻譯 App</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=Vitraux%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=Vitraux%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">雪魚 SnowFish-Vic</span>
           <span class="source-pill">Wanderlog</span>
@@ -1842,6 +1875,7 @@
           Dcard 評為 B+：「不錯吃但不會特別驚豔，有路過可以吃看看」
         </div>
         <span class="resto-reserve">12/30 通勤日方便選擇</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E8%B6%8A%E5%BE%8C%E7%B6%AD%E6%96%B0%20%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E8%B6%8A%E5%BE%8C%E7%B6%AD%E6%96%B0%20%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">Dcard（B+）</span>
           <span class="source-pill">Google 2155 則</span>
@@ -1866,6 +1900,7 @@
           <strong>餃子</strong>（¥500）— 可加點<br>
           Dcard 評為 B：「適合重口味，個人感想是有點鹹」
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E5%A8%98%E5%A8%98%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E5%A8%98%E5%A8%98%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source">
           <span class="source-pill">Dcard（B）</span>
         </div>
@@ -1896,6 +1931,7 @@
           <strong>手沖咖啡</strong> — 「Best coffee we've had in Japan」＋咖哩也好吃
         </div>
         <span class="resto-reserve">營業日不固定，出發前查 IG</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=Chalo%20Coffee%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=Chalo%20Coffee%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">Google 4.8★</span></div>
       </div>
     </div>
@@ -1914,6 +1950,7 @@
           <strong>麹拿鐵（豆乳）</strong> — Google 評論「slightly sweet from koji, unique aroma」<br>
           <strong>酒粕霜淇淋 / 麹霜淇淋</strong> — 「10/10 must try」
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=HATAGO%E4%BA%95%E4%BB%99%20%E9%BA%B9%E3%83%A9%E3%83%86%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=HATAGO%E4%BA%95%E4%BB%99%20%E9%BA%B9%E3%83%A9%E3%83%86%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">Google 4.4★</span></div>
       </div>
     </div>
@@ -1932,6 +1969,7 @@
           <strong>可頌 + 咖啡</strong> — Google 評論「2 週日本行最好喝的咖啡之一」<br>
           <strong>胡麻味噌拉麵</strong> — 「crazy good, one of a kind」（常售完）
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=And%20tap%20cafe%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=And%20tap%20cafe%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">Google 4.1★</span></div>
       </div>
     </div>
@@ -1950,6 +1988,7 @@
           <strong>溫泉珈琲</strong> — 溫泉水沖煮，口感圓潤<br>
           <strong>溫泉布丁</strong> — 名物甜點，退房前必吃一次
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=HATAGO%E4%BA%95%E4%BB%99%20%E6%B0%B4%E5%B1%8B%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=HATAGO%E4%BA%95%E4%BB%99%20%E6%B0%B4%E5%B1%8B%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">HATAGO 官網</span></div>
       </div>
     </div>
@@ -1979,6 +2018,7 @@
           <strong style="color:#e07b39;">👥 朋友推薦：就在車站裡面，超多清酒很讚！</strong>
         </div>
         <span class="resto-reserve">營業到 19:00，白天去！</span>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=%E3%81%BD%E3%82%93%E3%81%97%E3%82%85%E9%A4%A8%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=%E3%81%BD%E3%82%93%E3%81%97%E3%82%85%E9%A4%A8%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">AndrewPlus</span><span class="source-pill">Google 2548 則</span><span class="source-pill">Wanderlog</span></div>
       </div>
     </div>
@@ -1997,6 +2037,7 @@
           <strong>調酒 + 日本酒</strong> — Google 評論「loved the drinks and ambience, owner very friendly」<br>
           適合：<strong>跨年夜續攤第二站</strong>，找路邊投影招牌
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=BAR%20%E5%A4%A9%E5%9B%BD%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=BAR%20%E5%A4%A9%E5%9B%BD%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">Google 5.0★</span></div>
       </div>
     </div>
@@ -2014,6 +2055,7 @@
           <span class="resto-rec-tag">適合</span><br>
           想跳舞聽音樂的跨年夜！營業到午夜 12 點
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=MUSIC%20BAR%20%E6%B9%AF%E6%B2%A2FLAT" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=MUSIC%20BAR%20%E6%B9%AF%E6%B2%A2FLAT%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">Google 4.3★</span></div>
       </div>
     </div>
@@ -2031,6 +2073,7 @@
           <span class="resto-rec-tag">注意</span><br>
           ⚠ 有 <strong>¥1,000 入場費（cover charge）</strong>，撞球每人 ¥1,000，酒價偏高 — Google 評論多人反應，去之前先有心理準備
         </div>
+        <div class="resto-links"><a href="https://www.google.com/maps/search/?api=1&query=SWING%20BAR%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2" target="_blank" rel="noopener">📷 照片・評價</a><a class="alt" href="https://www.google.com/search?q=SWING%20BAR%20%E8%B6%8A%E5%BE%8C%E6%B9%AF%E6%B2%A2%20%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%20%E4%BE%A1%E6%A0%BC" target="_blank" rel="noopener">📋 查菜單</a></div>
         <div class="resto-source"><span class="source-pill">Wanderlog</span><span class="source-pill">Google 4.4★</span></div>
       </div>
     </div>
