@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日本滑雪跨年 2025–2026</title>
+<title>越後湯澤跨年滑雪 2026–27</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;900&family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -898,6 +898,111 @@
     .cal-legend { margin: 0 20px 26px; gap: 8px 14px; font-size: 14px; }
   }
 
+  /* ===== UI 優化（2026/10） ===== */
+  .hero { min-height: 64vh; }
+  .hero-content { padding: 64px 60px; }
+  .nav-tabs { scrollbar-width: none; }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .nav-tab { font-size: 15px; letter-spacing: 1px; padding: 17px 18px; }
+  .nav-tab.active { color: #fff; border-bottom: 3px solid var(--accent); }
+  .to-top { position: fixed; right: 18px; bottom: 22px; width: 46px; height: 46px; border-radius: 50%;
+    border: none; background: var(--deep); color: #fff; font-size: 20px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 200; }
+  .to-top.show { opacity: .9; pointer-events: auto; }
+
+  /* 教練比價收合 */
+  details.fold { margin: 0 60px 30px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 6px; }
+  details.fold > summary { cursor: pointer; padding: 16px 22px; font-size: 17px; font-weight: 700; color: var(--deep); list-style: none; }
+  details.fold > summary::-webkit-details-marker { display: none; }
+  details.fold > summary::after { content: '展開 ▾'; float: right; font-size: 14px; color: var(--accent); font-weight: 600; }
+  details.fold[open] > summary::after { content: '收起 ▴'; }
+  details.fold > div { margin-left: 0 !important; margin-right: 0 !important; box-shadow: none !important; }
+
+  /* 待辦 */
+  .td-wrap { padding: 28px 60px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 22px; align-items: start; }
+  .td-group { background: #fff; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); overflow: hidden; }
+  .td-head { padding: 13px 18px; font-size: 18px; font-weight: 700; color: #fff; display: flex; justify-content: space-between; }
+  .td-urgent .td-head { background: #b03a2e; } .td-discuss .td-head { background: #c48a1a; }
+  .td-doing .td-head { background: #3d6f9e; } .td-done .td-head, .td-group.td-done .td-head { background: #2e7d4f; }
+  .td-count { font-size: 15px; opacity: .9; }
+  .td-item { display: flex; gap: 12px; align-items: flex-start; padding: 12px 18px; border-bottom: 1px solid #eef3f8; cursor: pointer; }
+  .td-item:last-child { border-bottom: none; }
+  .td-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: #2e7d4f; flex-shrink: 0; }
+  .td-text { flex: 1; font-size: 16px; line-height: 1.55; color: var(--deep); }
+  .td-text small { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .td-who { flex-shrink: 0; font-size: 13px; background: #eef4fa; color: #2a5a80; padding: 3px 9px; border-radius: 12px; margin-top: 2px; white-space: nowrap; }
+  .td-item.td-done .td-text b { text-decoration: line-through; color: #8aa0b3; }
+
+  /* 一日遊候選 */
+  .dt-grid { padding: 28px 60px 10px; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+  .dt-card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 20px 22px; border-top: 4px solid var(--accent); }
+  .dt-card.dt-dim { border-top-color: #b8c6d2; opacity: .88; }
+  .dt-top { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .dt-emo { font-size: 34px; }
+  .dt-name { font-size: 20px; font-weight: 700; color: var(--deep); line-height: 1.3; }
+  .dt-tags { margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .dt-tag, .dt-new, .dt-old { font-size: 12.5px; padding: 2px 9px; border-radius: 10px; }
+  .dt-tag { background: #eef4fa; color: #2a5a80; } .dt-new { background: #e8a33d; color: #1a1a1a; font-weight: 600; } .dt-old { background: #e6ebef; color: #5b6f80; }
+  .dt-row { display: flex; gap: 10px; font-size: 15px; padding: 5px 0; border-bottom: 1px dashed #eef3f8; }
+  .dt-row span { flex: 0 0 104px; color: var(--muted); }
+  .dt-row b { font-weight: 500; color: var(--deep); }
+  .dt-list { margin: 10px 0 8px 18px; font-size: 15px; line-height: 1.75; color: var(--text); }
+  .dt-warn { font-size: 14px; color: #8a5a00; background: #fff8e8; padding: 8px 11px; border-radius: 6px; line-height: 1.6; }
+  .dt-src { margin: 10px 60px 40px; font-size: 13.5px; color: var(--muted); line-height: 1.8; }
+
+  /* 預估花費 */
+  .bud-sum { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 14px; }
+  .bud-sum > div { background: #f4f8fb; border-radius: 8px; padding: 14px 16px; }
+  .bud-sum span { display: block; font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+  .bud-sum b { font-size: 22px; color: var(--deep); font-weight: 700; }
+  .bud-sum .bs-main { background: linear-gradient(135deg, #0d1f2d, #1a3a2d); }
+  .bud-sum .bs-main span { color: rgba(255,255,255,0.8); }
+  .bud-sum .bs-main b { color: #7de3a0; font-size: 32px; }
+  .bud-sum .bs-main small { display: block; color: #ffd27a; font-size: 13.5px; margin-top: 4px; }
+  .bud-bar { display: flex; height: 14px; border-radius: 7px; overflow: hidden; margin: 16px 0 8px; background: #eef3f8; }
+  .bud-bar i { display: block; height: 100%; }
+  .bud-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14.5px; color: var(--text); }
+  .bud-legend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+  .bud-legend em { font-style: normal; color: var(--muted); }
+  .bud-table td { padding: 10px 13px; border-bottom: 1px solid #eef3f8; font-size: 15px; vertical-align: middle; }
+  .bud-table .bud-cat td { background: #f4f8fb; font-weight: 700; font-size: 15.5px; color: var(--deep); padding: 8px 13px; }
+  .bud-note { color: var(--muted); font-size: 14px !important; line-height: 1.55; }
+  .bud-st { font-size: 13px; padding: 3px 9px; border-radius: 10px; white-space: nowrap; }
+  .st-ok { background: #e3f4e9; color: #1d6b3d; } .st-est { background: #eef4fa; color: #2a5a80; }
+  .st-ask { background: #fdecea; color: #a8322a; } .st-self { background: #fff4dd; color: #8a5a00; }
+  .bud-amt-td { text-align: right; white-space: nowrap; }
+  .bud-nt { color: var(--muted); font-size: 13px; margin-right: 4px; }
+  .bud-amt { width: 110px; padding: 7px 9px; border: 1.5px solid var(--frost); border-radius: 6px; font-size: 16px; font-weight: 600; text-align: right; color: var(--deep); }
+  .bud-reset { border: 1.5px solid var(--frost); background: #fff; color: var(--deep); padding: 8px 14px; border-radius: 6px; font-size: 14.5px; cursor: pointer; }
+
+  @media (max-width: 768px) {
+    .hero { min-height: 56vh; }
+    .hero-content { padding: 48px 22px; }
+    .nav-tabs { padding: 0 8px; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+    .nav-tab { padding: 15px 13px; font-size: 14.5px; }
+    details.fold { margin: 0 20px 24px; }
+    .td-wrap { padding: 20px; grid-template-columns: 1fr; }
+    .dt-grid { padding: 20px; grid-template-columns: 1fr; }
+    .dt-src { margin: 8px 20px 30px; }
+    .bud-sum { grid-template-columns: 1fr 1fr; }
+    .bud-sum .bs-main, .bud-sum > div:last-child { grid-column: 1 / -1; }
+    .bud-table .bud-cat { display: block; border: none !important; border-left: none !important; background: transparent !important; margin: 14px 0 6px; }
+    .bud-table .bud-cat td { text-align: left; background: transparent; padding: 0 !important; font-size: 17px; border: none !important; }
+    .bud-table .bud-cat td::before { content: none; }
+    .bud-amt { width: 120px; }
+  }
+
+  @media (max-width: 768px) {
+    /* 每日行程頂部：機票／成員／住宿 在手機改單欄 */
+    .itinerary-header { padding: 30px 20px !important; }
+    .itinerary-header div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .itinerary-header div[style*="padding-left:24px"] { border-left: none !important; padding-left: 0 !important;
+      border-top: 1px solid rgba(255,255,255,0.12); padding-top: 14px; }
+    .itinerary-header div[style*="padding:22px 26px"] { padding: 18px 18px !important; }
+    .hero-title { font-size: 76px !important; line-height: 0.95 !important; }
+    .hero-meta { gap: 14px 26px !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -929,7 +1034,7 @@
       <span>SKI</span>
       TRIP
     </h1>
-    <p class="hero-subtitle">2025 冬 ／ 跨年旅行</p>
+    <p class="hero-subtitle">2026–27 冬 ／ 越後湯澤跨年</p>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">出發日期</span>
@@ -945,7 +1050,11 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">行程天數</span>
-        <span class="meta-value">6–7 天</span>
+        <span class="meta-value">7 天 6 夜</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">出發倒數</span>
+        <span class="meta-value" id="countdown">— 天</span>
       </div>
     </div>
   </div>
@@ -954,12 +1063,13 @@
 <!-- NAV TABS -->
 <nav class="nav-tabs">
   <div class="nav-tab active" onclick="showSection('itinerary', this)">📅 每日行程</div>
+  <div class="nav-tab" onclick="showSection('todo', this)">📌 待辦</div>
   <div class="nav-tab" onclick="showSection('restaurant', this)">🍜 餐廳清單</div>
   <div class="nav-tab" onclick="showSection('resorts', this)">🚡 雪場交通</div>
   <div class="nav-tab" onclick="showSection('gear', this)">🎿 裝備清單</div>
-  <div class="nav-tab" onclick="showSection('budget', this)">💰 預算＆實用</div>
-  <div class="nav-tab" onclick="showSection('kawagoe', this)">🏯 川越延伸</div>
-  <div class="nav-tab" onclick="showSection('coach', this)">🏂 教練比價</div>
+  <div class="nav-tab" onclick="showSection('budget', this)">💰 預算</div>
+  <div class="nav-tab" onclick="showSection('daytrip', this)">🗳 1/3 一日遊</div>
+  <div class="nav-tab" onclick="showSection('coach', this)">🏂 教練</div>
 </nav>
 
 <!-- ITINERARY SECTION -->
@@ -1161,7 +1271,7 @@
       <div class="cal-h" style="grid-column:3;grid-row:1;">12/31<small>四・神樂＋跨年</small></div>
       <div class="cal-h" style="grid-column:4;grid-row:1;">1/1<small>五・石打＋夜滑</small></div>
       <div class="cal-h" style="grid-column:5;grid-row:1;">1/2<small>六・GALA 全員</small></div>
-      <div class="cal-h" style="grid-column:6;grid-row:1;">1/3<small>日・川越</small></div>
+      <div class="cal-h" style="grid-column:6;grid-row:1;">1/3<small>日・一日遊</small></div>
       <div class="cal-h" style="grid-column:7;grid-row:1;">1/4<small>一・滑雪</small></div>
       <div class="cal-h" style="grid-column:8;grid-row:1;">1/5<small>二・回程</small></div>
       <div class="cal-t" style="grid-row:2/4;">07:00</div>
@@ -1420,8 +1530,10 @@
       <div class="cal-slot" style="grid-column:8;grid-row:34;"></div>
       <div class="cal-slot half" style="grid-column:8;grid-row:35;"></div>
       <div class="cal-b cb-flight" style="grid-column:2;grid-row:2/10;" title="07:15–11:00　✈ BR192 松山→羽田"><b>✈ BR192 松山→羽田</b><em>07:15–11:00</em><span>抵達羽田 T3</span></div>
-      <div class="cal-b cb-move" style="grid-column:2;grid-row:10/17;" title="11:00–14:30　🚄 前往越後湯澤"><b>🚄 前往越後湯澤</b><em>11:00–14:30</em><span>單軌＋山手線→東京駅→上越新幹線・約 2hr</span></div>
-      <div class="cal-b mid cb-hotel" style="grid-column:2;grid-row:18/20;" title="15:00–16:00　🏨 HATAGO 井仙 Check-in"><b>🏨 HATAGO Check-in</b><em>15:00–16:00</em><span>大浴場 14:00 起可泡</span></div>
+      <div class="cal-b cb-move" style="grid-column:2;grid-row:10/13;" title="11:00–12:30　🚝 羽田→東京駅"><b>🚝 羽田→東京駅</b><em>11:00–12:30</em><span>單軌＋山手線約 40 分</span></div>
+      <div class="cal-b cb-tbd" style="grid-column:2;grid-row:13/18;" title="12:30–15:00　🍱 東京駅午餐・等大家"><b>🍱 東京駅午餐・等大家</b><em>12:30–15:00</em><span>成田組約 14:30–15:00 到東京駅</span></div>
+      <div class="cal-b cb-tbd" style="grid-column:2;grid-row:18/21;" title="15:00–16:30　🚄 全員同班新幹線"><b>🚄 全員同班新幹線</b><em>15:00–16:30</em><span>Klook 訂・班次未定・新幹線改札集合</span></div>
+      <div class="cal-b short cb-hotel" style="grid-column:2;grid-row:21/22;" title="16:30–17:00　🏨 Check-in"><b>🏨 Check-in</b><em>16:30–17:00</em></div>
       <div class="cal-b cb-tbd" style="grid-column:2;grid-row:22/25;" title="17:00–18:30　🍽 晚餐（未訂）"><b>🍽 晚餐（未訂）</b><em>17:00–18:30</em><span>領雪具前先吃</span></div>
       <div class="cal-b cb-hotel" style="grid-column:2;grid-row:25/29;" title="18:30–20:30　🎿 青達領雪具"><b>🎿 青達領雪具</b><em>18:30–20:30</em><span>東口店・這段時間內去領・帳從 12/31 算</span></div>
       <div class="cal-b cb-move short" style="grid-column:3;grid-row:6/7;" title="09:00–09:30　🚐 小 Su 載去神樂"><b>🚐 小 Su 載去神樂</b><em>09:00–09:30</em><span>三俁口・約 20 分</span></div>
@@ -1438,10 +1550,8 @@
       <div class="cal-b cb-ski" style="grid-column:5;grid-row:6/21;" title="09:00–16:30　⛷ 滑雪｜GALA 湯澤"><b>⛷ 滑雪｜GALA 湯澤</b><em>09:00–16:30</em><span>6 人一起（Lisa 不滑）・無課程・青達接駁 5 分</span></div>
       <div class="cal-b mid cb-hotel" style="grid-column:5;grid-row:22/24;" title="17:00–18:00　📦 Phoebe・Sandy・Vivi・Jing 還雪具"><b>📦 Phoebe 等 4 人還雪具</b><em>17:00–18:00</em><span>18:00 前・Jerry 租到 1/4</span></div>
       <div class="cal-b cb-tbd" style="grid-column:5;grid-row:25/29;" title="18:30–20:30　🍽 全員聚餐（要訂）"><b>🍽 全員聚餐（要訂）</b><em>18:30–20:30</em><span>餐廳未定</span></div>
-      <div class="cal-b cb-move" style="grid-column:6;grid-row:4/8;" title="08:00–10:00　🚄 越後湯澤→川越"><b>🚄 越後湯澤→川越</b><em>08:00–10:00</em><span>新幹線到大宮・轉 JR 川越線</span></div>
-      <div class="cal-b cb-play" style="grid-column:6;grid-row:8/22;" title="10:00–17:00　🏯 小江戶川越（省腳力版）"><b>🏯 小江戶川越（省腳力版）</b><em>10:00–17:00</em><span>全員 7 人・冰川神社→本丸御殿→時之鐘・鰻魚飯→菓子屋橫丁→喜多院</span></div>
-      <div class="cal-b cb-move" style="grid-column:6;grid-row:23/27;" title="17:30–19:30　🚄 回越後湯澤"><b>🚄 回越後湯澤</b><em>17:30–19:30</em><span>Sandy・Vivi 直接留東京</span></div>
-      <div class="cal-b cb-tbd" style="grid-column:6;grid-row:27/30;" title="19:30–21:00　🍽 晚餐（未訂）"><b>🍽 晚餐（未訂）</b><em>19:30–21:00</em></div>
+      <div class="cal-b short cb-hotel" style="grid-column:6;grid-row:5/6;" title="08:30–09:00　🚕 Jing·Lisa 換到 HATAGO"><b>🚕 Jing·Lisa 換到 HATAGO</b><em>08:30–09:00</em><span>搭計程車</span></div>
+      <div class="cal-b cb-tbd" style="grid-column:6;grid-row:6/24;" title="09:00–18:00　🗳 1/3 一日遊（討論中）"><b>🗳 1/3 一日遊（討論中）</b><em>09:00–18:00</em><span>全員 7 人・候選見「1/3 一日遊」分頁・Sandy·Vivi 晚上去東京</span></div>
       <div class="cal-b cb-ski" style="grid-column:7;grid-row:6/20;" title="時間未定　⛷ 滑雪（雪場未定）"><b>⛷ 滑雪（雪場未定）</b><em>時間未定</em><span>Jerry・Jing・文凱</span></div>
       <div class="cal-b mid cb-hotel" style="grid-column:7;grid-row:22/24;" title="17:00–18:00　📦 還雪具"><b>📦 還雪具</b><em>17:00–18:00</em><span>青達 18:00 前</span></div>
       <div class="cal-b cb-tbd" style="grid-column:7;grid-row:25/28;" title="18:30–20:00　🍽 晚餐（未訂）"><b>🍽 晚餐（未訂）</b><em>18:30–20:00</em><span>最後一晚</span></div>
@@ -1464,8 +1574,10 @@
     <div class="mcal-day" id="md0">
       <div class="mcal-dh"><b>12/30</b><span>（三）抵達</span></div>
       <div class="mrow"><div class="mtime">07:15<i>11:00</i></div><div class="cal-b cb-flight"><b>✈ BR192 松山→羽田</b><span>抵達羽田 T3</span></div></div>
-      <div class="mrow"><div class="mtime">11:00<i>14:30</i></div><div class="cal-b cb-move"><b>🚄 前往越後湯澤</b><span>單軌＋山手線→東京駅→上越新幹線・約 2hr</span></div></div>
-      <div class="mrow"><div class="mtime">15:00<i>16:00</i></div><div class="cal-b cb-hotel"><b>🏨 HATAGO Check-in</b><span>大浴場 14:00 起可泡</span></div></div>
+      <div class="mrow"><div class="mtime">11:00<i>12:30</i></div><div class="cal-b cb-move"><b>🚝 羽田→東京駅</b><span>單軌＋山手線約 40 分</span></div></div>
+      <div class="mrow"><div class="mtime">12:30<i>15:00</i></div><div class="cal-b cb-tbd"><b>🍱 東京駅午餐・等大家</b><span>成田組約 14:30–15:00 到東京駅</span></div></div>
+      <div class="mrow"><div class="mtime">15:00<i>16:30</i></div><div class="cal-b cb-tbd"><b>🚄 全員同班新幹線</b><span>Klook 訂・班次未定・新幹線改札集合</span></div></div>
+      <div class="mrow"><div class="mtime">16:30<i>17:00</i></div><div class="cal-b cb-hotel"><b>🏨 Check-in</b></div></div>
       <div class="mrow"><div class="mtime">17:00<i>18:30</i></div><div class="cal-b cb-tbd"><b>🍽 晚餐（未訂）</b><span>領雪具前先吃</span></div></div>
       <div class="mrow"><div class="mtime">18:30<i>20:30</i></div><div class="cal-b cb-hotel"><b>🎿 青達領雪具</b><span>東口店・這段時間內去領・帳從 12/31 算</span></div></div>
     </div>
@@ -1493,11 +1605,9 @@
       <div class="mrow"><div class="mtime">18:30<i>20:30</i></div><div class="cal-b cb-tbd"><b>🍽 全員聚餐（要訂）</b><span>餐廳未定</span></div></div>
     </div>
     <div class="mcal-day" id="md4">
-      <div class="mcal-dh"><b>1/3</b><span>（日）川越</span></div>
-      <div class="mrow"><div class="mtime">08:00<i>10:00</i></div><div class="cal-b cb-move"><b>🚄 越後湯澤→川越</b><span>新幹線到大宮・轉 JR 川越線</span></div></div>
-      <div class="mrow"><div class="mtime">10:00<i>17:00</i></div><div class="cal-b cb-play"><b>🏯 小江戶川越（省腳力版）</b><span>全員 7 人・冰川神社→本丸御殿→時之鐘・鰻魚飯→菓子屋橫丁→喜多院</span></div></div>
-      <div class="mrow"><div class="mtime">17:30<i>19:30</i></div><div class="cal-b cb-move"><b>🚄 回越後湯澤</b><span>Sandy・Vivi 直接留東京</span></div></div>
-      <div class="mrow"><div class="mtime">19:30<i>21:00</i></div><div class="cal-b cb-tbd"><b>🍽 晚餐（未訂）</b></div></div>
+      <div class="mcal-dh"><b>1/3</b><span>（日）一日遊</span></div>
+      <div class="mrow"><div class="mtime">08:30<i>09:00</i></div><div class="cal-b cb-hotel"><b>🚕 Jing·Lisa 換到 HATAGO</b><span>搭計程車</span></div></div>
+      <div class="mrow"><div class="mtime">09:00<i>18:00</i></div><div class="cal-b cb-tbd"><b>🗳 1/3 一日遊（討論中）</b><span>全員 7 人・候選見「1/3 一日遊」分頁・Sandy·Vivi 晚上去東京</span></div></div>
     </div>
     <div class="mcal-day" id="md5">
       <div class="mcal-dh"><b>1/4</b><span>（一）滑雪</span></div>
@@ -1549,7 +1659,7 @@
           <h4>晚上（全員）</h4>
           <p>越後湯澤集合會合<br>各自 Check in：HATAGO 井仙／天際溫泉（Jing·Lisa 從車站搭計程車）<br>溫泉泡湯放鬆✨</p>
         </div>
-        <div class="day-note">⚠ 三路人馬不同機場／不同時間抵達，各自搭新幹線到越後湯澤集合<br>🚄 羽田 → 越後湯澤 約 2hr ／ 成田 → 越後湯澤 約 2.5–3hr<br>🎿 <strong>18:30–20:30 青達東口店領雪具</strong>（晚餐別排太晚！）</div>
+        <div class="day-note">🚉 <strong>東京駅會合，全員搭同一班新幹線</strong>（Klook 訂，班次待定）<br>Jerry·Phoebe 約 12:30 先到東京駅／成田組約 14:30–15:00 到／文凱 10:35 落地成田<br>🎿 <strong>18:30–20:30 青達東口店領雪具</strong>（晚餐別排太晚！）</div>
       </div>
     </div>
 
@@ -1654,22 +1764,23 @@
       </div>
     </div>
 
-    <!-- Day 5: 1/3 川越一日遊 -->
+    <!-- Day 5: 1/3 一日遊（討論中） -->
     <div class="day-card">
       <div class="day-number" style="background: linear-gradient(160deg, #8a6a3a, #4a3a2a);">
         <span class="day-label">1/3</span>
         <span class="day-num">05</span>
         <span class="day-weekday">日</span>
-        <span class="ski-icon">🏯</span>
+        <span class="ski-icon">🗳</span>
       </div>
       <div class="day-body">
         <div class="day-theme">
-          川越小江戶 一日遊
+          一日遊（地點討論中）
           <span class="theme-badge" style="background:#8a6a3a;">觀光日</span>
+          <span class="theme-badge" style="background:#e8a33d; color:#1a1a1a;">討論中</span>
         </div>
         <div class="time-block">
           <h4>全天</h4>
-          <p><strong>全員 7 人一起</strong><br>冰川神社・時之鐘<br>藏造老街・鰻魚飯</p>
+          <p><strong>全員 7 人一起</strong><br>川越已取消<br>候選見「🗳 1/3 一日遊」分頁</p>
         </div>
         <div class="time-block">
           <h4>住宿變動</h4>
@@ -1677,7 +1788,7 @@
         </div>
         <div class="time-block">
           <h4>提醒</h4>
-          <p>詳細路線見<br>「🏯 川越延伸」分頁<br>省腳力版行程</p>
+          <p>Sandy・Vivi 行李帶著走<br>玩完直接去東京住<br>1/4 從成田回台</p>
         </div>
         <div class="day-note">🛏 文凱今晚起跟 A 組加床，<strong>1/3 ＆ 1/4 共兩晚</strong>（待跟飯店確認）／ ⚠ Sandy・Vivi 東京住宿待訂</div>
       </div>
@@ -1745,6 +1856,160 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<section class="section" id="todo">
+  <div class="gear-header" style="background: linear-gradient(135deg, #3a1a1a 0%, #1a2a3a 100%);">
+    <div class="section-eyebrow">TO-DO — 出發前要搞定的事</div>
+    <h2 class="section-title" style="color:white;">待辦清單</h2>
+    <p style="color:rgba(255,255,255,0.8); margin-top:14px; font-size:16px; max-width:760px; line-height:1.8;">
+      打勾會記在你這台裝置的瀏覽器（別人看不到你的勾）。要大家一起看進度，把這頁連結丟群組：<strong style="color:#e8c46a;">…/ski-trip/#todo</strong>
+    </p>
+  </div>
+  <div class="td-wrap">
+    <div class="td-group td-urgent">
+      <div class="td-head">🔴 要訂／要預約<span class="td-count" data-group="urgent"></span></div>
+        <label class="td-item">
+          <input type="checkbox" data-id="t1" onchange="saveTodo(this)">
+          <span class="td-text"><b>12/31 跨年晚餐訂位（7 人）</b><small>最急，跨年夜最難訂</small></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t2" onchange="saveTodo(this)">
+          <span class="td-text"><b>1/2 全員聚餐訂位（7 人）</b></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t3" onchange="saveTodo(this)">
+          <span class="td-text"><b>12/30 東京 → 越後湯澤 新幹線（全員同班）</b><small>Klook 訂・決定好班次就訂</small></span>
+          <span class="td-who">Jerry</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t4" onchange="saveTodo(this)">
+          <span class="td-text"><b>12/30 成田 → 東京駅 N'EX</b><small>Sandy・Vivi・Jing・Lisa（文凱看要不要一起）</small></span>
+          <span class="td-who">各自</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t5" onchange="saveTodo(this)">
+          <span class="td-text"><b>12/30、1/1 晚餐（建議訂）</b><small>12/30 要趕 18:30 領雪具；1/1 很多店公休</small></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t6" onchange="saveTodo(this)">
+          <span class="td-text"><b>青達接駁預約（12/31、1/1、1/2、1/4）</b><small>每人每天來回一次，要先約</small></span>
+          <span class="td-who">各自</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t7" onchange="saveTodo(this)">
+          <span class="td-text"><b>文凱 青達雪具（租到 1/4）</b></span>
+          <span class="td-who">Jerry</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t8" onchange="saveTodo(this)">
+          <span class="td-text"><b>Jing 雪具延長到 1/4</b><small>目前預約 1/2 歸還</small></span>
+          <span class="td-who">Jing</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t9" onchange="saveTodo(this)">
+          <span class="td-text"><b>Sandy・Vivi 1/3 東京住宿</b></span>
+          <span class="td-who">Sandy・Vivi</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t10" onchange="saveTodo(this)">
+          <span class="td-text"><b>1/4 Sandy・Vivi 東京 → 成田（JX801 13:45）</b></span>
+          <span class="td-who">Sandy・Vivi</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t11" onchange="saveTodo(this)">
+          <span class="td-text"><b>1/5 越後湯澤 → 東京 → 成田（5 人）</b><small>新幹線＋N'EX</small></span>
+          <span class="td-who">Jerry</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t12" onchange="saveTodo(this)">
+          <span class="td-text"><b>雪票</b><small>可在青達買優惠票</small></span>
+          <span class="td-who">各自</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="t13" onchange="saveTodo(this)">
+          <span class="td-text"><b>換日幣</b><small>雪場、計程車以現金為主</small></span>
+          <span class="td-who">各自</span>
+        </label>
+    </div>
+    <div class="td-group td-discuss">
+      <div class="td-head">🟡 要討論／確認<span class="td-count" data-group="discuss"></span></div>
+        <label class="td-item">
+          <input type="checkbox" data-id="d1" onchange="saveTodo(this)">
+          <span class="td-text"><b>1/3 一日遊去哪</b><small>候選見「🗳 1/3 一日遊」分頁</small></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="d2" onchange="saveTodo(this)">
+          <span class="td-text"><b>12/31 跨年倒數地點</b></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="d3" onchange="saveTodo(this)">
+          <span class="td-text"><b>1/4 滑雪：去哪個雪場、還有誰</b><small>目前 Jerry・Jing・文凱</small></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="d4" onchange="saveTodo(this)">
+          <span class="td-text"><b>田代組 12/31、1/1 怎麼去神樂田代</b><small>教練載或搭接駁；青達範圍寫三俁，田代要問</small></span>
+          <span class="td-who">Jing・Sandy・Vivi</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="d5" onchange="saveTodo(this)">
+          <span class="td-text"><b>1/5 幾點從 HATAGO 出發</b></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="d6" onchange="saveTodo(this)">
+          <span class="td-text"><b>文凱 12/30 先去湯澤，還是等大家</b><small>10:35 落地成田</small></span>
+          <span class="td-who">文凱</span>
+        </label>
+    </div>
+    <div class="td-group td-doing">
+      <div class="td-head">⏳ 處理中<span class="td-count" data-group="doing"></span></div>
+        <label class="td-item">
+          <input type="checkbox" data-id="p1" onchange="saveTodo(this)">
+          <span class="td-text"><b>飯店確認文凱 1/3、1/4 兩晚加床</b></span>
+          <span class="td-who">Jerry</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="p2" onchange="saveTodo(this)">
+          <span class="td-text"><b>小 Su：1/1 11:30 接送、夜滑 18:30 出發</b></span>
+          <span class="td-who">Jerry</span>
+        </label>
+        <label class="td-item">
+          <input type="checkbox" data-id="p3" onchange="saveTodo(this)">
+          <span class="td-text"><b>回程 BR195 金額（預算用）</b></span>
+          <span class="td-who">Jerry</span>
+        </label>
+    </div>
+    <div class="td-group td-done">
+      <div class="td-head">✅ 已完成<span class="td-count" data-group="done"></span></div>
+        <label class="td-item td-done">
+          <input type="checkbox" data-id="c1" checked onchange="saveTodo(this)">
+          <span class="td-text"><b>全員機票（去＋回）</b></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item td-done">
+          <input type="checkbox" data-id="c2" checked onchange="saveTodo(this)">
+          <span class="td-text"><b>住宿：HATAGO、天際溫泉、Jing・Lisa 1/3–1/5 HATAGO</b></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item td-done">
+          <input type="checkbox" data-id="c3" checked onchange="saveTodo(this)">
+          <span class="td-text"><b>教練：小 Su／Michael／阿仙</b></span>
+          <span class="td-who">全員</span>
+        </label>
+        <label class="td-item td-done">
+          <input type="checkbox" data-id="c4" checked onchange="saveTodo(this)">
+          <span class="td-text"><b>青達雪具預約（5 人）</b></span>
+          <span class="td-who">Jerry</span>
+        </label>
+    </div>
   </div>
 </section>
 
@@ -2786,18 +3051,7 @@
 
     <div class="gear-category">
       <div class="gear-category-title">📋 行前待辦</div>
-      <ul class="gear-list">
-        <li class="gear-item checked-item"><span class="gear-check checked" onclick="toggleCheck(this)">✓</span><span class="gear-text"><strong>Jerry/Phoebe 1/5 回程機票</strong>（BR195 已開票）</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text"><strong>飯店確認文凱 1/3 ＆ 1/4 兩晚加床</strong></span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">跨年晚餐訂位（12/31）</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">Sandy/Vivi 1/3 東京住宿</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text"><strong>文凱 青達雪具租借</strong>（要租到 1/4・Jerry 處理）</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text"><strong>Jing 雪具延長到 1/4</strong>（目前預約 1/2 歸還）</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text"><strong>1/1 夜滑出發時間</strong>跟小 Su 確認</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">青達接駁預約（每日）</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">雪票（可在青達買優惠票）</span></li>
-        <li class="gear-item"><span class="gear-check" onclick="toggleCheck(this)"></span><span class="gear-text">換日幣（雪場現金為主）</span></li>
-      </ul>
+      <p style="font-size:16px; line-height:1.8;">已經整理到 <a href="#todo" onclick="showSection('todo', document.querySelector('[onclick*=&quot;todo&quot;]')); return false;" style="color:var(--accent); font-weight:700;">📌 待辦</a> 分頁，訂票、預約、還沒決定的事都在那裡。</p>
     </div>
 
   </div>
@@ -2807,85 +3061,171 @@
 <section class="section" id="budget">
   <div class="gear-header" style="background: linear-gradient(135deg, #2d1a3a 0%, #1a3a2d 100%);">
     <div class="section-eyebrow">BUDGET & PRACTICAL INFO</div>
-    <h2 class="section-title" style="color:white;">預算試算 ／ 實用資訊</h2>
+    <h2 class="section-title" style="color:white;">預估花費 ／ 實用資訊</h2>
   </div>
 
-  <!-- Interactive Budget Calculator（全台幣） -->
+  <!-- 預估花費明細（全台幣） -->
   <div style="margin: 30px 60px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #27ae60;">
-    <h3 style="font-family:'Noto Sans TC',sans-serif; font-weight:700; letter-spacing:1px; font-size:23px; color:var(--deep); margin-bottom:6px;">💰 每人預算試算機 <span style="font-size:14px; background:#27ae60; color:#fff; padding:3px 10px; vertical-align:middle; margin-left:6px; letter-spacing:0;">全部台幣</span></h3>
-    <p style="font-size:15px; color:var(--muted); margin-bottom:22px; line-height:1.7;">所有金額都用 <strong style="color:var(--deep);">新台幣</strong> 輸入；日圓價格已用 <strong style="color:var(--deep);">1 JPY ≈ 0.21 TWD</strong> 換好。改數字下方自動加總（重新整理會回到預設值）。</p>
+    <h3 style="font-family:'Noto Sans TC',sans-serif; font-weight:700; letter-spacing:1px; font-size:23px; color:var(--deep); margin-bottom:6px;">💰 Jerry 預估花費 <span style="font-size:14px; background:#27ae60; color:#fff; padding:3px 10px; vertical-align:middle; margin-left:6px; letter-spacing:0;">全部台幣</span></h3>
+    <p style="font-size:15px; color:var(--muted); margin-bottom:18px; line-height:1.8;">以 Jerry 一個人的花費計算，日圓都已用 <strong style="color:var(--deep);">1 JPY ≈ 0.21 TWD</strong> 換好。金額可以直接改，會自動加總；改過的數字會記在這台裝置的瀏覽器裡。</p>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px 22px;">
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">✈ 機票（來回） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-flight" value="17710" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">各組不同：JX800/801 來回 NT$17,710</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🏯 住宿（每人分攤總額） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-hotel" value="12000" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">HATAGO 井仙</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🏂 教練費（兩天・兩人分攤後） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-coach" value="15000" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">依各組教練報價</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🎿 雪具租借（總額） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-rental" value="5030" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">青達 板＋鞋：首日 1,150＋每天 970（3 天 3,090／5 天 5,030）</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🎫 雪票（每天） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-lift" value="1480" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">神樂 1,575／石打 4h 1,325／GALA 1,530</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">⛷ 滑雪天數</label>
-        <input type="number" id="b-skidays" value="3" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">12/31・1/1・1/2</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🌙 夜滑票 <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-night" value="1030" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">神立 1/1；不滑填 0</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🚄 新幹線＋機場交通（來回） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-train" value="3500" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">東京↔越後湯澤來回約 NT$2,850＋機場線</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🏯 川越一日遊（車資＋門票） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-kawagoe" value="3200" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">新幹線到大宮來回＋當地巴士＋門票</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🍜 餐費（每天） <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-food" value="1260" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">三餐估算（雪場午餐約 NT$300–400）</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">📅 旅行天數</label>
-        <input type="number" id="b-days" value="7" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">12/30–1/5</div>
-      </div>
-      <div>
-        <label style="font-size:14.5px; font-weight:600; color:var(--deep); display:block; margin-bottom:5px;">🛍 購物／雜費 <span style='color:#27ae60;'>NT$</span></label>
-        <input type="number" id="b-shopping" value="4200" oninput="calcBudget()" style="width:100%; padding:11px 13px; border:1.5px solid var(--frost); border-radius:4px; font-size:18px; font-weight:600; color:var(--deep); box-sizing:border-box;">
-        <div style="font-size:14px; color:var(--muted); margin-top:5px; line-height:1.55;">伴手禮・藥妝・零食</div>
-      </div>
+    <div id="bud-sum" class="bud-sum"></div>
+    <div id="bud-bar" class="bud-bar"></div>
+    <div id="bud-legend" class="bud-legend"></div>
+
+    <div style="overflow-x:auto; margin-top:18px;">
+      <table class="rtable bud-table">
+        <thead><tr style="background:var(--deep); color:white;">
+          <th style="padding:10px 13px; text-align:left;">項目</th>
+          <th style="padding:10px 13px; text-align:left;">怎麼算</th>
+          <th style="padding:10px 13px; text-align:left;">狀態</th>
+          <th style="padding:10px 13px; text-align:right;">金額</th>
+        </tr></thead>
+        <tbody>
+        <tr class="bud-cat"><td colspan="4">✈ 機票</td></tr>
+        <tr data-cat="✈ 機票">
+          <td data-label="項目"><b>去程 BR192 松山→羽田</b></td>
+          <td data-label="怎麼算" class="bud-note">里程兌換，只付稅金（長榮電子收據）</td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已確定</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b0" data-st="ok" data-def="2797" value="2797" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="✈ 機票">
+          <td data-label="項目"><b>回程 BR195 成田→桃園（皇璽桂冠艙）</b></td>
+          <td data-label="怎麼算" class="bud-note">金額還沒給我，填進來就會加總</td>
+          <td data-label="狀態"><span class="bud-st st-ask">❓ 待提供</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b1" data-st="ask" data-def="0" value="0" oninput="calcBudget()"></td>
+        </tr>
+        <tr class="bud-cat"><td colspan="4">🏨 住宿</td></tr>
+        <tr data-cat="🏨 住宿">
+          <td data-label="項目"><b>HATAGO 井仙 6 晚（你的分攤）</b></td>
+          <td data-label="怎麼算" class="bud-note">官網最低 ¥27,580／房／晚（2 人）；年末旺季抓 ¥45,000／房 → 每人 ¥22,500 × 6 晚</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b2" data-st="est" data-def="28350" value="28350" oninput="calcBudget()"></td>
+        </tr>
+        <tr class="bud-cat"><td colspan="4">🏂 滑雪</td></tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>教練 小 Su（12/31、1/1，你的份）</b></td>
+          <td data-label="怎麼算" class="bud-note">參考中文教練 1 對 2 全天 ¥62,000–85,000，兩人分攤 × 2 天；1/1 夜滑若另收費再加</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b3" data-st="est" data-def="15000" value="15000" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>雪具 青達 板＋鞋（12/31–1/4，5 天）</b></td>
+          <td data-label="怎麼算" class="bud-note">首日 1,150＋之後每天 970 × 4（青達 2026/27 台幣價目）</td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已確定</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b4" data-st="ok" data-def="5030" value="5030" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>雪票 12/31 神樂 1 日券</b></td>
+          <td data-label="怎麼算" class="bud-note">¥7,500（25/26 雪季票價）</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b5" data-st="est" data-def="1575" value="1575" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>雪票 1/1 石打丸山 4 小時券</b></td>
+          <td data-label="怎麼算" class="bud-note">¥6,300（25/26 雪季票價）</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b6" data-st="est" data-def="1323" value="1323" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>雪票 1/1 神立 夜滑</b></td>
+          <td data-label="怎麼算" class="bud-note">¥4,900（25/26 雪季票價）</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b7" data-st="est" data-def="1029" value="1029" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>雪票 1/2 GALA 1 日券</b></td>
+          <td data-label="怎麼算" class="bud-note">¥7,300（25/26 雪季票價）</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b8" data-st="est" data-def="1533" value="1533" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>雪票 1/4（雪場未定）</b></td>
+          <td data-label="怎麼算" class="bud-note">先抓 ¥6,500</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b9" data-st="est" data-def="1365" value="1365" oninput="calcBudget()"></td>
+        </tr>
+        <tr class="bud-cat"><td colspan="4">🚄 交通</td></tr>
+        <tr data-cat="🚄 交通">
+          <td data-label="項目"><b>12/30 羽田 → 東京駅</b></td>
+          <td data-label="怎麼算" class="bud-note">單軌＋JR 約 ¥660</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b10" data-st="est" data-def="139" value="139" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🚄 交通">
+          <td data-label="項目"><b>12/30 東京 → 越後湯澤 新幹線（Klook 指定席）</b></td>
+          <td data-label="怎麼算" class="bud-note">官方指定席 ¥6,900，年末可能再多一點</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b11" data-st="est" data-def="1450" value="1450" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🚄 交通">
+          <td data-label="項目"><b>1/3 一日遊 交通＋門票</b></td>
+          <td data-label="怎麼算" class="bud-note">地點未定，先抓東京來回的價錢</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b12" data-st="est" data-def="3000" value="3000" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🚄 交通">
+          <td data-label="項目"><b>1/5 越後湯澤 → 東京 新幹線</b></td>
+          <td data-label="怎麼算" class="bud-note">指定席 ¥6,900</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b13" data-st="est" data-def="1450" value="1450" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🚄 交通">
+          <td data-label="項目"><b>1/5 東京 → 成田 N'EX</b></td>
+          <td data-label="怎麼算" class="bud-note">¥3,070</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b14" data-st="est" data-def="645" value="645" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🚄 交通">
+          <td data-label="項目"><b>計程車分攤・零星交通</b></td>
+          <td data-label="怎麼算" class="bud-note">預留</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b15" data-st="est" data-def="500" value="500" oninput="calcBudget()"></td>
+        </tr>
+        <tr class="bud-cat"><td colspan="4">🍜 吃＋其他</td></tr>
+        <tr data-cat="🍜 吃＋其他">
+          <td data-label="項目"><b>餐費 7 天</b></td>
+          <td data-label="怎麼算" class="bud-note">雪場午餐約 NT$400＋晚餐約 NT$1,000，每天約 NT$1,400</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b16" data-st="est" data-def="9800" value="9800" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🍜 吃＋其他">
+          <td data-label="項目"><b>跨年晚餐加價</b></td>
+          <td data-label="怎麼算" class="bud-note">跨年夜通常比平常貴</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b17" data-st="est" data-def="1500" value="1500" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🍜 吃＋其他">
+          <td data-label="項目"><b>網卡／eSIM</b></td>
+          <td data-label="怎麼算" class="bud-note">7 天</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b18" data-st="est" data-def="300" value="300" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🍜 吃＋其他">
+          <td data-label="項目"><b>旅平險</b></td>
+          <td data-label="怎麼算" class="bud-note">—</td>
+          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b19" data-st="est" data-def="800" value="800" oninput="calcBudget()"></td>
+        </tr>
+        <tr data-cat="🍜 吃＋其他">
+          <td data-label="項目"><b>購物／伴手禮</b></td>
+          <td data-label="怎麼算" class="bud-note">自己決定，隨時改</td>
+          <td data-label="狀態"><span class="bud-st st-self">✏️ 自填</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b20" data-st="self" data-def="5000" value="5000" oninput="calcBudget()"></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
-
-    <div id="budget-result" style="margin-top:26px; padding:24px 28px; background:linear-gradient(135deg, #0d1f2d, #1a3a2d); border-radius:6px; color:white; display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:20px;">
-      <!-- filled by JS -->
+    <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:14px;">
+      <button class="bud-reset" onclick="resetBudget()">↺ 回到預設金額</button>
+      <span style="font-size:14px; color:var(--muted);">📐 估算的雪票是 25/26 雪季票價；住宿和教練費給我實際金額，我再改成 ✅。</span>
     </div>
   </div>
 
   <!-- Shinkansen Guide -->
   <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #4a9fd4;">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:22px; color:var(--deep); margin-bottom:16px;">🚄 機場 → 越後湯澤 交通攻略</h3>
+    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:22px; color:var(--deep); margin-bottom:10px;">🚄 機場 → 越後湯澤 交通攻略</h3>
+    <p style="font-size:15px; margin-bottom:16px; background:#f0f9f0; border-left:3px solid #27ae60; padding:9px 13px; color:#1a5a32;">✅ <strong>12/30 決定：全員在東京駅會合，搭同一班上越新幹線（Klook 訂）</strong>。下面是兩個機場各自到東京駅的走法。</p>
 
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px;">
       <div style="background:#f8fbff; padding:20px 24px; border-radius:4px;">
@@ -2951,235 +3291,100 @@
 </section>
 
 <!-- KAWAGOE SECTION -->
-<section class="section" id="kawagoe">
-  <div class="gear-header" style="background: linear-gradient(135deg, #3a2a1a 0%, #5a3a2a 100%);">
-    <div class="section-eyebrow">DAY TRIP EXTENSION — 小江戶川越</div>
-    <h2 class="section-title" style="color:white;">川越一日遊（省腳力版）</h2>
-    <p style="color:rgba(255,255,255,0.75); margin-top:14px; font-size:15.5px; max-width:720px; line-height:1.7;">
-      東京近郊「小江戶」，池袋/新宿出發約 30–45 分。<strong style="color:#d4a843;">善用巴士接駁、只走短距離</strong>，體力普通也能輕鬆玩。
+<section class="section" id="daytrip">
+  <div class="gear-header" style="background: linear-gradient(135deg, #3a2a1a 0%, #1a2a3a 100%);">
+    <div class="section-eyebrow">DAY TRIP — 1/3（日）</div>
+    <h2 class="section-title" style="color:white;">1/3 一日遊候選</h2>
+    <p style="color:rgba(255,255,255,0.8); margin-top:14px; font-size:16px; max-width:760px; line-height:1.8;">
+      川越已取消，地點<strong style="color:#e8a33d;">討論中</strong>。挑的條件：全員 7 人一起、不想走太多路、Sandy・Vivi 晚上要去東京住、隔天 1/4 還要滑雪。
     </p>
   </div>
-
-  <!-- Cartoon Map -->
-  <div style="margin: 30px 60px; background: #F3F7F0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 24px; border-radius:4px;">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:4px;">🗺 相對位置地圖</h3>
-    <p style="font-size:14.5px; color:var(--muted); margin-bottom:16px;">紅虛線＝搭巴士｜綠實線＝步行｜由北到南：冰川神社 → 老街 → 喜多院 → 車站</p>
-    <svg width="100%" viewBox="0 0 680 620" xmlns="http://www.w3.org/2000/svg" style="max-width:680px; display:block; margin:0 auto;">
-      <defs>
-        <marker id="kwarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
-      </defs>
-      <rect x="0" y="0" width="680" height="620" rx="8" fill="#F3F7F0"/>
-      <circle cx="90" cy="70" r="26" fill="#FDE9A8"/>
-      <g stroke="#F5CE5B" stroke-width="3" stroke-linecap="round">
-        <line x1="90" y1="30" x2="90" y2="42"/><line x1="90" y1="98" x2="90" y2="110"/>
-        <line x1="50" y1="70" x2="62" y2="70"/><line x1="118" y1="70" x2="130" y2="70"/>
-        <line x1="62" y1="42" x2="70" y2="50"/><line x1="110" y1="90" x2="118" y2="98"/>
-      </g>
-      <g opacity="0.5">
-        <path d="M540 60 q12 -18 24 0 q12 -16 22 2 q10 -2 4 12 h-56 q-8 -12 6 -14Z" fill="#DCEBF6"/>
-        <path d="M470 90 q10 -14 20 0 q10 -12 18 2 q8 -2 3 10 h-46 q-6 -10 5 -12Z" fill="#DCEBF6"/>
-      </g>
-      <path d="M150 540 Q145 400 175 330 Q205 260 200 190 Q198 140 235 108" fill="none" stroke="#E8734D" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round"/>
-      <path d="M235 108 Q290 92 300 150 Q308 205 300 255 Q292 320 330 360 Q368 398 360 452 Q356 500 250 530 Q195 545 165 548" fill="none" stroke="#5BB673" stroke-width="4" stroke-linecap="round"/>
-      <path d="M360 452 Q420 470 470 458" fill="none" stroke="#5BB673" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/>
-      <path d="M250 530 Q200 552 175 500" fill="none" stroke="#E8734D" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round" marker-end="url(#kwarrow)"/>
-      <g transform="translate(235,108)">
-        <rect x="-52" y="-30" width="104" height="60" rx="12" fill="#F7D9E1" stroke="#D4537E" stroke-width="2"/>
-        <path d="M-30 -30 h60 v-10 h-60Z" fill="#D4537E"/>
-        <text x="0" y="-6" text-anchor="middle" font-size="15" font-weight="500" fill="#72243E" font-family="sans-serif">冰川神社</text>
-        <text x="0" y="14" text-anchor="middle" font-size="12" fill="#993556" font-family="sans-serif">釣鯛魚籤・結緣</text>
-        <text x="0" y="-44" text-anchor="middle" font-size="20">⛩️</text>
-      </g>
-      <g transform="translate(300,215)">
-        <rect x="-48" y="-26" width="96" height="52" rx="12" fill="#E7EFDB" stroke="#639922" stroke-width="2"/>
-        <text x="0" y="-3" text-anchor="middle" font-size="14" font-weight="500" fill="#27500A" font-family="sans-serif">本丸御殿</text>
-        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#3B6D11" font-family="sans-serif">江戶武家建築</text>
-      </g>
-      <g transform="translate(300,315)">
-        <rect x="-58" y="-32" width="116" height="64" rx="12" fill="#FBEBD3" stroke="#BA7517" stroke-width="2.5"/>
-        <text x="0" y="-38" text-anchor="middle" font-size="22">🔔</text>
-        <text x="0" y="-6" text-anchor="middle" font-size="15" font-weight="500" fill="#633806" font-family="sans-serif">時之鐘</text>
-        <text x="0" y="14" text-anchor="middle" font-size="12" fill="#854F0B" font-family="sans-serif">地標＋藏造老街</text>
-      </g>
-      <g transform="translate(432,352)">
-        <rect x="-44" y="-24" width="88" height="48" rx="12" fill="#F9E4D8" stroke="#D85A30" stroke-width="2"/>
-        <text x="0" y="-2" text-anchor="middle" font-size="13" font-weight="500" fill="#712B13" font-family="sans-serif">菓子屋橫丁</text>
-        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#993C1D" font-family="sans-serif">地瓜甜點</text>
-      </g>
-      <g transform="translate(360,452)">
-        <rect x="-46" y="-24" width="92" height="48" rx="12" fill="#F7D9E1" stroke="#D4537E" stroke-width="2"/>
-        <text x="0" y="-2" text-anchor="middle" font-size="13" font-weight="500" fill="#72243E" font-family="sans-serif">熊野神社</text>
-        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#993556" font-family="sans-serif">洗錢開運</text>
-      </g>
-      <g transform="translate(500,458)">
-        <rect x="-30" y="-26" width="60" height="52" rx="12" fill="#E7EFDB" stroke="#639922" stroke-width="2" stroke-dasharray="4 3"/>
-        <text x="0" y="-4" text-anchor="middle" font-size="13" font-weight="500" fill="#27500A" font-family="sans-serif">喜多院</text>
-        <text x="0" y="14" text-anchor="middle" font-size="11" fill="#3B6D11" font-family="sans-serif">較遠</text>
-      </g>
-      <g transform="translate(165,545)">
-        <rect x="-56" y="-30" width="112" height="60" rx="14" fill="#E6F1FB" stroke="#185FA5" stroke-width="2.5"/>
-        <text x="0" y="-40" text-anchor="middle" font-size="22">🚉</text>
-        <text x="0" y="-5" text-anchor="middle" font-size="15" font-weight="500" fill="#0C447C" font-family="sans-serif">本川越站</text>
-        <text x="0" y="15" text-anchor="middle" font-size="12" fill="#185FA5" font-family="sans-serif">起點＋終點</text>
-      </g>
-      <g transform="translate(300,395)">
-        <rect x="-40" y="-16" width="80" height="32" rx="16" fill="#DDF0E2" stroke="#1D9E75" stroke-width="1.5"/>
-        <text x="0" y="4" text-anchor="middle" font-size="12" fill="#0F6E56" font-family="sans-serif">☕ 星巴克</text>
-      </g>
-      <g transform="translate(500,140)">
-        <rect x="0" y="0" width="150" height="150" rx="12" fill="#FFFFFF" stroke="#D3D1C7" stroke-width="1"/>
-        <text x="14" y="26" font-size="13" font-weight="500" fill="#2C2C2A" font-family="sans-serif">路線說明</text>
-        <line x1="14" y1="46" x2="42" y2="46" stroke="#E8734D" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/>
-        <text x="50" y="50" font-size="12" fill="#444441" font-family="sans-serif">搭巴士</text>
-        <line x1="14" y1="72" x2="42" y2="72" stroke="#5BB673" stroke-width="4" stroke-linecap="round"/>
-        <text x="50" y="76" font-size="12" fill="#444441" font-family="sans-serif">步行</text>
-        <text x="14" y="104" font-size="11" fill="#5F5E5A" font-family="sans-serif">① 巴士直衝冰川神社</text>
-        <text x="14" y="122" font-size="11" fill="#5F5E5A" font-family="sans-serif">② 一路往南散步逛</text>
-        <text x="14" y="140" font-size="11" fill="#5F5E5A" font-family="sans-serif">③ 尾段搭巴士回站</text>
-      </g>
-    </svg>
-  </div>
-
-  <!-- Tickets -->
-  <div class="alert-card" style="margin-top:0;">
-    <span class="alert-icon">🎫</span>
-    <div>
-      <p class="alert-title">出發前買對票（省腳力關鍵）</p>
-      <p class="alert-text">
-        <strong>西武川越一日券 ¥1,010</strong>（東京↔本川越來回）＋ <strong>小江戶名勝巡遊巴士一日券 ¥500</strong>（當地無限搭）。⚠ 西武票不含當地巴士，兩張要分開買！<br>
-        若從池袋出發，可用 <strong>東武「川越周遊券升級版」¥1,200</strong>，一張搞定來回＋巴士（電子票免兌換）。舊版川越周遊券已於 2026/4/1 停賣。
-      </p>
-    </div>
-  </div>
-
-  <!-- Timeline -->
-  <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #d4a843;">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:16px;">⏰ 一日遊時間軸</h3>
-    <div style="overflow-x:auto;">
-      <table class="rtable">
-        <thead>
-          <tr style="background:var(--deep); color:white;">
-            <th style="padding:9px 12px; text-align:left;">時間</th>
-            <th style="padding:9px 12px; text-align:left;">地點</th>
-            <th style="padding:9px 12px; text-align:left;">交通</th>
-            <th style="padding:9px 12px; text-align:left;">停留</th>
-          </tr>
-        </thead>
-        <tbody style="line-height:1.6;">
-          <tr style="border-bottom:1px solid #eef;"><td data-label="時間" style="padding:9px 12px;">09:00</td><td data-label="地點" style="padding:9px 12px;">東京出發</td><td data-label="交通" style="padding:9px 12px;">🚆 電車</td><td data-label="停留" style="padding:9px 12px;">~45 分</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td data-label="時間" style="padding:9px 12px;">09:50</td><td data-label="地點" style="padding:9px 12px;">本川越站，買巴士一日券</td><td data-label="交通" style="padding:9px 12px;">—</td><td data-label="停留" style="padding:9px 12px;">10 分</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td data-label="時間" style="padding:9px 12px;">10:20</td><td data-label="地點" style="padding:9px 12px;"><strong>冰川神社</strong>：釣鯛魚籤、繪馬隧道</td><td data-label="交通" style="padding:9px 12px; color:#c0392b;">🚌 巴士</td><td data-label="停留" style="padding:9px 12px;">60 分</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td data-label="時間" style="padding:9px 12px;">11:20</td><td data-label="地點" style="padding:9px 12px;">本丸御殿（順遊 ¥100）</td><td data-label="交通" style="padding:9px 12px; color:#27ae60;">🚶 8 分</td><td data-label="停留" style="padding:9px 12px;">30 分</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td data-label="時間" style="padding:9px 12px;">12:15</td><td data-label="地點" style="padding:9px 12px;">🍱 <strong>午餐：小川菊鰻魚飯</strong>（先抽號碼牌）</td><td data-label="交通" style="padding:9px 12px; color:#27ae60;">🚶 14 分</td><td data-label="停留" style="padding:9px 12px;">60 分</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td data-label="時間" style="padding:9px 12px;">13:30</td><td data-label="地點" style="padding:9px 12px;"><strong>時之鐘＋藏造老街</strong>漫步拍照</td><td data-label="交通" style="padding:9px 12px; color:#27ae60;">🚶</td><td data-label="停留" style="padding:9px 12px;">60 分</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td data-label="時間" style="padding:9px 12px;">14:30</td><td data-label="地點" style="padding:9px 12px;"><strong>菓子屋橫丁</strong>：川越布丁、地瓜甜點</td><td data-label="交通" style="padding:9px 12px; color:#27ae60;">🚶 5 分</td><td data-label="停留" style="padding:9px 12px;">40 分</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td data-label="時間" style="padding:9px 12px;">15:15</td><td data-label="地點" style="padding:9px 12px;">☕ <strong>特色星巴克</strong>下午茶（超好拍）</td><td data-label="交通" style="padding:9px 12px; color:#27ae60;">🚶</td><td data-label="停留" style="padding:9px 12px;">40 分</td></tr>
-          <tr style="border-bottom:1px solid #eef;"><td data-label="時間" style="padding:9px 12px;">16:00</td><td data-label="地點" style="padding:9px 12px;"><strong>喜多院</strong>：五百羅漢、江戶城遺構 ¥400</td><td data-label="交通" style="padding:9px 12px; color:#c0392b;">🚌 巴士</td><td data-label="停留" style="padding:9px 12px;">40 分</td></tr>
-          <tr style="border-bottom:1px solid #eef; background:#f8fbff;"><td data-label="時間" style="padding:9px 12px;">17:15</td><td data-label="地點" style="padding:9px 12px;">🛍 車站 CoCoLo 買伴手禮</td><td data-label="交通" style="padding:9px 12px; color:#c0392b;">🚌 回站</td><td data-label="停留" style="padding:9px 12px;">40 分</td></tr>
-          <tr><td data-label="時間" style="padding:9px 12px;">18:00</td><td data-label="地點" style="padding:9px 12px;">搭電車回東京</td><td data-label="交通" style="padding:9px 12px;">🚆</td><td data-label="停留" style="padding:9px 12px;">—</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="margin-top:14px; font-size:14.5px; background:#fff8e8; border-left:3px solid var(--gold); padding:10px 14px; color:#7a5c00; line-height:1.7;">
-      💡 想更輕鬆：可跳過本丸御殿或喜多院其一，把腳力留給老街慢慢逛 ／ 鰻魚飯名店排隊誇張，進老街先抽號碼牌
-    </div>
-  </div>
-
-  <!-- Activities & Tickets -->
-  <div class="gear-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); padding-top:10px;">
-    <div class="gear-category">
-      <div class="gear-category-title" style="border-bottom-color:#D4537E;">⛩ 冰川神社（必去⭐）</div>
-      <p style="font-size:15.5px; color:var(--text); line-height:1.7; margin-bottom:10px;">1500 年結緣聖地，日本最大木造鳥居。參拜免費。</p>
-      <ul class="gear-list">
-        <li class="gear-item"><span class="gear-text">🐟 釣鯛魚御神籤 <strong>¥300</strong>（紅=平安、粉=戀愛）</span></li>
-        <li class="gear-item"><span class="gear-text">📜 人形流淨化儀式（付費）</span></li>
-        <li class="gear-item"><span class="gear-text">💎 結緣玉：每日早 8:00 限量 20 顆</span></li>
-        <li class="gear-item"><span class="gear-text">💮 繪馬隧道拍照（繪馬 ¥600）</span></li>
-      </ul>
-      <p style="font-size:13.5px; color:var(--muted); margin-top:8px;">🔥 Trip.com/Mimi 韓大推「釣籤超有趣」</p>
-    </div>
-
-    <div class="gear-category">
-      <div class="gear-category-title" style="border-bottom-color:#BA7517;">🔔 時之鐘＋藏造老街</div>
-      <p style="font-size:15.5px; color:var(--text); line-height:1.7; margin-bottom:10px;">川越地標與核心老街，免費。和服拍照最佳點。</p>
-      <ul class="gear-list">
-        <li class="gear-item"><span class="gear-text">🕰 時之鐘：400 年地標，日敲鐘 4 次</span></li>
-        <li class="gear-item"><span class="gear-text">🏘 藏造老街：450m 江戶老屋</span></li>
-        <li class="gear-item"><span class="gear-text">👘 和服體驗 ¥3,000 起（建議預約）</span></li>
-      </ul>
-      <p style="font-size:13.5px; color:var(--muted); margin-top:8px;">⚠ 老街店家約下午 5 點打烊，早點來</p>
-    </div>
-
-    <div class="gear-category">
-      <div class="gear-category-title" style="border-bottom-color:#639922;">🏯 喜多院（¥400）</div>
-      <p style="font-size:15.5px; color:var(--text); line-height:1.7; margin-bottom:10px;">日本現存唯一江戶城遺構，五百羅漢（538 尊）。</p>
-      <ul class="gear-list">
-        <li class="gear-item"><span class="gear-text">共通券 ¥400（客殿・本堂・五百羅漢）</span></li>
-        <li class="gear-item"><span class="gear-text">⏰ 付費區只到 16:30</span></li>
-        <li class="gear-item"><span class="gear-text">🚌 離老街遠，建議搭巴士</span></li>
-      </ul>
-      <p style="font-size:13.5px; color:var(--muted); margin-top:8px;">🔥 艸頭黃：「傳統江戶氛圍，不來太可惜」</p>
-    </div>
-
-    <div class="gear-category">
-      <div class="gear-category-title" style="border-bottom-color:#D4537E;">⛩ 熊野神社＋本丸御殿</div>
-      <ul class="gear-list">
-        <li class="gear-item"><span class="gear-text">熊野神社：免費，洗錢＋腳底按摩開運</span></li>
-        <li class="gear-item"><span class="gear-text">本丸御殿 ¥100：全日僅存兩座之一</span></li>
-      </ul>
-      <p style="font-size:13.5px; color:var(--muted); margin-top:8px;">🔥 波比：「熊野神社亮點有夠多，好喜歡」</p>
-    </div>
-  </div>
-
-  <!-- Food -->
-  <div style="margin: 20px 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #c0392b;">
-    <h3 style="font-family:'Bebas Neue',sans-serif; letter-spacing:3px; font-size:20px; color:var(--deep); margin-bottom:16px;">🍽 沿線美食</h3>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; font-size:15.5px; line-height:1.7;">
-      <div>
-        <strong style="color:#c0392b;">🍱 鰻魚飯</strong><br>
-        <strong>小川菊</strong>（1807 百年老店）外酥內嫩｜<strong>林屋</strong>碳香濃郁<br>
-        <span style="color:var(--muted); font-size:13.5px;">🔥 Mimi 韓：「天堂級享受」名店排隊誇張</span>
+  <div class="dt-grid">
+      <div class="dt-card">
+        <div class="dt-top"><span class="dt-emo">🗼</span><div><div class="dt-name">東京初賣＋新年參拜</div><div class="dt-tags"><span class="dt-tag">購物・最順路</span><span class="dt-new">新選項</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>新幹線直達 70–80 分</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶🚶<span style='color:var(--muted); font-weight:400;'>（中）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>✅ 最順：玩完直接留東京</b></div>
+        <ul class="dt-list"><li>新宿、銀座百貨公司新年初賣、福袋</li><li>淺草寺或明治神宮新年參拜</li><li>地鐵移動，不用走雪路</li></ul>
+        <div class="dt-warn">⚠ 1/3 參拜人潮多；回湯澤的晚班新幹線班次少，先查好</div>
       </div>
-      <div>
-        <strong style="color:#d4a843;">🍠 甜點</strong><br>
-        <strong>川越布丁</strong>（IG 爆紅時之鐘造型）｜<strong>COEDO HACHI</strong> 蜜烤地瓜<br>
-        <span style="color:var(--muted); font-size:13.5px;">🔥 最熱銷 No.1 地瓜布丁</span>
+      <div class="dt-card">
+        <div class="dt-top"><span class="dt-emo">🦀</span><div><div class="dt-name">新潟市 海鮮美食日</div><div class="dt-tags"><span class="dt-tag">美食</span><span class="dt-new">新選項</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>上越新幹線直達約 50 分</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶<span style='color:var(--muted); font-weight:400;'>（少）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>✅ 新潟→東京直達約 2 小時</b></div>
+        <ul class="dt-list"><li>ピアBandai 海鮮市場：迴轉壽司弁慶、海鮮丼、現烤牡蠣（全年無休 9:00–21:00）</li><li>萬代城、新潟站周邊逛街</li><li>坐計程車移動，走路少</li></ul>
+        <div class="dt-warn">⚠ 市場裡個別店家新年可能休；今代司酒造 12/31–1/3 休館，不能參觀酒藏</div>
       </div>
-      <div>
-        <strong style="color:#27ae60;">☕ 咖啡</strong><br>
-        <strong>星巴克 鐘つき通り店</strong><br>
-        <span style="color:var(--muted); font-size:13.5px;">全球最值得造訪 20 店之一</span>
+      <div class="dt-card">
+        <div class="dt-top"><span class="dt-emo">♨️</span><div><div class="dt-name">水上溫泉鄉（群馬）</div><div class="dt-tags"><span class="dt-tag">溫泉・雪景</span><span class="dt-new">新選項</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>新幹線 1 站到上毛高原約 15 分＋巴士／計程車</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶<span style='color:var(--muted); font-weight:400;'>（少）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>✅ 上毛高原→東京直達約 1 小時</b></div>
+        <ul class="dt-list"><li>寶川溫泉：日本最大級露天混浴（日歸 ¥1,500，女生可租湯浴衣）</li><li>谷川岳纜車上山看雪景</li></ul>
+        <div class="dt-warn">⚠ 寶川日歸沒有免費接駁，要自己叫車；查到的資料比較舊，營業要再確認</div>
       </div>
-      <div>
-        <strong style="color:#8e6c3a;">🛍 伴手禮</strong><br>
-        <strong>龜屋</strong> 龜造型和菓子｜十一肉屋 和牛炸肉餅 ¥250<br>
-        <span style="color:var(--muted); font-size:13.5px;">⚠ おさつ庵地瓜片網紅推爆但踩雷</span>
+      <div class="dt-card">
+        <div class="dt-top"><span class="dt-emo">⛩</span><div><div class="dt-name">長野 善光寺新年參拜</div><div class="dt-tags"><span class="dt-tag">古寺・文化</span><span class="dt-new">新選項</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>高崎轉北陸新幹線約 1.5–2 小時</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶🚶<span style='color:var(--muted); font-weight:400;'>（中）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>✅ 長野→東京直達約 1.5 小時</b></div>
+        <ul class="dt-list"><li>1400 年古寺新年參拜、仲見世通</li><li>信州蕎麥麵</li><li>長野站搭巴士 15 分到善光寺</li></ul>
+        <div class="dt-warn">⚠ 新年參拜人潮多；加去地獄谷泡湯猴子要再多約 1.5 小時＋雪地走 30 分，不建議</div>
       </div>
-    </div>
+      <div class="dt-card">
+        <div class="dt-top"><span class="dt-emo">♨️</span><div><div class="dt-name">草津溫泉</div><div class="dt-tags"><span class="dt-tag">日本名湯</span><span class="dt-new">新選項</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>高崎轉吾妻線＋巴士，單程約 2.5–3 小時</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶🚶<span style='color:var(--muted); font-weight:400;'>（中）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>⚠ 要繞回高崎才能去東京</b></div>
+        <ul class="dt-list"><li>湯畑夜景、湯もみ（攪拌溫泉）表演</li><li>西之河原露天風呂</li></ul>
+        <div class="dt-warn">⚠ 所有選項中最遠，真正能玩的時間最短</div>
+      </div>
+      <div class="dt-card">
+        <div class="dt-top"><span class="dt-emo">🛷</span><div><div class="dt-name">湯澤放鬆日</div><div class="dt-tags"><span class="dt-tag">最輕鬆</span><span class="dt-new">新選項</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>10–20 分</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶<span style='color:var(--muted); font-weight:400;'>（少）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>✅ 晚上從湯澤搭新幹線去東京</b></div>
+        <ul class="dt-list"><li>中里雪上樂園：雪盆、雪地輪胎滑（¥1,000，8:30–16:30）</li><li>雪上摩托車、日歸溫泉</li><li>ぽんしゅ館清酒試飲＋酒風呂、CoCoLo 買伴手禮</li></ul>
+        <div class="dt-warn">⚠ 雪上樂園偏親子向；適合讓 Lisa（不滑雪）一起玩，也替 1/4 滑雪留體力</div>
+      </div>
+      <div class="dt-card dt-dim">
+        <div class="dt-top"><span class="dt-emo">🛍</span><div><div class="dt-name">A｜輕井澤 Outlet 初賣</div><div class="dt-tags"><span class="dt-tag">購物</span><span class="dt-old">上次提過</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>高崎轉車約 1–1.5 小時</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶<span style='color:var(--muted); font-weight:400;'>（少）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>✅ 輕井澤→東京直達約 1 小時</b></div>
+        <ul class="dt-list"><li>Outlet 就在車站旁，1/1–1/3 初賣＋福袋</li></ul>
+        <div class="dt-warn">⚠ 初賣人多；新年營業時間要再確認</div>
+      </div>
+      <div class="dt-card dt-dim">
+        <div class="dt-top"><span class="dt-emo">🍶</span><div><div class="dt-name">B｜八海山 魚沼之里＋牧之通</div><div class="dt-tags"><span class="dt-tag">酒藏文化</span><span class="dt-old">上次提過</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>JR＋計程車約 40 分</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶🚶<span style='color:var(--muted); font-weight:400;'>（中）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>要回湯澤或浦佐轉新幹線</b></div>
+        <ul class="dt-list"><li>雪室參觀、清酒試飲、蕎麥麵</li><li>鹽澤雪國老街</li></ul>
+        <div class="dt-warn">⚠ 新年營業時間查不到，要先打電話問</div>
+      </div>
+      <div class="dt-card dt-dim">
+        <div class="dt-top"><span class="dt-emo">🌊</span><div><div class="dt-name">C｜清津峽溪谷隧道</div><div class="dt-tags"><span class="dt-tag">IG 名景</span><span class="dt-old">上次提過</span></div></div></div>
+        <div class="dt-row"><span>🚄 交通</span><b>計程車約 30 分</b></div>
+        <div class="dt-row"><span>👟 走路</span><b>🚶🚶<span style='color:var(--muted); font-weight:400;'>（中）</span></b></div>
+        <div class="dt-row"><span>🧳 Sandy·Vivi</span><b>要回湯澤轉新幹線</b></div>
+        <ul class="dt-list"><li>IG 名景「水鏡」</li><li>下午回湯澤溫泉街</li></ul>
+        <div class="dt-warn">⚠ 大雪可能臨時關閉；12–2 月 9:00–16:00</div>
+      </div>
   </div>
-
-  <div style="margin: 0 60px 40px; font-size:13.5px; color:var(--muted); line-height:1.8;">
-    📚 資料來源：Mimi 韓の旅遊指南、波比看世界、完美行 WAmazing、樂吃購！日本、Klook、皮皮啾、艸頭黃這一家、Flyday.hk 等部落客實走整理。門票票價班次可能異動，出發前請查官網。
-  </div>
-
+  <p class="dt-src">📚 資料來源：新潟縣觀光協會（ピアBandai、今代司酒造、中里雪上樂園）、All About（寶川溫泉）、じゃらん、ekitan 時刻表。交通時間為約略值，新年營業請出發前再確認。</p>
 </section>
 
 <section class="section" id="coach">
   <div class="gear-header" style="background: linear-gradient(135deg, #1a2a4a 0%, #3a2a5a 100%);">
     <div class="section-eyebrow">SNOWBOARD LESSONS — 中文教練</div>
-    <h2 class="section-title" style="color:white;">滑雪教練比價表</h2>
+    <h2 class="section-title" style="color:white;">教練安排</h2>
     <p style="color:rgba(255,255,255,0.75); margin-top:14px; font-size:15.5px; max-width:720px; line-height:1.7;">
-      單板 Snowboard｜<strong style="color:#d4a843;">1 對 2 私人課・全天班</strong>｜上課日 12/31–1/1｜匯率 1 JPY ≈ 0.21 TWD｜查核日 2026/7
+      上課日 <strong style="color:#d4a843;">12/31–1/1</strong>｜Jerry·Phoebe → 小 Su ／ Jing → Michael ／ Sandy·Vivi → 阿仙｜當初的比價資料收在最下面
     </p>
   </div>
 
-  <div class="alert-card" style="margin-top:24px;">
-    <span class="alert-icon">⏰</span>
-    <div>
-      <p class="alert-title">早鳥期限倒數中！</p>
-      <p class="alert-text"><strong>雪長姐超早鳥 2026/7/31 截止</strong>（全天省 NT$2,000）／ 瘋雪早鳥至 8/31 ／ 雪遊早鳥至 9/30。跨年檔期教練比機票更早滿，確定要上課建議立刻預約！</p>
-    </div>
-  </div>
 
   <!-- 全員教練安排總表 -->
   <div style="margin: 24px 60px 20px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 26px 30px; border-left: 4px solid #27ae60;">
@@ -3229,6 +3434,8 @@
     </div>
   </div>
 
+  <details class="fold">
+    <summary>📊 當初的教練比價資料（已選定，僅供參考）</summary>
   <div style="margin: 0 60px 30px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border-radius: 4px; padding-top:4px;">
     <p class="mob-hint" style="padding:10px 16px 0;">← 表格可左右滑動查看全部欄位 →</p>
     <div style="overflow-x:auto;">
@@ -3319,12 +3526,14 @@
     <strong>📚 資料來源</strong>：各校官網價目頁＋官方 IG/FB 公告＋雪板地圖平台
   </div>
 
+  </details>
 </section>
 
 <footer class="page-footer">
-  Japan Ski Trip 2025–2026 ／ 持續更新中
+  Japan Ski Trip 2026–2027 ／ 持續更新中
 </footer>
 
+<button id="toTop" class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">↑</button>
 <script>
   // Generate snowflakes
   const heroBg = document.getElementById('heroBg');
@@ -3346,39 +3555,81 @@
 
   // Tab switching
   function showSection(id, tab) {
+    const sec = document.getElementById(id); if (!sec) return;
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    tab.classList.add('active');
+    sec.classList.add('active');
+    tab = tab || document.querySelector(`.nav-tab[onclick*="'${id}'"]`);
+    if (tab) { tab.classList.add('active'); tab.scrollIntoView({ inline: 'center', block: 'nearest' }); }
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
     window.scrollTo({ top: document.querySelector('.nav-tabs').offsetTop, behavior: 'smooth' });
   }
+  (function initHash() {
+    const id = (location.hash || '').slice(1);
+    if (id && document.getElementById(id) && document.getElementById(id).classList.contains('section')) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      const t = document.querySelector(`.nav-tab[onclick*="'${id}'"]`); if (t) t.classList.add('active');
+    }
+  })();
+  (function countdown() {
+    const el = document.getElementById('countdown'); if (!el) return;
+    const d = Math.ceil((new Date('2026-12-30T00:00:00+08:00') - new Date()) / 86400000);
+    el.textContent = d > 0 ? d + ' 天' : (d > -7 ? '旅行中 🎿' : '已回國');
+  })();
+  function saveTodo(cb) {
+    try { localStorage.setItem('todo_' + cb.dataset.id, cb.checked ? '1' : '0'); } catch (e) {}
+    cb.closest('.td-item').classList.toggle('td-done', cb.checked);
+    countTodo();
+  }
+  function countTodo() {
+    document.querySelectorAll('.td-group').forEach(g => {
+      const all = g.querySelectorAll('input').length, done = g.querySelectorAll('input:checked').length;
+      const c = g.querySelector('.td-count'); if (c) c.textContent = `${done}/${all}`;
+    });
+  }
+  document.querySelectorAll('.td-item input').forEach(cb => {
+    try { const v = localStorage.getItem('todo_' + cb.dataset.id); if (v !== null) { cb.checked = v === '1'; cb.closest('.td-item').classList.toggle('td-done', cb.checked); } } catch (e) {}
+  });
+  countTodo();
+  window.addEventListener('scroll', () => {
+    const b = document.getElementById('toTop'); if (b) b.classList.toggle('show', window.scrollY > 700);
+  }, { passive: true });
 
   // Budget calculator
+  // ── 預估花費（台幣）──
+  const BUD_COLORS = {"✈ 機票":"#2563a8","🏨 住宿":"#2f8f86","🏂 滑雪":"#5f52b0","🚄 交通":"#7d95ad","🍜 吃＋其他":"#d79a2e"};
+  function budStore(get, k, v){ try { if (get) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e) { return null; } }
   function calcBudget() {
-    const v = id => parseFloat(document.getElementById(id).value) || 0;
     const nt = n => 'NT$ ' + Math.round(n).toLocaleString();
-    const before = v('b-flight') + v('b-hotel') + v('b-coach') + v('b-rental');
-    const local  = v('b-lift') * v('b-skidays') + v('b-night') + v('b-train') + v('b-kawagoe') + v('b-food') * v('b-days') + v('b-shopping');
-    const total  = before + local;
-    const L = 'font-size:14px; letter-spacing:1px; color:rgba(255,255,255,0.8); margin-bottom:6px; font-weight:600;';
-    const S = 'font-size:13.5px; color:rgba(255,255,255,0.72); margin-top:4px; line-height:1.6;';
-    document.getElementById('budget-result').innerHTML = `
-      <div>
-        <div style="${L}">出發前先付（機票＋住宿＋教練＋雪具）</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:#9bc4e0;">${nt(before)}</div>
-      </div>
-      <div>
-        <div style="${L}">當地花費（雪票＋交通＋吃＋買）</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:#e8c46a;">${nt(local)}</div>
-        <div style="${S}">雪票 ${nt(v('b-lift')*v('b-skidays')+v('b-night'))}・餐 ${nt(v('b-food')*v('b-days'))}</div>
-      </div>
-      <div style="border-left:1px solid rgba(255,255,255,0.2); padding-left:20px;">
-        <div style="${L}">💰 每人預估總額</div>
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:46px; color:#7de3a0;">${nt(total)}</div>
-        <div style="${S}">平均每天 ${nt(total / (v('b-days')||1))}</div>
-      </div>`;
+    let total = 0, ok = 0, est = 0, ask = 0; const cats = {};
+    document.querySelectorAll('.bud-amt').forEach(el => {
+      const v = parseFloat(el.value) || 0;
+      budStore(false, 'bud_' + el.dataset.id, el.value);
+      total += v;
+      const st = el.dataset.st;
+      if (st === 'ok') ok += v; else if (st === 'ask') { if (!v) ask++; else ok += v; } else est += v;
+      const cat = el.closest('tr').dataset.cat; cats[cat] = (cats[cat] || 0) + v;
+    });
+    document.getElementById('bud-sum').innerHTML = `
+      <div class="bs-main"><span>目前預估總額</span><b>${nt(total)}</b>${ask ? `<small>⚠ 還有 ${ask} 項待提供（回程機票），還沒算進去</small>` : ''}</div>
+      <div><span>✅ 已確定</span><b>${nt(ok)}</b></div>
+      <div><span>📐 估算＋自填</span><b>${nt(est)}</b></div>
+      <div><span>平均每天（7 天）</span><b>${nt(total / 7)}</b></div>`;
+    document.getElementById('bud-bar').innerHTML = Object.entries(cats).map(([c, v]) =>
+      `<i style="width:${total ? v / total * 100 : 0}%; background:${BUD_COLORS[c] || '#999'};" title="${c} ${nt(v)}"></i>`).join('');
+    document.getElementById('bud-legend').innerHTML = Object.entries(cats).map(([c, v]) =>
+      `<span><i style="background:${BUD_COLORS[c] || '#999'};"></i>${c} <b>${nt(v)}</b> <em>${total ? Math.round(v / total * 100) : 0}%</em></span>`).join('');
   }
-  document.addEventListener('DOMContentLoaded', calcBudget);
+  function resetBudget() {
+    document.querySelectorAll('.bud-amt').forEach(el => { el.value = el.dataset.def; });
+    calcBudget();
+  }
+  document.querySelectorAll('.bud-amt').forEach(el => {
+    const saved = budStore(true, 'bud_' + el.dataset.id);
+    if (saved !== null && saved !== undefined && saved !== '') el.value = saved;
+  });
   calcBudget();
 
   // Gear checklist
