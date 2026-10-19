@@ -3147,8 +3147,8 @@
 
   <!-- 預估花費明細（全台幣） -->
   <div style="margin: 30px 60px; background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.06); padding: 28px 32px; border-left: 4px solid #27ae60;">
-    <h3 style="font-family:'Noto Sans TC',sans-serif; font-weight:700; letter-spacing:1px; font-size:23px; color:var(--deep); margin-bottom:6px;">💰 Jerry 預估花費 <span style="font-size:14px; background:#27ae60; color:#fff; padding:3px 10px; vertical-align:middle; margin-left:6px; letter-spacing:0;">全部台幣</span></h3>
-    <p style="font-size:15px; color:var(--muted); margin-bottom:18px; line-height:1.8;">以 Jerry 一個人的花費計算，日圓都已用 <strong style="color:var(--deep);">1 JPY ≈ 0.21 TWD</strong> 換好。金額可以直接改，會自動加總；改過的數字會記在這台裝置的瀏覽器裡。</p>
+    <h3 style="font-family:'Noto Sans TC',sans-serif; font-weight:700; letter-spacing:1px; font-size:23px; color:var(--deep); margin-bottom:6px;">💰 每人預估花費 <span style="font-size:14px; background:#27ae60; color:#fff; padding:3px 10px; vertical-align:middle; margin-left:6px; letter-spacing:0;">全部台幣</span></h3>
+    <p style="font-size:15px; color:var(--muted); margin-bottom:18px; line-height:1.8;">以<strong style="color:var(--deep);">一個人</strong>為單位（用 Jerry 的行程算，Phoebe 相同）。<strong style="color:var(--deep);">只放已付、已訂或有公布定價的金額</strong>，還沒確定的先空白。日圓用 <strong style="color:var(--deep);">1 JPY ≈ 0.21 TWD</strong> 換好。金額可以直接改，會自動加總；改過的數字會記在這台裝置的瀏覽器裡。</p>
 
     <div id="bud-sum" class="bud-sum"></div>
     <div id="bud-bar" class="bud-bar"></div>
@@ -3167,139 +3167,157 @@
         <tr data-cat="✈ 機票">
           <td data-label="項目"><b>去程 BR192 松山→羽田</b></td>
           <td data-label="怎麼算" class="bud-note">里程兌換，只付稅金（長榮電子收據）</td>
-          <td data-label="狀態"><span class="bud-st st-ok">✅ 已確定</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b0" data-st="ok" data-def="2797" value="2797" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已付／已訂</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h0" data-st="ok" data-def="2797" value="2797" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="✈ 機票">
-          <td data-label="項目"><b>回程 BR195 成田→桃園（皇璽桂冠艙）</b></td>
-          <td data-label="怎麼算" class="bud-note">金額還沒給我，填進來就會加總</td>
-          <td data-label="狀態"><span class="bud-st st-ask">❓ 待提供</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b1" data-st="ask" data-def="0" value="0" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="項目"><b>回程 BR195 成田→桃園</b></td>
+          <td data-label="怎麼算" class="bud-note">已買，金額還沒給我</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h1" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr class="bud-cat"><td colspan="4">🏨 住宿</td></tr>
         <tr data-cat="🏨 住宿">
-          <td data-label="項目"><b>HATAGO 井仙 6 晚（你的分攤）</b></td>
-          <td data-label="怎麼算" class="bud-note">官網最低 ¥27,580／房／晚（2 人）；年末旺季抓 ¥45,000／房 → 每人 ¥22,500 × 6 晚</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b2" data-st="est" data-def="28350" value="28350" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="項目"><b>HATAGO 12/30–1/3（4 晚）</b></td>
+          <td data-label="怎麼算" class="bud-note">房價 NT$30,893 ÷ 2 人（Jerry・Phoebe 一房，跟 Sandy・Vivi 同房型同價）<br>參考：Sandy・Vivi・文凱 那房＋加床 ¥4,550／晚（≈NT$1,213）×4 → 每人 NT$11,915</td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已付／已訂</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h2" data-st="ok" data-def="15447" value="15447" oninput="saveBud(this); calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏨 住宿">
+          <td data-label="項目"><b>HATAGO 1/3（第 5 晚）</b></td>
+          <td data-label="怎麼算" class="bud-note">房價 NT$9,962 ÷ 2 人<br>文凱加床的話：(9,962＋1,213) ÷ 3 ＝ NT$3,725</td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已付／已訂</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h3" data-st="ok" data-def="4981" value="4981" oninput="saveBud(this); calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏨 住宿">
+          <td data-label="項目"><b>HATAGO 1/4（第 6 晚）</b></td>
+          <td data-label="怎麼算" class="bud-note">房價 NT$10,695 ÷ 2 人<br>文凱加床的話：(10,695＋1,213) ÷ 3 ＝ NT$3,969</td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已付／已訂</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h4" data-st="ok" data-def="5348" value="5348" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr class="bud-cat"><td colspan="4">🏂 滑雪</td></tr>
         <tr data-cat="🏂 滑雪">
-          <td data-label="項目"><b>教練 小 Su（12/31、1/1，你的份）</b></td>
-          <td data-label="怎麼算" class="bud-note">夢行俱樂部價目：全日 5hr 一對一 NT$15,000，每加 1 人 +1,000 → 2 人 NT$16,000／天<br>12/31 全日 16,000＋1/1（4hr，先抓全日）16,000＝2 人 NT$32,000 ÷ 2<br>半日 3hr 為全日 7 折（11,200）；1/1 4hr 怎麼算、夜滑是否另收費待確認。報名需先付 50% 訂金</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b3" data-st="est" data-def="16000" value="16000" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="項目"><b>教練 小 Su 12/31（全日 5hr）</b></td>
+          <td data-label="怎麼算" class="bud-note">夢行俱樂部：一對一 NT$15,000＋多 1 人 1,000 ＝ 16,000 ÷ 2 人</td>
+          <td data-label="狀態"><span class="bud-st st-ok">✅ 已付／已訂</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h5" data-st="ok" data-def="8000" value="8000" oninput="saveBud(this); calcBudget()"></td>
+        </tr>
+        <tr data-cat="🏂 滑雪">
+          <td data-label="項目"><b>教練 小 Su 1/1（4hr）＋夜滑</b></td>
+          <td data-label="怎麼算" class="bud-note">4hr 怎麼計價、夜滑另不另收，等小 Su 回覆</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h6" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🏂 滑雪">
           <td data-label="項目"><b>雪具 青達 板＋鞋（12/31–1/4，5 天）</b></td>
-          <td data-label="怎麼算" class="bud-note">首日 1,150＋之後每天 970 × 4（青達 2026/27 台幣價目）</td>
-          <td data-label="狀態"><span class="bud-st st-ok">✅ 已確定</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b4" data-st="ok" data-def="5030" value="5030" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">首日 1,150＋之後每天 970 × 4（青達 26/27 台幣價目）</td>
+          <td data-label="狀態"><span class="bud-st st-est">💴 定價（還沒買）</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h7" data-st="price" data-def="5030" value="5030" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🏂 滑雪">
           <td data-label="項目"><b>雪票 12/31 神樂 1 日券</b></td>
-          <td data-label="怎麼算" class="bud-note">¥8,500（26/27 官網價，線上買同價）</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b5" data-st="est" data-def="1785" value="1785" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">¥8,500（26/27 官網價）</td>
+          <td data-label="狀態"><span class="bud-st st-est">💴 定價（還沒買）</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h8" data-st="price" data-def="1785" value="1785" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🏂 滑雪">
           <td data-label="項目"><b>雪票 1/1 石打丸山 4 小時券</b></td>
           <td data-label="怎麼算" class="bud-note">¥6,500（26/27 窗口價）</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b6" data-st="est" data-def="1365" value="1365" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="狀態"><span class="bud-st st-est">💴 定價（還沒買）</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h9" data-st="price" data-def="1365" value="1365" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🏂 滑雪">
           <td data-label="項目"><b>雪票 1/1 神立 夜滑</b></td>
-          <td data-label="怎麼算" class="bud-note">約 ¥4,900（25/26 價，26/27 還沒公布）</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b7" data-st="est" data-def="1029" value="1029" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">26/27 價格還沒公布</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h10" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🏂 滑雪">
           <td data-label="項目"><b>雪票 1/2 GALA 早割 1 日券</b></td>
           <td data-label="怎麼算" class="bud-note">¥4,800 早割（原價 ¥8,000），11/30 前要買</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b8" data-st="est" data-def="1008" value="1008" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="狀態"><span class="bud-st st-est">💴 定價（還沒買）</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h11" data-st="price" data-def="1008" value="1008" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🏂 滑雪">
           <td data-label="項目"><b>雪票 1/4（雪場未定）</b></td>
-          <td data-label="怎麼算" class="bud-note">先抓 ¥7,500</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b9" data-st="est" data-def="1575" value="1575" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">雪場決定後再填</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h12" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr class="bud-cat"><td colspan="4">🚄 交通</td></tr>
         <tr data-cat="🚄 交通">
           <td data-label="項目"><b>12/30 羽田 → 東京駅</b></td>
-          <td data-label="怎麼算" class="bud-note">單軌＋JR 約 ¥660</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b10" data-st="est" data-def="139" value="139" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">—</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h13" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🚄 交通">
-          <td data-label="項目"><b>12/30 東京 → 越後湯澤 新幹線（Klook 指定席）</b></td>
-          <td data-label="怎麼算" class="bud-note">官方指定席 ¥6,900，年末可能再多一點</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b11" data-st="est" data-def="1450" value="1450" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="項目"><b>12/30 東京 → 越後湯澤 新幹線</b></td>
+          <td data-label="怎麼算" class="bud-note">Klook とき 327 指定席報價 NT$1,574（還沒付款，買法內部確認中）</td>
+          <td data-label="狀態"><span class="bud-st st-est">💴 定價（還沒買）</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h14" data-st="price" data-def="1574" value="1574" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🚄 交通">
           <td data-label="項目"><b>1/3 一日遊 交通＋門票</b></td>
-          <td data-label="怎麼算" class="bud-note">地點未定，先抓東京來回的價錢</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b12" data-st="est" data-def="3000" value="3000" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">地點未定</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h15" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🚄 交通">
           <td data-label="項目"><b>1/5 越後湯澤 → 東京 新幹線</b></td>
-          <td data-label="怎麼算" class="bud-note">指定席 ¥6,900</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b13" data-st="est" data-def="1450" value="1450" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">班次還沒訂</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h16" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🚄 交通">
           <td data-label="項目"><b>1/5 東京 → 成田 N'EX</b></td>
-          <td data-label="怎麼算" class="bud-note">¥3,070</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b14" data-st="est" data-def="645" value="645" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">還沒訂</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h17" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🚄 交通">
           <td data-label="項目"><b>計程車分攤・零星交通</b></td>
-          <td data-label="怎麼算" class="bud-note">預留</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b15" data-st="est" data-def="500" value="500" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">—</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h18" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr class="bud-cat"><td colspan="4">🍜 吃＋其他</td></tr>
         <tr data-cat="🍜 吃＋其他">
-          <td data-label="項目"><b>餐費 7 天</b></td>
-          <td data-label="怎麼算" class="bud-note">雪場午餐約 NT$400＋晚餐約 NT$1,000，每天約 NT$1,400</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b16" data-st="est" data-def="9800" value="9800" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="項目"><b>餐費</b></td>
+          <td data-label="怎麼算" class="bud-note">—</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h19" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🍜 吃＋其他">
-          <td data-label="項目"><b>跨年晚餐加價</b></td>
-          <td data-label="怎麼算" class="bud-note">跨年夜通常比平常貴</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b17" data-st="est" data-def="1500" value="1500" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="項目"><b>跨年晚餐</b></td>
+          <td data-label="怎麼算" class="bud-note">—</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h20" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🍜 吃＋其他">
           <td data-label="項目"><b>網卡／eSIM</b></td>
-          <td data-label="怎麼算" class="bud-note">7 天</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b18" data-st="est" data-def="300" value="300" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="怎麼算" class="bud-note">—</td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h21" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🍜 吃＋其他">
           <td data-label="項目"><b>旅平險</b></td>
           <td data-label="怎麼算" class="bud-note">—</td>
-          <td data-label="狀態"><span class="bud-st st-est">📐 估算</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b19" data-st="est" data-def="800" value="800" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="狀態"><span class="bud-st st-ask">⬜ 待確認</span></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h22" data-st="tbd" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         <tr data-cat="🍜 吃＋其他">
           <td data-label="項目"><b>購物／伴手禮</b></td>
-          <td data-label="怎麼算" class="bud-note">自己決定，隨時改</td>
+          <td data-label="怎麼算" class="bud-note">自己決定，隨時填</td>
           <td data-label="狀態"><span class="bud-st st-self">✏️ 自填</span></td>
-          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" data-id="b20" data-st="self" data-def="5000" value="5000" oninput="saveBud(this); calcBudget()"></td>
+          <td data-label="金額 NT$" class="bud-amt-td"><span class="bud-nt">NT$</span><input class="bud-amt" type="number" inputmode="numeric" placeholder="待填" data-id="h23" data-st="self" data-def="" value="" oninput="saveBud(this); calcBudget()"></td>
         </tr>
         </tbody>
       </table>
     </div>
     <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:14px;">
       <button class="bud-reset" onclick="resetBudget()">↺ 回到預設金額</button>
-      <span style="font-size:14px; color:var(--muted);">雪票已更新為 26/27 價格；教練費已依夢行俱樂部價目估算；住宿給我實際金額，我再改成 ✅。</span>
+      <span style="font-size:14px; color:var(--muted);">空白的項目確定後直接填，總額會自動更新。</span>
     </div>
   </div>
 
@@ -3698,31 +3716,31 @@
   function budStore(get, k, v){ try { if (get) return localStorage.getItem(k); localStorage.setItem(k, v); } catch(e) { return null; } }
   function calcBudget() {
     const nt = n => 'NT$ ' + Math.round(n).toLocaleString();
-    let total = 0, ok = 0, est = 0, ask = 0; const cats = {};
+    let total = 0, ok = 0, price = 0, blank = 0; const cats = {};
     document.querySelectorAll('.bud-amt').forEach(el => {
-      const v = parseFloat(el.value) || 0;
+      const raw = String(el.value).trim(); const v = parseFloat(raw) || 0;
+      if (raw === '') { if (el.dataset.st !== 'self') blank++; return; }
       total += v;
-      const st = el.dataset.st;
-      if (st === 'ok') ok += v; else if (st === 'ask') { if (!v) ask++; else ok += v; } else est += v;
+      if (el.dataset.st === 'ok') ok += v; else price += v;
       const cat = el.closest('tr').dataset.cat; cats[cat] = (cats[cat] || 0) + v;
     });
     document.getElementById('bud-sum').innerHTML = `
-      <div class="bs-main"><span>目前預估總額</span><b>${nt(total)}</b>${ask ? `<small>⚠ 還有 ${ask} 項待提供（回程機票），還沒算進去</small>` : ''}</div>
-      <div><span>✅ 已確定</span><b>${nt(ok)}</b></div>
-      <div><span>📐 估算＋自填</span><b>${nt(est)}</b></div>
-      <div><span>平均每天（7 天）</span><b>${nt(total / 7)}</b></div>`;
+      <div class="bs-main"><span>每人目前已知總額</span><b>${nt(total)}</b>${blank ? `<small>⬜ 還有 ${blank} 項待確認，還沒算進去</small>` : ''}</div>
+      <div><span>✅ 已付／已訂</span><b>${nt(ok)}</b></div>
+      <div><span>💴 定價（還沒買）</span><b>${nt(price)}</b></div>
+      <div><span>⬜ 待確認</span><b>${blank} 項</b></div>`;
     document.getElementById('bud-bar').innerHTML = Object.entries(cats).map(([c, v]) =>
       `<i style="width:${total ? v / total * 100 : 0}%; background:${BUD_COLORS[c] || '#999'};" title="${c} ${nt(v)}"></i>`).join('');
     document.getElementById('bud-legend').innerHTML = Object.entries(cats).map(([c, v]) =>
       `<span><i style="background:${BUD_COLORS[c] || '#999'};"></i>${c} <b>${nt(v)}</b> <em>${total ? Math.round(v / total * 100) : 0}%</em></span>`).join('');
   }
-  function saveBud(el) { budStore(false, 'budv2_' + el.dataset.id, el.value); }
+  function saveBud(el) { budStore(false, 'budv3_' + el.dataset.id, el.value); }
   function resetBudget() {
-    document.querySelectorAll('.bud-amt').forEach(el => { el.value = el.dataset.def; try { localStorage.removeItem('budv2_' + el.dataset.id); } catch (e) {} });
+    document.querySelectorAll('.bud-amt').forEach(el => { el.value = el.dataset.def; try { localStorage.removeItem('budv3_' + el.dataset.id); } catch (e) {} });
     calcBudget();
   }
   document.querySelectorAll('.bud-amt').forEach(el => {
-    const saved = budStore(true, 'budv2_' + el.dataset.id);
+    const saved = budStore(true, 'budv3_' + el.dataset.id);
     if (saved !== null && saved !== undefined && saved !== '') el.value = saved;
   });
   calcBudget();
