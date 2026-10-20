@@ -1003,6 +1003,49 @@
     .hero-meta { gap: 14px 26px !important; }
   }
 
+
+  /* ── 雪場地圖 ── */
+  .map-wrap { margin: 26px 60px; display: grid; gap: 26px; }
+  .map-tip { margin: 26px 60px 0; background:#fff8e8; border-left:3px solid var(--gold); padding:12px 16px; color:#6a5000; font-size:15px; line-height:1.85; }
+  .mcard { background:#fff; box-shadow:0 2px 12px rgba(0,0,0,0.06); border-top:5px solid var(--mc,#4a9fd4); }
+  .mcard-hd { padding:20px 26px 6px; display:flex; flex-wrap:wrap; gap:8px 14px; align-items:baseline; }
+  .mcard-hd h3 { font-family:'Noto Sans TC',sans-serif; font-size:24px; font-weight:700; color:var(--deep); }
+  .mcard-hd .when { font-size:14px; background:var(--mc,#4a9fd4); color:#fff; padding:3px 10px; border-radius:3px; }
+  .mcard-hd .sub { font-size:14.5px; color:var(--muted); flex-basis:100%; }
+  .mfigs { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; padding:12px 26px; }
+  .mfig { margin:0; }
+  .mfig-btn { display:block; width:100%; padding:0; border:1px solid #d8e4ee; background:#eef4f9; cursor:zoom-in; position:relative; border-radius:4px; overflow:hidden; }
+  .mfig-btn img { display:block; width:100%; height:min(60vh, 560px); object-fit:contain; background:#eef4f9; }
+  .mfig-btn .zoom-hint { position:absolute; right:8px; bottom:8px; background:rgba(26,42,58,0.85); color:#fff; font-size:13px; padding:4px 10px; border-radius:20px; }
+  .mfig figcaption { font-size:13.5px; color:var(--muted); margin-top:6px; display:flex; flex-wrap:wrap; gap:4px 12px; }
+  .mfig figcaption a { color:var(--accent); font-weight:600; }
+  .mfail { height:min(60vh, 560px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; background:#f4f6f8; border:1px dashed #b8c8d6; color:var(--muted); font-size:14.5px; text-align:center; padding:16px; border-radius:4px; }
+  .mfail a { color:var(--accent); font-weight:700; }
+  .mgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; padding:6px 26px 24px; }
+  .mbox { background:#f8fbff; border-left:3px solid var(--mc,#4a9fd4); padding:12px 16px; font-size:15px; line-height:1.85; }
+  .mbox h4 { font-size:15.5px; color:var(--deep); margin-bottom:4px; }
+  .mbox ul { padding-left:18px; margin:0; }
+  .mbox li { margin:2px 0; }
+  .mbox small { color:var(--muted); font-size:13px; }
+  .mbox.hl { background:#fff8e8; border-left-color:var(--gold); }
+  .mfoot { padding:0 26px 18px; font-size:13px; color:var(--muted); line-height:1.7; }
+  .mapbox { position:fixed; inset:0; z-index:99999; background:#0a121a; display:flex; flex-direction:column; }
+  .mapbox[hidden] { display:none; }
+  .mb-bar { display:flex; align-items:center; gap:8px; padding:10px 12px; color:#fff; font-size:15px; }
+  .mb-bar b { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .mb-bar button, .mb-bar a { background:rgba(255,255,255,0.14); color:#fff; border:0; border-radius:6px; min-width:42px; height:40px; padding:0 12px; font-size:18px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; text-decoration:none; }
+  .mb-bar a { font-size:14px; }
+  .mb-scroll { flex:1; overflow:auto; -webkit-overflow-scrolling:touch; text-align:center; }
+  .mb-scroll img { display:inline-block; max-width:none; height:auto; background:#fff; }
+  .mb-hint { color:rgba(255,255,255,0.6); font-size:12.5px; text-align:center; padding:6px; }
+  @media (max-width: 768px) {
+    .map-wrap { margin: 18px 12px; gap:18px; }
+    .map-tip { margin: 18px 12px 0; }
+    .mcard-hd { padding:16px 16px 4px; }
+    .mfigs, .mgrid { padding-left:16px; padding-right:16px; }
+    .mfoot { padding:0 16px 16px; }
+    .mfig-btn img, .mfail { height:260px; }
+  }
 </style>
 </head>
 <body>
@@ -1066,6 +1109,7 @@
   <div class="nav-tab" onclick="showSection('todo', this)">📌 待辦</div>
   <div class="nav-tab" onclick="showSection('restaurant', this)">🍜 餐廳清單</div>
   <div class="nav-tab" onclick="showSection('resorts', this)">🚡 雪場交通</div>
+  <div class="nav-tab" onclick="showSection('maps', this)">🗺 雪場地圖</div>
   <div class="nav-tab" onclick="showSection('gear', this)">🎿 裝備清單</div>
   <div class="nav-tab" onclick="showSection('budget', this)">💰 預算</div>
   <div class="nav-tab" onclick="showSection('daytrip', this)">🗳 1/3 一日遊</div>
@@ -1763,7 +1807,7 @@
           <p>17:00–18:00 還雪具<br>全員聚餐（要訂）<br>📸 THE VERANDA 觀景露台可以順便上去</p>
         </div>
         <div class="day-note">📦 <strong>今日雪具歸還</strong>：Phoebe、Sandy、Vivi、Jing、文凱，18:00 前（Jerry 租到 1/4）／ Lisa 不滑雪<br>
-        ⚠ 8.5 小時券可以夜滑到 20:00，但青達營業到 18:00、要回店裡還；能不能在雪場還或隔天早上還，要問青達</div>
+        📦 青達可以在<strong>石打丸山（石口）面交還雪具</strong>，但時間配合接駁車，最晚通常 <strong>17:30</strong>，不用再趕回店裡<br>⚠ 8.5 小時券可以夜滑到 20:00，但雪具 17:30 就要交；想夜滑要多租一天</div>
       </div>
     </div>
 
@@ -1976,9 +2020,9 @@
           <span class="td-text"><b>文凱 12/30 先去湯澤，還是等大家</b><small>10:35 落地成田</small></span>
           <span class="td-who">文凱</span>
         </label>
-        <label class="td-item">
-          <input type="checkbox" data-id="d7" onchange="saveTodo(this)">
-          <span class="td-text"><b>問青達：雪具能不能在雪場還</b><small>官網只寫「營業時間內歸還」（8:00–18:00）；問 1/2 石打夜滑完能不能隔天早上還、要不要多算一天</small></span>
+        <label class="td-item td-done">
+          <input type="checkbox" data-id="d7" checked onchange="saveTodo(this)">
+          <span class="td-text"><b>✅ 青達回覆：可以在雪場面交還雪具</b><small>石打（石口）、神樂（三俁口）、神立等都可以；時間配合接駁車，最晚通常 17:30 從雪場發車，所以還是 18:00 前回到店裡</small></span>
           <span class="td-who">Jerry</span>
         </label>
     </div>
@@ -2713,7 +2757,10 @@
         <strong style="color:#922b21;">📦 歸還</strong><br>
         <strong>1/2（六）</strong>Phoebe・Sandy・Vivi・Jing・文凱<br><span style="color:var(--muted); font-size:13.5px;">（王淳筣・卜郡廷・張家薇・陳冠憬・文凱；文凱還沒預約）</span><br>
         <strong>1/4（一）</strong>陳冠文（Jerry）<br>
-        <span style="color:var(--muted); font-size:13.5px;">18:00 前，逾時 ¥2,500/hr</span>
+        <span style="color:var(--muted); font-size:13.5px;">店裡 18:00 前，逾時 ¥2,500/hr</span><br>
+        <strong style="color:#1a7a3d;">✅ 也可以在雪場面交歸還</strong><br>
+        <span style="font-size:13.5px;">GALA・湯澤高原・石打丸山（石口）・神立・湯澤中里・湯澤 PARK・NASPA・岩原・神樂（三俁口）</span><br>
+        <span style="color:#c0392b; font-size:13.5px;">⚠ 時間配合接駁車，最晚通常 17:30 從雪場發車</span>
       </div>
       <div style="background:#f0f6fc; padding:14px 18px; border-left:3px solid #4a9fd4;">
         <strong style="color:#185fa5;">🚐 接駁服務</strong><br>
@@ -3066,6 +3113,106 @@
 
 <!-- COACH SECTION -->
 
+
+<!-- MAPS SECTION -->
+<section class="section" id="maps">
+  <div class="gear-header" style="background: linear-gradient(135deg, #1a2a3a 0%, #3a2a5a 100%);">
+    <div class="section-eyebrow">PISTE MAPS — 雪場地圖・特色・餐廳</div>
+    <h2 class="section-title" style="color:white;">雪場地圖</h2>
+  </div>
+  <div class="map-tip">
+    🔍 <b>點地圖就能放大</b>，用 ＋／－ 調大小、手指拖曳移動；「開原圖」會用瀏覽器打開原始檔，可以雙指縮放。<br>
+    📶 雪場上網路可能很慢，<b>出發前先把地圖存到手機相簿</b>（開原圖後長按存圖）。
+  </div>
+  <div class="map-wrap">
+    <article class="mcard" style="--mc:#7a3a8a;">
+      <div class="mcard-hd">
+        <h3>神樂 かぐら</h3><span class="when">12/31・1/1</span>
+        <span class="sub">Jerry・Phoebe・文凱從<b>三俁口</b>上（小 Su 上課）；Jing・Sandy・Vivi 從<b>田代</b>上</span>
+      </div>
+      <div class="mfigs">
+        <figure class="mfig">
+          <button class="mfig-btn" type="button" onclick="openMap(this)" data-full="https://www.princehotels.co.jp/file.jsp?id=498187" data-title="神樂 かぐら 雪場地圖">
+            <img src="https://www.princehotels.co.jp/image.jsp?id=498189" alt="神樂滑雪場雪道地圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
+            <span class="zoom-hint">🔍 點開放大</span>
+          </button>
+          <figcaption><span>官方地圖</span><a href="https://www.princehotels.co.jp/file.jsp?id=498187" target="_blank" rel="noopener">開原圖</a><a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/" target="_blank" rel="noopener">官網雪道頁</a></figcaption>
+        </figure>
+      </div>
+      <div class="mgrid">
+        <div class="mbox"><h4>🗺 雪場怎麼分</h4><ul><li><b>三俁（みつまた）</b>：靠湯澤的入口，搭三俁纜車上山</li><li><b>神樂（かぐら）</b>：山的上半部、主雪區，搭かぐらゴンドラ上去；山頂 1,845m</li><li><b>田代（たしろ）</b>：另一個入口，田代組在這裡</li><li>三區共 30 條雪道，最長 6km；WAmazing 共通券還可以搭 Dragondola 到苗場</li></ul></div>
+        <div class="mbox"><h4>🟢 新手可以滑</h4><ul><li>三俁：A1 ファミリー、E2 ゴンドラライン</li><li>神樂：E1 ゴンドラコース</li><li>田代：T1 らくらく、U1 レディース、U2 スカイライン、Y1 田代湖コース</li></ul><small>⚠ 三俁回山腳的 MR1 下山コース是中級，新手建議搭纜車下山</small></div>
+        <div class="mbox hl"><h4>📌 這兩天要記得</h4><ul><li>換票：三俁站（或田代站）纜車券窗口，出示 WAmazing「我的頁面」</li><li>票用到 16:30，下山纜車末班要注意</li><li>沒有夜滑</li><li>還雪具：青達可在<b>三俁口</b>面交</li><li>跟田代組會合：約在神樂區的<b>和田小屋</b>最好找</li></ul></div>
+        <div class="mbox"><h4>📸 景點</h4><ul><li><b>田代湖</b>：田代區的湖，Y1 田代湖コース沿湖滑，湖邊有餐廳</li><li><b>Dragondola</b>：日本最長纜車，從田代到苗場 5.5km、約 25 分（26/27 運行 12/26 起）</li><li>神樂上半部雪質最好、視野最開闊</li></ul></div>
+        <div class="mbox"><h4>🍜 餐廳</h4><ul><li><b>和田小屋</b>（神樂區中間）：けんちんうどん＋小丼、カツ丼；山屋氣氛</li><li><b>レストランかぐら</b>（ゴンドラ山頂站 1F）：披薩、義大利麵、咖哩、牛排</li><li><b>レストランみつまた</b>（三俁，木屋風）：咖哩、豬排定食、豚汁定食</li><li><b>カフェ&amp;レストラン スノーマン</b>（三俁）：咖哩、蛋糕，大窗景觀</li><li><b>バブルワッフル</b>（三俁）：鬆餅、熱可可</li><li><b>レストラン アリエスカ</b>（田代湖畔）、<b>アルム</b>、<b>ぶなキッチン</b>（田代）</li></ul><small>營業時間依 25/26 官網，各店約 9:00–15:00</small></div>
+      </div>
+      <div class="mfoot">資料：<a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/" target="_blank" rel="noopener">かぐら官網雪道頁</a>・<a href="https://www.princehotels.co.jp/ski/kagura/winter/store/" target="_blank" rel="noopener">かぐら官網餐廳頁</a>（2026/10/21 查）；地圖可能還是 25/26 版，開季前會更新</div>
+    </article>
+    <article class="mcard" style="--mc:#2d3a8a;">
+      <div class="mcard-hd">
+        <h3>神立 Kandatsu</h3><span class="when">1/1 夜滑</span>
+        <span class="sub">Jerry・Phoebe・文凱 18:00–22:00；從湯澤免費接駁約 10 分</span>
+      </div>
+      <div class="mfigs">
+        <figure class="mfig">
+          <button class="mfig-btn" type="button" onclick="openMap(this)" data-full="https://surfsnow.jp/real_img/r0083/course_pic_r0083.jpg" data-title="神立 雪道地圖">
+            <img src="https://surfsnow.jp/real_img/r0083/course_pic_r0083.jpg" alt="神立雪道地圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
+            <span class="zoom-hint">🔍 點開放大</span>
+          </button>
+          <figcaption><span>雪道地圖（SURF&amp;SNOW）</span><a href="https://surfsnow.jp/real_img/r0083/course_pic_r0083.jpg" target="_blank" rel="noopener">開原圖</a><a href="https://www.kandatsu.com/course-guide/" target="_blank" rel="noopener">官網雪道頁</a></figcaption>
+        </figure>
+        <figure class="mfig">
+          <button class="mfig-btn" type="button" onclick="openMap(this)" data-full="https://www.kandatsu.com/ksr/wp-content/themes/connectitheme/assets/img/info/kandatsu-birdseye-view.png" data-title="神立 官方鳥瞰圖">
+            <img src="https://www.kandatsu.com/ksr/wp-content/themes/connectitheme/assets/img/info/kandatsu-birdseye-view.png" alt="神立官方鳥瞰圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
+            <span class="zoom-hint">🔍 點開放大</span>
+          </button>
+          <figcaption><span>官方鳥瞰圖</span><a href="https://www.kandatsu.com/ksr/wp-content/themes/connectitheme/assets/img/info/kandatsu-birdseye-view.png" target="_blank" rel="noopener">開原圖</a></figcaption>
+        </figure>
+      </div>
+      <div class="mgrid">
+        <div class="mbox hl"><h4>🌙 夜滑開哪幾條</h4><ul><li>官網標示夜間開放：<b>プロキオン、ポルックス、ベガ、ポラリス</b>（初級）＋<b>レグルス</b>（中級）</li><li>週五、週六、假日前一天 18:00–翌 2:00（1/1 週五有開）</li><li>4 小時夜滑票 ¥3,800（25/26 價）</li></ul></div>
+        <div class="mbox"><h4>🟢 新手可以滑</h4><ul><li><b>ポラリス</b>：坡緩又寬，最適合剛學</li><li><b>ベガ</b>：雪校上課用的坡</li><li>アンドロメダ、プロキオン、ポルックス 也是初級</li></ul><small>16 條雪道：初級 30%、中級 40%、高級 30%</small></div>
+        <div class="mbox"><h4>♨️ 神の湯＆三溫暖</h4><ul><li>可容納約 400 人的大浴場＋露天風呂＋三溫暖</li><li>週五 14:00–隔天 9:00（25/26 資料），滑完直接去泡</li><li>泡湯的人可以免費用休息區</li></ul></div>
+        <div class="mbox"><h4>✨ 特色・吃什麼</h4><ul><li>天然雪、北向坡，雪質好</li><li>Sclover PARK：職業滑手石川敦士設計的地形公園</li><li>餐廳有南魚沼越光米做的海鮮丼、咖哩，還有自選配料的可麗餅</li></ul></div>
+      </div>
+      <div class="mfoot">資料：<a href="https://www.kandatsu.com/course-guide/" target="_blank" rel="noopener">神立官網雪道頁</a>、新潟觀光協會、GLTJP、asoview（2026/10/21 查）；夜滑時間和票價是 25/26，26/27 11 月公布</div>
+    </article>
+    <article class="mcard" style="--mc:#5a3a8a;">
+      <div class="mcard-hd">
+        <h3>石打丸山 Ishiuchi Maruyama</h3><span class="when">1/2 全員</span>
+        <span class="sub">6 人一起自由滑（Lisa 不滑）；Alpen 8.5 小時電子票到中央入口換票</span>
+      </div>
+      <div class="mfigs">
+        <figure class="mfig">
+          <button class="mfig-btn" type="button" onclick="openMap(this)" data-full="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" data-title="石打丸山 雪場地圖">
+            <img src="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" alt="石打丸山雪道地圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
+            <span class="zoom-hint">🔍 點開放大</span>
+          </button>
+          <figcaption><span>官方地圖（25/26）</span><a href="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" target="_blank" rel="noopener">開原圖</a><a href="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ysl%EF%BC%86ishiuchi_%E3%83%9E%E3%83%83%E3%83%97.pdf" target="_blank" rel="noopener">PDF</a><a href="https://ishiuchi.or.jp/winter/ski/lift-course/" target="_blank" rel="noopener">官網雪道頁</a></figcaption>
+        </figure>
+      </div>
+      <div class="mgrid">
+        <div class="mbox hl"><h4>☕ THE VERANDA＋透明圓頂帳篷</h4><ul><li>搭<b>サンライズエクスプレス</b>（纜車）約 7 分，到山腰的觀景咖啡露台</li><li>2F 有暖爐的咖啡廳＋露台，3F 觀景台；看得到魚沼平原和越後三山</li><li>招牌：<b>雪山鬆餅</b>、咖啡、咖哩、手撕豬三明治、奧地利精釀啤酒</li><li><b>透明圓頂帳篷</b>：雪地上的玻璃泡泡屋，可以把咖啡廳外帶餐點帶進去，邊吃邊看雪景</li><li>帳篷 60 分 ¥2,400（25/26 價），10:20–16:00、最後入場 15:00；<b>60 分一個時段、預約優先</b>，有空位才能現場進</li></ul><small>咖啡廳 10:00–16:00（LO 15:30）；26/27 帳篷預約方式開季前看官網</small></div>
+        <div class="mbox"><h4>🟢 新手可以滑</h4><ul><li><b>メルヘンコース</b>：1km，最大 20°</li><li><b>グリーンコース</b>：纜車下車正面，暖身用</li><li>北丸山ファミリー、ハツカ石ファミリー、林間コース、パラダイス、サンライズライン</li></ul><small>23 條雪道、14 座纜車，最長 4km</small></div>
+        <div class="mbox"><h4>🌙 夜滑 16:00–20:00</h4><ul><li>12 條、最長 3km，日本規模最大的夜滑區之一</li><li>每天開：パラダイス、サンライズライン、大丸山、銀座、ザイラー、ホピヒラー、スポーツマン、デビルダウン</li><li><b>週六才開</b>：ハツカ石ファミリー、カモシカ（1/2 是週六 ✅）</li></ul><small>⚠ 想夜滑的話，青達雪具最晚 17:30 就要面交，要多租一天</small></div>
+        <div class="mbox"><h4>🍜 餐廳（共 24 間）</h4><ul><li><b>シュプール</b>（山頂）：景觀最好</li><li><b>ケルン</b>（山頂）：榻榻米座位，可以脫雪靴</li><li><b>ウインターハウス大丸</b>（山腰）：燒肉</li><li><b>清水食堂</b>（山腰）：新潟在地蔬菜料理</li><li><b>ロッヂ丸山</b>（山腰）：新潟醬汁豬排丼（タレカツ丼）</li><li><b>ラ・ファミーユ中墨</b>（山腳）、<b>緑屋製菓舗</b>（山腳，石打饅頭當伴手禮）</li><li><b>六華 ROKKA</b>：清酒、米麴飲品</li></ul></div>
+        <div class="mbox"><h4>📌 這天要記得</h4><ul><li>換票：中央入口，先問售票處電子票怎麼換</li><li>還雪具：青達可在<b>石打（石口）</b>面交，最晚約 17:30</li><li>從湯澤搭免費接駁約 10–20 分</li></ul></div>
+      </div>
+      <div class="mfoot">資料：<a href="https://ishiuchi.or.jp/winter/ski/lift-course/" target="_blank" rel="noopener">石打丸山官網雪道頁</a>・<a href="https://ishiuchi.or.jp/winter/facilities/snow-terrace/" target="_blank" rel="noopener">THE VERANDA 官網</a>、ハピスノ、GLTJP（2026/10/21 查）；26/27 營業 12/18–4/4、8:30–17:00</div>
+    </article>
+  </div>
+  <div id="mapbox" class="mapbox" hidden onclick="if(event.target===this)closeMap()">
+    <div class="mb-bar">
+      <b id="mb-title"></b>
+      <button type="button" onclick="zoomMap(-1)" aria-label="縮小">－</button>
+      <button type="button" onclick="zoomMap(1)" aria-label="放大">＋</button>
+      <a id="mb-orig" href="#" target="_blank" rel="noopener">原圖</a>
+      <button type="button" onclick="closeMap()" aria-label="關閉">✕</button>
+    </div>
+    <div class="mb-scroll" id="mb-scroll"><img id="mb-img" alt="" referrerpolicy="no-referrer"></div>
+    <div class="mb-hint">雙擊圖片放大／縮回・拖曳移動</div>
+  </div>
+</section>
 
 <!-- GEAR SECTION -->
 <section class="section" id="gear">
@@ -3711,6 +3858,54 @@
     const b = document.getElementById('toTop'); if (b) b.classList.toggle('show', window.scrollY > 700);
   }, { passive: true });
 
+
+  // ── 雪場地圖放大 ──
+  let mapZoom = 1;
+  function mapFail(img) {
+    const btn = img.closest('.mfig-btn'); if (!btn) return;
+    const full = btn.dataset.full;
+    const d = document.createElement('div'); d.className = 'mfail';
+    d.innerHTML = '地圖暫時載不出來<a href="' + full + '" target="_blank" rel="noopener">👉 直接開原圖</a>';
+    btn.replaceWith(d);
+  }
+  function setMapZoom(z, cx, cy) {
+    const sc = document.getElementById('mb-scroll'), img = document.getElementById('mb-img');
+    const fx = cx === undefined ? 0.5 : cx, fy = cy === undefined ? 0.5 : cy;
+    mapZoom = Math.min(5, Math.max(1, z));
+    img.style.width = (sc.clientWidth * mapZoom) + 'px';
+    requestAnimationFrame(() => {
+      sc.scrollLeft = img.offsetWidth * fx - sc.clientWidth / 2;
+      sc.scrollTop = img.offsetHeight * fy - sc.clientHeight / 2;
+    });
+  }
+  function zoomMap(d) {
+    const sc = document.getElementById('mb-scroll'), img = document.getElementById('mb-img');
+    const fx = (sc.scrollLeft + sc.clientWidth / 2) / Math.max(1, img.offsetWidth);
+    const fy = (sc.scrollTop + sc.clientHeight / 2) / Math.max(1, img.offsetHeight);
+    setMapZoom(mapZoom + d, fx, fy);
+  }
+  function openMap(btn) {
+    const src = btn.querySelector('img').currentSrc || btn.querySelector('img').src;
+    const box = document.getElementById('mapbox'), img = document.getElementById('mb-img');
+    document.getElementById('mb-title').textContent = btn.dataset.title || '';
+    document.getElementById('mb-orig').href = btn.dataset.full || src;
+    img.src = src; box.hidden = false; document.body.style.overflow = 'hidden';
+    if (img.complete) setMapZoom(1); else img.onload = () => setMapZoom(1);
+  }
+  function closeMap() { document.getElementById('mapbox').hidden = true; document.body.style.overflow = ''; }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMap(); });
+  (function mapDrag() {
+    const sc = document.getElementById('mb-scroll'); if (!sc) return;
+    let down = false, sx = 0, sy = 0, sl = 0, st = 0, moved = false;
+    sc.addEventListener('mousedown', e => { down = true; moved = false; sx = e.clientX; sy = e.clientY; sl = sc.scrollLeft; st = sc.scrollTop; e.preventDefault(); });
+    window.addEventListener('mousemove', e => { if (!down) return; if (Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy) > 4) moved = true; sc.scrollLeft = sl - (e.clientX - sx); sc.scrollTop = st - (e.clientY - sy); });
+    window.addEventListener('mouseup', () => { down = false; });
+    sc.addEventListener('dblclick', e => {
+      const img = document.getElementById('mb-img'); const r = img.getBoundingClientRect();
+      const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+      setMapZoom(mapZoom >= 2.5 ? 1 : mapZoom + 1.5, fx, fy);
+    });
+  })();
   // Budget calculator
   // ── 預估花費（台幣）──
   const BUD_COLORS = {"✈ 機票":"#2563a8","🏨 住宿":"#2f8f86","🏂 滑雪":"#5f52b0","🚄 交通":"#7d95ad","🍜 吃＋其他":"#d79a2e"};
