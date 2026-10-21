@@ -65,7 +65,22 @@ def main():
                     if m.get('type') == 'way' and m.get('geometry'):
                         P.append({'n': nm, 'd': t.get('piste:difficulty', ''), 'g': g(m['geometry'])})
         P = [x for x in P if len(x['g']) > 1]; A = [x for x in A if len(x['g']) > 1]
-        out = {'t': int(time.time() * 1000), 'bbox': box, 'src': src, 'p': P, 'a': A}
+        # landmarks: stations, restaurants, cafes, toilets, viewpoints
+        time.sleep(3)
+        am = '^(restaurant|cafe|fast_food|toilets|first_aid)$'
+        q2 = (f'[out:json][timeout:90];(node["amenity"~"{am}"]({bb(box)});way["amenity"~"{am}"]({bb(box)});'
+              f'node["aerialway"="station"]({bb(box)});way["aerialway"="station"]({bb(box)});'
+              f'node["tourism"~"^(viewpoint|alpine_hut)$"]({bb(box)});way["tourism"~"^(alpine_hut)$"]({bb(box)}););out tags center;')
+        M = []
+        try:
+            for el in overpass(q2).get('elements', []):
+                t = el.get('tags', {}); c = el.get('center') or ({'lat': el.get('lat'), 'lon': el.get('lon')} if 'lat' in el else None)
+                if not c: continue
+                k = t.get('amenity') or ('station' if t.get('aerialway') == 'station' else t.get('tourism', ''))
+                M.append({'n': t.get('name', ''), 'k': k, 'c': [r5(c['lat']), r5(c['lon'])]})
+        except Exception as e:
+            print('landmarks failed', e, file=sys.stderr)
+        out = {'t': int(time.time() * 1000), 'bbox': box, 'src': src, 'p': P, 'a': A, 'm': M}
         with open(f'data/pistes-{key}.json', 'w', encoding='utf-8') as f:
             json.dump(out, f, ensure_ascii=False, separators=(',', ':'))
         log.append(f'\n## {key}: {len(P)} piste segments, {len(A)} aerialways, bbox={box} ({src})')
@@ -73,6 +88,7 @@ def main():
         for x in P: names.setdefault((x['n'], x['d']), 0); names[(x['n'], x['d'])] += 1
         for (nm, d), c in sorted(names.items(), key=lambda z: (z[0][1], z[0][0])): log.append(f'- piste [{d or "-"}] {nm or "(no name)"} x{c}')
         for x in A: log.append(f"- lift [{x['k']}] {x['n'] or '(no name)'}")
+        for x in M: log.append(f"- poi [{x['k']}] {x['n'] or '(no name)'}")
         time.sleep(5)
     with open('data/pistes-summary.md', 'w', encoding='utf-8') as f: f.write('\n'.join(log) + '\n')
     print('\n'.join(log))
