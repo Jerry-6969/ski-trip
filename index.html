@@ -3182,7 +3182,7 @@
           <button type="button" class="gbtn gbtn-go" id="gps-track" onclick="gpsToggle()">▶ 開始定位</button>
           <button type="button" class="gbtn" onclick="gpsRecenter()">🎯 回到我的位置</button>
         </div>
-        <div id="gps-status" class="gps-status">還沒載入雪道資料。<b>在飯店有 WiFi 時先按「載入神樂／石打丸山」</b>，資料會存在手機裡，到山上網路差也看得到雪道線。</div>
+        <div id="gps-status" class="gps-status">按上面的雪場按鈕顯示雪道（資料已經內建在網站裡，不用等下載）。看過一次會存在手機，之後打開這頁自動顯示，山上沒網路也看得到雪道線。</div>
         <div id="gps-info" class="gps-info" hidden></div>
         <div id="gpsmap" class="gpsmap"></div>
         <div class="gps-legend"><span><i style="background:#1f8a4c"></i>初級</span><span><i style="background:#c0392b"></i>中級</span><span><i style="background:#1a1a1a"></i>上級</span><span><i style="background:#e67e22"></i>非壓雪／野雪</span><span><i style="background:#8a96a3"></i>難度未標</span><span><i class="dash"></i>纜車</span><span><i style="background:#2f80ed;border-radius:50%"></i>你</span></div>
@@ -4133,6 +4133,7 @@
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
     sec.classList.add('active');
+    if (id === 'maps' && typeof gpsAuto === 'function') setTimeout(gpsAuto, 300);
     tab = tab || document.querySelector(`.nav-tab[onclick*="'${id}'"]`);
     if (tab) { tab.classList.add('active'); tab.scrollIntoView({ inline: 'center', block: 'nearest' }); }
     try { history.replaceState(null, '', '#' + id); } catch (e) {}
@@ -4145,6 +4146,7 @@
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
       document.getElementById(id).classList.add('active');
       const t = document.querySelector(`.nav-tab[onclick*="'${id}'"]`); if (t) t.classList.add('active');
+      if (id === 'maps') setTimeout(() => { if (typeof gpsAuto === 'function') gpsAuto(); }, 500);
     }
   })();
   (function countdown() {
@@ -4222,9 +4224,9 @@
 
   // ── GPS 雪道定位 ──
   const GPS_AREAS = {
-    kagura:   { name: '神樂', bbox: [36.80, 138.70, 36.90, 138.83] },
-    ishiuchi: { name: '石打丸山', bbox: [36.94, 138.78, 37.02, 138.88] },
-    kandatsu: { name: '神立', bbox: [36.92, 138.80, 37.00, 138.92] }
+    kagura:   { name: '神樂', bbox: [36.836, 138.708, 36.903, 138.777] },
+    ishiuchi: { name: '石打丸山', bbox: [36.956, 138.777, 36.985, 138.807] },
+    kandatsu: { name: '神立', bbox: [36.891, 138.796, 36.915, 138.823] }
   };
   const GPS_ZH = {
     'ファミリーコース':'家庭道','ゴンドララインコース':'纜車沿線道','大会バーン':'比賽坡','サンシャインコース':'陽光道','下山コース':'下山道',
@@ -4241,6 +4243,16 @@
     'クルーザーゲレンデ':'巡航雪場','山頂ゲレンデ':'山頂雪場','デビルダウンコース':'惡魔坡','ダイナミックコースA':'動感道A',
     'ダイナミックコースB':'動感道B','大丸山バイパス':'大丸山繞道','ダイナミックバイパス':'動感繞道','中央バイパス':'中央繞道','ハツカ石バイパス':'ハツカ石繞道',
     'アンドロメダ':'仙女座','プロキオン':'南河三','ポルックス':'北河三','ベガ':'織女星','ポラリス':'北極星','スバル':'昴星','ペガサス':'飛馬座','シリウス':'天狼星','レグルス':'軒轅十四','カストル':'北河二','ミルキーウェイ':'銀河','オリオン':'獵戶座','ツリーヘラクレス':'林間武仙座','ヘラクレス':'武仙座','ペルセウス':'英仙座','スーパーアンタレス':'超級心宿二',
+    'ゴンドラライン':'纜車沿線道','第1高速連絡コース':'第1高速連絡道','田代連絡コース':'田代連絡道','田代第1ゲレンデ':'田代第1雪場','しらかばコース':'白樺道',
+    'かぐら第5ロマンスリフト～かぐらメイン':'山頂第5纜椅～主雪場','ダイナミックAコース':'動感道A','ダイナミックBコース':'動感道B','国体コース':'國體道',
+    '中腹ツリーランエリア':'山腰樹林區','山頂ツリーランエリア':'山頂樹林區','ミルキーワエイ':'銀河','Andromeda':'仙女座','Vega':'織女星','Castor':'北河二',
+    'みつまた第1高速リフト':'三俁第1高速纜椅','みつまた第2高速リフト':'三俁第2高速纜椅','みつまた第2ロマンスリフト':'三俁第2雙人纜椅','みつまた第3ロマンスリフト':'三俁第3雙人纜椅',
+    'かぐら第1高速リフト':'神樂第1高速纜椅','かぐら第1ロマンス':'神樂第1雙人纜椅','かぐら第4ロマンスリフト':'神樂第4雙人纜椅','かぐら第5ロマンスリフト':'神樂第5雙人纜椅（山頂）',
+    '田代第1高速リフト':'田代第1高速纜椅','田代第2高速リフト':'田代第2高速纜椅','田代第1ロマンスリフト':'田代第1雙人纜椅','田代第2ロマンスリフト':'田代第2雙人纜椅',
+    '田代第4ロマンスリフト':'田代第4雙人纜椅','田代第6ロマンスリフト':'田代第6雙人纜椅','田代第8ロマンスリフト':'田代第8雙人纜椅',
+    '山頂高速リフト':'山頂高速纜椅（往上級區）','中央第3高速リフト':'中央第3高速纜椅','観光第1エクスプレス':'觀光第1快線','観光第2エクスプレス':'觀光第2快線','観光第3エクスプレス':'觀光第3快線',
+    '北丸山ファミリーペアリフト':'北丸山家庭纜椅','グリーンリフト':'綠色纜椅','チロルトリプルリフト':'提洛三人纜椅','ハツカ石スーパーリフト':'ハツカ石超級纜椅',
+    'ハツカ石ファミリートリプルリフト':'ハツカ石家庭三人纜椅','ハツカ石ファミリーペアリフト':'ハツカ石家庭雙人纜椅','ハツカ石入口リフト':'ハツカ石入口纜椅',
     'みつまたロープウェー':'三俁纜車','かぐらゴンドラ':'神樂纜車','田代ロープウェー':'田代纜車','ドラゴンドラ':'Dragondola','サンライズエクスプレス':'日出快線'
   };
   const GPS_LIFT_TIME = [
@@ -4251,6 +4263,7 @@
     ['田代ロープウェー', null, '田代纜車', 16, 30, '16:30 停'],
     ['ドラゴンドラ', null, 'Dragondola', 15, 30, '最後受理 14:30、下山末班 15:30']
   ];
+  let gpsLastPos = null;
   let gpsMap = null, gpsLayer = null, gpsMe = null, gpsAcc = null, gpsWatch = null, gpsData = null, gpsFollow = true;
   function gpsSet(id, html, show) { const el = document.getElementById(id); el.innerHTML = html; if (show !== undefined) el.hidden = !show; }
   function loadLeaflet() {
@@ -4280,10 +4293,33 @@
     if (d === 'freeride' || d === 'extreme') return ['非壓雪／野雪', '#e67e22', 3];
     return ['難度未標', '#8a96a3', -1];
   }
+  const normName = n => (n || '').replace(/ロープウェイ/g, 'ロープウェー');
+  function zhKey(n) { n = normName(n); return Object.keys(GPS_ZH).filter(j => n.indexOf(j) !== -1).sort((a, b) => b.length - a.length)[0]; }
   function zhName(n) {
     if (!n) return '（沒有名稱）';
-    const k = Object.keys(GPS_ZH).filter(j => n.indexOf(j) !== -1).sort((a, b) => b.length - a.length)[0];
+    const k = zhKey(n);
     return k ? GPS_ZH[k] + '（' + n + '）' : n;
+  }
+  // 官網難度（覆蓋 OpenStreetMap 標的難度）；依載入的雪場分開，避免同名雪道（如巨人道）搞混
+  const GPS_OFFICIAL = {
+    kagura: { 'ファミリーコース':'easy','ゴンドラライン':'easy','大会バーン':'intermediate','サンシャインコース':'intermediate','下山コース':'intermediate','ゴンドラコース':'easy',
+      'かぐらメインゲレンデ':'intermediate','かぐら連絡コース':'intermediate','パノラマコース':'intermediate','田代連絡コース':'intermediate','第1高速連絡コース':'easy',
+      'ジャイアントコース':'advanced','テクニカルコース':'advanced','かぐら第5ロマンスリフト～かぐらメイン':'advanced','林間エキスパートコース':'advanced',
+      'らくらくコース':'easy','田代レディースコース':'easy','スカイラインコース':'easy','ゴンドライーストコース':'easy','田代アリエスカコース':'easy','親切コース':'easy','田代湖コース':'easy',
+      'こぶこぶコース':'intermediate','ダイナミックコース':'intermediate','チャレンジバーン':'advanced','かもしかコース':'intermediate' },
+    ishiuchi: { 'メルヘンコース':'easy','パラダイスコース':'easy','北丸山ファミリーゲレンデ':'easy','グリーンコース':'easy','サンライズライン':'easy','中央斜滑降コース':'easy','林間コース':'easy',
+      'ハツカ石ファミリーゲレンデ':'easy','カモシカゲレンデ':'easy','尾根コース':'intermediate','大丸山ゲレンデ':'intermediate','エンゼルコース':'intermediate','銀座ゲレンデ':'intermediate',
+      'ザイラーコース':'intermediate','ホピヒラーコース':'intermediate','スポーツマンコース':'intermediate','源五郎コース':'intermediate','クルーザーゲレンデ':'intermediate',
+      '山頂ゲレンデ':'advanced','デビルダウンコース':'advanced','ダイナミックAコース':'advanced','ダイナミックBコース':'advanced','ジャイアントコース':'advanced' },
+    kandatsu: { 'アンドロメダ':'easy','Andromeda':'easy','プロキオン':'easy','ポルックス':'easy','ベガ':'easy','Vega':'easy','ポラリス':'easy','スバル':'intermediate','ペガサス':'intermediate',
+      'シリウス':'intermediate','レグルス':'intermediate','カストル':'intermediate','Castor':'intermediate','ミルキーワエイ':'advanced','ミルキーウェイ':'advanced','オリオン':'advanced',
+      'ヘラクレス':'advanced','ペルセウス':'advanced','スーパーアンタレス':'advanced','ツリーヘラクレス':'advanced' }
+  };
+  let gpsKey = null;
+  function officialDiff(n, d) {
+    const t = GPS_OFFICIAL[gpsKey]; if (!t || !n) return d;
+    const k = Object.keys(t).filter(j => n.indexOf(j) !== -1).sort((a, b) => b.length - a.length)[0];
+    return k ? t[k] : d;
   }
   function gpsSimplify(json) {
     const P = [], A = [], r5 = x => Math.round(x * 1e5) / 1e5;
@@ -4297,6 +4333,17 @@
     });
     return { t: Date.now(), p: P.filter(x => x.g.length > 1), a: A.filter(x => x.g.length > 1) };
   }
+  function fetchTO(url, opt, ms) {
+    const c = new AbortController(), t = setTimeout(() => c.abort(), ms);
+    return fetch(url, Object.assign({}, opt || {}, { signal: c.signal })).finally(() => clearTimeout(t));
+  }
+  async function gpsBundled(key) {
+    const r = await fetchTO('data/pistes-' + key + '.json', { cache: 'no-cache' }, 15000);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json(); if (!d || !d.p) throw new Error('資料格式不對'); return d;
+  }
+  function gpsCacheGet(key) { try { return JSON.parse(localStorage.getItem('gps_v1_' + key) || 'null'); } catch (e) { return null; } }
+  function gpsCachePut(key, d) { try { localStorage.setItem('gps_v1_' + key, JSON.stringify(d)); localStorage.setItem('gps_last', key); } catch (e) {} }
   async function gpsFetch(bbox) {
     const [s, w, n, e] = bbox, bb = s + ',' + w + ',' + n + ',' + e;
     const q = '[out:json][timeout:40];(way["piste:type"="downhill"](' + bb + ');relation["piste:type"="downhill"](' + bb + ');way["aerialway"]["aerialway"!="station"]["aerialway"!="pylon"](' + bb + '););out tags geom;';
@@ -4304,7 +4351,7 @@
     let lastErr;
     for (const ep of eps) {
       try {
-        const r = await fetch(ep, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } });
+        const r = await fetchTO(ep, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, 25000);
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return gpsSimplify(await r.json());
       } catch (err) { lastErr = err; }
@@ -4314,38 +4361,59 @@
   function gpsDraw(d) {
     gpsLayer.clearLayers();
     const all = [];
-    d.p.forEach(x => { const [lvl, col] = diffInfo(x.d); L.polyline(x.g, { color: col, weight: 4, opacity: .85 }).bindTooltip(zhName(x.n) + '｜' + lvl, { sticky: true }).addTo(gpsLayer); all.push(...x.g); });
+    d.p.forEach(x => { const [lvl, col] = diffInfo(officialDiff(x.n, x.d)); L.polyline(x.g, { color: col, weight: 4, opacity: .85 }).bindTooltip(zhName(x.n) + '｜' + lvl, { sticky: true }).addTo(gpsLayer); all.push(...x.g); });
     d.a.forEach(x => { L.polyline(x.g, { color: '#333', weight: 2.5, dashArray: '6 6' }).bindTooltip('🚡 ' + zhName(x.n), { sticky: true }).addTo(gpsLayer); L.circleMarker(x.g[0], { radius: 4, color: '#333', fillColor: '#fff', fillOpacity: 1, weight: 2 }).addTo(gpsLayer); all.push(...x.g); });
     if (all.length) gpsMap.fitBounds(all, { padding: [20, 20] });
   }
-  async function gpsLoad(key) {
+  function gpsInBox(la, lo, b) { return b && la >= b[0] && la <= b[2] && lo >= b[1] && lo <= b[3]; }
+  async function gpsGet(key) {
+    // 1) 網站內建資料（最快、不用等 OpenStreetMap）2) 手機裡存過的 3) 即時下載
+    try { const d = await gpsBundled(key); gpsCachePut(key, d); return { d, src: 'site' }; } catch (e) {}
+    const c = gpsCacheGet(key); if (c) return { d: c, src: 'cache' };
+    const d = await gpsFetch(GPS_AREAS[key].bbox); gpsCachePut(key, d); return { d, src: 'live' };
+  }
+  async function gpsLoad(key, quiet) {
     try {
-      gpsSet('gps-status', '⏳ 載入地圖中…');
+      if (!quiet) gpsSet('gps-status', '⏳ 載入地圖中…');
       await loadLeaflet(); gpsInitMap();
-      let bbox, label;
+      let res, label;
       if (key === 'here') {
-        const pos = await new Promise((ok, bad) => navigator.geolocation ? navigator.geolocation.getCurrentPosition(ok, bad, { enableHighAccuracy: true, timeout: 15000 }) : bad(new Error('這支手機不支援定位')));
-        const { latitude: la, longitude: lo } = pos.coords, dla = 0.03, dlo = 0.036;
-        bbox = [la - dla, lo - dlo, la + dla, lo + dlo]; label = '你附近約 3 公里';
-      } else { bbox = GPS_AREAS[key].bbox; label = GPS_AREAS[key].name; }
-      const ck = 'gps_v1_' + key;
-      let d = null, fromCache = false;
-      try {
-        gpsSet('gps-status', '⏳ 下載「' + label + '」雪道資料（OpenStreetMap）…');
-        d = await gpsFetch(bbox);
-        try { if (key !== 'here') localStorage.setItem(ck, JSON.stringify(d)); } catch (e) {}
-      } catch (err) {
-        try { d = JSON.parse(localStorage.getItem(ck) || 'null'); fromCache = !!d; } catch (e) {}
-        if (!d) throw err;
+        gpsSet('gps-status', '⏳ 取得你的位置…');
+        let la, lo;
+        if (gpsLastPos && Date.now() - gpsLastPos.t < 60000) { la = gpsLastPos.la; lo = gpsLastPos.lo; }
+        else {
+          const pos = await new Promise((ok, bad) => navigator.geolocation ? navigator.geolocation.getCurrentPosition(ok, bad, { enableHighAccuracy: true, timeout: 15000, maximumAge: 30000 }) : bad(new Error('這支手機不支援定位')));
+          la = pos.coords.latitude; lo = pos.coords.longitude;
+        }
+        let hit = null;
+        for (const k of Object.keys(GPS_AREAS)) {
+          const c = gpsCacheGet(k); const b = (c && c.bbox) || GPS_AREAS[k].bbox;
+          if (gpsInBox(la, lo, b)) { hit = k; break; }
+        }
+        if (hit) { key = hit; label = GPS_AREAS[hit].name; gpsSet('gps-status', '⏳ 你在「' + label + '」附近，載入雪道…'); res = await gpsGet(hit); }
+        else {
+          label = '你附近約 3 公里'; gpsSet('gps-status', '⏳ 從 OpenStreetMap 下載你附近的雪道（最多等 25 秒）…');
+          res = { d: await gpsFetch([la - 0.03, lo - 0.036, la + 0.03, lo + 0.036]), src: 'live' };
+        }
+      } else {
+        label = GPS_AREAS[key].name; gpsSet('gps-status', '⏳ 載入「' + label + '」雪道…'); res = await gpsGet(key);
       }
-      gpsData = d; gpsDraw(d);
-      const when = new Date(d.t), ts = (when.getMonth() + 1) + '/' + when.getDate() + ' ' + String(when.getHours()).padStart(2, '0') + ':' + String(when.getMinutes()).padStart(2, '0');
-      if (!d.p.length) gpsSet('gps-status', '⚠ 「' + label + '」這個範圍沒有找到雪道資料。到雪場後按「📡 載入我附近的雪道」再試一次。');
-      else gpsSet('gps-status', '✅ 「' + label + '」：' + d.p.length + ' 段雪道、' + d.a.length + ' 條纜車' + (fromCache ? '（沒網路，用手機裡 ' + ts + ' 存的資料）' : '（' + ts + ' 下載，已存在手機）') + '。按「▶ 開始定位」。');
+      gpsKey = key; const d = res.d; gpsData = d; gpsDraw(d);
+      const when = new Date(d.t), ts = (when.getMonth() + 1) + '/' + when.getDate();
+      const srcTxt = { site: '網站內建資料（' + ts + ' 更新），已存在手機', cache: '沒網路，用手機裡存的資料（' + ts + '）', live: '即時下載' }[res.src];
+      if (!d.p.length) gpsSet('gps-status', '⚠ 「' + label + '」沒有找到雪道資料。到雪場後按「📡 載入我附近的雪道」再試一次。');
+      else gpsSet('gps-status', '✅ 「' + label + '」：' + d.p.length + ' 段雪道、' + d.a.length + ' 條纜車（' + srcTxt + '）。' + (gpsWatch === null ? '按「▶ 開始定位」。' : ''));
       if (gpsMe) gpsUpdate(gpsMe.getLatLng().lat, gpsMe.getLatLng().lng, gpsAcc ? gpsAcc.getRadius() : 20);
     } catch (err) {
-      gpsSet('gps-status', '❌ 載入失敗：' + (err && err.message ? err.message : err) + '。可能是網路不穩，稍後再按一次。');
+      const msg = err && err.name === 'AbortError' ? '等太久沒回應' : (err && err.message ? err.message : err);
+      gpsSet('gps-status', '❌ 載入失敗：' + msg + '。網路不穩時，先改按上面的雪場按鈕（用網站內建資料）。');
     }
+  }
+  let gpsAutoDone = false;
+  function gpsAuto() {
+    if (gpsAutoDone) return; gpsAutoDone = true;
+    let k = null; try { k = localStorage.getItem('gps_last'); } catch (e) {}
+    if (k && GPS_AREAS[k]) gpsLoad(k, true);
   }
   function distSeg(p, a, b) {
     const k = 111320, cos = Math.cos(p[0] * Math.PI / 180);
@@ -4357,7 +4425,7 @@
   function distLine(p, g) { let m = Infinity; for (let i = 1; i < g.length; i++) m = Math.min(m, distSeg(p, g[i - 1], g[i])); return m; }
   function distPt(p, q) { return distSeg(p, q, q); }
   function liftTimeNote(name) {
-    const r = GPS_LIFT_TIME.find(x => name && name.indexOf(x[0]) !== -1);
+    const nn = normName(name); const r = GPS_LIFT_TIME.find(x => nn && nn.indexOf(x[0]) !== -1);
     if (!r) return '';
     const now = new Date(), end = new Date(now); end.setHours(r[3], r[4], 0, 0);
     const mins = Math.round((end - now) / 60000);
@@ -4365,6 +4433,7 @@
     return '<br>⏰ ' + r[2] + '：' + r[5] + left;
   }
   function gpsUpdate(la, lo, acc) {
+    gpsLastPos = { la, lo, t: Date.now() };
     if (!gpsMap) return;
     const ll = [la, lo];
     if (!gpsMe) {
@@ -4376,13 +4445,13 @@
     const ranked = gpsData.p.map(x => ({ x, d: distLine(ll, x.g) })).sort((a, b) => a.d - b.d);
     const best = ranked[0], th = Math.max(30, Math.min(acc, 60));
     const alt = ranked.find(r => r.d - best.d < 15 && (r.x.n !== best.x.n || r.x.d !== best.x.d) && r !== best);
-    const [lvl, col, rank] = diffInfo(best.x.d);
+    const [lvl, col, rank] = diffInfo(officialDiff(best.x.n, best.x.d));
     const onLift = gpsData.a.map(x => ({ x, d: distLine(ll, x.g) })).sort((a, b) => a.d - b.d)[0];
     const board = gpsData.a.map(x => ({ x, d: distPt(ll, x.g[0]) })).sort((a, b) => a.d - b.d)[0];
     let h = '';
     if (best.d <= th) h += '<div class="big">你在：' + zhName(best.x.n) + ' <span class="lv" style="background:' + col + '">' + lvl + '</span></div>';
     else h += '<div class="big">不在雪道線上</div>最近的雪道：' + zhName(best.x.n) + '（' + lvl + '，約 ' + Math.round(best.d) + 'm）';
-    if (alt && best.d <= th) h += '<br><small>也可能是：' + zhName(alt.x.n) + '（' + diffInfo(alt.x.d)[0] + '）</small>';
+    if (alt && best.d <= th) h += '<br><small>也可能是：' + zhName(alt.x.n) + '（' + diffInfo(officialDiff(alt.x.n, alt.x.d))[0] + '）</small>';
     if (rank >= 2 && best.d <= th) h += '<br>⚠ <b>這是' + lvl + '道，新手請小心或改走其他路線</b>';
     if (onLift && onLift.d < 15) h += '<br>🚡 你可能在纜車上：' + zhName(onLift.x.n);
     if (board) h += '<br>🚡 最近的纜車上車處：' + zhName(board.x.n) + '（約 ' + Math.round(board.d) + 'm）' + liftTimeNote(board.x.n);
@@ -4404,7 +4473,7 @@
   }
   (function gpsRestore() {
     // 有存過的資料就先記著，按載入時會優先下載、失敗才用存的
-    try { if (localStorage.getItem('gps_v1_kagura') || localStorage.getItem('gps_v1_ishiuchi') || localStorage.getItem('gps_v1_kandatsu')) gpsSet('gps-status', '手機裡已經存過雪道資料，沒網路時按「載入」也能用。'); } catch (e) {}
+    try { if (localStorage.getItem('gps_last')) gpsSet('gps-status', '手機裡已經存過雪道資料，打開這頁會自動顯示上次看的雪場。'); } catch (e) {}
   })();
   // Budget calculator
   // ── 預估花費（台幣）──

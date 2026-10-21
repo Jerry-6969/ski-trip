@@ -9,10 +9,10 @@ EPS = ['https://overpass-api.de/api/interpreter',
 BROAD = (36.75, 138.65, 37.10, 139.00)   # Yuzawa / Minamiuonuma area
 TARGETS = {
     'kagura':   {'re': r'かぐら|神楽|Kagura|みつまた|三俣|田代|Tashiro', 'fallback': (36.80, 138.70, 36.90, 138.83)},
-    'ishiuchi': {'re': r'石打|Ishiuchi', 'fallback': (36.94, 138.78, 37.02, 138.88)},
+    'ishiuchi': {'re': r'石打丸山|Ishiuchi Maruyama', 'fallback': (36.94, 138.78, 37.02, 138.88)},
     'kandatsu': {'re': r'神立|Kandatsu', 'fallback': (36.92, 138.80, 37.00, 138.92)},
 }
-PAD = 0.012
+PAD = 0.004
 
 def overpass(q):
     last = None
