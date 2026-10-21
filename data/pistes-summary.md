@@ -75,6 +75,35 @@
 - lift [chair_lift] かぐら第1ロマンス
 - lift [chair_lift] 田代第2ロマンスリフト
 - lift [chair_lift] 田代第1ロマンスリフト
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [restaurant] レストランかぐら
+- poi [toilets] (no name)
+- poi [restaurant] ニュープールー
+- poi [fast_food] かぐらラーメンコーナー
+- poi [restaurant] 白樺
+- poi [restaurant] アリエスカ
+- poi [fast_food] 田代ラーメンコーナー
+- poi [restaurant] ぶなの木
+- poi [station] (no name)
+- poi [restaurant] 和田小屋
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] 山頂駅
+- poi [station] 山麓駅
+- poi [station] 山頂駅
+- poi [restaurant] レストラン アルム
+- poi [station] (no name)
 
 ## ishiuchi: 52 piste segments, 16 aerialways, bbox=(36.9563, 138.7774, 36.9852, 138.807) (osm-area: 石打丸山スキー場)
 - piste [-] (no name) x10
@@ -122,6 +151,20 @@
 - lift [chair_lift] (no name)
 - lift [chair_lift] チロルトリプルリフト
 - lift [chair_lift] ハツカ石スーパーリフト
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [alpine_hut] アーバンヒル石打
+- poi [restaurant] バレーナ
+- poi [restaurant] けんちゃん
+- poi [restaurant] (no name)
+- poi [restaurant] 石どら
+- poi [restaurant] ウィンターハウス大丸
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [toilets] (no name)
 
 ## kandatsu: 24 piste segments, 6 aerialways, bbox=(36.8911, 138.7962, 36.9154, 138.8233) (osm-area: 神立高原スキー場)
 - piste [advanced] オリオン x2
@@ -148,3 +191,9 @@
 - lift [chair_lift] B Lift
 - lift [chair_lift] A Lift
 - lift [chair_lift] A Lift
+- poi [restaurant] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
+- poi [station] (no name)
