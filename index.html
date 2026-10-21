@@ -1046,6 +1046,33 @@
     .mfoot { padding:0 16px 16px; }
     .mfig-btn img, .mfail { height:260px; }
   }
+
+  /* ── 雪場攻略 ── */
+  .gwrap { padding: 4px 26px 20px; }
+  .galert { background:#fdecea; border-left:4px solid #c0392b; color:#7a1f16; padding:12px 16px; font-size:15px; line-height:1.85; margin-bottom:10px; }
+  .gsec { border:1px solid #e1e8ef; border-radius:6px; margin:10px 0; background:#fff; }
+  .gsec > summary { cursor:pointer; padding:13px 16px; font-weight:700; font-size:16.5px; color:var(--deep); list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  .gsec > summary::-webkit-details-marker { display:none; }
+  .gsec > summary::after { content:'＋'; color:var(--muted); font-weight:400; }
+  .gsec[open] > summary::after { content:'－'; }
+  .gsec.ghl { border-color:#e8c46a; background:#fffcf3; }
+  .gbody { padding:2px 16px 14px; font-size:15px; line-height:1.85; }
+  .gbody ul, .gbody ol { padding-left:20px; margin:0; }
+  .gbody li { margin:3px 0; }
+  .gsteps li { margin:6px 0; }
+  .garea { font-size:15px; color:var(--mc,#4a9fd4); margin:12px 0 6px; }
+  .gnote { font-size:13px; color:var(--muted); margin-top:8px; }
+  .gscroll { overflow-x:auto; }
+  .gtable { font-size:14.5px; }
+  .gtable th { background:var(--deep); color:#fff; text-align:left; padding:8px 10px; font-weight:600; white-space:nowrap; }
+  .gtable td { padding:8px 10px; border-bottom:1px solid #eef2f6; vertical-align:top; }
+  .gtable tr.hl td { background:#fff8e8; }
+  .gtable .jp { color:var(--muted); font-size:12.5px; }
+  .lv { display:inline-block; color:#fff; font-size:12.5px; padding:1px 8px; border-radius:3px; white-space:nowrap; }
+  @media (max-width: 768px) {
+    .gwrap { padding: 4px 12px 16px; }
+    .gbody { padding:2px 12px 12px; }
+  }
 </style>
 </head>
 <body>
@@ -3125,7 +3152,7 @@
     📶 雪場上網路可能很慢，<b>出發前先把地圖存到手機相簿</b>（開原圖後長按存圖）。
   </div>
   <div class="map-wrap">
-    <article class="mcard" style="--mc:#7a3a8a;">
+    <article class="mcard" id="g-kagura" style="--mc:#7a3a8a;">
       <div class="mcard-hd">
         <h3>神樂 かぐら</h3><span class="when">12/31・1/1</span>
         <span class="sub">Jerry・Phoebe・文凱從<b>三俁口</b>上（小 Su 上課）；Jing・Sandy・Vivi 從<b>田代</b>上</span>
@@ -3136,17 +3163,220 @@
             <img src="https://www.princehotels.co.jp/image.jsp?id=498189" alt="神樂滑雪場雪道地圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
             <span class="zoom-hint">🔍 點開放大</span>
           </button>
-          <figcaption><span>官方地圖</span><a href="https://www.princehotels.co.jp/file.jsp?id=498187" target="_blank" rel="noopener">開原圖</a><a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/" target="_blank" rel="noopener">官網雪道頁</a></figcaption>
+          <figcaption><span>官方地圖（地圖上的編號對照下面的表）</span><a href="https://www.princehotels.co.jp/file.jsp?id=498187" target="_blank" rel="noopener">開原圖</a><a href="https://surfsnow.jp/real_img/r0070/course_pic_r0070.jpg" target="_blank" rel="noopener">備用地圖</a><a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/" target="_blank" rel="noopener">官網</a></figcaption>
         </figure>
       </div>
-      <div class="mgrid">
-        <div class="mbox"><h4>🗺 雪場怎麼分</h4><ul><li><b>三俁（みつまた）</b>：靠湯澤的入口，搭三俁纜車上山</li><li><b>神樂（かぐら）</b>：山的上半部、主雪區，搭かぐらゴンドラ上去；山頂 1,845m</li><li><b>田代（たしろ）</b>：另一個入口，田代組在這裡</li><li>三區共 30 條雪道，最長 6km；WAmazing 共通券還可以搭 Dragondola 到苗場</li></ul></div>
-        <div class="mbox"><h4>🟢 新手可以滑</h4><ul><li>三俁：A1 ファミリー、E2 ゴンドラライン</li><li>神樂：E1 ゴンドラコース</li><li>田代：T1 らくらく、U1 レディース、U2 スカイライン、Y1 田代湖コース</li></ul><small>⚠ 三俁回山腳的 MR1 下山コース是中級，新手建議搭纜車下山</small></div>
-        <div class="mbox hl"><h4>📌 這兩天要記得</h4><ul><li>換票：三俁站（或田代站）纜車券窗口，出示 WAmazing「我的頁面」</li><li>票用到 16:30，下山纜車末班要注意</li><li>沒有夜滑</li><li>還雪具：青達可在<b>三俁口</b>面交</li><li>跟田代組會合：約在神樂區的<b>和田小屋</b>最好找</li></ul></div>
-        <div class="mbox"><h4>📸 景點</h4><ul><li><b>田代湖</b>：田代區的湖，Y1 田代湖コース沿湖滑，湖邊有餐廳</li><li><b>Dragondola</b>：日本最長纜車，從田代到苗場 5.5km、約 25 分（26/27 運行 12/26 起）</li><li>神樂上半部雪質最好、視野最開闊</li></ul></div>
-        <div class="mbox"><h4>🍜 餐廳</h4><ul><li><b>和田小屋</b>（神樂區中間）：けんちんうどん＋小丼、カツ丼；山屋氣氛</li><li><b>レストランかぐら</b>（ゴンドラ山頂站 1F）：披薩、義大利麵、咖哩、牛排</li><li><b>レストランみつまた</b>（三俁，木屋風）：咖哩、豬排定食、豚汁定食</li><li><b>カフェ&amp;レストラン スノーマン</b>（三俁）：咖哩、蛋糕，大窗景觀</li><li><b>バブルワッフル</b>（三俁）：鬆餅、熱可可</li><li><b>レストラン アリエスカ</b>（田代湖畔）、<b>アルム</b>、<b>ぶなキッチン</b>（田代）</li></ul><small>營業時間依 25/26 官網，各店約 9:00–15:00</small></div>
+      <div class="gwrap">
+        <div class="galert">⏰ <b>最重要的時間</b>：三俁纜車<b>上山末班 14:00</b>、<b>下山 16:30 停</b>；三俁第 1 高速纜椅上山末班 <b>14:15</b>（錯過就上不了神樂區）；神樂纜車上山末班 <b>15:00</b>、<b>15:45 停</b>；田代纜車 16:30 停</div>
+        <details class="gsec ghl" open><summary>🗓 我們這兩天怎麼走</summary><div class="gbody"><ol class="gsteps">
+<li><b>到三俁站</b>（小 Su 載）→ 纜車券窗口出示 WAmazing「我的頁面」換 Mt.Naeba 1 日券</li>
+<li>搭 <b>MR 三俁纜車</b>上山 → 三俁區（A1、E2 初級）</li>
+<li>要去神樂區：搭 <b>A 三俁第 1 高速纜椅</b>（上山末班 14:15）→ <b>E 神樂纜車</b>（上山末班 15:00）</li>
+<li>回程：神樂區滑 <b>E1 纜車道（初級 4km）</b>回三俁區，或搭神樂纜車下（15:45 停）</li>
+<li>最後搭 <b>MR 三俁纜車下山</b>，<b>16:30 前</b>一定要上車；<b>不要走 MR1 下山道</b>（中級，平日關閉）</li>
+<li>跟田代組會合：約在<b>神樂區的和田小屋</b>；田代組從 X 田代第 1 高速 → X4 連絡道過來，回去走 H2 連絡道（中級）</li>
+</ol></div></details>
+        <details class="gsec"><summary>🚡 纜車時刻表（26/27 官網）</summary><div class="gbody"><div class="gscroll"><table class="rtable gtable"><thead><tr><th>代號</th><th>纜車</th><th>營業時間</th><th>末班／備註</th></tr></thead><tbody>
+<tr class="hl"><td data-label="代號"><b>MR</b></td><td data-label="纜車">三俁纜車（121 人大纜車）<br><small class="jp">みつまたロープウェー</small></td><td data-label="營業時間">8:00–16:30</td><td data-label="末班／備註">上山末班 <b>14:00</b>・下山到 <b>16:30</b></td></tr>
+<tr class="hl"><td data-label="代號"><b>A</b></td><td data-label="纜車">三俁第 1 高速纜椅<br><small class="jp">みつまた第1高速リフト</small></td><td data-label="營業時間">8:00–16:00</td><td data-label="末班／備註">上山末班 <b>14:15</b></td></tr>
+<tr><td data-label="代號"><b>C</b></td><td data-label="纜車">三俁第 2 雙人纜椅<br><small class="jp">みつまた第2ロマンスリフト</small></td><td data-label="營業時間">8:15–16:00</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>D</b></td><td data-label="纜車">三俁第 3 雙人纜椅<br><small class="jp">みつまた第3ロマンスリフト</small></td><td data-label="營業時間">8:15–16:00</td><td data-label="末班／備註">—</td></tr>
+<tr class="hl"><td data-label="代號"><b>E</b></td><td data-label="纜車">神樂纜車（6 人車廂，3.1km）<br><small class="jp">かぐらゴンドラ</small></td><td data-label="營業時間">8:15–15:45</td><td data-label="末班／備註">上山末班 <b>15:00</b></td></tr>
+<tr><td data-label="代號"><b>F</b></td><td data-label="纜車">神樂第 1 高速纜椅<br><small class="jp">かぐら第1高速リフト</small></td><td data-label="營業時間">8:30–15:30</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>G</b></td><td data-label="纜車">神樂第 1 雙人纜椅<br><small class="jp">かぐら第1ロマンスリフト</small></td><td data-label="營業時間">9:00–15:30</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>H</b></td><td data-label="纜車">神樂第 4 雙人纜椅<br><small class="jp">かぐら第4ロマンスリフト</small></td><td data-label="營業時間">未公布</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>I</b></td><td data-label="纜車">神樂第 5 雙人纜椅（山頂）<br><small class="jp">かぐら第5ロマンスリフト</small></td><td data-label="營業時間">9:30–13:00</td><td data-label="末班／備註">1/1 起才開</td></tr>
+<tr class="hl"><td data-label="代號"><b>TR</b></td><td data-label="纜車">田代纜車（101 人大纜車）<br><small class="jp">田代ロープウェー</small></td><td data-label="營業時間">8:00–16:30</td><td data-label="末班／備註">田代組下山靠它</td></tr>
+<tr><td data-label="代號"><b>T</b></td><td data-label="纜車">田代第 1 雙人纜椅<br><small class="jp">田代第1ロマンスリフト</small></td><td data-label="營業時間">8:15–16:15</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>U</b></td><td data-label="纜車">田代第 2 雙人纜椅<br><small class="jp">田代第2ロマンスリフト</small></td><td data-label="營業時間">8:15–15:45</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>V</b></td><td data-label="纜車">田代第 2 高速纜椅<br><small class="jp">田代第2高速リフト</small></td><td data-label="營業時間">9:00–15:30</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>X</b></td><td data-label="纜車">田代第 1 高速纜椅<br><small class="jp">田代第1高速リフト</small></td><td data-label="營業時間">8:45–15:30</td><td data-label="末班／備註">往神樂區</td></tr>
+<tr><td data-label="代號"><b>Y</b></td><td data-label="纜車">田代第 6 雙人纜椅<br><small class="jp">田代第6ロマンスリフト</small></td><td data-label="營業時間">9:00–15:00</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>Z</b></td><td data-label="纜車">田代第 8 雙人纜椅<br><small class="jp">田代第8ロマンスリフト</small></td><td data-label="營業時間">9:30–15:00</td><td data-label="末班／備註">—</td></tr>
+<tr><td data-label="代號"><b>DG</b></td><td data-label="纜車">苗場 Dragondola（5.5km）<br><small class="jp">苗場ドラゴンドラ</small></td><td data-label="營業時間">8:15–14:30 最後受理</td><td data-label="末班／備註">下山末班 <b>15:30</b>；12/26 起運行</td></tr>
+</tbody></table></div><p class="gnote">26/27 營業期：神樂・三俁區 11/28–5/16；田代區 12/19–5/5；Dragondola 12/26–3/22。天氣不好會停駛，以現場公告為準。</p></div></details>
+        <details class="gsec"><summary>🎿 雪道中日對照（地圖上的編號）</summary><div class="gbody"><h5 class="garea">三俁（みつまた）</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>編號</th><th>中文</th><th>日文</th><th>難度</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="編號"><b>A1</b></td><td data-label="中文">家庭道</td><td data-label="日文"><small class="jp">ファミリーコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註">往神樂區的連絡道</td></tr>
+<tr><td data-label="編號"><b>E2</b></td><td data-label="中文">纜車沿線道</td><td data-label="日文"><small class="jp">ゴンドララインコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註">往神樂區的連絡道</td></tr>
+<tr><td data-label="編號"><b>B1</b></td><td data-label="中文">比賽坡</td><td data-label="日文"><small class="jp">大会バーン</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>C1</b></td><td data-label="中文">陽光道</td><td data-label="日文"><small class="jp">サンシャインコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>MR1</b></td><td data-label="中文">下山道（1.8km）</td><td data-label="日文"><small class="jp">下山コース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註">⚠ <b>新手別走</b>，搭纜車下山；13:00–15:45 開放，<b>平日關閉</b></td></tr>
+</tbody></table></div><h5 class="garea">神樂（かぐら）</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>編號</th><th>中文</th><th>日文</th><th>難度</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="編號"><b>E1</b></td><td data-label="中文">纜車道（4km，全場最長）</td><td data-label="日文"><small class="jp">ゴンドラコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註">從神樂區一路滑回三俁區</td></tr>
+<tr><td data-label="編號"><b>F1</b></td><td data-label="中文">神樂主雪場（1.2km，平均 16°）</td><td data-label="日文"><small class="jp">かぐらメインゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>F2</b></td><td data-label="中文">主雪場迂迴道</td><td data-label="日文"><small class="jp">かぐらメインゲレンデ迂回</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>F3</b></td><td data-label="中文">神樂連絡道</td><td data-label="日文"><small class="jp">かぐら連絡コース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>H1</b></td><td data-label="中文">全景道</td><td data-label="日文"><small class="jp">パノラマコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註">視野好</td></tr>
+<tr><td data-label="編號"><b>H2</b></td><td data-label="中文">田代－神樂連絡道</td><td data-label="日文"><small class="jp">田代ーかぐら連絡コース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註">神樂區 → 田代</td></tr>
+<tr><td data-label="編號"><b>X4</b></td><td data-label="中文">神樂↔田代連絡道</td><td data-label="日文"><small class="jp">かぐら第1高速～田代第1高速連絡コース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註">兩區互通</td></tr>
+<tr><td data-label="編號"><b>F4</b></td><td data-label="中文">巨人道（1.1km，最陡 27°）</td><td data-label="日文"><small class="jp">ジャイアントコース</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="備註">⚠</td></tr>
+<tr><td data-label="編號"><b>F5</b></td><td data-label="中文">技術道</td><td data-label="日文"><small class="jp">テクニカルコース</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="備註">⚠</td></tr>
+<tr><td data-label="編號"><b>F6</b></td><td data-label="中文">山頂第 5 纜椅～主雪場</td><td data-label="日文"><small class="jp">第5ロマンス～かぐらメインコース</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="備註">⚠ 山頂</td></tr>
+<tr><td data-label="編號"><b>I1</b></td><td data-label="中文">林間高手道（700m）</td><td data-label="日文"><small class="jp">林間エキスパートコース</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="備註">⚠</td></tr>
+</tbody></table></div><h5 class="garea">田代（たしろ）</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>編號</th><th>中文</th><th>日文</th><th>難度</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="編號"><b>T1</b></td><td data-label="中文">輕鬆道（499m）</td><td data-label="日文"><small class="jp">らくらくコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註">最適合剛學</td></tr>
+<tr><td data-label="編號"><b>U1</b></td><td data-label="中文">田代女士道</td><td data-label="日文"><small class="jp">田代レディースコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>U2</b></td><td data-label="中文">天際線道</td><td data-label="日文"><small class="jp">スカイラインコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>V1</b></td><td data-label="中文">纜車東側道</td><td data-label="日文"><small class="jp">ゴンドライーストコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>X1</b></td><td data-label="中文">田代阿列斯卡道</td><td data-label="日文"><small class="jp">田代アリエスカコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>X2</b></td><td data-label="中文">田代第 1 高速連絡道</td><td data-label="日文"><small class="jp">田代第1高速リフト連絡コース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>X3</b></td><td data-label="中文">親切道</td><td data-label="日文"><small class="jp">親切コース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>Y1</b></td><td data-label="中文">田代湖道</td><td data-label="日文"><small class="jp">田代湖コース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="備註">沿著田代湖滑 📸</td></tr>
+<tr><td data-label="編號"><b>T2</b></td><td data-label="中文">田代第 1 雪場 A</td><td data-label="日文"><small class="jp">田代第1ゲレンデA</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>V2</b></td><td data-label="中文">雪包道</td><td data-label="日文"><small class="jp">こぶこぶコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註">有雪包（moguls）</td></tr>
+<tr><td data-label="編號"><b>Y2</b></td><td data-label="中文">動感道</td><td data-label="日文"><small class="jp">ダイナミックコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>Z1</b></td><td data-label="中文">羚羊道</td><td data-label="日文"><small class="jp">かもしかコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="備註"></td></tr>
+<tr><td data-label="編號"><b>T3</b></td><td data-label="中文">田代第 1 雪場 B</td><td data-label="日文"><small class="jp">田代第1ゲレンデB</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="備註">⚠</td></tr>
+<tr><td data-label="編號"><b>Y3</b></td><td data-label="中文">挑戰坡（最陡 32°）</td><td data-label="日文"><small class="jp">チャレンジバーン</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="備註">⚠ 有雪包</td></tr>
+</tbody></table></div><p class="gnote">共 30 條：三俁 5、神樂 11、田代 14。最長 6km（全山連滑），山頂 1,845m、山腳 620m。</p></div></details>
+        <details class="gsec"><summary>🟢 新手路線・⚠ 不要誤入</summary><div class="gbody"><ul>
+<li><b>可以滑</b>：三俁 A1、E2；神樂 E1（4km 長、坡緩）；田代 T1、U1、U2、V1、X1、X2、X3、Y1</li>
+<li><b>⚠ 不要誤入</b>：F4 巨人道、F5 技術道、F6 山頂、I1 林間（上級）；田代 T3、Y3 挑戰坡（32°、雪包）</li>
+<li><b>⚠ MR1 下山道</b>是中級，新手請搭三俁纜車下山</li>
+<li>神樂區的 F1 主雪場、H1、H2 是中級，上課時跟著小 Su 走</li>
+</ul></div></details>
+        <details class="gsec"><summary>📸 景點・網美打卡</summary><div class="gbody"><ul>
+<li><b>和田小屋</b>（神樂區中間）：山屋風格餐廳，雪場正中央，最適合約會合、拍山屋</li>
+<li><b>田代湖</b>：田代區的湖，Y1 田代湖道沿湖滑；湖畔的 Restaurant アリエスカ 可以邊吃邊看湖</li>
+<li><b>苗場 Dragondola</b>：日本最長纜車 5.5km、約 25 分，翻山越嶺到苗場，看得到二居湖（冬天可能結冰）；WAmazing 共通券可搭；下山末班 15:30</li>
+<li><b>神樂區上半部</b>：海拔最高、雪質最好，H1 全景道視野開闊</li>
+</ul></div></details>
+        <details class="gsec"><summary>🍜 餐廳</summary><div class="gbody"><ul>
+<li><b>和田小屋</b>（神樂區中間）：けんちんうどん（日式蔬菜烏龍麵）＋小丼、豬排丼；9:00–14:30（LO 14:00）</li>
+<li><b>レストランかぐら</b>（神樂纜車山頂站 1F）：披薩、義大利麵、咖哩、沙朗牛排；9:00–15:30</li>
+<li><b>レストランみつまた</b>（三俁，木屋風）：Go Go 咖哩、豬排定食、豚汁定食；11:00–15:00，<b>週三四公休</b></li>
+<li><b>カフェ&amp;レストラン スノーマン</b>（三俁）：咖哩、蛋糕，大窗挑高；10:00–14:30</li>
+<li><b>バブルワッフル</b>（三俁）：鬆餅、熱咖啡、熱可可；假日 11:30–17:00</li>
+<li><b>レストラン アリエスカ</b>（田代湖畔）、<b>アルム</b>（大窗看雪場）、<b>ぶなキッチン</b>（田代）</li>
+</ul><p class="gnote">營業時間為 25/26 官網資料。</p></div></details>
+        <details class="gsec"><summary>⚠ 注意事項</summary><div class="gbody"><ul>
+<li>海拔高、風大，<b>纜車常因強風停駛</b>，上山前看一下公告；保暖要做足</li>
+<li>三俁區只是往神樂區的連絡區，雪道不多，主要在神樂區滑</li>
+<li>三俁和神樂區之間要搭纜椅、纜車，部分要走路</li>
+<li>過年人多，三俁纜車上下山都可能排隊，<b>16:00 就往纜車站移動</b></li>
+<li>雪票用到 16:30，沒有夜滑</li>
+<li>還雪具：青達可在<b>三俁口</b>面交，最晚約 17:30</li>
+</ul></div></details>
+        <details class="gsec"><summary>🎫 雪票價格（26/27 官網）</summary><div class="gbody"><div class="gscroll"><table class="rtable gtable"><thead><tr><th>票種</th><th>大人</th><th>說明</th></tr></thead><tbody>
+<tr><td data-label="票種">1 日券</td><td data-label="大人">¥8,500</td><td data-label="說明">國中以上；小學生以下憑窗口特別券免費</td></tr>
+<tr><td data-label="票種">午前券</td><td data-label="大人">¥6,700</td><td data-label="說明">8:00–13:00</td></tr>
+<tr><td data-label="票種">午後券</td><td data-label="大人">¥6,200</td><td data-label="說明">11:45–16:30，11:30 開賣</td></tr>
+<tr><td data-label="票種">2 日券</td><td data-label="大人">¥15,500</td><td data-label="說明">連續兩天</td></tr>
+<tr><td data-label="票種">Mt.Naeba 1 日券</td><td data-label="大人">¥11,800</td><td data-label="說明">神樂＋苗場＋Dragondola</td></tr>
+<tr class="hl"><td data-label="票種"><b>我們買的 WAmazing 共通券</b></td><td data-label="大人"><b>NT$1,482</b></td><td data-label="說明">到窗口換 Mt.Naeba 1 日券；12/10 前買</td></tr>
+</tbody></table></div></div></details>
       </div>
-      <div class="mfoot">資料：<a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/" target="_blank" rel="noopener">かぐら官網雪道頁</a>・<a href="https://www.princehotels.co.jp/ski/kagura/winter/store/" target="_blank" rel="noopener">かぐら官網餐廳頁</a>（2026/10/21 查）；地圖可能還是 25/26 版，開季前會更新</div>
+      <div class="mfoot">資料：<a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/?tab=lift" target="_blank" rel="noopener">かぐら官網纜車頁</a>・<a href="https://www.princehotels.co.jp/ski/kagura/winter/coursemap/" target="_blank" rel="noopener">雪道頁</a>・<a href="https://www.princehotels.co.jp/ski/kagura/winter/lift/" target="_blank" rel="noopener">票價頁</a>・<a href="https://www.princehotels.co.jp/ski/kagura/winter/store/" target="_blank" rel="noopener">餐廳頁</a>、SURF&amp;SNOW（2026/10/21 查）</div>
+    </article>
+    <article class="mcard" id="g-ishiuchi" style="--mc:#5a3a8a;">
+      <div class="mcard-hd">
+        <h3>石打丸山 Ishiuchi Maruyama</h3><span class="when">1/2 全員</span>
+        <span class="sub">6 人一起自由滑（Lisa 不滑）；Alpen 8.5 小時電子票到中央入口換票</span>
+      </div>
+      <div class="mfigs">
+        <figure class="mfig">
+          <button class="mfig-btn" type="button" onclick="openMap(this)" data-full="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" data-title="石打丸山 雪場地圖">
+            <img src="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" alt="石打丸山雪道地圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
+            <span class="zoom-hint">🔍 點開放大</span>
+          </button>
+          <figcaption><span>官方地圖（25/26，地圖上的數字對照下面的表）</span><a href="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" target="_blank" rel="noopener">開原圖</a><a href="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ysl%EF%BC%86ishiuchi_%E3%83%9E%E3%83%83%E3%83%97.pdf" target="_blank" rel="noopener">PDF</a><a href="https://ishiuchi.or.jp/winter/ski/lift-course/" target="_blank" rel="noopener">官網</a></figcaption>
+        </figure>
+      </div>
+      <div class="gwrap">
+        <div class="galert">⏰ <b>最重要的時間</b>：白天 <b>8:30–17:00</b>；夜滑 <b>16:00–20:00</b>（26/27：12/26–2/27 每天開，1/2 有）；青達雪具面交最晚約 <b>17:30</b>；THE VERANDA 咖啡廳 LO 15:30、圓頂帳篷最後入場 15:00</div>
+        <details class="gsec ghl" open><summary>🗓 1/2 怎麼走</summary><div class="gbody"><ol class="gsteps">
+<li>從湯澤搭接駁到<b>中央口</b> → 售票處用 Alpen 電子票換票（先問清楚在哪個窗口）</li>
+<li>暖身：搭 <b>A-1 日出快線</b>到山腰 → <b>8 綠色道</b>（下車正前方）</li>
+<li>主要滑：<b>11 日出線</b>（1.35km 初級）、<b>3 天堂道</b>、<b>6 北丸山家庭雪場</b></li>
+<li>中午／下午：在山腰 <b>THE VERANDA</b> 吃鬆餅、預約<b>透明圓頂帳篷</b></li>
+<li>回山腳：中央口走 14 運動員道（中級）或沿日出線；ハツカ石口走 24 林間道</li>
+<li>17:30 前到青達面交點還雪具（石口，現場確認位置）</li>
+</ol></div></details>
+        <details class="gsec"><summary>🚡 纜車</summary><div class="gbody"><div class="gscroll"><table class="rtable gtable"><thead><tr><th>代號</th><th>纜車</th></tr></thead><tbody>
+<tr><td data-label="代號"><b>A-1</b></td><td data-label="纜車">日出快線（纜車＋纜椅混合），到山腰 THE VERANDA 約 7 分<br><small class="jp">サンライズエクスプレス</small></td></tr>
+<tr><td data-label="代號"><b>A-2</b></td><td data-label="纜車">中央家庭纜椅<br><small class="jp">中央ファミリーリフト</small></td></tr>
+<tr><td data-label="代號"><b>A-3</b></td><td data-label="纜車">提洛三人纜椅<br><small class="jp">チロルトリプルリフト</small></td></tr>
+<tr><td data-label="代號"><b>A-4</b></td><td data-label="纜車">中央高速三人纜椅<br><small class="jp">中央高速トリプルリフト</small></td></tr>
+<tr><td data-label="代號"><b>A-5</b></td><td data-label="纜車">山頂高速纜椅（往上級區）<br><small class="jp">山頂高速リフト</small></td></tr>
+<tr><td data-label="代號"><b>B-1</b></td><td data-label="纜車">觀光第 1 快線<br><small class="jp">観光第1エクスプレス</small></td></tr>
+<tr><td data-label="代號"><b>B-2</b></td><td data-label="纜車">觀光第 2 快線<br><small class="jp">観光第2エクスプレス</small></td></tr>
+<tr><td data-label="代號"><b>B-3</b></td><td data-label="纜車">北丸山家庭雙人纜椅<br><small class="jp">北丸山ファミリーペアリフト</small></td></tr>
+<tr><td data-label="代號"><b>B-4</b></td><td data-label="纜車">觀光第 3 快線（大丸山旁）<br><small class="jp">観光第3エクスプレス</small></td></tr>
+<tr><td data-label="代號"><b>B-5</b></td><td data-label="纜車">綠色纜椅<br><small class="jp">グリーンリフト</small></td></tr>
+<tr><td data-label="代號"><b>C-1</b></td><td data-label="纜車">ハツカ石第 1 三人纜椅<br><small class="jp">ハツカ石第1トリプルリフト</small></td></tr>
+<tr><td data-label="代號"><b>C-2/C-3</b></td><td data-label="纜車">ハツカ石家庭纜椅<br><small class="jp">ハツカ石ファミリートリプル／ペアリフト</small></td></tr>
+<tr><td data-label="代號"><b>C-4</b></td><td data-label="纜車">ハツカ石超級纜椅<br><small class="jp">ハツカ石スーパーリフト</small></td></tr>
+</tbody></table></div><p class="gnote">官網沒有公布每座纜車的末班時間，白天統一到 17:00，夜滑日部分纜車到 20:00。26/27 營業 12/18–4/4，北口到 3/28。</p></div></details>
+        <details class="gsec"><summary>🎿 雪道中日對照（地圖上的數字）</summary><div class="gbody"><h5 class="garea">初級</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>#</th><th>中文</th><th>日文</th><th>難度</th><th>長度／最陡</th><th>夜滑</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="#"><b>1</b></td><td data-label="中文">童話道</td><td data-label="日文"><small class="jp">メルヘンコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">1,000m／20°</td><td data-label="夜滑">—</td><td data-label="備註">⚠ 會跟上級的山頂道匯流</td></tr>
+<tr><td data-label="#"><b>3</b></td><td data-label="中文">天堂道</td><td data-label="日文"><small class="jp">パラダイスコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">830m／16°</td><td data-label="夜滑">✅</td><td data-label="備註">⚠ 中途有岔路進上級巨人道，看清楚標示</td></tr>
+<tr><td data-label="#"><b>6</b></td><td data-label="中文">北丸山家庭雪場</td><td data-label="日文"><small class="jp">北丸山ファミリーゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">350m／18°</td><td data-label="夜滑">—</td><td data-label="備註">不跟其他雪道交叉，最安全</td></tr>
+<tr><td data-label="#"><b>8</b></td><td data-label="中文">綠色道</td><td data-label="日文"><small class="jp">グリーンコース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">200m／12°</td><td data-label="夜滑">—</td><td data-label="備註">纜車下車正前方，暖身用</td></tr>
+<tr><td data-label="#"><b>11</b></td><td data-label="中文">日出線</td><td data-label="日文"><small class="jp">サンライズライン</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">1,350m／18°</td><td data-label="夜滑">✅</td><td data-label="備註">全場最長初級道，沿日出快線</td></tr>
+<tr><td data-label="#"><b>21</b></td><td data-label="中文">中央斜滑道</td><td data-label="日文"><small class="jp">中央斜滑降コース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">200m／12°</td><td data-label="夜滑">—</td><td data-label="備註">從天堂道下到中央高速纜椅</td></tr>
+<tr><td data-label="#"><b>24</b></td><td data-label="中文">林間道</td><td data-label="日文"><small class="jp">林間コース</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">850m／10°</td><td data-label="夜滑">—</td><td data-label="備註">回<b>ハツカ石口</b>的連絡道</td></tr>
+<tr><td data-label="#"><b>26</b></td><td data-label="中文">ハツカ石家庭雪場</td><td data-label="日文"><small class="jp">ハツカ石ファミリーゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">420m／15°</td><td data-label="夜滑">週六</td><td data-label="備註">緩坡</td></tr>
+<tr><td data-label="#"><b>27</b></td><td data-label="中文">羚羊雪場</td><td data-label="日文"><small class="jp">カモシカゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#1f8a4c;">初級</span></td><td data-label="長度／最陡">180m／18°</td><td data-label="夜滑">週六</td><td data-label="備註">傍晚人多</td></tr>
+</tbody></table></div><h5 class="garea">中級</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>#</th><th>中文</th><th>日文</th><th>難度</th><th>長度／最陡</th><th>夜滑</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="#"><b>4</b></td><td data-label="中文">稜線道</td><td data-label="日文"><small class="jp">尾根コース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">250m／21°</td><td data-label="夜滑">—</td><td data-label="備註">接巨人道、天堂道</td></tr>
+<tr><td data-label="#"><b>7</b></td><td data-label="中文">大丸山雪場</td><td data-label="日文"><small class="jp">大丸山ゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">500m／30°</td><td data-label="夜滑">✅</td><td data-label="備註">右側有非壓雪區</td></tr>
+<tr><td data-label="#"><b>9</b></td><td data-label="中文">天使道（地形公園）</td><td data-label="日文"><small class="jp">エンゼルコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">500m／20°</td><td data-label="夜滑">—</td><td data-label="備註">旺季設地形公園</td></tr>
+<tr><td data-label="#"><b>10</b></td><td data-label="中文">銀座雪場</td><td data-label="日文"><small class="jp">銀座ゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">670m／18°</td><td data-label="夜滑">✅</td><td data-label="備註">寬、很熱門</td></tr>
+<tr><td data-label="#"><b>12</b></td><td data-label="中文">賽勒道</td><td data-label="日文"><small class="jp">ザイラーコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">350m／29°</td><td data-label="夜滑">✅</td><td data-label="備註">檢定、上課用</td></tr>
+<tr><td data-label="#"><b>13</b></td><td data-label="中文">霍比希勒道</td><td data-label="日文"><small class="jp">ホピヒラーコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">270m／30°</td><td data-label="夜滑">✅</td><td data-label="備註">雪校練習坡</td></tr>
+<tr><td data-label="#"><b>14</b></td><td data-label="中文">運動員道</td><td data-label="日文"><small class="jp">スポーツマンコース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">650m／18°</td><td data-label="夜滑">✅</td><td data-label="備註">回<b>中央口</b></td></tr>
+<tr><td data-label="#"><b>18</b></td><td data-label="中文">源五郎道</td><td data-label="日文"><small class="jp">源五郎コース</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">500m／25°</td><td data-label="夜滑">—</td><td data-label="備註">可回中央口或北口</td></tr>
+<tr><td data-label="#"><b>25</b></td><td data-label="中文">巡航雪場</td><td data-label="日文"><small class="jp">クルーザーゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#c0392b;">中級</span></td><td data-label="長度／最陡">600m／27°</td><td data-label="夜滑">—</td><td data-label="備註">沿ハツカ石超級纜椅</td></tr>
+</tbody></table></div><h5 class="garea">上級（新手別去）</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>#</th><th>中文</th><th>日文</th><th>難度</th><th>長度／最陡</th><th>夜滑</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="#"><b>2</b></td><td data-label="中文">山頂雪場</td><td data-label="日文"><small class="jp">山頂ゲレンデ</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="長度／最陡">900m／35°</td><td data-label="夜滑">—</td><td data-label="備註">⚠ 最高處、有非壓雪</td></tr>
+<tr><td data-label="#"><b>15</b></td><td data-label="中文">惡魔坡</td><td data-label="日文"><small class="jp">デビルダウンコース</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="長度／最陡">430m／32°</td><td data-label="夜滑">✅</td><td data-label="備註">⚠ 全面非壓雪，<b>就在中央口旁</b></td></tr>
+<tr><td data-label="#"><b>16</b></td><td data-label="中文">動感道 A</td><td data-label="日文"><small class="jp">ダイナミックコースA</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="長度／最陡">430m／24°</td><td data-label="夜滑">—</td><td data-label="備註">⚠ 全面非壓雪，北口側</td></tr>
+<tr><td data-label="#"><b>17</b></td><td data-label="中文">動感道 B</td><td data-label="日文"><small class="jp">ダイナミックコースB</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="長度／最陡">430m／24°</td><td data-label="夜滑">—</td><td data-label="備註">北口側</td></tr>
+<tr><td data-label="#"><b>22</b></td><td data-label="中文">巨人道</td><td data-label="日文"><small class="jp">ジャイアントコース</small></td><td data-label="難度"><span class="lv" style="background:#1a1a1a;">上級</span></td><td data-label="長度／最陡">900m／35°</td><td data-label="夜滑">—</td><td data-label="備註">⚠ 從天堂道中途岔進去，一半非壓雪</td></tr>
+</tbody></table></div><h5 class="garea">連絡道</h5><div class="gscroll"><table class="rtable gtable"><thead><tr><th>#</th><th>中文</th><th>日文</th><th>難度</th><th>長度／最陡</th><th>夜滑</th><th>備註</th></tr></thead><tbody>
+<tr><td data-label="#"><b>—</b></td><td data-label="中文">大丸山繞道</td><td data-label="日文"><small class="jp">大丸山バイパス</small></td><td data-label="難度"><span class="lv" style="background:#4a6a84;">連絡</span></td><td data-label="長度／最陡">170m／18°</td><td data-label="夜滑">—</td><td data-label="備註">北丸山家庭 → 大丸山／日出快線下車處</td></tr>
+<tr><td data-label="#"><b>—</b></td><td data-label="中文">動感繞道</td><td data-label="日文"><small class="jp">ダイナミックバイパス</small></td><td data-label="難度"><span class="lv" style="background:#4a6a84;">連絡</span></td><td data-label="長度／最陡">350m／10°</td><td data-label="夜滑">回程</td><td data-label="備註">只用來回北口</td></tr>
+<tr><td data-label="#"><b>—</b></td><td data-label="中文">中央繞道</td><td data-label="日文"><small class="jp">中央バイパス</small></td><td data-label="難度"><span class="lv" style="background:#4a6a84;">連絡</span></td><td data-label="長度／最陡">150m／10°</td><td data-label="夜滑">✅</td><td data-label="備註">銀座 → 提洛纜椅</td></tr>
+<tr><td data-label="#"><b>—</b></td><td data-label="中文">ハツカ石繞道</td><td data-label="日文"><small class="jp">ハツカ石バイパス</small></td><td data-label="難度"><span class="lv" style="background:#4a6a84;">連絡</span></td><td data-label="長度／最陡">850m／10°</td><td data-label="夜滑">—</td><td data-label="備註">中央斜滑道 → ハツカ石口</td></tr>
+</tbody></table></div><p class="gnote">23 條雪道、14 座纜車，最長 4km；夜滑 ✅ 的是每天開，「週六」只在週六晚上開。</p></div></details>
+        <details class="gsec"><summary>🟢 新手路線・⚠ 不要誤入</summary><div class="gbody"><ul>
+<li><b>可以滑</b>：8 綠色道（暖身）、11 日出線（最長初級）、6 北丸山家庭（最安全）、3 天堂道、1 童話道、24 林間道</li>
+<li><b>⚠ 15 惡魔坡</b>（上級、全面非壓雪）<b>就在中央口旁邊</b>，一出來別直接往那滑</li>
+<li><b>⚠ 3 天堂道中途有岔路</b>進 22 巨人道（上級），看清楚指標</li>
+<li><b>⚠ 1 童話道</b>會跟 2 山頂雪場（上級）匯流，小心上面衝下來的人</li>
+<li>A-5 山頂高速纜椅上去是上級區，新手不要搭</li>
+</ul></div></details>
+        <details class="gsec ghl"><summary>☕ 景點・網美打卡</summary><div class="gbody"><ul>
+<li><b>THE VERANDA 石打丸山</b>：搭日出快線約 7 分到山腰，2F 有暖爐的咖啡廳＋露台、3F 觀景台，看魚沼平原和越後三山；天氣好有雲海、夕陽</li>
+<li><b>透明圓頂帳篷</b>：雪地上的玻璃泡泡屋，可以把咖啡廳外帶餐點帶進去邊吃邊看雪景；60 分 ¥2,400（25/26），10:20–16:00、最後入場 15:00；<b>預約優先</b>，26/27 預約方式開季後看官網</li>
+<li><b>六華 ROKKA</b>：清酒、米麴飲品</li>
+<li><b>夜滑</b>：12 條、最長 3km，日本規模最大的夜滑區之一，燈光下看南魚沼夜景</li>
+</ul></div></details>
+        <details class="gsec"><summary>🍜 餐廳（全場 24 間）</summary><div class="gbody"><ul>
+<li><b>THE VERANDA</b>（山腰）：雪山鬆餅、咖啡、海與山咖哩、手撕豬三明治、奧地利精釀啤酒；10:00–16:00</li>
+<li><b>シュプール</b>（山頂）：景觀最好</li>
+<li><b>ケルン</b>（山頂）：榻榻米座位，可以脫雪靴休息</li>
+<li><b>ウインターハウス大丸</b>（山腰）：燒肉</li>
+<li><b>清水食堂</b>（山腰）：新潟在地蔬菜料理（雪下紅蘿蔔）</li>
+<li><b>ロッヂ丸山</b>（山腰）：新潟醬汁豬排丼（タレカツ丼）</li>
+<li><b>ラ・ファミーユ中墨</b>（山腳）；<b>緑屋製菓舗</b>（山腳，石打饅頭當伴手禮）</li>
+</ul></div></details>
+        <details class="gsec"><summary>⚠ 注意事項</summary><div class="gbody"><ul>
+<li>石打分<b>中央口、觀光口、ハツカ石口、北口</b>好幾個入口，<b>先記好自己從哪個口進來</b>，回程要回同一個口</li>
+<li>很多上級道是<b>非壓雪</b>（15、16、22 和 2、7 的一部分）</li>
+<li>1/2 是週六，人多；餐廳 11:30–13:00 最擠，早點或晚點吃</li>
+<li>週末、過年停車要錢（¥1,000），搭接駁不受影響</li>
+<li>想夜滑到 20:00，雪具要多租一天（青達 17:30 就要面交）</li>
+</ul></div></details>
+        <details class="gsec"><summary>🎫 雪票價格</summary><div class="gbody"><div class="gscroll"><table class="rtable gtable"><thead><tr><th>票種</th><th>大人</th><th>說明</th></tr></thead><tbody>
+<tr><td data-label="票種">1 日券（8.5 小時）</td><td data-label="大人">¥8,500</td><td data-label="說明">26/27 窗口價（比 25/26 漲 ¥600）</td></tr>
+<tr><td data-label="票種">4 小時券</td><td data-label="大人">¥6,300</td><td data-label="說明">25/26 價</td></tr>
+<tr><td data-label="票種">夜滑券</td><td data-label="大人">¥3,800</td><td data-label="說明">25/26 價，16:00–20:00</td></tr>
+<tr><td data-label="票種">1 日＋夜滑</td><td data-label="大人">¥8,700</td><td data-label="說明">25/26 價</td></tr>
+<tr class="hl"><td data-label="票種"><b>我們買的 Alpen 早割電子票</b></td><td data-label="大人"><b>¥5,916</b></td><td data-label="說明">8.5 小時、可夜滑到 20:00；12/14 前每人各自下單</td></tr>
+</tbody></table></div></div></details>
+      </div>
+      <div class="mfoot">資料：<a href="https://ishiuchi.or.jp/winter/ski/lift-course/" target="_blank" rel="noopener">石打丸山官網雪道頁</a>・<a href="https://ishiuchi.or.jp/winter/facilities/snow-terrace/" target="_blank" rel="noopener">THE VERANDA 官網</a>、tabiris（26/27 票價）、weathernews（25/26 票價）、ハピスノ（2026/10/21 查）</div>
     </article>
     <article class="mcard" style="--mc:#2d3a8a;">
       <div class="mcard-hd">
@@ -3176,29 +3406,6 @@
         <div class="mbox"><h4>✨ 特色・吃什麼</h4><ul><li>天然雪、北向坡，雪質好</li><li>Sclover PARK：職業滑手石川敦士設計的地形公園</li><li>餐廳有南魚沼越光米做的海鮮丼、咖哩，還有自選配料的可麗餅</li></ul></div>
       </div>
       <div class="mfoot">資料：<a href="https://www.kandatsu.com/course-guide/" target="_blank" rel="noopener">神立官網雪道頁</a>、新潟觀光協會、GLTJP、asoview（2026/10/21 查）；夜滑時間和票價是 25/26，26/27 11 月公布</div>
-    </article>
-    <article class="mcard" style="--mc:#5a3a8a;">
-      <div class="mcard-hd">
-        <h3>石打丸山 Ishiuchi Maruyama</h3><span class="when">1/2 全員</span>
-        <span class="sub">6 人一起自由滑（Lisa 不滑）；Alpen 8.5 小時電子票到中央入口換票</span>
-      </div>
-      <div class="mfigs">
-        <figure class="mfig">
-          <button class="mfig-btn" type="button" onclick="openMap(this)" data-full="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" data-title="石打丸山 雪場地圖">
-            <img src="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" alt="石打丸山雪道地圖" loading="lazy" referrerpolicy="no-referrer" onerror="mapFail(this)">
-            <span class="zoom-hint">🔍 點開放大</span>
-          </button>
-          <figcaption><span>官方地圖（25/26）</span><a href="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ishiuchi_A5%E3%83%9E%E3%83%83%E3%83%97.png" target="_blank" rel="noopener">開原圖</a><a href="https://ishiuchi.or.jp/winter/wp/wp-content/uploads/2025/12/25-26_ysl%EF%BC%86ishiuchi_%E3%83%9E%E3%83%83%E3%83%97.pdf" target="_blank" rel="noopener">PDF</a><a href="https://ishiuchi.or.jp/winter/ski/lift-course/" target="_blank" rel="noopener">官網雪道頁</a></figcaption>
-        </figure>
-      </div>
-      <div class="mgrid">
-        <div class="mbox hl"><h4>☕ THE VERANDA＋透明圓頂帳篷</h4><ul><li>搭<b>サンライズエクスプレス</b>（纜車）約 7 分，到山腰的觀景咖啡露台</li><li>2F 有暖爐的咖啡廳＋露台，3F 觀景台；看得到魚沼平原和越後三山</li><li>招牌：<b>雪山鬆餅</b>、咖啡、咖哩、手撕豬三明治、奧地利精釀啤酒</li><li><b>透明圓頂帳篷</b>：雪地上的玻璃泡泡屋，可以把咖啡廳外帶餐點帶進去，邊吃邊看雪景</li><li>帳篷 60 分 ¥2,400（25/26 價），10:20–16:00、最後入場 15:00；<b>60 分一個時段、預約優先</b>，有空位才能現場進</li></ul><small>咖啡廳 10:00–16:00（LO 15:30）；26/27 帳篷預約方式開季前看官網</small></div>
-        <div class="mbox"><h4>🟢 新手可以滑</h4><ul><li><b>メルヘンコース</b>：1km，最大 20°</li><li><b>グリーンコース</b>：纜車下車正面，暖身用</li><li>北丸山ファミリー、ハツカ石ファミリー、林間コース、パラダイス、サンライズライン</li></ul><small>23 條雪道、14 座纜車，最長 4km</small></div>
-        <div class="mbox"><h4>🌙 夜滑 16:00–20:00</h4><ul><li>12 條、最長 3km，日本規模最大的夜滑區之一</li><li>每天開：パラダイス、サンライズライン、大丸山、銀座、ザイラー、ホピヒラー、スポーツマン、デビルダウン</li><li><b>週六才開</b>：ハツカ石ファミリー、カモシカ（1/2 是週六 ✅）</li></ul><small>⚠ 想夜滑的話，青達雪具最晚 17:30 就要面交，要多租一天</small></div>
-        <div class="mbox"><h4>🍜 餐廳（共 24 間）</h4><ul><li><b>シュプール</b>（山頂）：景觀最好</li><li><b>ケルン</b>（山頂）：榻榻米座位，可以脫雪靴</li><li><b>ウインターハウス大丸</b>（山腰）：燒肉</li><li><b>清水食堂</b>（山腰）：新潟在地蔬菜料理</li><li><b>ロッヂ丸山</b>（山腰）：新潟醬汁豬排丼（タレカツ丼）</li><li><b>ラ・ファミーユ中墨</b>（山腳）、<b>緑屋製菓舗</b>（山腳，石打饅頭當伴手禮）</li><li><b>六華 ROKKA</b>：清酒、米麴飲品</li></ul></div>
-        <div class="mbox"><h4>📌 這天要記得</h4><ul><li>換票：中央入口，先問售票處電子票怎麼換</li><li>還雪具：青達可在<b>石打（石口）</b>面交，最晚約 17:30</li><li>從湯澤搭免費接駁約 10–20 分</li></ul></div>
-      </div>
-      <div class="mfoot">資料：<a href="https://ishiuchi.or.jp/winter/ski/lift-course/" target="_blank" rel="noopener">石打丸山官網雪道頁</a>・<a href="https://ishiuchi.or.jp/winter/facilities/snow-terrace/" target="_blank" rel="noopener">THE VERANDA 官網</a>、ハピスノ、GLTJP（2026/10/21 查）；26/27 營業 12/18–4/4、8:30–17:00</div>
     </article>
   </div>
   <div id="mapbox" class="mapbox" hidden onclick="if(event.target===this)closeMap()">
