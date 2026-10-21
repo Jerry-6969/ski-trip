@@ -1089,6 +1089,22 @@
   .gps-legend i { display:inline-block; width:18px; height:5px; vertical-align:middle; margin-right:4px; border-radius:2px; }
   .gps-legend i.dash { height:0; border-top:3px dashed #333; }
   .gps-me { width:16px; height:16px; background:#2f80ed; border:3px solid #fff; border-radius:50%; box-shadow:0 0 0 2px rgba(47,128,237,.4); }
+
+  .gps-legend i.lift { height:0; width:22px; border-top:4px dashed #6c3fc5; }
+  .gps-legend b.lg-on, .gps-legend b.lg-off, .st-pill { display:inline-block; font-size:11.5px; font-weight:700; padding:1px 6px; border-radius:10px; color:#fff; margin-right:3px; white-space:nowrap; }
+  .gps-legend b.lg-on, .st-pill.on { background:#6c3fc5; }
+  .gps-legend b.lg-off, .st-pill.off { background:#8a96a3; }
+  .lift-arrow { width:20px; height:20px; line-height:20px; text-align:center; color:#fff; background:#6c3fc5; border:2px solid #fff; border-radius:50%; font-size:10px; box-shadow:0 1px 3px rgba(0,0,0,.4); }
+  .leaflet-tooltip.lift-lbl { background:#6c3fc5; color:#fff; border:0; font-weight:700; font-size:12px; padding:2px 7px; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+  .leaflet-tooltip.lift-lbl::before { display:none; }
+  .leaflet-tooltip.piste-lbl { background:rgba(255,255,255,.88); border:1px solid #ccd; color:#1a2a3a; font-size:11.5px; padding:1px 5px; box-shadow:none; }
+  .leaflet-tooltip.piste-lbl::before { display:none; }
+  .poi-ic { font-size:17px; line-height:22px; text-align:center; filter: drop-shadow(0 1px 1px rgba(0,0,0,.5)); }
+  .gpsmap.z-lo .lift-lbl, .gpsmap.z-lo .lift-arrow, .gpsmap.z-lo .poi-ic, .gpsmap.z-lo .st-pill, .gpsmap.z-mid .piste-lbl, .gpsmap.z-lo .piste-lbl { display:none; }
+  .gpop { font-size:14px; line-height:1.7; min-width:200px; }
+  .gpop b.t { font-size:15.5px; color:#1a2a3a; }
+  .gpop .jp { color:#6a7a8a; font-size:12px; }
+  .gpop ul { padding-left:16px; margin:4px 0 0; }
 </style>
 </head>
 <body>
@@ -3185,7 +3201,9 @@
         <div id="gps-status" class="gps-status">按上面的雪場按鈕顯示雪道（資料已經內建在網站裡，不用等下載）。看過一次會存在手機，之後打開這頁自動顯示，山上沒網路也看得到雪道線。</div>
         <div id="gps-info" class="gps-info" hidden></div>
         <div id="gpsmap" class="gpsmap"></div>
-        <div class="gps-legend"><span><i style="background:#1f8a4c"></i>初級</span><span><i style="background:#c0392b"></i>中級</span><span><i style="background:#1a1a1a"></i>上級</span><span><i style="background:#e67e22"></i>非壓雪／野雪</span><span><i style="background:#8a96a3"></i>難度未標</span><span><i class="dash"></i>纜車</span><span><i style="background:#2f80ed;border-radius:50%"></i>你</span></div>
+        <div class="gps-legend"><span><i style="background:#1f8a4c"></i>初級</span><span><i style="background:#c0392b"></i>中級</span><span><i style="background:#1a1a1a"></i>上級</span><span><i style="background:#e67e22"></i>非壓雪／野雪</span><span><i style="background:#8a96a3"></i>難度未標</span><span><i class="lift"></i>纜車／纜椅（▲ 往上方向）</span><span><b class="lg-on">上車</b><b class="lg-off">下車</b>纜車站</span><span><i style="background:#2f80ed;border-radius:50%"></i>你</span><span>🍜 餐廳 ☕ 咖啡 🚻 廁所</span></div>
+        <p class="gnote" style="margin:2px 0 8px;">👆 <b>點雪道或纜車</b>會跳出說明：纜車寫營業時間、坐上去會到哪些雪道；雪道寫難度、滑到底可以接哪條纜車。放大地圖會顯示雪道名稱。</p>
+        <details class="gsec ghl" id="gps-tips-box" hidden><summary><span>🧭 怎麼轉乘（<span id="gps-tips-name"></span>）</span></summary><div class="gbody" id="gps-tips"></div></details>
         <details class="gsec"><summary>ℹ️ 使用說明・限制</summary><div class="gbody"><ul>
           <li>雪道線來自 <b>OpenStreetMap</b>（網友繪製），不是官方資料；可能缺幾條或名稱不完整，<b>以現場指標和官方地圖為準</b></li>
           <li>GPS 誤差約 5–20 公尺，兩條雪道靠很近時可能判斷錯，畫面會同時列出「也可能是」</li>
@@ -4284,6 +4302,7 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap' }).addTo(gpsMap);
     gpsLayer = L.layerGroup().addTo(gpsMap);
     gpsMap.on('dragstart', () => { gpsFollow = false; });
+    gpsMap.on('zoomend', gpsZoomClass);
   }
   function diffInfo(d) {
     d = (d || '').toLowerCase();
@@ -4358,12 +4377,94 @@
     }
     throw lastErr || new Error('下載失敗');
   }
+  const LIFT_KIND = { cable_car: '大纜車', gondola: '吊廂纜車', chair_lift: '纜椅', mixed_lift: '纜車＋纜椅', drag_lift: '拖牽', 't-bar': '拖牽', j_bar: '拖牽', platter: '拖牽', rope_tow: '拖牽', magic_carpet: '魔毯' };
+  const LIFT_HOURS = {
+    'みつまたロープウェー': '8:00–16:30｜上山末班 14:00、下山到 16:30', 'みつまた第1高速リフト': '8:00–16:00｜上山末班 14:15',
+    'みつまた第2ロマンスリフト': '8:15–16:00', 'みつまた第3ロマンスリフト': '8:15–16:00', 'かぐらゴンドラ': '8:15–15:45｜上山末班 15:00',
+    'かぐら第1高速リフト': '8:30–15:30', 'かぐら第1ロマンス': '9:00–15:30', 'かぐら第5ロマンスリフト': '9:30–13:00（1/1 起）',
+    '田代ロープウェー': '8:00–16:30', '田代第1ロマンスリフト': '8:15–16:15', '田代第2ロマンスリフト': '8:15–15:45', '田代第2高速リフト': '9:00–15:30',
+    '田代第1高速リフト': '8:45–15:30', '田代第6ロマンスリフト': '9:00–15:00', '田代第8ロマンスリフト': '9:30–15:00', 'ドラゴンドラ': '8:15–14:30 受理｜下山末班 15:30'
+  };
+  const RESORT_HOURS = { ishiuchi: '白天 8:30–17:00；夜滑日部分纜車到 20:00（官網沒公布各纜車末班）', kandatsu: '年末年始 7:00–16:00；夜滑 18:00–翌 2:00 只開部分纜車' };
+  const GPS_TIPS = {
+    kagura: ['<b>上山</b>：三俁站搭 <b>三俁纜車</b>（上山末班 14:00）→ 三俁區',
+      '<b>往神樂區</b>：三俁區搭 <b>三俁第1高速纜椅</b>（上山末班 14:15）→ 走一小段 → <b>神樂纜車</b>（上山末班 15:00）',
+      '<b>回三俁</b>：神樂區滑 <b>纜車道 E1（初級 4km）</b>回三俁區，或搭神樂纜車下（15:45 停）',
+      '<b>下山</b>：<b>三俁纜車下山，16:30 停</b>；新手不要走下山道 MR1（中級）',
+      '<b>跟田代組會合</b>：約在神樂區的和田小屋；田代組搭 <b>田代第1高速纜椅</b> → 連絡道過來，回田代走田代連絡道（中級）→ <b>田代纜車</b>下山（16:30 停）'],
+    ishiuchi: ['<b>上山</b>：中央口搭 <b>日出快線</b>（纜車＋纜椅）約 7 分到山腰，THE VERANDA 在這裡',
+      '<b>暖身</b>：下車正前方的 <b>綠色道</b>，再接 <b>日出線</b>（1.35km 初級）滑回山腳',
+      '<b>北丸山家庭雪場</b>（最安全的初級）搭 <b>北丸山家庭纜椅</b>',
+      '<b>不要搭山頂高速纜椅</b>：上去是上級區',
+      '<b>回 ハツカ石口</b>：走林間道或ハツカ石繞道（都很緩）'],
+    kandatsu: ['<b>晚上</b>只開部分纜車，以 GROUND BASE 公告為準',
+      '<b>A 纜椅</b>旁是 <b>織女星（ベガ）</b>：林間緩坡、晚上人少，最適合',
+      '<b>北河三（ポルックス）→ 南河三（プロキオン）</b>是初級長滑道，沿路有地形公園別誤闖',
+      '<b>不要上</b> 獵戶座、武仙座、林間武仙座、超級心宿二（上級）']
+  };
+  function zhShort(n) { const k = zhKey(n); return k ? GPS_ZH[k].replace(/（.*?）/g, '') : (n || ''); }
+  function liftHours(n) {
+    const nn = normName(n); const k = Object.keys(LIFT_HOURS).filter(j => nn.indexOf(j) !== -1).sort((a, b) => b.length - a.length)[0];
+    return k ? LIFT_HOURS[k] : (RESORT_HOURS[gpsKey] || '');
+  }
+  function bearing(a, b) { const dx = (b[1] - a[1]) * Math.cos(a[0] * Math.PI / 180), dy = b[0] - a[0]; return Math.atan2(dx, dy) * 180 / Math.PI; }
+  function lvlTag(n, d) { const [lvl, col] = diffInfo(officialDiff(n, d)); return '<span class="lv" style="background:' + col + '">' + lvl + '</span>'; }
+  function uniqByName(arr) { const seen = new Set(); return arr.filter(x => { const k = x.n || '#'; if (seen.has(k)) return false; seen.add(k); return true; }); }
+  function gpsZoomClass() {
+    if (!gpsMap) return; const z = gpsMap.getZoom(), el = document.getElementById('gpsmap');
+    el.classList.toggle('z-lo', z < 14); el.classList.toggle('z-mid', z >= 14 && z < 16);
+  }
   function gpsDraw(d) {
     gpsLayer.clearLayers();
-    const all = [];
-    d.p.forEach(x => { const [lvl, col] = diffInfo(officialDiff(x.n, x.d)); L.polyline(x.g, { color: col, weight: 4, opacity: .85 }).bindTooltip(zhName(x.n) + '｜' + lvl, { sticky: true }).addTo(gpsLayer); all.push(...x.g); });
-    d.a.forEach(x => { L.polyline(x.g, { color: '#333', weight: 2.5, dashArray: '6 6' }).bindTooltip('🚡 ' + zhName(x.n), { sticky: true }).addTo(gpsLayer); L.circleMarker(x.g[0], { radius: 4, color: '#333', fillColor: '#fff', fillOpacity: 1, weight: 2 }).addTo(gpsLayer); all.push(...x.g); });
+    const all = [], R = 90;
+    // 雪道
+    const named = {};
+    d.p.forEach(x => {
+      const [lvl, col] = diffInfo(officialDiff(x.n, x.d));
+      const end = x.g[x.g.length - 1];
+      const next = uniqByName(d.a.filter(a => distPt(end, a.g[0]) < R));
+      const pop = '<div class="gpop"><b class="t">' + zhName(x.n) + '</b> ' + lvlTag(x.n, x.d) +
+        (next.length ? '<br>滑到底可以接：<ul>' + next.map(a => '<li>🚡 ' + zhShort(a.n || '纜車') + '</li>').join('') + '</ul>' : '') + '</div>';
+      L.polyline(x.g, { color: '#fff', weight: 7, opacity: .7 }).addTo(gpsLayer);
+      L.polyline(x.g, { color: col, weight: 4.5, opacity: .95 }).bindPopup(pop).addTo(gpsLayer);
+      all.push(...x.g);
+      if (x.n && (!named[x.n] || named[x.n].g.length < x.g.length)) named[x.n] = x;
+    });
+    Object.values(named).forEach(x => {
+      const mid = x.g[Math.floor(x.g.length / 2)];
+      L.tooltip({ permanent: true, direction: 'center', className: 'piste-lbl', interactive: false }).setLatLng(mid).setContent(zhShort(x.n)).addTo(gpsLayer);
+    });
+    // 纜車
+    d.a.forEach(x => {
+      const bot = x.g[0], top = x.g[x.g.length - 1], mid = x.g[Math.floor((x.g.length - 1) / 2)];
+      const midPt = x.g.length === 2 ? [(bot[0] + top[0]) / 2, (bot[1] + top[1]) / 2] : mid;
+      const reach = uniqByName(d.p.filter(p => distPt(top, p.g[0]) < R || distLine(top, p.g) < 40)).slice(0, 6);
+      const hrs = liftHours(x.n);
+      const pop = '<div class="gpop"><b class="t">🚡 ' + zhShort(x.n || '纜車') + '</b> <span class="jp">' + (x.n || '') + '</span><br>' + (LIFT_KIND[x.k] || '纜車') +
+        (hrs ? '<br>⏰ ' + hrs : '') +
+        (reach.length ? '<br>坐上去可以接：<ul>' + reach.map(p => '<li>' + zhShort(p.n || '（沒有名稱的雪道）') + ' ' + lvlTag(p.n, p.d) + '</li>').join('') + '</ul>' : '') + '</div>';
+      L.polyline(x.g, { color: '#fff', weight: 8, opacity: .9 }).addTo(gpsLayer);
+      L.polyline(x.g, { color: '#6c3fc5', weight: 4.5, dashArray: '10 7' }).bindPopup(pop).addTo(gpsLayer);
+      L.marker(midPt, { icon: L.divIcon({ className: '', html: '<div class="lift-arrow" style="transform:rotate(' + bearing(bot, top).toFixed(0) + 'deg)">▲</div>', iconSize: [20, 20], iconAnchor: [10, 10] }) }).bindPopup(pop).addTo(gpsLayer);
+      L.marker(bot, { icon: L.divIcon({ className: '', html: '<span class="st-pill on">上車</span>', iconSize: [34, 16], iconAnchor: [17, 20] }) }).bindPopup(pop).addTo(gpsLayer);
+      L.marker(top, { icon: L.divIcon({ className: '', html: '<span class="st-pill off">下車</span>', iconSize: [34, 16], iconAnchor: [17, -4] }) }).bindPopup(pop).addTo(gpsLayer);
+      L.tooltip({ permanent: true, direction: 'right', offset: [12, 0], className: 'lift-lbl', interactive: false }).setLatLng(midPt).setContent('🚡 ' + zhShort(x.n || '纜車')).addTo(gpsLayer);
+      all.push(...x.g);
+    });
+    // 地標
+    const ICON = { restaurant: '🍜', fast_food: '🍜', cafe: '☕', toilets: '🚻', first_aid: '⛑', viewpoint: '📸', alpine_hut: '🏠' };
+    (d.m || []).forEach(m => {
+      if (m.k === 'station') return; // 纜車站已用 上車／下車 標示
+      const ic = ICON[m.k]; if (!ic) return;
+      L.marker(m.c, { icon: L.divIcon({ className: '', html: '<div class="poi-ic">' + ic + '</div>', iconSize: [22, 22], iconAnchor: [11, 11] }) })
+        .bindPopup('<div class="gpop"><b class="t">' + ic + ' ' + (m.n || { restaurant: '餐廳', fast_food: '輕食', cafe: '咖啡', toilets: '廁所', first_aid: '救護站', viewpoint: '觀景點', alpine_hut: '山屋' }[m.k]) + '</b></div>').addTo(gpsLayer);
+    });
     if (all.length) gpsMap.fitBounds(all, { padding: [20, 20] });
+    gpsZoomClass();
+    // 轉乘提示
+    const tips = GPS_TIPS[gpsKey], box = document.getElementById('gps-tips-box');
+    if (tips) { document.getElementById('gps-tips').innerHTML = '<ol class="gsteps">' + tips.map(t => '<li>' + t + '</li>').join('') + '</ol>'; document.getElementById('gps-tips-name').textContent = GPS_AREAS[gpsKey].name; box.hidden = false; }
+    else box.hidden = true;
   }
   function gpsInBox(la, lo, b) { return b && la >= b[0] && la <= b[2] && lo >= b[1] && lo <= b[3]; }
   async function gpsGet(key) {

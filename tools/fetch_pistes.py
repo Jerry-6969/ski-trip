@@ -8,15 +8,15 @@ EPS = ['https://overpass-api.de/api/interpreter',
        'https://maps.mail.ru/osm/tools/overpass/api/interpreter']
 BROAD = (36.75, 138.65, 37.10, 139.00)   # Yuzawa / Minamiuonuma area
 TARGETS = {
-    'kagura':   {'re': r'かぐら|神楽|Kagura|みつまた|三俣|田代|Tashiro', 'fallback': (36.80, 138.70, 36.90, 138.83)},
-    'ishiuchi': {'re': r'石打丸山|Ishiuchi Maruyama', 'fallback': (36.94, 138.78, 37.02, 138.88)},
-    'kandatsu': {'re': r'神立|Kandatsu', 'fallback': (36.92, 138.80, 37.00, 138.92)},
+    'kagura':   {'re': r'かぐら|神楽|Kagura|みつまた|三俣|田代|Tashiro', 'fallback': (36.8364, 138.7083, 36.9027, 138.777)},
+    'ishiuchi': {'re': r'石打丸山|Ishiuchi Maruyama', 'fallback': (36.9563, 138.7774, 36.9852, 138.807)},
+    'kandatsu': {'re': r'神立|Kandatsu', 'fallback': (36.8911, 138.7962, 36.9154, 138.8233)},
 }
 PAD = 0.004
 
 def overpass(q):
     last = None
-    for attempt in range(3):
+    for attempt in range(4):
         for ep in EPS:
             try:
                 data = urllib.parse.urlencode({'data': q}).encode()
@@ -25,7 +25,7 @@ def overpass(q):
                     return json.loads(r.read().decode())
             except Exception as e:
                 last = e; print('  overpass fail', ep, e, file=sys.stderr)
-        time.sleep(10)
+        time.sleep(30)
     raise last
 
 def bb(b): return f'{b[0]},{b[1]},{b[2]},{b[3]}'
@@ -34,7 +34,10 @@ def main():
     os.makedirs('data', exist_ok=True)
     log = []
     q = f'[out:json][timeout:90];(way["landuse"="winter_sports"]({bb(BROAD)});relation["landuse"="winter_sports"]({bb(BROAD)}););out tags bb;'
-    areas = overpass(q).get('elements', [])
+    try:
+        areas = overpass(q).get('elements', [])
+    except Exception as e:
+        areas = []; log.append(f'(winter_sports area query failed: {e}; using fallback bboxes)')
     log.append('## winter_sports areas in Yuzawa region')
     for a in areas:
         t = a.get('tags', {}); b = a.get('bounds') or {}
@@ -49,7 +52,10 @@ def main():
             box = cfg['fallback']; src = 'fallback bbox'
         q = (f'[out:json][timeout:90];(way["piste:type"="downhill"]({bb(box)});relation["piste:type"="downhill"]({bb(box)});'
              f'way["aerialway"]["aerialway"!="station"]["aerialway"!="pylon"]({bb(box)}););out tags geom;')
-        js = overpass(q)
+        try:
+            js = overpass(q)
+        except Exception as e:
+            log.append(f'\n## {key}: FAILED ({e}); kept previous file'); continue
         r5 = lambda x: round(x, 5)
         P, A = [], []
         for el in js.get('elements', []):
