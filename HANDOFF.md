@@ -64,6 +64,7 @@
 - **雪場地圖分頁 `#maps`**：
   - `#gps`：GPS 雪道定位（測試版）。Leaflet 1.9.4 動態載入（jsDelivr → unpkg 備援）、OSM 底圖、Overpass API 抓 `piste:type=downhill` 與 `aerialway`，存 localStorage `gps_v1_<key>`。函式：`gpsLoad('kagura'|'ishiuchi'|'kandatsu'|'here')`、`gpsToggle()`、`gpsRecenter()`。`GPS_AREAS` 的 bbox 是**估的座標**，沒實測；`GPS_ZH` 是日文雪道名→中文；`GPS_LIFT_TIME` 是神樂纜車末班。
   - **雪道資料內建在網站**：`data/pistes-<kagura|ishiuchi|kandatsu>.json`，由 GitHub Actions（`.github/workflows/pistes.yml` → `tools/fetch_pistes.py`）從 OpenStreetMap Overpass 抓（這個開發環境連不到 Overpass，所以交給 Actions）。改 `tools/fetch_pistes.py` 並 push 就會重抓；`data/pistes-summary.md` 列出抓到的雪道和纜車名稱，可以用來檢查。雪場範圍是用 OSM 的 `landuse=winter_sports` 區域自動算的。
+  - JSON 欄位：`p` 雪道（n 名稱、d 難度、g 座標）、`a` 纜車（k 種類，座標方向＝下站→上站）、`m` 地標（餐廳、廁所、纜車站等）。地圖上纜車是紫色虛線＋▲方向＋上車／下車標示；點擊顯示營業時間（`LIFT_HOURS`）、可接的雪道；`GPS_TIPS` 是各雪場的轉乘步驟。
   - 網頁載入順序：網站內建 JSON → 手機 localStorage → 即時 Overpass（25 秒逾時）。打開 `#maps` 會自動顯示上次看的雪場（`gps_last`）。難度以官網為準（`GPS_OFFICIAL` 覆蓋 OSM 標的難度）。
   - `#g-kagura`、`#g-ishiuchi`、`#g-kandatsu`：雪場攻略卡（纜車時刻、雪道中日對照、新手路線、景點、餐廳、注意事項、票價），用 `<details class="gsec">` 收合。
   - 地圖圖片是**直接連官網圖片**（hotlink，`referrerpolicy="no-referrer"`），載不出來時 `mapFail()` 換成「開原圖」連結；點圖 `openMap()` 開全螢幕放大（`#mapbox`）。
@@ -79,6 +80,7 @@
 ## 9. 待辦／下一步
 
 **網站**
+0. 已向使用者提議、等他決定：末班提醒（建議先做）、「帶我去」初級道導航、地形底圖、底圖離線。
 1. ✅ 神立攻略卡已完成（同格式）。如果 1/4 雪場決定了，照同樣格式補一張。
 2. 請使用者在手機上確認：官網地圖圖片載得出來、GPS「載入神樂／石打丸山」有沒有抓到雪道（bbox 是估的，抓不到就改 `GPS_AREAS`）。
 3. 26/27 官方地圖、石打各纜車末班、石打圓頂帳篷預約方式、神立 26/27 夜滑價格 → 開季前（11–12 月）更新。
