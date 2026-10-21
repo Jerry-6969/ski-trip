@@ -24,7 +24,7 @@
 - way/1348679001 name=ニュー・グリーンピア name:en=New Greenpia Tsunan bounds={'minlat': 36.9438062, 'minlon': 138.6837432, 'maxlat': 36.9614925, 'maxlon': 138.6927985}
 - relation/12821614 name=かぐらスキー場 name:en=Kagura Ski Resort bounds={'minlat': 36.8403566, 'minlon': 138.7122631, 'maxlat': 36.8986531, 'maxlon': 138.7730098}
 
-## kagura: 53 piste segments, 19 aerialways, bbox=(36.8284, 138.7003, 36.9107, 138.785) (osm-area: みつまたエリア, かぐらエリア, 田代エリア, かぐらスキー場)
+## kagura: 53 piste segments, 19 aerialways, bbox=(36.8364, 138.7083, 36.9027, 138.777) (osm-area: みつまたエリア, かぐらエリア, 田代エリア, かぐらスキー場)
 - piste [advanced] (no name) x3
 - piste [advanced] かぐら第5ロマンスリフト～かぐらメイン x1
 - piste [advanced] ジャイアントコース x1
@@ -76,11 +76,10 @@
 - lift [chair_lift] 田代第2ロマンスリフト
 - lift [chair_lift] 田代第1ロマンスリフト
 
-## ishiuchi: 89 piste segments, 24 aerialways, bbox=(36.9483, 138.7694, 37.0034, 138.815) (osm-area: 石打花岡スキー場, 石打丸山スキー場)
-- piste [-] (no name) x16
+## ishiuchi: 52 piste segments, 16 aerialways, bbox=(36.9563, 138.7774, 36.9852, 138.807) (osm-area: 石打丸山スキー場)
+- piste [-] (no name) x10
 - piste [advanced] (no name) x1
 - piste [advanced] ジャイアントコース x1
-- piste [advanced] スーパースワン x1
 - piste [advanced] ダイナミックAコース x1
 - piste [advanced] ダイナミックBコース x1
 - piste [advanced] デビルダウンコース x1
@@ -88,45 +87,27 @@
 - piste [advanced] 国体コース x1
 - piste [advanced] 山頂ゲレンデ x1
 - piste [advanced] 山頂ツリーランエリア x1
-- piste [easy] (no name) x14
+- piste [easy] (no name) x10
 - piste [easy] エリートゲレンデ x1
-- piste [easy] エンターテイメント x1
 - piste [easy] グリーンコース x1
 - piste [easy] サンライズライン x1
 - piste [easy] ハツカ石ファミリーゲレンデ x1
 - piste [easy] メルヘンコース x2
-- piste [easy] 下山コース ファルコン x1
 - piste [easy] 中央斜滑降コース x1
 - piste [easy] 北丸山ファミリーゲレンデ x1
-- piste [intermediate] (no name) x11
-- piste [intermediate] ぐルノーブル x1
+- piste [intermediate] (no name) x4
 - piste [intermediate] エンゼルコース x1
 - piste [intermediate] クルーザーゲレンデ x1
 - piste [intermediate] ザイラーコース x1
-- piste [intermediate] ジョアンナA x1
 - piste [intermediate] ジョアンナB x1
-- piste [intermediate] スーパーブロードウェイ x1
-- piste [intermediate] ブロードウェイ x1
 - piste [intermediate] ホピヒラーコース x1
 - piste [intermediate] 山頂ゲレンデ x1
 - piste [intermediate] 銀座ゲレンデ x1
-- piste [novice] (no name) x9
-- piste [novice] エーデルワイス x1
-- piste [novice] スワン x1
-- piste [novice] メロディー x2
+- piste [novice] (no name) x1
 - piste [novice] ロマンホリデーA x1
 - piste [novice] ロマンホリデーB x2
-- piste [novice] 林道湯の沢線 x1
-- lift [chair_lift] バルーシュ
-- lift [gondola] ディリジャンス
-- lift [chair_lift] フェートン
-- lift [chair_lift] ソーシャブル
-- lift [chair_lift] (no name)
-- lift [chair_lift] シャリオ
 - lift [chair_lift] バギー
 - lift [chair_lift] ティルバリー
-- lift [chair_lift] ビクトリア
-- lift [chair_lift] コーチ
 - lift [chair_lift] ハツカ石入口リフト
 - lift [chair_lift] ハツカ石ファミリーペアリフト
 - lift [chair_lift] ハツカ石ファミリートリプルリフト
@@ -142,13 +123,13 @@
 - lift [chair_lift] チロルトリプルリフト
 - lift [chair_lift] ハツカ石スーパーリフト
 
-## kandatsu: 27 piste segments, 8 aerialways, bbox=(36.8831, 138.7882, 36.9234, 138.8313) (osm-area: 神立高原スキー場)
+## kandatsu: 24 piste segments, 6 aerialways, bbox=(36.8911, 138.7962, 36.9154, 138.8233) (osm-area: 神立高原スキー場)
 - piste [advanced] オリオン x2
 - piste [advanced] スーパーアンタレス x1
 - piste [advanced] ヘラクレス x2
 - piste [advanced] ペルセウス x1
 - piste [advanced] ミルキーワエイ x2
-- piste [easy] (no name) x4
+- piste [easy] (no name) x2
 - piste [easy] Andromeda x2
 - piste [easy] Vega x1
 - piste [easy] アンドロメダ x1
@@ -156,7 +137,6 @@
 - piste [easy] ポラリス x1
 - piste [easy] ポルックス x1
 - piste [freeride] ツリーヘラクレス x1
-- piste [intermediate] (no name) x1
 - piste [intermediate] Castor x1
 - piste [intermediate] シリウス x1
 - piste [intermediate] スバル x2
@@ -167,6 +147,4 @@
 - lift [chair_lift] E Lift
 - lift [chair_lift] B Lift
 - lift [chair_lift] A Lift
-- lift [chair_lift] (no name)
-- lift [chair_lift] (no name)
 - lift [chair_lift] A Lift
