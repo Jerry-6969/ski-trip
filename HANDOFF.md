@@ -1,7 +1,7 @@
 # 越後湯澤跨年滑雪 — 交接文件
 
 > 給下一個接手的 AI。讀完這份就能繼續做，不用重看之前的對話。
-> 最後更新：2026-10-21
+> 最後更新：2026-10-21（神立攻略完成）
 
 ## 1. 專案是什麼
 
@@ -44,7 +44,7 @@
 ## 5. 雪票（已決定的買法）
 
 - **12/31、1/1 神樂**：WAmazing 22 雪場共通券，NT$1,482／張，Jerry、Phoebe、文凱**每人 2 張**，**12/10 前買**（限量、不能取消）。到三俁站窗口出示「我的頁面」換 Mt.Naeba 1 日券。
-- **1/1 神立夜滑**：現場買，4 小時夜滑票 ¥3,800（25/26 價）。
+- **1/1 神立夜滑**：現場買。4 小時夜滑票 25/26 約 ¥3,000–3,800（SURF&SNOW 與新潟觀光協會數字不同），26/27 官網還沒公布。26/27 官網確認 12/30–1/2 連四晚有夜滑（18:00–翌 2:00）。**夜滑接駁 19:10 才有第一班**（越後湯澤站東口），所以 18:00 開始要小 Su 載或計程車。
 - **1/2 石打**：Alpen Group 早割電子票 ¥5,800＋2%＝¥5,916，**12/14 前每人各自下單**；email 寄送、沒有 QR Code，到中央入口窗口換票（換票方式待問）。
 
 ## 6. 雪具（青達雪具）
@@ -62,9 +62,8 @@
 - **預算**：`.bud-amt` input，`data-id="h0"…`、`data-st` = `ok`（已付/已訂）/`price`（定價還沒買）/`tbd`（待確認，空白）/`self`。空白不計入總額。localStorage key `budv3_`。目前每人已知總額 **NT$47,359**。
 - **待辦**：`.td-item` checkbox，`data-id`，localStorage key `todo_`。已完成加 `td-done` 與 `checked`。
 - **雪場地圖分頁 `#maps`**：
-  - `#gps`：GPS 雪道定位（測試版）。Leaflet 1.9.4 動態載入（jsDelivr → unpkg 備援）、OSM 底圖、Overpass API 抓 `piste:type=downhill` 與 `aerialway`，存 localStorage `gps_v1_<key>`。函式：`gpsLoad('kagura'|'ishiuchi'|'here')`、`gpsToggle()`、`gpsRecenter()`。`GPS_AREAS` 的 bbox 是**估的座標**，沒實測；`GPS_ZH` 是日文雪道名→中文；`GPS_LIFT_TIME` 是神樂纜車末班。
-  - `#g-kagura`、`#g-ishiuchi`：雪場攻略卡（纜車時刻、雪道中日對照、新手路線、景點、餐廳、注意事項、票價），用 `<details class="gsec">` 收合。
-  - 神立卡片（較簡單，還沒做成同樣格式）。
+  - `#gps`：GPS 雪道定位（測試版）。Leaflet 1.9.4 動態載入（jsDelivr → unpkg 備援）、OSM 底圖、Overpass API 抓 `piste:type=downhill` 與 `aerialway`，存 localStorage `gps_v1_<key>`。函式：`gpsLoad('kagura'|'ishiuchi'|'kandatsu'|'here')`、`gpsToggle()`、`gpsRecenter()`。`GPS_AREAS` 的 bbox 是**估的座標**，沒實測；`GPS_ZH` 是日文雪道名→中文；`GPS_LIFT_TIME` 是神樂纜車末班。
+  - `#g-kagura`、`#g-ishiuchi`、`#g-kandatsu`：雪場攻略卡（纜車時刻、雪道中日對照、新手路線、景點、餐廳、注意事項、票價），用 `<details class="gsec">` 收合。
   - 地圖圖片是**直接連官網圖片**（hotlink，`referrerpolicy="no-referrer"`），載不出來時 `mapFail()` 換成「開原圖」連結；點圖 `openMap()` 開全螢幕放大（`#mapbox`）。
 - 雪票購買清單在 `resorts` 分頁「🎫 雪票購買清單」。
 
@@ -78,7 +77,7 @@
 ## 9. 待辦／下一步
 
 **網站**
-1. **神立**攻略卡做成跟神樂、石打一樣的格式（纜車時刻、雪道中日對照、注意事項等）。使用者說「先以神樂、石打為例」，下一個應該是神立。
+1. ✅ 神立攻略卡已完成（同格式）。如果 1/4 雪場決定了，照同樣格式補一張。
 2. 請使用者在手機上確認：官網地圖圖片載得出來、GPS「載入神樂／石打丸山」有沒有抓到雪道（bbox 是估的，抓不到就改 `GPS_AREAS`）。
 3. 26/27 官方地圖、石打各纜車末班、石打圓頂帳篷預約方式、神立 26/27 夜滑價格 → 開季前（11–12 月）更新。
 4. 1/3 一日遊、1/4 雪場決定後更新行程與雪票。
