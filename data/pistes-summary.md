@@ -1,0 +1,172 @@
+## winter_sports areas in Yuzawa region
+- way/432881342 name=石打花岡スキー場 name:en=Ishiuchi Hanaoka Ski Area bounds={'minlat': 36.9883395, 'minlon': 138.7915562, 'maxlat': 36.9914222, 'maxlon': 138.7991128}
+- way/464023310 name=石打丸山スキー場 name:en=Ishiuchi Maruyama Ski Resort bounds={'minlat': 36.9602529, 'minlon': 138.7814035, 'maxlat': 36.9812021, 'maxlon': 138.8030109}
+- way/626857453 name=ムイカスノーリゾート name:en=Muica Snow Resort bounds={'minlat': 37.0677711, 'minlon': 138.8293737, 'maxlat': 37.07836, 'maxlon': 138.8475943}
+- way/679253285 name=舞子スノーリゾート name:en=Maiko Snow Resort bounds={'minlat': 36.9592901, 'minlon': 138.820707, 'maxlat': 36.9895515, 'maxlon': 138.8508153}
+- way/680041845 name=湯沢中里スキーリゾート name:en=Yuzawa Nakazato Ski Resort bounds={'minlat': 36.9060314, 'minlon': 138.8484811, 'maxlat': 36.9174492, 'maxlon': 138.8608575}
+- way/680041863 name=中里スノーウッドスキー場 name:en=Nakazato Snow Wood Ski Area bounds={'minlat': 36.902358, 'minlon': 138.8487983, 'maxlat': 36.9057954, 'maxlon': 138.8581684}
+- way/680045685 name=岩原スキー場 name:en=Iwappara bounds={'minlat': 36.9322507, 'minlon': 138.835752, 'maxlat': 36.9554476, 'maxlon': 138.8485622}
+- way/682257431 name=みつまたエリア name:en=Mitsumata Area bounds={'minlat': 36.8864172, 'minlon': 138.7540197, 'maxlat': 36.8986531, 'maxlon': 138.7730098}
+- way/682257432 name=かぐらエリア name:en=Kagura Area bounds={'minlat': 36.8549735, 'minlon': 138.7122631, 'maxlat': 36.8893434, 'maxlon': 138.7556934}
+- way/682257433 name=田代エリア name:en=Tashiro Area bounds={'minlat': 36.8403566, 'minlon': 138.7179387, 'maxlat': 36.8571239, 'maxlon': 138.7527966}
+- way/948328123 name=ガーラ湯沢スノーリゾート name:en=Gala Yuzawa Snow Resort bounds={'minlat': 36.9380987, 'minlon': 138.7681924, 'maxlat': 36.9614132, 'maxlon': 138.8006195}
+- way/948328283 name=湯沢高原スキー場 name:en=Yuzawa Kogen Ski Resort bounds={'minlat': 36.9236163, 'minlon': 138.7830912, 'maxlat': 36.9425775, 'maxlon': 138.8045454}
+- way/948359373 name=一本杉スキー場 name:en=Ippon Sugi Ski Resort bounds={'minlat': 36.9341686, 'minlon': 138.8042421, 'maxlat': 36.9366909, 'maxlon': 138.8068589}
+- way/948360185 name=ナスパスキーガーデン name:en=NASPA Ski Garden bounds={'minlat': 36.9202599, 'minlon': 138.7995425, 'maxlat': 36.928751, 'maxlon': 138.8104741}
+- way/948360186 name=神立高原スキー場 name:en=Kandatsu Kogen Ski Resort bounds={'minlat': 36.8951125, 'minlon': 138.8002172, 'maxlat': 36.9113952, 'maxlon': 138.8193135}
+- way/949496196 name=湯沢パークスキー場 name:en=Yuzawa Park Ski Resort bounds={'minlat': 36.9209302, 'minlon': 138.8525556, 'maxlat': 36.9274721, 'maxlon': 138.8663609}
+- way/949500907 name=上越国際 name:en=Joetsu International bounds={'minlat': 37.0173812, 'minlon': 138.7623783, 'maxlat': 37.0448191, 'maxlon': 138.827935}
+- way/952120707 name=なかさと清津 name:en=Nakasato Kiyotsu bounds={'minlat': 37.0145232, 'minlon': 138.7276367, 'maxlat': 37.0247892, 'maxlon': 138.743015}
+- way/952129313 name=苗場スキー場 name:en=Naeba Ski Resort bounds={'minlat': 36.7845251, 'minlon': 138.7563369, 'maxlat': 36.8032985, 'maxlon': 138.7856986}
+- way/1042547889 name=シャトー塩沢スキー場 name:en=Chateau Shiozawa Ski Area Yoshizato bounds={'minlat': 37.0484402, 'minlon': 138.8171822, 'maxlat': 37.0586368, 'maxlon': 138.8400627}
+- way/1221235497 name=谷川岳天神平スキー場 name:en=Mt. T bounds={'minlat': 36.814232, 'minlon': 138.9452745, 'maxlat': 36.8366411, 'maxlon': 138.9621065}
+- way/1221236522 name=ホワイトバレースキー場 name:en=White Valley Ski Area bounds={'minlat': 36.7941073, 'minlon': 138.9573981, 'maxlat': 36.7971648, 'maxlon': 138.9702551}
+- way/1348679001 name=ニュー・グリーンピア name:en=New Greenpia Tsunan bounds={'minlat': 36.9438062, 'minlon': 138.6837432, 'maxlat': 36.9614925, 'maxlon': 138.6927985}
+- relation/12821614 name=かぐらスキー場 name:en=Kagura Ski Resort bounds={'minlat': 36.8403566, 'minlon': 138.7122631, 'maxlat': 36.8986531, 'maxlon': 138.7730098}
+
+## kagura: 53 piste segments, 19 aerialways, bbox=(36.8284, 138.7003, 36.9107, 138.785) (osm-area: みつまたエリア, かぐらエリア, 田代エリア, かぐらスキー場)
+- piste [advanced] (no name) x3
+- piste [advanced] かぐら第5ロマンスリフト～かぐらメイン x1
+- piste [advanced] ジャイアントコース x1
+- piste [advanced] チャレンジバーン x1
+- piste [advanced] テクニカルコース x1
+- piste [advanced] 下山コース x1
+- piste [advanced] 林間エキスパートコース x1
+- piste [easy] (no name) x16
+- piste [easy] かぐら連絡コース x1
+- piste [easy] かもしかコース x1
+- piste [easy] しらかばコース x1
+- piste [easy] ゴンドライーストコース x1
+- piste [easy] ゴンドラコース x1
+- piste [easy] ゴンドラライン x1
+- piste [easy] ジャイアントコース x1
+- piste [easy] スカイラインコース x1
+- piste [easy] ファミリーコース x1
+- piste [easy] 田代アリエスカコース x1
+- piste [easy] 田代レディースコース x1
+- piste [easy] 田代湖コース x1
+- piste [easy] 第1高速連絡コース x1
+- piste [easy] 親切コース x1
+- piste [freeride] (no name) x2
+- piste [intermediate] (no name) x4
+- piste [intermediate] かぐらメインゲレンデ x1
+- piste [intermediate] かぐらメインゲレンデ迂回 x1
+- piste [intermediate] ダイナミックコース x1
+- piste [intermediate] パノラマコース x1
+- piste [intermediate] 大会バーン x2
+- piste [intermediate] 田代第1ゲレンデ x1
+- piste [intermediate] 田代連絡コース x1
+- lift [chair_lift] みつまた第3ロマンスリフト
+- lift [chair_lift] みつまた第2ロマンスリフト
+- lift [gondola] かぐらゴンドラ
+- lift [chair_lift] かぐら第1高速リフト
+- lift [cable_car] みつまたロープウェイ
+- lift [chair_lift] みつまた第2高速リフト
+- lift [chair_lift] みつまた第1高速リフト
+- lift [chair_lift] 田代第1高速リフト
+- lift [chair_lift] 田代第4ロマンスリフト
+- lift [chair_lift] 田代第2高速リフト
+- lift [chair_lift] 田代第6ロマンスリフト
+- lift [chair_lift] かぐら第5ロマンスリフト
+- lift [chair_lift] かぐら第4ロマンスリフト
+- lift [chair_lift] 田代第8ロマンスリフト
+- lift [cable_car] 田代ロープウェー
+- lift [gondola] ドラゴンドラ
+- lift [chair_lift] かぐら第1ロマンス
+- lift [chair_lift] 田代第2ロマンスリフト
+- lift [chair_lift] 田代第1ロマンスリフト
+
+## ishiuchi: 89 piste segments, 24 aerialways, bbox=(36.9483, 138.7694, 37.0034, 138.815) (osm-area: 石打花岡スキー場, 石打丸山スキー場)
+- piste [-] (no name) x16
+- piste [advanced] (no name) x1
+- piste [advanced] ジャイアントコース x1
+- piste [advanced] スーパースワン x1
+- piste [advanced] ダイナミックAコース x1
+- piste [advanced] ダイナミックBコース x1
+- piste [advanced] デビルダウンコース x1
+- piste [advanced] 中腹ツリーランエリア x1
+- piste [advanced] 国体コース x1
+- piste [advanced] 山頂ゲレンデ x1
+- piste [advanced] 山頂ツリーランエリア x1
+- piste [easy] (no name) x14
+- piste [easy] エリートゲレンデ x1
+- piste [easy] エンターテイメント x1
+- piste [easy] グリーンコース x1
+- piste [easy] サンライズライン x1
+- piste [easy] ハツカ石ファミリーゲレンデ x1
+- piste [easy] メルヘンコース x2
+- piste [easy] 下山コース ファルコン x1
+- piste [easy] 中央斜滑降コース x1
+- piste [easy] 北丸山ファミリーゲレンデ x1
+- piste [intermediate] (no name) x11
+- piste [intermediate] ぐルノーブル x1
+- piste [intermediate] エンゼルコース x1
+- piste [intermediate] クルーザーゲレンデ x1
+- piste [intermediate] ザイラーコース x1
+- piste [intermediate] ジョアンナA x1
+- piste [intermediate] ジョアンナB x1
+- piste [intermediate] スーパーブロードウェイ x1
+- piste [intermediate] ブロードウェイ x1
+- piste [intermediate] ホピヒラーコース x1
+- piste [intermediate] 山頂ゲレンデ x1
+- piste [intermediate] 銀座ゲレンデ x1
+- piste [novice] (no name) x9
+- piste [novice] エーデルワイス x1
+- piste [novice] スワン x1
+- piste [novice] メロディー x2
+- piste [novice] ロマンホリデーA x1
+- piste [novice] ロマンホリデーB x2
+- piste [novice] 林道湯の沢線 x1
+- lift [chair_lift] バルーシュ
+- lift [gondola] ディリジャンス
+- lift [chair_lift] フェートン
+- lift [chair_lift] ソーシャブル
+- lift [chair_lift] (no name)
+- lift [chair_lift] シャリオ
+- lift [chair_lift] バギー
+- lift [chair_lift] ティルバリー
+- lift [chair_lift] ビクトリア
+- lift [chair_lift] コーチ
+- lift [chair_lift] ハツカ石入口リフト
+- lift [chair_lift] ハツカ石ファミリーペアリフト
+- lift [chair_lift] ハツカ石ファミリートリプルリフト
+- lift [chair_lift] グリーンリフト
+- lift [chair_lift] 北丸山ファミリーペアリフト
+- lift [chair_lift] 観光第3エクスプレス
+- lift [chair_lift] 中央第3高速リフト
+- lift [chair_lift] 山頂高速リフト
+- lift [chair_lift] 観光第2エクスプレス
+- lift [chair_lift] 観光第1エクスプレス
+- lift [mixed_lift] サンライズエクスプレス
+- lift [chair_lift] (no name)
+- lift [chair_lift] チロルトリプルリフト
+- lift [chair_lift] ハツカ石スーパーリフト
+
+## kandatsu: 27 piste segments, 8 aerialways, bbox=(36.8831, 138.7882, 36.9234, 138.8313) (osm-area: 神立高原スキー場)
+- piste [advanced] オリオン x2
+- piste [advanced] スーパーアンタレス x1
+- piste [advanced] ヘラクレス x2
+- piste [advanced] ペルセウス x1
+- piste [advanced] ミルキーワエイ x2
+- piste [easy] (no name) x4
+- piste [easy] Andromeda x2
+- piste [easy] Vega x1
+- piste [easy] アンドロメダ x1
+- piste [easy] ベガ x1
+- piste [easy] ポラリス x1
+- piste [easy] ポルックス x1
+- piste [freeride] ツリーヘラクレス x1
+- piste [intermediate] (no name) x1
+- piste [intermediate] Castor x1
+- piste [intermediate] シリウス x1
+- piste [intermediate] スバル x2
+- piste [intermediate] ペガサス x1
+- piste [intermediate] レグルス x1
+- lift [chair_lift] C Lift
+- lift [chair_lift] D lift
+- lift [chair_lift] E Lift
+- lift [chair_lift] B Lift
+- lift [chair_lift] A Lift
+- lift [chair_lift] (no name)
+- lift [chair_lift] (no name)
+- lift [chair_lift] A Lift
